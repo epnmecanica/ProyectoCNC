@@ -130,5 +130,17 @@ public class UsuarioController {
         //return login(m);
         return login();
     }
+    
+    @RequestMapping("usuario/cambiarContrasena")
+    public ModelAndView cambiarContrasena (){
+        ModelAndView m = new ModelAndView();
+        return m;
+    }
+    
+    @RequestMapping("usuario/recuperarContrasena")
+    public ModelAndView recuperarContrasena (){
+        ModelAndView m = new ModelAndView();
+        return m;
+    }
        
 }

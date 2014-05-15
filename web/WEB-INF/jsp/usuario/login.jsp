@@ -19,6 +19,9 @@
     </head>
     <body>
         <h1>Login</h1>
+         <a href="crear.htm">Crear Nuevo Usuario</a>
+         <a href="cambiarContrasena.htm">¿Cambiar la contraseña?</a>
+         <a href="recuperarContrasena.htm">¿Recuperar la contraseña?</a>
         ${error}
          <form:form id="login" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
                    method="post"
@@ -34,7 +37,7 @@
             </p>
             
             
-            <input id="botonLogin" type="submit" value="inicio" />
+            <input id="botonLogin" type="submit" value="Ingresar" />
         </form:form>
     </body>
 </html>

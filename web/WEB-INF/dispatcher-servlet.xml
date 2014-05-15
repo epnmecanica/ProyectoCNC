@@ -24,6 +24,8 @@
                 <prop key="usuario/crear.htm">usuarioController</prop>
                 <prop key="usuario/login.htm">usuarioController</prop>
                 <prop key="usuario/iniciarSesion.htm">usuarioController</prop>
+                <prop key="usuario/cambiarContrasena.htm">usuarioController</prop>
+                <prop key="usuario/recuperarContrasena.htm">usuarioController</prop>
                 <prop key="usuario/editar/{1}.htm">usuarioController</prop>
                 
                 <prop key="/resources/index.htm">cadController</prop>
