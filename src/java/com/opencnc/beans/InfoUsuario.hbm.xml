@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.InfoUsuario" table="InfoUsuario" catalog="opencnc">
+        <id name="id" type="double">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nikname" type="string">
+            <column name="Nikname" length="65535" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="65535" />
+        </property>
+        <property name="mail" type="string">
+            <column name="mail" length="65535" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="Fecha" length="10" />
+        </property>
+        <property name="ocupacion" type="string">
+            <column name="Ocupacion" length="65535" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

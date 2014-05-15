@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/opencnc?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">epn1234</property>
+    <mapping resource="com/opencnc/beans/UnidadMedida.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Sentencia.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Linea.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Rol.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/InfoUsuario.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/ElementoGrafico.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Modelo.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Programa.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/TipoCodigo.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/TipoMaquina.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Comando.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Arco.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Usuario.hbm.xml"/>
+    <mapping resource="com/opencnc/beans/Texto.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

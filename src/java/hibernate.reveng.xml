@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="opencnc"/>
+  <table-filter match-name="Usuario"/>
+  <table-filter match-name="Programa"/>
+  <table-filter match-name="TipoCodigo"/>
+  <table-filter match-name="Arco"/>
+  <table-filter match-name="TipoMaquina"/>
+  <table-filter match-name="Linea"/>
+  <table-filter match-name="Sentencia"/>
+  <table-filter match-name="InfoUsuario"/>
+  <table-filter match-name="Modelo"/>
+  <table-filter match-name="Comando"/>
+  <table-filter match-name="rolUsuario"/>
+  <table-filter match-name="Rol"/>
+  <table-filter match-name="UnidadMedida"/>
+  <table-filter match-name="Texto"/>
+  <table-filter match-name="ElementoGrafico"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.Modelo" table="Modelo" catalog="opencnc">
+        <id name="modeloId" type="java.lang.Integer">
+            <column name="modeloID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="unidadMedida" class="com.opencnc.beans.UnidadMedida" fetch="select">
+            <column name="unidadMedidaID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.opencnc.beans.Usuario" fetch="select">
+            <column name="usuarioID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoMaquina" class="com.opencnc.beans.TipoMaquina" fetch="select">
+            <column name="tipoMaquinaID" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="254" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="254" />
+        </property>
+        <property name="puntoCeroMaquinaX" type="float">
+            <column name="puntoCeroMaquinaX" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="puntoCeroMaquinaY" type="float">
+            <column name="puntoCeroMaquinaY" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="piezaAncho" type="float">
+            <column name="piezaAncho" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="piezaLargo" type="float">
+            <column name="piezaLargo" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="creadoPor" type="int">
+            <column name="creadoPor" not-null="true" />
+        </property>
+        <property name="creadoFecha" type="timestamp">
+            <column name="creadoFecha" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="java.lang.Integer">
+            <column name="modificadoPor" />
+        </property>
+        <property name="modificadoFecha" type="timestamp">
+            <column name="modificadoFecha" length="19" />
+        </property>
+        <set name="programas" table="Programa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="modeloID" not-null="true" />
+            </key>
+            <one-to-many class="com.opencnc.beans.Programa" />
+        </set>
+        <set name="elementoGraficos" table="ElementoGrafico" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="modeloID" not-null="true" />
+            </key>
+            <one-to-many class="com.opencnc.beans.ElementoGrafico" />
+        </set>
+    </class>
+</hibernate-mapping>

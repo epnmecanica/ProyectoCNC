@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.ElementoGrafico" table="ElementoGrafico" catalog="opencnc">
+        <id name="elementoId" type="int">
+            <column name="elementoID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="modelo" class="com.opencnc.beans.Modelo" fetch="select">
+            <column name="modeloID" not-null="true" />
+        </many-to-one>
+        <property name="tipoElemento" type="int">
+            <column name="tipoElemento" not-null="true" />
+        </property>
+        <property name="posicionX" type="int">
+            <column name="posicionX" not-null="true" />
+        </property>
+        <property name="posicionY" type="int">
+            <column name="posicionY" not-null="true" />
+        </property>
+        <property name="orden" type="int">
+            <column name="orden" not-null="true" />
+        </property>
+        <property name="color" type="int">
+            <column name="color" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="100" />
+        </property>
+        <property name="creadoPor" type="int">
+            <column name="creadoPor" not-null="true" />
+        </property>
+        <property name="creadoFecha" type="timestamp">
+            <column name="creadoFecha" length="19" />
+        </property>
+        <property name="modificadoPor" type="java.lang.Integer">
+            <column name="modificadoPor" />
+        </property>
+        <property name="modificadoFecha" type="timestamp">
+            <column name="modificadoFecha" length="19" />
+        </property>
+        <one-to-one name="arco" class="com.opencnc.beans.Arco"></one-to-one>
+        <set name="sentencias" table="Sentencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="elementoID" />
+            </key>
+            <one-to-many class="com.opencnc.beans.Sentencia" />
+        </set>
+        <one-to-one name="texto" class="com.opencnc.beans.Texto"></one-to-one>
+        <one-to-one name="linea" class="com.opencnc.beans.Linea"></one-to-one>
+    </class>
+</hibernate-mapping>

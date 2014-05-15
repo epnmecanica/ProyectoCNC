@@ -1,0 +1,18 @@
+{
+	"processing": "procesando...",
+	"lengthMenu": "Registros a mostrar _MENU_ ",
+	"zeroRecords": "cero registros.",
+	"info": "_START_ de _END_ total _TOTAL_ registros",
+	"infoEmpty": "0 de 0 total 0 registros",
+	"infoFiltered": "( _MAX_ registros sin filtrar)",
+	"infoPostFix": "",
+	"search": "Buscar",
+	"url": "",
+        "sInfoEmpty": "No datos",
+	"paginate": {
+		"first":    "primero",
+		"previous": "anterior",
+		"next":     "siguiente",
+		"last":     "último"
+	}
+}

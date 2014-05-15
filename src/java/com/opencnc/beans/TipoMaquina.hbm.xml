@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.TipoMaquina" table="TipoMaquina" catalog="opencnc">
+        <id name="tipoMaquinaId" type="java.lang.Integer">
+            <column name="tipoMaquinaID" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="254" not-null="true" />
+        </property>
+        <set name="modelos" table="Modelo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoMaquinaID" not-null="true" />
+            </key>
+            <one-to-many class="com.opencnc.beans.Modelo" />
+        </set>
+    </class>
+</hibernate-mapping>

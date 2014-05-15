@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.Usuario" table="Usuario" catalog="opencnc">
+        <id name="usuarioId" type="java.lang.Integer">
+            <column name="usuarioID" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="100" not-null="true" />
+        </property>
+        <property name="organizacion" type="string">
+            <column name="organizacion" length="100" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" not-null="true" />
+        </property>
+        <property name="clave" type="binary">
+            <column name="clave" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="1" not-null="true" />
+        </property>
+        <property name="creadoPor" type="int">
+            <column name="creadoPor" not-null="true" />
+        </property>
+        <property name="creadoFecha" type="timestamp">
+            <column name="creadoFecha" length="19" not-null="true" />
+        </property>
+        <property name="modificadoPor" type="java.lang.Integer">
+            <column name="modificadoPor" />
+        </property>
+        <property name="modificadoFecha" type="timestamp">
+            <column name="modificadoFecha" length="19" />
+        </property>
+        <set name="rols" table="rolUsuario" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="usuarioID" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.opencnc.beans.Rol">
+                <column name="rolID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="modelos" table="Modelo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuarioID" not-null="true" />
+            </key>
+            <one-to-many class="com.opencnc.beans.Modelo" />
+        </set>
+    </class>
+</hibernate-mapping>

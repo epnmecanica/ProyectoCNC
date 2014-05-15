@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.Texto" table="Texto" catalog="opencnc">
+        <id name="elementoId" type="java.lang.Integer">
+            <column name="elementoID" />
+            <generator class="foreign">
+                <param name="property">elementoGrafico</param>
+            </generator>
+        </id>
+        <one-to-one name="elementoGrafico" class="com.opencnc.beans.ElementoGrafico" constrained="true"></one-to-one>
+        <property name="tamanio" type="int">
+            <column name="tamanio" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

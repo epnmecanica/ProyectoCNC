@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.Comando" table="Comando" catalog="opencnc">
+        <id name="comandoId" type="int">
+            <column name="comandoID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tipoCodigo" class="com.opencnc.beans.TipoCodigo" fetch="select">
+            <column name="tipoCodigoID" />
+        </many-to-one>
+        <property name="variable" type="string">
+            <column name="variable" length="20" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="254" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="254" />
+        </property>
+        <set name="sentencias" table="Sentencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="comandoID" not-null="true" />
+            </key>
+            <one-to-many class="com.opencnc.beans.Sentencia" />
+        </set>
+    </class>
+</hibernate-mapping>

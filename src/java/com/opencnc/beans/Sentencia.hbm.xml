@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/05/2014 12:34:47 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.opencnc.beans.Sentencia" table="Sentencia" catalog="opencnc">
+        <id name="sentenciaId" type="java.lang.Integer">
+            <column name="sentenciaID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="elementoGrafico" class="com.opencnc.beans.ElementoGrafico" fetch="select">
+            <column name="elementoID" />
+        </many-to-one>
+        <many-to-one name="comando" class="com.opencnc.beans.Comando" fetch="select">
+            <column name="comandoID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="programa" class="com.opencnc.beans.Programa" fetch="select">
+            <column name="programaID" not-null="true" />
+        </many-to-one>
+        <property name="orden" type="int">
+            <column name="orden" not-null="true" />
+        </property>
+        <property name="bloque" type="java.lang.Integer">
+            <column name="bloque" />
+        </property>
+        <property name="cotaEjeX" type="java.lang.Float">
+            <column name="cotaEjeX" precision="12" scale="0" />
+        </property>
+        <property name="cotaEjeY" type="java.lang.Float">
+            <column name="cotaEjeY" precision="12" scale="0" />
+        </property>
+        <property name="cotaEjeZ" type="java.lang.Float">
+            <column name="cotaEjeZ" precision="12" scale="0" />
+        </property>
+        <property name="velocidadAvance" type="java.lang.Integer">
+            <column name="velocidadAvance" />
+        </property>
+        <property name="velocidadHusillo" type="java.lang.Integer">
+            <column name="velocidadHusillo" />
+        </property>
+        <property name="numeroHerramienta" type="java.lang.Integer">
+            <column name="numeroHerramienta" />
+        </property>
+        <property name="funcionAuxiliar" type="java.lang.Integer">
+            <column name="funcionAuxiliar" />
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" length="254" />
+        </property>
+    </class>
+</hibernate-mapping>
