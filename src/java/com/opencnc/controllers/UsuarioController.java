@@ -49,7 +49,11 @@ public class UsuarioController {
     }
     @RequestMapping ("/usuario/guardar")
     public ModelAndView guardar (@ModelAttribute Usuario usuario){
-        if (usuario != null){
+        if (!"".equals(usuario.getApellido()) 
+            && !"".equals(usuario.getNombre()) 
+            && !"".equals(usuario.getEmail())
+             ){
+            
             usuario.setEstado("A");
             Calendar c = new GregorianCalendar();
             Date d1 = c.getTime();
@@ -98,29 +102,33 @@ public class UsuarioController {
         return m;
     }
     
+    /*
     @RequestMapping("/usuario/login")
     public ModelAndView login (ModelAndView m){
         
         return m;
     }
-    
+    */
     @RequestMapping("/usuario/iniciarSesion")
     public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario){
       ModelAndView m = new ModelAndView();
-      
+    
       Session s = HibernateUtil.getSessionFactory().openSession();
       
       Criteria c = s.createCriteria(Usuario.class);
       c.add(Restrictions.eq("email", usuario.getEmail()));
-      List<Usuario> l = c.list();
       
-      if (l.isEmpty() == true){
-          m.addObject("error","usuario no existe");
+      List<Usuario> l = c.list();
+     
+      if (l.isEmpty()){
+          m.addObject("error","Usuario no existe");
+      }
+      if ("".equals(usuario.getEmail())){
+          m.addObject("error","Casilla vacia");
       }
         m.addObject("usuario",usuario);
-        return login(m);
-        //return login();
+        //return login(m);
+        return login();
     }
-    
-    
+       
 }

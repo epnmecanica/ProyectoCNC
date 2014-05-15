@@ -49,8 +49,8 @@
                 <form:input path="email" />
             </p>
             <p>
-		<label for="email">Contraseña</label>
-                <form:input path="" />
+		<label for="clave">Contraseña</label>
+                <form:input path="clave" />
             </p>
             <p>
 		<label for="email">Confirmar Contraseña</label>

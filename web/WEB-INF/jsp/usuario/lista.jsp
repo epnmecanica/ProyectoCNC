@@ -45,7 +45,8 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Login</th>
-                <th> </th>
+                <th>e-Mail</th>
+                <th>Clave</th>
                 </tr>
             </thead>
             <tfoot>
@@ -53,7 +54,8 @@
                     <td>Id</td>
                     <td>Nombre</td>
                     <td>Login</td>
-                    <td> </td>
+                    <td>e-Mail</td>
+                    <td>Clave</td>
                 </tr>
             </tfoot>
             <tbody>
@@ -70,6 +72,9 @@
                     </td>
                     <td>
                         ${usuario.email} 
+                    </td>
+                    <td>
+                        ${usuario.clave} 
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/usuario/editar/${usuario.usuarioId}.htm">Editar</a>
