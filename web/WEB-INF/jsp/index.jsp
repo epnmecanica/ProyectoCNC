@@ -12,6 +12,6 @@
         <a href="usuario/lista.htm">Usuario</a>
         <a href="usuario/login.htm">Login</a>
         <a href="usuario/crear.htm">Crear Nuevo Usuario</a>
-        <a href="../../resources/index.html">CAD</a>
+        <a href="resources/index.html">CAD</a>
     </body>
 </html>

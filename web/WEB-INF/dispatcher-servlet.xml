@@ -26,7 +26,7 @@
                 <prop key="usuario/iniciarSesion.htm">usuarioController</prop>
                 <prop key="usuario/editar/{1}.htm">usuarioController</prop>
                 
-                <prop key="resources/index.htm">cadController</prop>
+                <prop key="/resources/index.htm">cadController</prop>
                
             </props>
         </property>
