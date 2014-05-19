@@ -6,6 +6,7 @@
 
 package com.opencnc.controllers;
 
+import com.opencnc.beans.Modelo;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.util.Calendar;
@@ -47,6 +48,7 @@ public class UsuarioController {
         m.addObject("usuario",u);
         return m;
     }
+    
     @RequestMapping ("/usuario/guardar")
     public ModelAndView guardar (@ModelAttribute Usuario usuario){
         if (!"".equals(usuario.getApellido()) 
@@ -137,10 +139,79 @@ public class UsuarioController {
         return m;
     }
     
-    @RequestMapping("usuario/recuperarContrasena")
-    public ModelAndView recuperarContrasena (){
-        ModelAndView m = new ModelAndView();
+    @RequestMapping  ("/usuario/recuperarContra")
+    public ModelAndView   recuperar  (){
+        
+        ModelAndView m = new ModelAndView("/usuario/recuperarContra");
+        
         return m;
     }
-       
+    
+    
+    @RequestMapping  ("/usuario/crearModelo")
+    public ModelAndView   crearModelo  (){
+       Modelo md = new Modelo();
+        
+        ModelAndView m = new ModelAndView("/usuario/crearModelo");
+        m.addObject("modelo",md);
+        
+        return m;
+    }
+   
+    @RequestMapping  ("/usuario/guardarModelo")
+    public ModelAndView   guardarModelo  (@ModelAttribute Modelo modelo){
+        if (!"".equals(modelo.getNombre()) ){
+             
+            Calendar c = new GregorianCalendar();
+            Date d1 = c.getTime();
+            
+            modelo.setCreadoFecha(d1);
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(modelo);
+            t.commit();
+        }
+        return abrir();
+    }
+    
+    @RequestMapping  ("/usuario/editarModelo/{id}")
+    public ModelAndView   crearModelo  ( @PathVariable  Integer id ){
+         
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        
+        Modelo u = (Modelo)s.get(Usuario.class, id);
+        ModelAndView m = new ModelAndView ("/usuario/editarModelo");
+        m.addObject("modelo",u);
+        
+        
+        return m;
+    }
+    
+    @RequestMapping ("/usuario/borrarModelo/{id}")
+    public ModelAndView borrarModelo (@PathVariable Integer id){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        
+        Modelo u = (Modelo) s.get(Usuario.class, id);
+        Transaction t = s.beginTransaction();
+        s.delete(u);
+        t.commit();
+        return lista();
+    }
+    
+    @RequestMapping  ("/usuario/abrir")
+    public ModelAndView   abrir  (){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        
+        Criteria c = s.createCriteria(Modelo.class);
+        List<Modelo> lm = c.list();
+        
+        ModelAndView m = new ModelAndView("/usuario/abrir");
+        m.addObject("modelos",lm);
+        return m;
+    }
+    
+     
+    
 }

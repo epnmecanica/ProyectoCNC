@@ -1,6 +1,6 @@
 <%-- 
-    Document   : recuperarContreasena
-    Created on : 15/05/2014, 06:38:18 AM
+    Document   : recuperarContra
+    Created on : 18/05/2014, 11:16:57 PM
     Author     : root
 --%>
 
@@ -11,11 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-       
+        <title>Recuperar Contraseña</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        
+        <h1>Recuperar Contraseña</h1>
     </body>
 </html>

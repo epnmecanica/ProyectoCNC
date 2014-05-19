@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cambiarContrasena
-    Created on : 15/05/2014, 06:30:21 AM
+    Document   : editarModelo
+    Created on : 19/05/2014, 04:11:48 AM
     Author     : root
 --%>
 
@@ -11,11 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cambiar Contraseña</title>
-        
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Crear contraseña</h1>
-        
+        <h1>Hello World!</h1>
     </body>
 </html>

@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
         <link href="${pageContext.request.contextPath}/resources/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
          
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
@@ -19,9 +19,10 @@
     </head>
     <body>
         <h1>Login</h1>
-         <a href="crear.htm">Crear Nuevo Usuario</a>
-         <a href="cambiarContrasena.htm">¿Cambiar la contraseña?</a>
-         <a href="recuperarContrasena.htm">¿Recuperar la contraseña?</a>
+         
+         <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/crear.htm" >Nuevo Usuario</a>
+         <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/cambiarContrasena.htm" >Cambiar Contraseña</a>
+         <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/recuperarContra.htm" >Recuperar Contraseña</a>
         ${error}
          <form:form id="login" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
                    method="post"
