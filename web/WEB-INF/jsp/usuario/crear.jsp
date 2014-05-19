@@ -30,7 +30,7 @@
         
         <h1>Crear Usuario</h1>
         <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
-                   method="post"
+                   method="POST"
                    commandName="usuario">
             <p>
 		<label for="nombre">Nombre</label>

@@ -15,5 +15,17 @@
     </head>
     <body>
         <h1>Recuperar Contraseña</h1>
+        <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
+                   method="POST"
+                   commandName="usuario">
+            
+            <p>
+		<label for="clave">e-Mail: </label>
+                <input type="text" name="email" value="" />
+            </p>
+          
+            <input id="botonGuardar" type="submit" value="Enviar" />
+            
+        </form:form>
     </body>
 </html>

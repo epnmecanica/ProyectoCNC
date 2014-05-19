@@ -30,8 +30,12 @@
                 <th>Usuario</th>
                 <th>Descripcion</th>
                 <th>Creado</th>
-                <td>Unidades</td>
-                <td>Tipo de Maquina</td>
+                <th>Unidades</th>
+                <th>Tipo de Maquina</th>
+                <th>Cero de Maquina X</th>
+                <th>Cero de Maquina y</th>
+                <th>Pieza ancho</th>
+                <th>Pieza largo</th>
                 </tr>
             </thead>
             <tfoot>
@@ -43,6 +47,10 @@
                     <td>Creado</td>
                     <td>Unidades</td>
                     <td>Tipo de Maquina</td>
+                    <td>Cero de Maquina X</td>
+                    <td>Cero de Maquina y</td>
+                    <td>Pieza ancho</td>
+                    <td>Pieza largo</td>
                 </tr>
             </tfoot>
             <tbody>
@@ -68,6 +76,18 @@
                     </td>
                     <td>
                         ${modelo.tipoMaquinaID} 
+                    </td>
+                    <td>
+                        ${modelo.puntoCeroMaquinaX} 
+                    </td>
+                    <td>
+                        ${modelo.puntoCeroMaquinaY} 
+                    </td>
+                    <td>
+                        ${modelo.piezaAncho} 
+                    </td>
+                    <td>
+                        ${modelo.piezaLargo} 
                     </td>
                     <td>
                         <a href="${pageContext.request.contextPath}/usuario/editarModelo/${usuario.usuarioId}.htm">Editar</a>

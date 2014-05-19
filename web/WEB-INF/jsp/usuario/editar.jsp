@@ -17,7 +17,7 @@
         
         <h1>Editar Usuario</h1>
         <form:form action="${pageContext.request.contextPath}/usuario/guardar.htm"
-                   method="post"
+                   method="POST"
                    commandName="usuario"
                    >
             Usuario:

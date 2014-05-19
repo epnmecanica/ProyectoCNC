@@ -25,7 +25,7 @@
          <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/recuperarContra.htm" >Recuperar Contraseña</a>
         ${error}
          <form:form id="login" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
-                   method="post"
+                   method="POST"
                    commandName="usuario">
            
             <p>

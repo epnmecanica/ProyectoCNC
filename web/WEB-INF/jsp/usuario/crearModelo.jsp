@@ -28,8 +28,9 @@
     </head>
     <body>
         <h1>Crear Modelo</h1>
+        <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/abrir.htm" >Abrir Proyecto existente.</a>
         <form:form id="formaModelo" action="${pageContext.request.contextPath}/usuario/guardarModelo.htm" 
-                   method="post"
+                   method="POST"
                    commandName="modelo">
             <p>
 		<label for="nombre">Nombre de Modelo</label>
@@ -57,6 +58,22 @@
                     <option>Fresadora</option>
                     <option>Torno</option>
                 </select>
+            </p>
+            <p>
+                <label from="puntoCeroMaquinaX">Punto Cero Maquina X: </label>
+                <input type="text" name="puntoCeroMaquinaX" value="0" />
+            </p>
+            <p>
+                <label from="puntoCeroMaquinaY">Punto Cero Maquina Y: </label>
+                <input type="text" name="puntoCeroMaquinaY" value="0" />
+            </p>
+             <p>
+                <label from="piezaAncho">Pieza Ancho: </label>
+                <input type="text" name="piezaAncho" value="0" />
+            </p>
+             <p>
+                <label from="piezaLargo">Pieza Largo: </label>
+                <input type="text" name="piezaLargo" value="0" />
             </p>
             
             

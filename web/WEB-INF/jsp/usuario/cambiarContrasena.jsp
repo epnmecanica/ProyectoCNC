@@ -15,7 +15,25 @@
         
     </head>
     <body>
-        <h1>Crear contraseña</h1>
-        
+        <h1>Cambio de contraseña</h1>
+         <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
+                   method="POST"
+                   commandName="usuario">
+            <p>
+		<label for="nombre">e-mail: </label>
+                
+            </p>
+            <p>
+		<label for="clave">Cambiar Contraseña: </label>
+                <input type="text" name="clave" value="" />
+            </p>
+            <p>
+		<label for="reClave">Confirmar Contraseña: </label>
+                <input type="text" name="reClave" value="" />
+            </p>
+            
+            
+            <input id="botonGuardar" type="submit" value="Cambiar" />
+        </form:form>
     </body>
 </html>
