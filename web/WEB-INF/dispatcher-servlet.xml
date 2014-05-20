@@ -26,11 +26,19 @@
                 <prop key="usuario/iniciarSesion.htm">usuarioController</prop>
                 <prop key="usuario/cambiarContrasena.htm">usuarioController</prop>
                 <prop key="usuario/recuperarComtra.htm">usuarioController</prop>
-                <prop key="usuario/crearModelo.htm">usuarioController</prop>
-                <prop key="usuario/abrir.htm">usuarioController</prop>
                 <prop key="usuario/editar/{1}.htm">usuarioController</prop>
-                <prop key="usuario/editarModelo/{1}.htm">usuarioController</prop>
+                <prop key="usuario/borrar/{1}.htm">usuarioController</prop>
+                
+                <prop key="modelo/abrir.htm">modeloController</prop>
+                <prop key="modelo/crearModelo.htm">modeloController</prop>
+                <prop key="modelo/editarModelo/{1}.htm">modeloController</prop>
+                <prop key="modelo/borrarModelo/{1}.htm">modeloController</prop>
+                
                 <prop key="/resources/index.htm">cadController</prop>
+                
+                <prop key="rol/crear.htm">rolController</prop>
+                <prop key="rol/borrarRol.htm">rolController</prop>
+                
                
             </props>
         </property>
@@ -54,6 +62,26 @@
      
     <bean name="cadController"
           class="com.opencnc.controllers.CadController"
+           />
+    
+    <bean name="modeloController"
+          class="com.opencnc.controllers.ModeloController"
+           />
+    
+    <bean name="rolController"
+          class="com.opencnc.controllers.RolController"
+           />
+    
+    <bean name="sentenciaController"
+          class="com.opencnc.controllers.SentenciaController"
+           />
+    
+    <bean name="elementoGraficoController"
+          class="com.opencnc.controllers.ElementoGraficoController"
+           />
+    
+     <bean name="progrmaController"
+          class="com.opencnc.controllers.ProgramaController"
            />
            
 </beans>

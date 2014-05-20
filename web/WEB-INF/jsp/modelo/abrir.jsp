@@ -33,9 +33,11 @@
                 <th>Unidades</th>
                 <th>Tipo de Maquina</th>
                 <th>Cero de Maquina X</th>
-                <th>Cero de Maquina y</th>
+                <th>Cero de Maquina Y</th>
                 <th>Pieza ancho</th>
                 <th>Pieza largo</th>
+                <th></th>
+                <th></th>
                 </tr>
             </thead>
             <tfoot>
@@ -48,22 +50,24 @@
                     <td>Unidades</td>
                     <td>Tipo de Maquina</td>
                     <td>Cero de Maquina X</td>
-                    <td>Cero de Maquina y</td>
+                    <td>Cero de Maquina Y</td>
                     <td>Pieza ancho</td>
                     <td>Pieza largo</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </tfoot>
             <tbody>
             <c:forEach var="modelo" items="${modelos}"  >
                 <tr>
                     <td>
-                        ${modelo.modeloID}
+                        ${modelo.modeloId}
                     </td>
                     <td>
                         ${modelo.nombre}
                     </td>
                     <td>
-                        ${modelo.usuarioID}
+                        <%--${modelo.usuario}--%>
                     </td>
                     <td>
                         ${modelo.descripcion} 
@@ -72,10 +76,10 @@
                         ${modelo.creadoPor} 
                     </td>
                     <td>
-                        ${modelo.unidadMedidaID} 
+                        <%--${modelo.unidadMedida} --%>
                     </td>
                     <td>
-                        ${modelo.tipoMaquinaID} 
+                        <%-- ${modelo.tipoMaquina} --%>
                     </td>
                     <td>
                         ${modelo.puntoCeroMaquinaX} 
@@ -90,8 +94,9 @@
                         ${modelo.piezaLargo} 
                     </td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/usuario/editarModelo/${usuario.usuarioId}.htm">Editar</a>
-                        <a href="${pageContext.request.contextPath}/usuario/borrarModelo/${usuario.usuarioId}.htm">Borrar</a>
+                       
+                        <a href="${pageContext.request.contextPath}/modelo/editarModelo/${usuario.usuarioId}.htm">Editar</a>
+                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${usuario.usuarioId}.htm">Borrar</a>
                         
                     </td>
                 </tr>

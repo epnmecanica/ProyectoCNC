@@ -28,8 +28,8 @@
     </head>
     <body>
         <h1>Crear Modelo</h1>
-        <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/abrir.htm" >Abrir Proyecto existente.</a>
-        <form:form id="formaModelo" action="${pageContext.request.contextPath}/usuario/guardarModelo.htm" 
+        <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
+        <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                    method="POST"
                    commandName="modelo">
             <p>

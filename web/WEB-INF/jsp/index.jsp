@@ -12,9 +12,14 @@
         <a href="usuario/lista.htm">Usuario</a>
         <a href="usuario/login.htm">Login</a>
         <a href="usuario/crear.htm">Crear Nuevo Usuario</a>
-        <a href="usuario/crearModelo.htm">Crear Nuevo Modelo</a>
-        <a href="resources/index.html">CAD</a>
+        
         <a href="usuario/recuperarContra.htm">Recuperar contraseña</a>
-        <a href="usuario/abrir.htm">Abrir Modelo</a>
+        
+        <a href="modelo/abrir.htm">Abrir Modelo</a>
+        <a href="modelo/crearModelo.htm">Crear Nuevo Modelo</a>
+        
+        <a href="resources/index.html">CAD</a>
+       
+        <a href="rol/crear.htm">Crear Rol</a>
     </body>
 </html>
