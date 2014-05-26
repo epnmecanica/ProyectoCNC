@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,6 +30,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class UsuarioController {
+    // Implemento Log4j para eventos tipo log
+    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    
     @RequestMapping  ("/usuario/lista")
     public ModelAndView   lista  (){
         Session  s = HibernateUtil.getSessionFactory().openSession();
@@ -37,7 +41,8 @@ public class UsuarioController {
         List<Usuario> l = c.list();
         ModelAndView m = new ModelAndView("/usuario/lista");
         m.addObject("usuarios",l);
- 
+        
+        logger.info("Empieza a mostrar lista");
         return m;
     }
     @RequestMapping ("/usuario/crear")
@@ -46,6 +51,8 @@ public class UsuarioController {
         
         ModelAndView m = new ModelAndView("/usuario/crear");
         m.addObject("usuario",u);
+        
+        logger.info("Empieza a crear un nuevo usuario");
         return m;
     }
     
@@ -68,6 +75,7 @@ public class UsuarioController {
             s.saveOrUpdate(usuario);
             t.commit();
         }
+        logger.info("Guarda un nuevo usuario");
         return lista();
     }
     
@@ -80,7 +88,7 @@ public class UsuarioController {
         ModelAndView m = new ModelAndView ("/usuario/editar");
         m.addObject("usuario",u);
         
-        
+        logger.info("Empieza a mostrar lista");
         return m;
     }
     
@@ -92,6 +100,7 @@ public class UsuarioController {
         Transaction t = s.beginTransaction();
         s.delete(u);
         t.commit();
+        logger.info("Borrar usuario");
         return lista();
     }
     

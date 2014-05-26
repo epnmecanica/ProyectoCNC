@@ -29,7 +29,7 @@ public class CargadorLog4j extends HttpServlet {
         
         // Obtiene el parametro de inicio
         String log4jFile = config.getInitParameter("log4jPropertiesFile");
-        System.out.println("Inicia");
+       
         // Obtiene la ruta real del archivo (ruta absoluta)
         ServletContext context = config.getServletContext();
         log4jFile = context.getRealPath(log4jFile);
@@ -43,10 +43,7 @@ public class CargadorLog4j extends HttpServlet {
             BasicConfigurator.configure();
         }
         super.init(config);
-        
-    
-        logger.error("Error encountered");        
-        logger.info("Paso por aqui y se ejecuto log4j");
-        System.out.print("Termina");
+     
+        logger.info("Se ejecuta e inicializa con exito Log4j");
     }
 }

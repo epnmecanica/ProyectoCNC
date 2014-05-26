@@ -34,7 +34,7 @@
             </p>
             <p>
 		<label for="nombre">Contraseña</label>
-                <form:input path="nombre" />
+                <form:input path="nombre" type="password"/>
             </p>
             
             
