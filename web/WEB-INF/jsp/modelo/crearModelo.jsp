@@ -34,46 +34,51 @@
                    commandName="modelo">
             <p>
 		<label for="nombre">Nombre de Modelo</label>
-                <input type="text" name="nombre" value="" />
+                <form:input path="nombre" />
             </p>
             <p>
 		<label for="descripcion">Descripcion de modelo</label>
-                <textarea name="descripcion" rows="4" cols="5">
-                </textarea>
+                <form:textarea path="descripcion" rows="4" cols="5" />
             </p>
             <p>
 		<label for="creadoPor">Creado por: </label>
-                <input type="text" name="creadoPor" value="" />
+                <form:input path="creadoPor" />
             </p>
             <p>
 		<label for="unidadMedida">Unidad Medida</label>
-                <select name="unidadMedida">
-                    <option>milimetros</option>
-                    <option>Pulgadas</option>
-                </select>
+                
+                <form:select path="unidadMedida" >
+                    <form:option value="1">milimetros</form:option>
+                    <form:option value="2">Pulgadas</form:option>
+                </form:select> 
+                
+                <form:input path="unidadMedida" />
             </p>
             <p>
 		<label for="tipoMaquina">Tipo de Maquina</label>
-                <select name="tipoMaquina">
-                    <option>Fresadora</option>
-                    <option>Torno</option>
-                </select>
+                
+                <form:select path="tipoMaquina" >
+                    <form:option value="1">Fresadora</form:option>
+                    <form:option value="2">Torno</form:option>
+                </form:select>
+                
+                <form:input path="tipoMaquina" />
             </p>
             <p>
                 <label from="puntoCeroMaquinaX">Punto Cero Maquina X: </label>
-                <input type="text" name="puntoCeroMaquinaX" value="0" />
+                <form:input path="puntoCeroMaquinaX" />
             </p>
             <p>
                 <label from="puntoCeroMaquinaY">Punto Cero Maquina Y: </label>
-                <input type="text" name="puntoCeroMaquinaY" value="0" />
+                <form:input path="puntoCeroMaquinaY" />
             </p>
              <p>
                 <label from="piezaAncho">Pieza Ancho: </label>
-                <input type="text" name="piezaAncho" value="0" />
+                <form:input path="piezaAncho" />
             </p>
              <p>
                 <label from="piezaLargo">Pieza Largo: </label>
-                <input type="text" name="piezaLargo" value="0" />
+                <form:input path="piezaLargo" />
             </p>
             
             

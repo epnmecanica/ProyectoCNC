@@ -106,20 +106,21 @@ public class UsuarioController {
     
     @RequestMapping("/usuario/login")
     public ModelAndView login (){
+        
         Usuario u = new Usuario();
         
         ModelAndView m = new ModelAndView("/usuario/login");
         m.addObject("usuario",u);
         return m;
     }
-    
     /*
+    
     @RequestMapping("/usuario/login")
-    public ModelAndView login (ModelAndView m){
+    public ModelAndView login (@ModelAttribute Usuario usuario){
         
-        return m;
+        return lista();
     }
-    */
+   */
     @RequestMapping("/usuario/iniciarSesion")
     public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario){
       ModelAndView m = new ModelAndView();
@@ -128,6 +129,7 @@ public class UsuarioController {
       
       Criteria c = s.createCriteria(Usuario.class);
       c.add(Restrictions.eq("email", usuario.getEmail()));
+      c.add(Restrictions.eq("clave", usuario.getClave()));
       
       List<Usuario> l = c.list();
      
@@ -138,8 +140,9 @@ public class UsuarioController {
           m.addObject("error","Casilla vacia");
       }
         m.addObject("usuario",usuario);
+      
         //return login(m);
-        return login();
+        return lista();
     }
     
     @RequestMapping("usuario/cambiarContrasena")

@@ -47,11 +47,13 @@
             <config-files>
                 <config-file>web/WEB-INF/applicationContext.xml</config-file>
                 <config-file>web/WEB-INF/dispatcher-servlet.xml</config-file>
+                <config-file>web/WEB-INF/Security.xml</config-file>
             </config-files>
             <config-file-groups>
                 <config-file-group name="Default Group">
                     <config-file>web/WEB-INF/applicationContext.xml</config-file>
                     <config-file>web/WEB-INF/dispatcher-servlet.xml</config-file>
+                    <config-file>web/WEB-INF/Security.xml</config-file>
                 </config-file-group>
             </config-file-groups>
         </spring-data>

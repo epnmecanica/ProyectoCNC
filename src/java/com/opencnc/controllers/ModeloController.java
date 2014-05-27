@@ -7,6 +7,7 @@
 package com.opencnc.controllers;
 
 import com.opencnc.beans.Modelo;
+import com.opencnc.beans.TipoMaquina;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.util.Calendar;
@@ -53,7 +54,8 @@ public class ModeloController {
     @RequestMapping  ("/modelo/guardarModelo")
     public ModelAndView   guardarModelo  (@ModelAttribute Modelo modelo){
         if (!"".equals(modelo.getNombre()) ){
-             
+            
+            
             Calendar c = new GregorianCalendar();
             Date d1 = c.getTime();
             

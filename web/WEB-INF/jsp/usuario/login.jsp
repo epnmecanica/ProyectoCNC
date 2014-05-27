@@ -16,6 +16,14 @@
          
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script> 
+        <script>
+            $(document).ready(function() {
+			$("#botonEntrarLogin").button();
+                    $("#formLogin").form();
+                    
+                    
+		});
+        </script>
     </head>
     <body>
         <h1>Login</h1>
@@ -24,7 +32,7 @@
          <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/cambiarContrasena.htm" >Cambiar Contraseña</a>
          <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/recuperarContra.htm" >Recuperar Contraseña</a>
         ${error}
-         <form:form id="login" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
+         <form:form id="formLogin" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
                    method="POST"
                    commandName="usuario">
            
@@ -34,11 +42,11 @@
             </p>
             <p>
 		<label for="nombre">Contraseña</label>
-                <form:input path="nombre" type="password"/>
+                <form:input path="clave" type="password"/>
             </p>
             
             
-            <input id="botonLogin" type="submit" value="Ingresar" />
+            <input id="botonEntrarLogin" type="submit" value="Ingresar" />
         </form:form>
     </body>
 </html>
