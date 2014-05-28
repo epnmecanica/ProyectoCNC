@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -34,16 +35,23 @@ public class UsuarioController {
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
     
     @RequestMapping  ("/usuario/lista")
-    public ModelAndView   lista  (){
+    public ModelAndView   lista  (HttpServletRequest request){
         Session  s = HibernateUtil.getSessionFactory().openSession();
         
         Criteria  c =s.createCriteria(Usuario.class);
         List<Usuario> l = c.list();
         ModelAndView m = new ModelAndView("/usuario/lista");
+        Usuario us = (Usuario)request.getAttribute("usuario");
+        if(us==null){
+             return new ModelAndView("redirect:/login.htm");
+        }else {
+            m.addObject("nombreUsuario",us.getNombre());
         m.addObject("usuarios",l);
         
         logger.info("Empieza a mostrar lista");
         return m;
+        }
+        
     }
     @RequestMapping ("/usuario/crear")
     public ModelAndView crear (){
@@ -57,7 +65,7 @@ public class UsuarioController {
     }
     
     @RequestMapping ("/usuario/guardar")
-    public ModelAndView guardar (@ModelAttribute Usuario usuario){
+    public ModelAndView guardar (@ModelAttribute Usuario usuario, HttpServletRequest request){
         if (!"".equals(usuario.getApellido()) 
             && !"".equals(usuario.getNombre()) 
             && !"".equals(usuario.getEmail())
@@ -76,7 +84,7 @@ public class UsuarioController {
             t.commit();
         }
         logger.info("Guarda un nuevo usuario");
-        return lista();
+        return lista(request);
     }
     
     @RequestMapping  ("/usuario/editar/{id}")
@@ -93,7 +101,7 @@ public class UsuarioController {
     }
     
     @RequestMapping ("/usuario/borrar/{id}")
-    public ModelAndView borrar(@PathVariable Integer id){
+    public ModelAndView borrar(@PathVariable Integer id, HttpServletRequest request){
         Session s = HibernateUtil.getSessionFactory().openSession();
         
         Usuario u = (Usuario) s.get(Usuario.class, id);
@@ -101,7 +109,7 @@ public class UsuarioController {
         s.delete(u);
         t.commit();
         logger.info("Borrar usuario");
-        return lista();
+        return lista(request);
     }
     
     @RequestMapping("/usuario/login")
@@ -113,16 +121,9 @@ public class UsuarioController {
         m.addObject("usuario",u);
         return m;
     }
-    /*
     
-    @RequestMapping("/usuario/login")
-    public ModelAndView login (@ModelAttribute Usuario usuario){
-        
-        return lista();
-    }
-   */
     @RequestMapping("/usuario/iniciarSesion")
-    public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario){
+    public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario, HttpServletRequest request){
       ModelAndView m = new ModelAndView();
     
       Session s = HibernateUtil.getSessionFactory().openSession();
@@ -135,14 +136,16 @@ public class UsuarioController {
      
       if (l.isEmpty()){
           m.addObject("error","Usuario no existe");
+          request.removeAttribute("usuario");
+          return login();
       }
-      if ("".equals(usuario.getEmail())){
-          m.addObject("error","Casilla vacia");
+      else {
+          Usuario ul = l.get(0);
+          request.setAttribute("usuario", ul); 
+          return lista(request);
       }
-        m.addObject("usuario",usuario);
-      
         //return login(m);
-        return lista();
+        
     }
     
     @RequestMapping("usuario/cambiarContrasena")

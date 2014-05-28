@@ -29,6 +29,7 @@
     <body>
         <h1>Crear Modelo</h1>
         <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
+        ${nombreUsuario}
         <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                    method="POST"
                    commandName="modelo">
@@ -40,29 +41,26 @@
 		<label for="descripcion">Descripcion de modelo</label>
                 <form:textarea path="descripcion" rows="4" cols="5" />
             </p>
+            
             <p>
-		<label for="creadoPor">Creado por: </label>
-                <form:input path="creadoPor" />
+		<label for="unidadMedidaId">Unidad Medida</label>
+                <%--<input id="unidadMedidaId" value="1" name="unidadMedidaId" type="text"/>--%>
+                <select id="unidadMedidaId" name="unidadMedidaId">
+                    <option value=""></option>
+                    <c:forEach items="${listaUnidadMedida}" var="c">
+                        <option value="${c.unidadMedidaId}" >${c.nombre}</option>
+                    </c:forEach>
+                </select>
             </p>
             <p>
-		<label for="unidadMedida">Unidad Medida</label>
+		<label for="tipoMaquinaId">Tipo Maquina</label>
                 
-                <form:select path="unidadMedida" >
-                    <form:option value="1">milimetros</form:option>
-                    <form:option value="2">Pulgadas</form:option>
-                </form:select> 
-                
-                <form:input path="unidadMedida" />
-            </p>
-            <p>
-		<label for="tipoMaquina">Tipo de Maquina</label>
-                
-                <form:select path="tipoMaquina" >
-                    <form:option value="1">Fresadora</form:option>
-                    <form:option value="2">Torno</form:option>
-                </form:select>
-                
-                <form:input path="tipoMaquina" />
+                <select id="tipoMaquinaId" name="tipoMaquinaId">
+                    <option value=""></option>
+                    <c:forEach items="${listaTipoMaquina}" var="c">
+                        <option value="${c.tipoMaquinaId}" >${c.nombre}</option>
+                    </c:forEach>
+                </select>
             </p>
             <p>
                 <label from="puntoCeroMaquinaX">Punto Cero Maquina X: </label>
