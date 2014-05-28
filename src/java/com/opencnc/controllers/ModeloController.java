@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -44,15 +45,25 @@ public class ModeloController {
     }
     
     @RequestMapping  ("/modelo/crearModelo")
-    public ModelAndView   crearModelo  (){
+    public ModelAndView   crearModelo  (HttpServletRequest request){
         Modelo md = new Modelo();
         
         ModelAndView m = new ModelAndView("/modelo/crearModelo");
         m.addObject("modelo",md);
+        
         Session s = HibernateUtil.getSessionFactory().openSession();
+        
+        //Criteria user = s.createCriteria(Usuario.class);
         Criteria c = s.createCriteria(TipoMaquina.class);
+        Criteria ma = s.createCriteria(UnidadMedida.class);
+        
+        //List<Usuario> luser = user.list();
+        List<UnidadMedida> lm = ma.list();
         List<TipoMaquina> l = c.list();
+        
         m.addObject("listaTipoMaquina",l);
+        m.addObject("listaUnidadMedida",lm);
+        
         return m;
     }
    

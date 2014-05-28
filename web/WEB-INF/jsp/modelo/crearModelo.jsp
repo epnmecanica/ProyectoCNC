@@ -29,6 +29,7 @@
     <body>
         <h1>Crear Modelo</h1>
         <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
+        ${nombreUsuario}
         <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                    method="POST"
                    commandName="modelo">
@@ -43,7 +44,13 @@
             
             <p>
 		<label for="unidadMedidaId">Unidad Medida</label>
-                <input id="unidadMedidaId" value="1" name="unidadMedidaId" type="text"/>
+                <%--<input id="unidadMedidaId" value="1" name="unidadMedidaId" type="text"/>--%>
+                <select id="unidadMedidaId" name="unidadMedidaId">
+                    <option value=""></option>
+                    <c:forEach items="${listaUnidadMedida}" var="c">
+                        <option value="${c.unidadMedidaId}" >${c.nombre}</option>
+                    </c:forEach>
+                </select>
             </p>
             <p>
 		<label for="tipoMaquinaId">Tipo Maquina</label>
