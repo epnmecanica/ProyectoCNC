@@ -38,6 +38,7 @@
     </head>
     <body>
         <h1>Lista de Usuarios</h1>
+        ${nombreUsuario}
         <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/crear.htm" >Nuevo Usuario</a>
         <table id="tabla" class="display" cellspacing="0" width="100%">
             <thead>

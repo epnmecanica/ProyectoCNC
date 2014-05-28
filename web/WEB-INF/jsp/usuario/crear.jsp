@@ -50,11 +50,11 @@
             </p>
             <p>
 		<label for="clave">Contraseña</label>
-                <form:input path="clave" />
+                <form:input path="clave" type="password"/>
             </p>
             <p>
 		<label for="email">Confirmar Contraseña</label>
-                <form:input path="" />
+                <form:input path="" type="password"/>
             </p>
             
             <input id="botonGuardar" type="submit" value="Crear" />

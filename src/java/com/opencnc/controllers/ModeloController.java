@@ -8,6 +8,7 @@ package com.opencnc.controllers;
 
 import com.opencnc.beans.Modelo;
 import com.opencnc.beans.TipoMaquina;
+import com.opencnc.beans.UnidadMedida;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.util.Calendar;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -47,12 +49,15 @@ public class ModeloController {
         
         ModelAndView m = new ModelAndView("/modelo/crearModelo");
         m.addObject("modelo",md);
-        
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Criteria c = s.createCriteria(TipoMaquina.class);
+        List<TipoMaquina> l = c.list();
+        m.addObject("listaTipoMaquina",l);
         return m;
     }
    
     @RequestMapping  ("/modelo/guardarModelo")
-    public ModelAndView   guardarModelo  (@ModelAttribute Modelo modelo){
+    public ModelAndView   guardarModelo  (@ModelAttribute Modelo modelo, @RequestParam Integer unidadMedidaId, @RequestParam Integer tipoMaquinaId){
         if (!"".equals(modelo.getNombre()) ){
             
             
@@ -62,6 +67,12 @@ public class ModeloController {
             modelo.setCreadoFecha(d1);
             Session s = HibernateUtil.getSessionFactory().openSession();
             
+            UnidadMedida un = (UnidadMedida)s.get(UnidadMedida.class, unidadMedidaId);
+            modelo.setUnidadMedida(un);
+            TipoMaquina tm = (TipoMaquina)s.get(TipoMaquina.class, tipoMaquinaId);
+            modelo.setTipoMaquina(tm);
+            Usuario us = (Usuario)s.get(Usuario.class, 2);
+            modelo.setUsuario(us);
             Transaction t = s.getTransaction();
             s.beginTransaction();
             s.saveOrUpdate(modelo);
