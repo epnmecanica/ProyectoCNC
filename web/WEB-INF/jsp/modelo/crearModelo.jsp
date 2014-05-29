@@ -63,7 +63,7 @@
                 </select>
             </p>
             <p>
-                <label from="puntoCeroMaquinaX">Punto Cero Maquina X: </label>
+                <label from="puntoCeroMaquinaction="${pageContext.request.contextPath}aX">Punto Cero Maquina X: </label>
                 <form:input path="puntoCeroMaquinaX" />
             </p>
             <p>
@@ -78,8 +78,9 @@
                 <label from="piezaLargo">Pieza Largo: </label>
                 <form:input path="piezaLargo" />
             </p>
-            
-            
+            <p>                    
+               <input id="${usuarioId}" value="${listaUsuarios}" name="usuarioId" type="hidden"/>     
+            </p>
             <input id="botonGuardarModelo" type="submit" value="Guardar Modelo" />
         </form:form>
     </body>

@@ -6,7 +6,6 @@
 
 package com.opencnc.controllers;
 
-import com.opencnc.beans.Modelo;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.util.Calendar;
@@ -33,7 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UsuarioController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
-    
+ 
     @RequestMapping  ("/usuario/lista")
     public ModelAndView   lista  (HttpServletRequest request){
         Session  s = HibernateUtil.getSessionFactory().openSession();
@@ -42,14 +41,15 @@ public class UsuarioController {
         List<Usuario> l = c.list();
         ModelAndView m = new ModelAndView("/usuario/lista");
         Usuario us = (Usuario)request.getAttribute("usuario");
+        
         if(us==null){
-             return new ModelAndView("redirect:/login.htm");
+             return new ModelAndView("redirect:/usuario/login.htm");
+            
         }else {
             m.addObject("nombreUsuario",us.getNombre());
-        m.addObject("usuarios",l);
-        
-        logger.info("Empieza a mostrar lista");
-        return m;
+            m.addObject("usuarios",l);
+            logger.info("Empieza a mostrar lista");
+            return m;
         }
         
     }
@@ -138,14 +138,17 @@ public class UsuarioController {
           m.addObject("error","Usuario no existe");
           request.removeAttribute("usuario");
           return login();
+          
       }
       else {
           Usuario ul = l.get(0);
           request.setAttribute("usuario", ul); 
-          return lista(request);
-      }
-        //return login(m);
-        
+          //return lista(request); 
+          //return new ModelAndView("redirect:/modelo/crearModelo.htm");
+          //return  crearModelo(request);
+          return ModeloController.crearModelo(request);
+          
+      }        
     }
     
     @RequestMapping("usuario/cambiarContrasena")

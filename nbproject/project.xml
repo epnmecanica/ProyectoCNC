@@ -31,9 +31,6 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.log4j-1.2.17.jar}</file>
-                </library>
-                <library dirs="200">
-                    <file>${file.reference.log4j-1.2.17.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,11 +33,26 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class ModeloController {
+    /*
+    @RequestMapping  ("/modelo/abrir")
+    static ModelAndView crearModeloId(HttpServletRequest request) {
+        Usuario us = (Usuario)request.getAttribute("usuario");
+       
+        ModelAndView m = new ModelAndView("/modelo/crearModelo");
+        m.addObject("nombreUsuario",us.getNombre());
+        
+        return m;
+        //m.addObject("nombreUsuario",us.getNombre());
+        
+        
+    }
+    */
     @RequestMapping  ("/modelo/abrir")
     public ModelAndView   abrir  (){
         Session s = HibernateUtil.getSessionFactory().openSession();
         
         Criteria c = s.createCriteria(Modelo.class);
+        
         List<Modelo> lm = c.list();
         
         ModelAndView m = new ModelAndView("/modelo/abrir");
@@ -45,30 +61,40 @@ public class ModeloController {
     }
     
     @RequestMapping  ("/modelo/crearModelo")
-    public ModelAndView   crearModelo  (HttpServletRequest request){
+    static ModelAndView   crearModelo  (HttpServletRequest request){
         Modelo md = new Modelo();
-        
         ModelAndView m = new ModelAndView("/modelo/crearModelo");
         m.addObject("modelo",md);
-        
+  
         Session s = HibernateUtil.getSessionFactory().openSession();
+        Usuario us = (Usuario)request.getAttribute("usuario");
         
-        //Criteria user = s.createCriteria(Usuario.class);
+        
         Criteria c = s.createCriteria(TipoMaquina.class);
         Criteria ma = s.createCriteria(UnidadMedida.class);
-        
-        //List<Usuario> luser = user.list();
+        Criteria user = s.createCriteria(Usuario.class);
+       
         List<UnidadMedida> lm = ma.list();
         List<TipoMaquina> l = c.list();
+        //List<Usuario> luser = user.list();
+        Integer luser = us.getUsuarioId();
         
         m.addObject("listaTipoMaquina",l);
-        m.addObject("listaUnidadMedida",lm);
-        
+        m.addObject("listaUnidadMedida",lm);  
+        m.addObject("listaUsuarios",luser);
+        m.addObject("nombreUsuario",us.getNombre());
+        //m.addObject("numUsuarioId", us.getUsuarioId());
+            
         return m;
+        
     }
    
     @RequestMapping  ("/modelo/guardarModelo")
-    public ModelAndView   guardarModelo  (@ModelAttribute Modelo modelo, @RequestParam Integer unidadMedidaId, @RequestParam Integer tipoMaquinaId){
+    public ModelAndView   guardarModelo     (@ModelAttribute Modelo modelo, 
+                                            @RequestParam Integer unidadMedidaId, 
+                                            @RequestParam Integer tipoMaquinaId,
+                                            @RequestParam Integer usuarioId
+                                            ){
         if (!"".equals(modelo.getNombre()) ){
             
             
@@ -82,8 +108,13 @@ public class ModeloController {
             modelo.setUnidadMedida(un);
             TipoMaquina tm = (TipoMaquina)s.get(TipoMaquina.class, tipoMaquinaId);
             modelo.setTipoMaquina(tm);
-            Usuario us = (Usuario)s.get(Usuario.class, 2);
+            Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
+         
+            
+            //Usuario us = (Usuario)s.get(Usuario.class, 2);
+            
             modelo.setUsuario(us);
+            
             Transaction t = s.getTransaction();
             s.beginTransaction();
             s.saveOrUpdate(modelo);
@@ -92,6 +123,7 @@ public class ModeloController {
         return abrir();
     }
     
+    /*
     @RequestMapping  ("/modelo/editarModelo/{id}")
     public ModelAndView   crearModelo  ( @PathVariable  Integer id ){
          
@@ -104,7 +136,8 @@ public class ModeloController {
         
         return m;
     }
-    
+    */
+    /*
     @RequestMapping ("/modelo/borrarModelo/{id}")
     public ModelAndView borrarModelo (@PathVariable Integer id){
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -115,7 +148,7 @@ public class ModeloController {
         t.commit();
         return abrir();
     }
-    
+    */
     
     
 }
