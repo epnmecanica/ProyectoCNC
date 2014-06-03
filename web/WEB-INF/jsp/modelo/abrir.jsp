@@ -4,7 +4,7 @@
     Author     : root
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true" language="java" import="java.util.*"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -22,6 +22,7 @@
     </head>
     <body>
         <h1>Abrir modelo existente.</h1>
+        ${nombreUsuario}
         <table id="tablaModelo" class="display" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -95,8 +96,8 @@
                     </td>
                     <td>
                        
-                        <a href="${pageContext.request.contextPath}/modelo/editarModelo/${usuario.usuarioId}.htm">Editar</a>
-                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${usuario.usuarioId}.htm">Borrar</a>
+                        <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm">Editar</a>
+                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm">Borrar</a>
                         
                     </td>
                 </tr>

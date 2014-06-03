@@ -16,6 +16,7 @@
     </head>
     <body>
         <h1>Cambio de contraseña</h1>
+        ${nombreUsuario}
          <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
                    method="POST"
                    commandName="usuario">

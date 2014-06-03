@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -40,10 +41,13 @@ public class UsuarioController {
         Criteria  c =s.createCriteria(Usuario.class);
         List<Usuario> l = c.list();
         ModelAndView m = new ModelAndView("/usuario/lista");
+        //HttpSession session = request.getSession(true);
         Usuario us = (Usuario)request.getAttribute("usuario");
+        //Usuario us = (Usuario)session.getAttribute("usuario");
         
         if(us==null){
              return new ModelAndView("redirect:/usuario/login.htm");
+            
             
         }else {
             m.addObject("nombreUsuario",us.getNombre());
@@ -51,6 +55,7 @@ public class UsuarioController {
             logger.info("Empieza a mostrar lista");
             return m;
         }
+        
         
     }
     @RequestMapping ("/usuario/crear")
@@ -88,7 +93,7 @@ public class UsuarioController {
     }
     
     @RequestMapping  ("/usuario/editar/{id}")
-    public ModelAndView   crear  ( @PathVariable  Integer id ){
+    public ModelAndView   editar  ( @PathVariable  Integer id ){
          
         Session s = HibernateUtil.getSessionFactory().openSession();
         
@@ -101,6 +106,7 @@ public class UsuarioController {
     }
     
     @RequestMapping ("/usuario/borrar/{id}")
+    
     public ModelAndView borrar(@PathVariable Integer id, HttpServletRequest request){
         Session s = HibernateUtil.getSessionFactory().openSession();
         
@@ -138,6 +144,8 @@ public class UsuarioController {
           m.addObject("error","Usuario no existe");
           request.removeAttribute("usuario");
           return login();
+          //return m;
+       
           
       }
       else {
@@ -146,6 +154,8 @@ public class UsuarioController {
           //return lista(request); 
           //return new ModelAndView("redirect:/modelo/crearModelo.htm");
           //return  crearModelo(request);
+          
+         
           return ModeloController.crearModelo(request);
           
       }        
@@ -154,6 +164,7 @@ public class UsuarioController {
     @RequestMapping("usuario/cambiarContrasena")
     public ModelAndView cambiarContrasena (){
         ModelAndView m = new ModelAndView();
+        
         return m;
     }
     

@@ -4,11 +4,11 @@
     Author     : root
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true" language="java" import="java.util.*"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,6 +28,7 @@
     </head>
     <body>
         <h1>Crear Modelo</h1>
+        
         <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
         ${nombreUsuario}
         <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 

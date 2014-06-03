@@ -11,9 +11,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Edicion modelo</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Edicion Modelo</h1>
+        
+        <form:form action="${pageContext.request.contextPath}/modelo/guardarModelo.htm"
+                   method="POST"
+                   commandName="modelo"
+                   >
+            Nombre:
+            <form:input path="nombre" ></form:input><br/>
+            Descripcion:
+            <form:input path="descripcion" ></form:input><br/>
+            Punto Cero Maquina X:
+            <form:input path="puntoCeroMaquinaX"></form:input><br/>
+            Punto Cero Maquina Y:
+            <form:input path="puntoCeroMaquinaY"></form:input><br/>
+            Ancho:
+            <form:input path="piezaAncho" />
+            Largo:
+            <form:input path="piezaLargo" />
+             
+            <input type="submit" value="Guardar Cambios"/>
+        </form:form>
     </body>
 </html>
