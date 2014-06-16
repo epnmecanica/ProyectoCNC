@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -40,67 +41,91 @@ import org.springframework.web.servlet.ModelAndView;
 public class ModeloController {
 
        
-    @RequestMapping  ("/modelo/abrir")
-    public ModelAndView   abrir  (@RequestParam Integer usuarioId){
-       
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
-        Integer luser = us.getUsuarioId();
+    //@RequestMapping  (value="/modelo/abrir", method=RequestMethod.POST)
+    @RequestMapping  (value="/modelo/abrir")
+    public ModelAndView   abrir  (/*@RequestParam Integer usuarioId,*/
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response){
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+          //String sid = session.getId();
         
-        Criteria c = s.createCriteria(Modelo.class);
-        c.add(Restrictions.eq("usuario", us));
-        List<Modelo> lm = c.list();
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            //Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
+
+           
+            Usuario us = (Usuario)sess.getAttribute("usuario");
+
+            Integer luser = us.getUsuarioId();
+
+            Criteria c = s.createCriteria(Modelo.class);
+            c.add(Restrictions.eq("usuario", us));
+            List<Modelo> lm = c.list();
+
+
+
+            ModelAndView m = new ModelAndView("/modelo/abrir");
+            m.addObject("modelos",lm);
+            m.addObject("nombreUsuario",us.getNombre());
+            return m;  
+        }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
         
-         
-       
-        ModelAndView m = new ModelAndView("/modelo/abrir");
-        m.addObject("modelos",lm);
-        m.addObject("nombreUsuario",us.getNombre());
-        return m;
     }
     
     @RequestMapping  ("/modelo/crearModelo")
-    static ModelAndView   crearModelo  (HttpServletRequest request){
+    static ModelAndView   crearModelo  (HttpServletRequest request, HttpServletResponse response){
         
-        
-        Modelo md = new Modelo();
-        ModelAndView m = new ModelAndView("/modelo/crearModelo");
-        m.addObject("modelo",md);
-        
-  
-        
-        
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        Usuario us = (Usuario)request.getAttribute("usuario");
-        
-        
-        Criteria c = s.createCriteria(TipoMaquina.class);
-        Criteria ma = s.createCriteria(UnidadMedida.class);
-        Criteria user = s.createCriteria(Usuario.class);
-       
-        List<UnidadMedida> lm = ma.list();
-        List<TipoMaquina> l = c.list();
-        //List<Usuario> luser = user.list();
-        Integer luser = us.getUsuarioId();
-        
-        m.addObject("listaTipoMaquina",l);
-        m.addObject("listaUnidadMedida",lm);  
-        m.addObject("listaUsuarios",luser);
-        m.addObject("nombreUsuario",us.getNombre());
-        //HttpSession session = request.getSession();
-        //m.addObject("numUsuarioId", us.getUsuarioId());
-        return m;
-        
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+            Modelo md = new Modelo();
+            ModelAndView m = new ModelAndView("/modelo/crearModelo");
+            m.addObject("modelo",md);
+
+
+
+
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            //Usuario us = (Usuario)request.getAttribute("usuario");
+
+            Usuario us = (Usuario)sess.getAttribute("usuario");
+
+            Criteria c = s.createCriteria(TipoMaquina.class);
+            Criteria ma = s.createCriteria(UnidadMedida.class);
+            Criteria user = s.createCriteria(Usuario.class);
+
+            List<UnidadMedida> lm = ma.list();
+            List<TipoMaquina> l = c.list();
+            //List<Usuario> luser = user.list();
+            Integer luser = us.getUsuarioId();
+
+            m.addObject("listaTipoMaquina",l);
+            m.addObject("listaUnidadMedida",lm);  
+            m.addObject("listaUsuarios",luser);
+            m.addObject("nombreUsuario",us.getNombre());
+            //HttpSession session = request.getSession();
+            //m.addObject("numUsuarioId", us.getUsuarioId());
+            return m;
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }  
     }
    
     @RequestMapping  ("/modelo/guardarModelo")
     public ModelAndView   guardarModelo     (@ModelAttribute Modelo modelo, 
                                             @RequestParam Integer unidadMedidaId, 
                                             @RequestParam Integer tipoMaquinaId,
-                                            @RequestParam Integer usuarioId
+                                            @RequestParam Integer usuarioId,
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response
                                             ){
-           
-        if (!"".equals(modelo.getNombre()) ){
+        
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+            if (!"".equals(modelo.getNombre())){
             
             
             Calendar c = new GregorianCalendar();
@@ -113,9 +138,11 @@ public class ModeloController {
             modelo.setUnidadMedida(un);
             TipoMaquina tm = (TipoMaquina)s.get(TipoMaquina.class, tipoMaquinaId);
             modelo.setTipoMaquina(tm);
-            Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
-         
             
+            
+            Usuario us = (Usuario)sess.getAttribute("usuario");
+            
+            //Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
             //Usuario us = (Usuario)s.get(Usuario.class, 2);
             
             modelo.setUsuario(us);
@@ -125,35 +152,65 @@ public class ModeloController {
             s.saveOrUpdate(modelo);
             t.commit();
         }
-        return abrir(usuarioId);
+        //return abrir(usuarioId);
+        return abrir(request, response);
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
+        
     }
     
     //@RequestMapping(value = "/modelo/editarModelo/{id}", method = RequestMethod.GET)
     @RequestMapping  ("modelo/editarModelo/{id}")
-    public ModelAndView   editarModelo  (@PathVariable Integer id, HttpSession session){
-         
-        Session s = HibernateUtil.getSessionFactory().openSession();
+    public ModelAndView   editarModelo  (@PathVariable Integer id, 
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response
+                                            ){
         
-        //Modelo u = (Modelo)s.get(Modelo.class, 2);
-        Modelo u = (Modelo)s.get(Modelo.class,id);
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+            Session s = HibernateUtil.getSessionFactory().openSession();
         
-        ModelAndView m = new ModelAndView ("/modelo/editarModelo");
-        m.addObject("modelo",u);
+            //Modelo u = (Modelo)s.get(Modelo.class, 2);
+            Modelo u = (Modelo)s.get(Modelo.class,id);
+
+            ModelAndView m = new ModelAndView ("/modelo/editarModelo");
+            m.addObject("modelo",u);
+
+
+            return m;
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
         
-        
-        return m;
     }
     
     
     @RequestMapping ("/modelo/borrarModelo/{id}")
-    public ModelAndView borrarModelo (@PathVariable Integer id, HttpSession request){
-        Session s = HibernateUtil.getSessionFactory().openSession();
+    public ModelAndView borrarModelo (@PathVariable Integer id, 
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response){
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+           Session s = HibernateUtil.getSessionFactory().openSession();
+
+            
+            Usuario us = (Usuario)sess.getAttribute("usuario");
+
+            Modelo u = (Modelo) s.get(Modelo.class, id);
+            Transaction t = s.beginTransaction();
+            s.delete(u);
+            t.commit();
+            //return new ModelAndView("redirect:/usuario/login.htm");
+            //return abrir(1);
+            return abrir(request, response); 
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
         
-        Modelo u = (Modelo) s.get(Modelo.class, id);
-        Transaction t = s.beginTransaction();
-        s.delete(u);
-        t.commit();
-        //return new ModelAndView("redirect:/usuario/login.htm");
-        return abrir(1);
+        
     }    
 }

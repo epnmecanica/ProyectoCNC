@@ -19,7 +19,11 @@
         <a href="modelo/crearModelo.htm">Crear Nuevo Modelo</a>
         
         <a href="resources/index.html">CAD</a>
-       
+        
+        
         <a href="rol/crear.htm">Crear Rol</a>
+        
+        <a href="elemento/crearElementoGrafico.htm">Elemento Grafico</a>
+        
     </body>
 </html>

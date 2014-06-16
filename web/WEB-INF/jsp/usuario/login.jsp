@@ -31,7 +31,8 @@
          <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/crear.htm" >Nuevo Usuario</a>
          <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/cambiarContrasena.htm" >Cambiar Contraseña</a>
          <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/recuperarContra.htm" >Recuperar Contraseña</a>
-        ${error}
+         
+        ${errorId}
          <form:form id="formLogin" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
                    method="POST"
                    commandName="usuario">

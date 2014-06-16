@@ -17,10 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class ElementoGraficoController {
-    @RequestMapping  ("/elemento/crear")
+    @RequestMapping  ("/elemento/crearElementoGrafico")
     public ModelAndView   crear  (){
-        
-        return null;
+        ModelAndView m = new ModelAndView("/elemento/crearElementoGrafico");
+        return m;
     }
     @RequestMapping  ("/elemento/borrar")
     public ModelAndView   borrar  (){

@@ -45,6 +45,8 @@
                 <prop key="rol/crear.htm">rolController</prop>
                 <prop key="rol/borrarRol.htm">rolController</prop>
                 
+                <prop key="elemento/crearElementoGrafico.htm">elementoGraficoController</prop>
+                
                
             </props>
         </property>
@@ -89,6 +91,7 @@
      <bean name="progrmaController"
           class="com.opencnc.controllers.ProgramaController"
            />
+    
      
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />

@@ -16,6 +16,10 @@
         <servlet-name>CargadorLog4j</servlet-name>
         <servlet-class>com.opencnc.log.CargadorLog4j</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InfoUsuario</servlet-name>
+        <servlet-class>com.opencnc.servlet.InfoUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CargadorLog4j</servlet-name>
         <url-pattern>/CargadorLog4j</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InfoUsuario</servlet-name>
+        <url-pattern>/InfoUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
