@@ -1,6 +1,6 @@
 <%-- 
-    Document   : crearElementoGrafico
-    Created on : 16/06/2014, 08:03:34 AM
+    Document   : crear
+    Created on : 17/06/2014, 11:58:07 AM
     Author     : root
 --%>
 
@@ -11,9 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Sentencias</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Crear Sentencia</h1>
     </body>
 </html>

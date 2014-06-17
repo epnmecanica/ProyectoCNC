@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
+
 @Controller
 public class UsuarioController {
     // Implemento Log4j para eventos tipo log
@@ -37,7 +38,7 @@ public class UsuarioController {
  
     @RequestMapping  ("/usuario/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
-                                    HttpServletResponse response){
+                                    HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
             Session  s = HibernateUtil.getSessionFactory().openSession();
@@ -64,7 +65,7 @@ public class UsuarioController {
         }   
     }
     @RequestMapping ("/usuario/crear")
-    public ModelAndView crear (){
+    public ModelAndView crear ()throws Exception{
         Usuario u = new Usuario();
         
         ModelAndView m = new ModelAndView("/usuario/crear");
@@ -77,7 +78,8 @@ public class UsuarioController {
     @RequestMapping ("/usuario/guardar")
     public ModelAndView guardar (@ModelAttribute Usuario usuario, 
                                             HttpServletRequest request, 
-                                            HttpServletResponse response){
+                                            HttpServletResponse response)
+                                            throws Exception{
         if (!"".equals(usuario.getApellido()) 
             && !"".equals(usuario.getNombre()) 
             && !"".equals(usuario.getEmail())
@@ -102,35 +104,54 @@ public class UsuarioController {
     @RequestMapping  ("/usuario/editar/{id}")
     public ModelAndView   editar  ( @PathVariable  Integer id, 
                                             HttpServletRequest request, 
-                                            HttpServletResponse response){
-         
-        Session s = HibernateUtil.getSessionFactory().openSession();
+                                            HttpServletResponse response)
+                                            throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+            Session s = HibernateUtil.getSessionFactory().openSession();
         
-        Usuario u = (Usuario)s.get(Usuario.class, id);
-        ModelAndView m = new ModelAndView ("/usuario/editar");
-        m.addObject("usuario",u);
-        
-        logger.info("Empieza a mostrar lista");
-        return m;
+            Usuario u = (Usuario)s.get(Usuario.class, id);
+            ModelAndView m = new ModelAndView ("/usuario/editar");
+            m.addObject("usuario",u);
+
+            logger.info("Empieza a mostrar lista");
+            return m;
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        } 
     }
     
     @RequestMapping ("/usuario/borrar/{id}")
     
     public ModelAndView borrar(@PathVariable Integer id, 
-                                            HttpServletRequest request, 
-                                            HttpServletResponse response){
-        Session s = HibernateUtil.getSessionFactory().openSession();
+                                                HttpServletRequest request, 
+                                                HttpServletResponse response)
+                                                throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+           Usuario us = (Usuario)sess.getAttribute("usuario");
         
-        Usuario u = (Usuario) s.get(Usuario.class, id);
-        Transaction t = s.beginTransaction();
-        s.delete(u);
-        t.commit();
-        logger.info("Borrar usuario");
-        return lista(request, response);
+            Session s = HibernateUtil.getSessionFactory().openSession();
+
+            Usuario u = (Usuario) s.get(Usuario.class, id);
+            if (us.getUsuarioId() == u.getUsuarioId()){
+                return lista(request, response);
+            }else{
+                Transaction t = s.beginTransaction();
+                s.delete(u);
+                t.commit();
+                logger.info("Borrar usuario");
+                return lista(request, response);
+            } 
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }    
     }
     
     @RequestMapping("/usuario/login")
-    public ModelAndView login (){
+    public ModelAndView login ()throws Exception{
         
         Usuario u = new Usuario();
         
@@ -143,7 +164,8 @@ public class UsuarioController {
     @RequestMapping("/usuario/iniciarSesion")
     public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario, 
                                             HttpServletRequest request, 
-                                            HttpServletResponse response){
+                                            HttpServletResponse response)
+                                            throws Exception{
       ModelAndView m = new ModelAndView();
     
       Session s = HibernateUtil.getSessionFactory().openSession();
@@ -171,23 +193,44 @@ public class UsuarioController {
           //return new ModelAndView("redirect:/modelo/crearModelo.htm");
           //return  crearModelo(request);
           return ModeloController.crearModelo(request, response);
+          
       }   
       
     }
     
     @RequestMapping("usuario/cambiarContrasena")
     public ModelAndView cambiarContrasena (HttpServletRequest request, 
-                                            HttpServletResponse response){
-        ModelAndView m = new ModelAndView();
+                                            HttpServletResponse response)
+                                            throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+            ModelAndView m = new ModelAndView();
         
         return m;
+        }else{
+            request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }  
     }
     
     @RequestMapping  ("/usuario/recuperarContra")
-    public ModelAndView   recuperar  (){
+    public ModelAndView   recuperar  ()throws Exception{
         
         ModelAndView m = new ModelAndView("/usuario/recuperarContra");
         
         return m;
-    }    
+    } 
+    @RequestMapping  ("/usuario/logout")
+    public ModelAndView   logout  (HttpServletRequest request, 
+                                    HttpServletResponse response)
+                                    throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+            sess.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }else{
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }  
+    } 
+    
 }

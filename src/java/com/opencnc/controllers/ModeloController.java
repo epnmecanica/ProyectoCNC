@@ -18,6 +18,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -39,13 +40,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 //@SessionAttributes("usuario")
 public class ModeloController {
-
+    // Implemento Log4j para eventos tipo log
+    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
        
     //@RequestMapping  (value="/modelo/abrir", method=RequestMethod.POST)
     @RequestMapping  (value="/modelo/abrir")
     public ModelAndView   abrir  (/*@RequestParam Integer usuarioId,*/
                                             HttpServletRequest request, 
-                                            HttpServletResponse response){
+                                            HttpServletResponse response)
+                                            throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
           //String sid = session.getId();
@@ -76,7 +79,9 @@ public class ModeloController {
     }
     
     @RequestMapping  ("/modelo/crearModelo")
-    static ModelAndView   crearModelo  (HttpServletRequest request, HttpServletResponse response){
+    static ModelAndView   crearModelo  (HttpServletRequest request, 
+                                        HttpServletResponse response)
+                                        throws Exception{
         
         HttpSession sess =  request.getSession();
         if (sess != null){
@@ -121,7 +126,7 @@ public class ModeloController {
                                             @RequestParam Integer usuarioId,
                                             HttpServletRequest request, 
                                             HttpServletResponse response
-                                            ){
+                                            )throws Exception{
         
         HttpSession sess =  request.getSession();
         if (sess != null){
@@ -166,7 +171,7 @@ public class ModeloController {
     public ModelAndView   editarModelo  (@PathVariable Integer id, 
                                             HttpServletRequest request, 
                                             HttpServletResponse response
-                                            ){
+                                            )throws Exception{
         
         HttpSession sess =  request.getSession();
         if (sess != null){
@@ -191,7 +196,8 @@ public class ModeloController {
     @RequestMapping ("/modelo/borrarModelo/{id}")
     public ModelAndView borrarModelo (@PathVariable Integer id, 
                                             HttpServletRequest request, 
-                                            HttpServletResponse response){
+                                            HttpServletResponse response)
+                                            throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
            Session s = HibernateUtil.getSessionFactory().openSession();

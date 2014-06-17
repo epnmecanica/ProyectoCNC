@@ -6,7 +6,19 @@
 
 package com.opencnc.controllers;
 
+import com.opencnc.beans.Sentencia;
+import com.opencnc.util.HibernateUtil;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,28 +28,102 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class SentenciaController {
-    @RequestMapping  ("/sentencia/crearSentencia")
-    public ModelAndView crearSentencia (){
-        return null;
+    // Implemento Log4j para eventos tipo log
+    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    
+    @RequestMapping  ("/sentencia/lista")
+    public ModelAndView   lista  (HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        Session  s = HibernateUtil.getSessionFactory().openSession();
+        
+        Criteria  c =s.createCriteria(Sentencia.class);
+        List<Sentencia> l = c.list();
+        
+        ModelAndView m = new ModelAndView("/sentencia/lista");
+        m.addObject("sentencia",l);
+ 
+        return m;
+    }
+    @RequestMapping  ("/sentencia/crear")
+    public ModelAndView crear (
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+         HttpSession sess =  request.getSession();
+        if (sess != null){
+            Sentencia s = new Sentencia();
+            
+            ModelAndView m = new ModelAndView("/sentencia/crear");
+            m.addObject("sentencia",s);
+            
+            return m; 
+        }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
+        
     }
     
-    @RequestMapping  ("/sentencia/actualizarSentencia")
-    public ModelAndView actualizarSentencia (){
-        return null;
+    @RequestMapping  ("/sentencia/actualizar")
+    public ModelAndView actualizar (@ModelAttribute Sentencia s,
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+           return null; 
+        }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
     }
     
-    @RequestMapping  ("/sentencia/borrarSentencia")
-    public ModelAndView borrarSentencia (){
-        return null;
+    @RequestMapping  ("/sentencia/borrar")
+    public ModelAndView borrar (@PathVariable Integer id,
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+           Session s = HibernateUtil.getSessionFactory().openSession();
+            Sentencia e = (Sentencia) s.get(Sentencia.class, id);
+            Transaction t = s.beginTransaction();
+            s.delete(e);
+            t.commit();
+            return null; 
+        }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
+        
     }
     
     @RequestMapping  ("/sentencia/obtenerSentencia")
-    public ModelAndView obtenerSentencia (){
-        return null;
+    public ModelAndView obtenerSentencia (int sentenciaID,
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        HttpSession sess =  request.getSession();
+        if (sess != null){
+           return null; 
+        }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
     }
     
     @RequestMapping  ("/sentencia/obtenerSentenciaPorPrograma")
-    public ModelAndView obtenerSentenciaPorProgrma (){
-        return null;
+    public ModelAndView obtenerSentenciaPorProgrma (int programaID,
+                                            HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+       HttpSession sess =  request.getSession();
+        if (sess != null){
+           return null; 
+        }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
     }
 }

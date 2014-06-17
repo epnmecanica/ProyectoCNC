@@ -21,7 +21,9 @@
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.js"></script>
     </head>
     <body>
+        
         <h1>Abrir modelo existente.</h1>
+        
         ${nombreUsuario}
         <table id="tablaModelo" class="display" cellspacing="0" width="100%">
             <thead>
