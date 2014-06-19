@@ -16,13 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class CadController {
-    @RequestMapping  ("/resources/index")
-    public ModelAndView   cad  (){
-        
-  
-        ModelAndView m = new ModelAndView("/usuario/lista");
-      
- 
+    @RequestMapping("/cad/cad")
+    public ModelAndView abrir(){
+        ModelAndView m = new ModelAndView("/cad/cad");
         return m;
     }
 }

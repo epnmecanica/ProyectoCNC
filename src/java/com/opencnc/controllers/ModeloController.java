@@ -49,6 +49,7 @@ public class ModeloController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        
         HttpSession sess =  request.getSession();
         if (sess != null){
           //String sid = session.getId();
