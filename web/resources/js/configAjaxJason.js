@@ -1,80 +1,26 @@
-var prefix = "/spring-rest-with-ajax";
-
-var RestGet = function() {
+var fetch_json = function() {
 	
     $.ajax({
         type: 'GET',
-        url:  prefix + "/MyData/" + Date.now(),
-		dataType: 'json',
+        url:  "cad",
+		/*dataType: 'json',*/
         async: true,
-        success: function(result) {
-			alert("At " + result.time
-				+ ": " + result.message);
+        success: function(/*result*/) {
+			/*
+			var tmp = "Fetch time is: " + result.milliTime + " !"
+			   + "<br /><br />and the JSON is:<br /><br />"
+		       + JSON.stringify(result) + "<br /><br />";
+			
+			$("#theJson").html(tmp);
+                        */
+                       alert("hola");
+			
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.status + " " + jqXHR.responseText);
+            alert("Issue fetching the JSON: "
+				+ textStatus + " "
+				+ errorThrown + "!" + " Mauricio");
         }
     });
     
-}
-
-var RestPut = function() {
-	
-	var JSONObject= {
-		"time": Date.now(),
-		"message": "User PUT call !!!"
-	};
-	
-    $.ajax({
-        type: 'PUT',
-        url:  prefix + "/MyData",
-		contentType: "application/json; charset=utf-8",		
-		data: JSON.stringify(JSONObject),
-		dataType: 'json',
-        async: true,
-        success: function(result) {
-			alert("At " + result.time
-				+ ": " + result.message);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.status + " " + jqXHR.responseText);
-        }
-    });
-    
-}
-
-var RestPost = function() {
-	
-    $.ajax({
-        type: 'POST',
-        url:  prefix + "/MyData",
-		dataType: 'json',
-        async: true,
-        success: function(result) {
-			alert("At " + result.time
-				+ ": " + result.message);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.status + " " + jqXHR.responseText);
-        }
-    });
-    
-}
-
-var RestDelete = function() {
-	
-    $.ajax({
-        type: 'DELETE',
-        url:  prefix + "/MyData/" + Date.now(),
-		dataType: 'json',
-        async: true,
-        success: function(result) {
-			alert("At " + result.time
-				+ ": " + result.message);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert(jqXHR.status + " " + jqXHR.responseText);
-        }
-    });
-    
-}
+};

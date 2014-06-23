@@ -14,6 +14,8 @@
         <script type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
         </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
         <script type="text/javascript"
             src="<c:url value='/resources/js/configAjaxJason.js'/>">
         </script> 
@@ -21,9 +23,9 @@
     </head>
     <body>
         <h1>AJAX CRUD!</h1>
-        <button type="button" onclick="RestGet()">GET</button>
-        <button type="button" onclick="RestPut()">PUT</button>
-        <button type="button" onclick="RestPost()">POST</button>
-        <button type="button" onclick="RestDelete()">DELETE</button>
+        <div id="theJson"></div>
+	<button type="button" onclick="fetch_json()">
+		Fetch JSON
+	</button> 
     </body>
 </html>

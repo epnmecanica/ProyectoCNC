@@ -104,8 +104,7 @@
      <bean name="progrmaController"
           class="com.opencnc.controllers.ProgramaController"
            />
-   
-     
+         
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />
 
