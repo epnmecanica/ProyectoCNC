@@ -58,6 +58,12 @@ public class Programa  implements java.io.Serializable {
     public void setSentencias(Set sentencias) {
         this.sentencias = sentencias;
     }
+    
+    public void setModelo(Integer id) {
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 
 
 

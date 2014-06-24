@@ -6,7 +6,9 @@
 
 package com.opencnc.controllers;
 
+import com.opencnc.beans.Modelo;
 import com.opencnc.beans.Programa;
+import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,33 +37,54 @@ public class ProgramaController {
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        HttpSession sess =  request.getSession();
         Session  s = HibernateUtil.getSessionFactory().openSession();
+        Usuario us = (Usuario)sess.getAttribute("usuario");
+        
+        Criteria  cm = s.createCriteria(Modelo.class);
         
         Criteria  c =s.createCriteria(Programa.class);
+        
+        cm.add(Restrictions.eq("usuario", us));
+        
+        //c.add(Restrictions.eq("programa", 12));
+        
+        List<Modelo> lm = cm.list();
+        
         List<Programa> l = c.list();
         
         ModelAndView m = new ModelAndView("/programa/lista");
-        m.addObject("programa",l);
+        m.addObject("programas",l);
  
         return m;
     }
-    @RequestMapping  ("/programa/crear")
-    public ModelAndView crear (
+    @RequestMapping  ("/programa/crear/{id}")
+    public ModelAndView crear (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
-         HttpSession sess =  request.getSession();
+        HttpSession sess =  request.getSession();
         if (sess != null){
-            Programa p = new Programa();
-            ModelAndView m = new ModelAndView("/programa/crear");
-            m.addObject("programa",p);
-        return m;
+            Programa p = new Programa();              
+            //ModelAndView m = new ModelAndView("/programa/crear");
+            //m.addObject("programa",p);
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Modelo u = (Modelo)s.get(Modelo.class,id);
+            p.setModelo(u);
+            p.setDescripcion("");
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(p);
+            t.commit();
+            //p.setModelo(u.getModeloId());
+            //return m;
+            return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
     
-    @RequestMapping  ("/programa/borrar")
+    @RequestMapping  ("/programa/borrar/{id}")
     public ModelAndView borrar  (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
@@ -71,7 +95,7 @@ public class ProgramaController {
             Transaction t = s.beginTransaction();
             s.delete(e);
             t.commit();
-            return null;
+            return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");

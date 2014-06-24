@@ -12,6 +12,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Programa</title>
+        <link href="${pageContext.request.contextPath}/resources/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+         
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script>
+        <script>
+            $(document).ready(function() {
+			$("#botonGuardarModelo").button();
+                    $("#formaModelo").form();
+                    
+                    
+		});
+        </script>
     </head>
     <body>
         <h1>Crear Programa</h1>

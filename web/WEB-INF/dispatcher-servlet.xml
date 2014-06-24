@@ -54,7 +54,7 @@
                 <prop key="sentencia/lista.htm">sentenciaController</prop>
                 <prop key="sentencia/borrar/{1}.htm">sentenciaController</prop>
                 
-                <prop key="programa/crear.htm">progrmaController</prop>
+                <prop key="programa/crear/{1}.htm">progrmaController</prop>
                 <prop key="programa/lista.htm">progrmaController</prop>
                 <prop key="programa/borrar/{1}.htm">progrmaController</prop>
                 

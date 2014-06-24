@@ -89,13 +89,8 @@ public class ModeloController {
             Modelo md = new Modelo();
             ModelAndView m = new ModelAndView("/modelo/crearModelo");
             m.addObject("modelo",md);
-
-
-
-
             Session s = HibernateUtil.getSessionFactory().openSession();
             //Usuario us = (Usuario)request.getAttribute("usuario");
-
             Usuario us = (Usuario)sess.getAttribute("usuario");
 
             Criteria c = s.createCriteria(TipoMaquina.class);

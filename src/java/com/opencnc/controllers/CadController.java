@@ -25,9 +25,9 @@ public class CadController {
         return m;
     }
    
-    @RequestMapping(value = "/getJSON" , method = RequestMethod.GET)
-    public ModelAndView getJSON() {
-        ModelAndView m = new ModelAndView("/cad/cad");
-        return m;
+    @RequestMapping(value = "/get" , method = RequestMethod.GET)
+    public void getJSON() {
+        System.out.print("Hola");
+        //return cadView();
  }
 }
