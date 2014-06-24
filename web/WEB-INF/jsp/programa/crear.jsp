@@ -18,8 +18,8 @@
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script>
         <script>
             $(document).ready(function() {
-			$("#botonGuardarModelo").button();
-                    $("#formaModelo").form();
+			$("#botonGuardarPrograma").button();
+                    $("#formaPrograma").form();
                     
                     
 		});

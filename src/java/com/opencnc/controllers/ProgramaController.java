@@ -83,8 +83,8 @@ public class ProgramaController {
             t.commit();
             m.addObject("programa",p);
             //p.setModelo(u.getModeloId());
-            return m;
-            //return lista(request , response);
+            //return m;
+            return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
@@ -116,7 +116,12 @@ public class ProgramaController {
                                     HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
-           return null; 
+           Session s = HibernateUtil.getSessionFactory().openSession();
+           Transaction  t= s.getTransaction();
+            s.beginTransaction(); 
+            s.saveOrUpdate(p);
+            t.commit();
+           return lista(request , response); 
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
