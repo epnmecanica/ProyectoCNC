@@ -27,5 +27,17 @@
     </head>
     <body>
         <h1>Crear Programa</h1>
+        <form:form action="${pageContext.request.contextPath}/programa/actualizarPrograma.htm"
+                   method="POST"
+                   commandName = "programa"
+                   >
+            ID:
+            <form:input path="programaId"></form:input><br/>
+            Nombre:
+            <form:input path="descripcion" ></form:input><br/>
+            Punto Cero Maquina X:
+                         
+            <input type="submit" value="Guardar Cambios"/>
+        </form:form>
     </body>
 </html>

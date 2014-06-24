@@ -38,25 +38,31 @@ public class ProgramaController {
                                             HttpServletResponse response)
                                             throws Exception{
         HttpSession sess =  request.getSession();
-        Session  s = HibernateUtil.getSessionFactory().openSession();
-        Usuario us = (Usuario)sess.getAttribute("usuario");
-        
-        Criteria  cm = s.createCriteria(Modelo.class);
-        
-        Criteria  c =s.createCriteria(Programa.class);
-        
-        cm.add(Restrictions.eq("usuario", us));
-        
-        //c.add(Restrictions.eq("programa", 12));
-        
-        List<Modelo> lm = cm.list();
-        
-        List<Programa> l = c.list();
-        
-        ModelAndView m = new ModelAndView("/programa/lista");
-        m.addObject("programas",l);
+         if (sess != null){
+              Session  s = HibernateUtil.getSessionFactory().openSession();
+                Usuario us = (Usuario)sess.getAttribute("usuario");
+
+                Criteria  cm = s.createCriteria(Modelo.class);
+
+                Criteria  c =s.createCriteria(Programa.class);
+
+                cm.add(Restrictions.eq("usuario", us));
+
+                //c.add(Restrictions.eq("programa", 12));
+
+                List<Modelo> lm = cm.list();
+
+                List<Programa> l = c.list();
+
+                ModelAndView m = new ModelAndView("/programa/lista");
+                m.addObject("programas",l);
  
-        return m;
+                return m;
+         }else{
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
+        }
+       
     }
     @RequestMapping  ("/programa/crear/{id}")
     public ModelAndView crear (@PathVariable Integer id,
@@ -65,8 +71,8 @@ public class ProgramaController {
         HttpSession sess =  request.getSession();
         if (sess != null){
             Programa p = new Programa();              
-            //ModelAndView m = new ModelAndView("/programa/crear");
-            //m.addObject("programa",p);
+            ModelAndView m = new ModelAndView("/programa/crear");
+            
             Session s = HibernateUtil.getSessionFactory().openSession();
             Modelo u = (Modelo)s.get(Modelo.class,id);
             p.setModelo(u);
@@ -75,9 +81,10 @@ public class ProgramaController {
             s.beginTransaction();
             s.saveOrUpdate(p);
             t.commit();
+            m.addObject("programa",p);
             //p.setModelo(u.getModeloId());
-            //return m;
-            return lista(request , response);
+            return m;
+            //return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
