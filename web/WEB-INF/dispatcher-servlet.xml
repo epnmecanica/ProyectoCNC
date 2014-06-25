@@ -101,10 +101,12 @@
           class="com.opencnc.controllers.ElementoGraficoController"
            />
     
-     <bean name="progrmaController"
+    <bean name="progrmaController"
           class="com.opencnc.controllers.ProgramaController"
            />
-         
+    <bean name="ComandoController"
+          class="com.opencnc.controllers.ComandoController"
+           />
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />
 

@@ -27,7 +27,7 @@
     </head>
     <body>
         <h1>Crear Programa</h1>
-        <form:form action="${pageContext.request.contextPath}/programa/actualizarPrograma.htm"
+        <form:form action="${pageContext.request.contextPath}/programa/actualizar.htm"
                    method="POST"
                    commandName = "programa"
                    >

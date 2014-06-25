@@ -83,8 +83,8 @@ public class ProgramaController {
             t.commit();
             m.addObject("programa",p);
             //p.setModelo(u.getModeloId());
-            //return m;
-            return lista(request , response);
+            return m;
+            //return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
@@ -110,20 +110,21 @@ public class ProgramaController {
         
     }
     
-    @RequestMapping  ("/programa/actualizarPrograma")
+    @RequestMapping  ("/programa/actualizar")
     public ModelAndView actualizar (@ModelAttribute Programa p,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
-           Session s = HibernateUtil.getSessionFactory().openSession();
-           Transaction  t= s.getTransaction();
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            p.setDescripcion("Nombre");
+            Transaction  t= s.getTransaction();
             s.beginTransaction(); 
             s.saveOrUpdate(p);
             t.commit();
            return lista(request , response); 
         }else{
-             request.removeAttribute("usuario");
+            request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
