@@ -1,27 +1,26 @@
-var fetch_json = function() {
-	
-    $.ajax({
-        type: 'GET',
-        url:  "/OpenCNC/cad/get",
-		/*dataType: 'json',*/
-        async: true,
-        success: function(result) {
-			
-			/*var tmp = "Fetch time is: " + result.milliTime + " !"
-			   + "<br /><br />and the JSON is:<br /><br />"
-		       + JSON.stringify(result) + "<br /><br />";
-			*/
-                        $("#theJson").html(result);
-			//$("#theJson").html(tmp);
-                        
-                       alert("hola");
-			
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Issue fetching the JSON: "
-				+ textStatus + " "
-				+ errorThrown + "!" + " Mauri");
-        }
+$(document).ready(function(){
+    $('form').submit(function() {
+         $.ajax({type: $(this).attr('method'),
+             url: $(this).attr('action'),
+             data: $(this).serialize(),
+             dataType: 'xml',
+             error: function(xhr, ajaxOptions, thrownError) {
+                $('div').html('Error AJAX enviando el formulario.');
+            },
+            success: function(xml) {
+                $('div').empty();;
+                $(xml).find('contactos').each(function(){
+                    $(this).find('contacto').each(function(){
+                         $('div').append($(this).find('nombre').text() + ' ');
+                         $('div').append($(this).find('apellidos').text() + ' ');
+                         $('div').append($(this).find('edad').text() + ' ');
+                         $('div').append($(this).find('direccion').text() + ' ');
+                         $('div').append($(this).find('notas').text() + '<br/>');
+                    });
+                    return false;
+                 });
+            }
+        })
+        return false;
     });
-    
-};
+});

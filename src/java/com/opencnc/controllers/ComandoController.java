@@ -11,12 +11,14 @@ import com.opencnc.beans.TipoCodigo;
 import com.opencnc.util.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author root
  */
 @Controller
+@RequestMapping("/comando")
 public class ComandoController {
     public void agregar(){
         Comando com = new Comando();

@@ -6,24 +6,40 @@
 
 package com.opencnc.controllers;
 
+import com.opencnc.beans.Arco;
+import com.opencnc.util.HibernateUtil;
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
  * @author root
  */
 @Controller
+@RequestMapping("/arco")
 public class ArcoController {
-    public void crear(){
-        
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView crear(){
+        Arco ar = new Arco();
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
     }
-    public void obtener(){
-        
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView obtener(){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
     }
-    public void actualizar(){
-        
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView actualizar(){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
     }
-    public void borrar(){
-        
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView borrar(){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
     }
 }

@@ -41,17 +41,8 @@ public class ProgramaController {
          if (sess != null){
               Session  s = HibernateUtil.getSessionFactory().openSession();
                 Usuario us = (Usuario)sess.getAttribute("usuario");
-
-                Criteria  cm = s.createCriteria(Modelo.class);
-
                 Criteria  c =s.createCriteria(Programa.class);
-
-                cm.add(Restrictions.eq("usuario", us));
-
-                //c.add(Restrictions.eq("programa", 12));
-
-                List<Modelo> lm = cm.list();
-
+                //c.add(Restrictions.eq("modelo", us));
                 List<Programa> l = c.list();
 
                 ModelAndView m = new ModelAndView("/programa/lista");
@@ -75,16 +66,25 @@ public class ProgramaController {
             
             Session s = HibernateUtil.getSessionFactory().openSession();
             Modelo u = (Modelo)s.get(Modelo.class,id);
-            p.setModelo(u);
-            p.setDescripcion("");
-            Transaction t = s.getTransaction();
-            s.beginTransaction();
-            s.saveOrUpdate(p);
-            t.commit();
-            m.addObject("programa",p);
-            //p.setModelo(u.getModeloId());
-            return m;
-            //return lista(request , response);
+                        
+            Criteria  cm = s.createCriteria(Programa.class);
+            cm.add(Restrictions.eq("modelo", u));
+            List<Programa> l = cm.list();
+            //cm.add(Restrictions.eq(id, u.getModeloId()));
+            if(l.isEmpty()){
+                //System.out.print("si");
+                p.setModelo(u);
+                p.setDescripcion("");
+                Transaction t = s.getTransaction();
+                s.beginTransaction();
+                s.saveOrUpdate(p);
+                t.commit();
+                m.addObject("programa",p);
+                //p.setModelo(u.getModeloId());
+                return m;
+            }
+            
+            return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
