@@ -87,7 +87,7 @@ public class ElementoGraficoController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
-    @RequestMapping  ("/elemento/borrar")
+    @RequestMapping  ("/elemento/borrar/{id}")
     public ModelAndView   borrar  (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{

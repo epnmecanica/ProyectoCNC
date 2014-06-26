@@ -97,7 +97,7 @@ public class SentenciaController {
         }
     }
     
-    @RequestMapping  ("/sentencia/borrar")
+    @RequestMapping  ("/sentencia/borrar/{id}")
     public ModelAndView borrar (@PathVariable Integer id,
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
