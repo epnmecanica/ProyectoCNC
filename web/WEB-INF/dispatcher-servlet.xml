@@ -46,11 +46,11 @@
                 <prop key="rol/lista.htm">rolController</prop>
                 <prop key="rol/borrarRol/{1}.htm">rolController</prop>
                 
-                <prop key="elemento/crear.htm">elementoGraficoController</prop>
+                <prop key="elemento/crear/{1}.htm">elementoGraficoController</prop>
                 <prop key="elemento/lista.htm">elementoGraficoController</prop>
                 <prop key="elemento/borrar/{1}.htm">elementoGraficoController</prop>
                 
-                <prop key="sentencia/crear.htm">sentenciaController</prop>
+                <prop key="sentencia/crear/{1}.htm">sentenciaController</prop>
                 <prop key="sentencia/lista.htm">sentenciaController</prop>
                 <prop key="sentencia/borrar/{1}.htm">sentenciaController</prop>
                 

@@ -6,6 +6,9 @@
 
 package com.opencnc.controllers;
 
+import com.opencnc.beans.Comando;
+import com.opencnc.beans.ElementoGrafico;
+import com.opencnc.beans.Programa;
 import com.opencnc.beans.Sentencia;
 import com.opencnc.util.HibernateUtil;
 import java.util.List;
@@ -45,14 +48,29 @@ public class SentenciaController {
  
         return m;
     }
-    @RequestMapping  ("/sentencia/crear")
-    public ModelAndView crear (
+    @RequestMapping  ("/sentencia/crear/{id}")
+    public ModelAndView crear (@PathVariable Integer id,
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
          HttpSession sess =  request.getSession();
         if (sess != null){
-            Sentencia s = new Sentencia();
+            Sentencia sen = new Sentencia();
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            // no es el id que se debe usar
+            ElementoGrafico e = (ElementoGrafico)s.get(ElementoGrafico.class, id);
+            Programa p = (Programa)s.get(Programa.class, id);
+            Comando com = (Comando)s.get(Comando.class,id);
+            
+            sen.setElementoGrafico(e);
+            sen.setPrograma(p);
+            sen.setComando(com);
+            
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(sen);
+            t.commit();
+            
             
             ModelAndView m = new ModelAndView("/sentencia/crear");
             m.addObject("sentencia",s);

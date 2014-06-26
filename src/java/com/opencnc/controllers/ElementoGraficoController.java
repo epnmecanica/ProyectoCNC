@@ -7,6 +7,7 @@
 package com.opencnc.controllers;
 
 import com.opencnc.beans.ElementoGrafico;
+import com.opencnc.beans.Modelo;
 import com.opencnc.util.HibernateUtil;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -47,15 +48,25 @@ public class ElementoGraficoController {
         return m;
     }
     
-    @RequestMapping  ("/elemento/crear")
-    public ModelAndView   crear  (
+    @RequestMapping  ("/elemento/crear/{id}")
+    public ModelAndView   crear  (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
             ElementoGrafico e = new ElementoGrafico();
-     
             ModelAndView m = new ModelAndView("/elemento/crear");
+            
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Modelo u = (Modelo)s.get(Modelo.class,id);
+            e.setModelo(u);
+            //falta seguir 
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(e);
+            t.commit();
+            
+            
             m.addObject("elementoGrafico",e);
             return m;
         }else{
@@ -88,7 +99,7 @@ public class ElementoGraficoController {
             s.delete(e);
             t.commit();
 
-            return null;
+            return lista(request , response);
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");

@@ -101,6 +101,7 @@
                         <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm">Editar</a>
                         <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm">Borrar</a>
                         <a href="${pageContext.request.contextPath}/programa/crear/${modelo.modeloId}.htm">Programa</a>
+                        <a href="${pageContext.request.contextPath}/elemento/crear/${modelo.modeloId}.htm">ElementoGrafico</a>
                     </td>
                 </tr>
             </c:forEach>
