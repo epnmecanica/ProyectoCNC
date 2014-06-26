@@ -27,5 +27,7 @@
 	<button type="button" onclick="fetch_json()">
 		Fetch JSON
 	</button> 
+        
+        <input type="button" value="Traer Lista linea" id="btnLineas" />
     </body>
 </html>

@@ -59,7 +59,10 @@
                 <prop key="programa/borrar/{1}.htm">progrmaController</prop>
                 
                 <prop key="cad/cad.htm">cadController</prop>
-               
+                
+                
+                <prop key="linea/crear.htm">lineaController</prop>
+                
                
             </props>
         </property>
@@ -104,13 +107,16 @@
     <bean name="progrmaController"
           class="com.opencnc.controllers.ProgramaController"
            />
-    <bean name="ComandoController"
+    <bean name="comandoController"
           class="com.opencnc.controllers.ComandoController"
            />
+   
+    
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />
 
     <mvc:annotation-driven />
     
+    <bean name="lineaController" class="com.opencnc.controllers.LineaController" />
            
 </beans>

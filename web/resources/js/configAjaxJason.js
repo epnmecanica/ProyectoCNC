@@ -1,26 +1,44 @@
 $(document).ready(function(){
-    $('form').submit(function() {
-         $.ajax({type: $(this).attr('method'),
-             url: $(this).attr('action'),
-             data: $(this).serialize(),
-             dataType: 'xml',
-             error: function(xhr, ajaxOptions, thrownError) {
-                $('div').html('Error AJAX enviando el formulario.');
-            },
-            success: function(xml) {
-                $('div').empty();;
-                $(xml).find('contactos').each(function(){
-                    $(this).find('contacto').each(function(){
-                         $('div').append($(this).find('nombre').text() + ' ');
-                         $('div').append($(this).find('apellidos').text() + ' ');
-                         $('div').append($(this).find('edad').text() + ' ');
-                         $('div').append($(this).find('direccion').text() + ' ');
-                         $('div').append($(this).find('notas').text() + '<br/>');
-                    });
-                    return false;
-                 });
+              $("#btnLineas").click( function(){
+                  var datosJ = { modeloId: 1 };
+                  //var datos = JSON.stringify( datosJ );
+                  $.ajax({  type: 'GET',
+                            url: 'linea/crear.htm',
+                            data: datosJ,
+                            dataType: 'json',
+                            //contentType: 'application/json; charset=utf-8',
+                            contentType: 'application/json',
+                            //mimeType: 'application/json',
+                            success:ObtenerPuntos,
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader('Accept', 'application/json');
+                                xhr.setRequestHeader('Content-Type', 'application/json');
+                                },
+                            error: function(jqXHR, textStatus, errorThrown) {
+                                    alert("Issue fetching the JSON: "
+                                                        + textStatus + " "
+                                                        + errorThrown + " !");
+                                }
+
+                                                }
+                    );
+                  //alert("solicitada la información");
+              }); 
+            });
+            
+            function ObtenerPuntos( data ){
+                var a = JSON.parse('[{"id": "1","nombre": "nombre 1"},{"id": "2","nombre": "nombre 2"}]');
+                console.debug(a);
+                for(i=0;i<data.length;i++)
+                {
+                    console.debug("- data[i]: ");
+                    console.debug(data[i]);
+                    
+                    
+                    console.debug("- data[i].elementoId: ");
+                    console.debug(data[i].elementoId);
+                    
+                    console.debug("- data[i].elementoGrafico.descripcion: ");
+                    console.debug(data[i].elementoGrafico.descripcion);
+                }
             }
-        })
-        return false;
-    });
-});
