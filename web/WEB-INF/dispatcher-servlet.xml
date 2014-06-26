@@ -61,7 +61,7 @@
                 <prop key="cad/cad.htm">cadController</prop>
                 
                 
-                <prop key="linea/crear.htm">lineaController</prop>
+                <prop key="linea/lista.htm">lineaController</prop>
                 
                
             </props>

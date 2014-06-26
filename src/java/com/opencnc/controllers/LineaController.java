@@ -30,7 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class LineaController {
-   @RequestMapping(    value="linea/crear", 
+   @RequestMapping(    value="linea/lista", 
                         method=RequestMethod.GET,
                         //headers = "Content-Type=application/json"//,
                         //produces = MediaType.APPLICATION_JSON_VALUE,
