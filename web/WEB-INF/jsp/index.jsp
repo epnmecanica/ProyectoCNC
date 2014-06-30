@@ -12,9 +12,7 @@
         </script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
        
-        
-        <title>OPEN CNC</title>
-        <script language="javascript">
+         <script language="javascript">
           $(document).ready(function(){
               $("#btnLineas").click( function(){
                   var datosJ = { modeloId: 1 };
@@ -57,6 +55,8 @@
             }
             
         </script>
+        <title>OPEN CNC</title>
+        
     </head>
 
     <body>

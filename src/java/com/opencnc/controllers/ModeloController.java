@@ -43,7 +43,7 @@ public class ModeloController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
        
-    //@RequestMapping  (value="/modelo/abrir", method=RequestMethod.POST)
+    
     @RequestMapping  (value="/modelo/abrir")
     public ModelAndView   abrir  (/*@RequestParam Integer usuarioId,*/
                                             HttpServletRequest request, 
