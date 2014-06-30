@@ -23,11 +23,13 @@
     </head>
     <body>
         <h1>AJAX CRUD!</h1>
+        <!--
         <div id="theJson"></div>
 	<button type="button" onclick="fetch_json()">
 		Fetch JSON
 	</button> 
         
         <input type="button" value="Traer Lista linea" id="btnLineas" />
+        -->
     </body>
 </html>

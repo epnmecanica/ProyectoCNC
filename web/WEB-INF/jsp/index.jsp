@@ -1,13 +1,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="<c:url value="/resources/js/jquery-1.10.2.js"/>" > </script>
+        <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+       
+        
         <title>OPEN CNC</title>
         <script language="javascript">
-            $(document).ready(function(){
+          $(document).ready(function(){
               $("#btnLineas").click( function(){
                   var datosJ = { modeloId: 1 };
                   //var datos = JSON.stringify( datosJ );
@@ -22,7 +30,8 @@
                             beforeSend: function (xhr) {
                                 xhr.setRequestHeader('Accept', 'application/json');
                                 xhr.setRequestHeader('Content-Type', 'application/json');
-                                }
+                                },
+                            
                         }
                     );
                   //alert("solicitada la información");
@@ -30,6 +39,7 @@
             });
             
             function ObtenerPuntos( data ){
+                alert("entera");
                 var a = JSON.parse('[{"id": "1","nombre": "nombre 1"},{"id": "2","nombre": "nombre 2"}]');
                 console.debug(a);
                 for(i=0;i<data.length;i++)

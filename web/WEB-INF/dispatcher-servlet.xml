@@ -62,8 +62,10 @@
                 
                 
                 <prop key="linea/lista.htm">lineaController</prop>
-                
-               
+                <!--
+                <prop key="arco/lista.htm">arcoController</prop>
+                <prop key="texto/lista.htm">textoController</prop>
+               -->
             </props>
         </property>
     </bean>
@@ -118,5 +120,8 @@
     <mvc:annotation-driven />
     
     <bean name="lineaController" class="com.opencnc.controllers.LineaController" />
-           
+    <!--
+    <bean name="arcoController" class="com.opencnc.controllers.ArcoController" />
+    <bean name="textoController" class="com.opencnc.controllers.TextoController" />
+    -->
 </beans>

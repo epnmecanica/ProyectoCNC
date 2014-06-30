@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder;
 import com.opencnc.beans.Linea;
 import com.opencnc.util.HibernateUtil;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
@@ -30,33 +31,21 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class LineaController {
-   @RequestMapping(    value="linea/lista", 
+   @RequestMapping(     value="linea/lista", 
                         method=RequestMethod.GET,
-                        //headers = "Content-Type=application/json"//,
-                        //produces = MediaType.APPLICATION_JSON_VALUE,
-                        //consumes = MediaType.APPLICATION_JSON_VALUE,
                         headers = "Accept=*/*"
                         )
+   
     public ResponseEntity<String> listaLinea(@RequestParam int modeloId){
-        Session  s = HibernateUtil.getSessionFactory().openSession();
-        Criteria  c =s.createCriteria(Linea.class).setFetchMode("elementografico", FetchMode.JOIN);
-        List<Linea> l = c.list();
+      
+      // Session  s = HibernateUtil.getSessionFactory().openSession();
         
-        //GsonBuilder b = new GsonBuilder();
-        ///b.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
-        //Gson gson = b.create();
-        HttpHeaders headers = new HttpHeaders();
-        headers.set(  "Content-Type", "application/json" );
-        //Type tipo = new TypeToken<List<Linea>>(){}.getType();
-        //String datos = gson.toJson(l, tipo);
-        //ResponseEntity<String> respo = new ResponseEntity<>(datos, headers, HttpStatus.CREATED );
-        //return respo;
-        /*
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.registerTypeAdapter(Linea.class, new LineaJson()).create();
-        String datos = gson.toJson(l);
-        ResponseEntity<String> respo = new ResponseEntity<>(datos, headers, HttpStatus.CREATED );
-        return respo;*/
+        //Criteria  c =s.createCriteria(Linea.class).setFetchMode("elementografico", FetchMode.JOIN);
+        //List<Linea> l = c.list();
+       
+        //HttpHeaders headers = new HttpHeaders();
+       // headers.set(  "Content-Type", "application/json" );
+      
         return null;
     }   
 
@@ -66,13 +55,27 @@ public class LineaController {
         HttpHeaders headers = new HttpHeaders();
         headers.set(  "Content-Type", "application/json" );
         String json = gson.toJson( o );
-        
-        /*GsonBuilder b = new GsonBuilder();
-        b.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY);
-        Gson gson = b.create();
-        HttpHeaders headers = new HttpHeaders();
-        headers.set(  "Content-Type", "application/json" );
-        String json = gson.toJson( o );*/
         return new ResponseEntity<String>( json, headers, HttpStatus.CREATED );
+    }
+    @RequestMapping ("/linea/crear")
+    public ModelAndView crear ( int modeloId){
+        Linea ar = new Linea();
+       
+        return null;
+    }
+    
+    public ModelAndView obtener(){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
+    }
+   
+    public ModelAndView actualizar(){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
+    }
+    
+    public ModelAndView borrar(){
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
     }
 }
