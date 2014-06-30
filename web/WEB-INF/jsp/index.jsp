@@ -12,55 +12,16 @@
         </script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
        
-         <script language="javascript">
-          $(document).ready(function(){
-              $("#btnLineas").click( function(){
-                  var datosJ = { modeloId: 1 };
-                  //var datos = JSON.stringify( datosJ );
-                  $.ajax({  type: 'GET',
-                            url: 'linea/lista.htm',
-                            data: datosJ,
-                            dataType: 'json',
-                            //contentType: 'application/json; charset=utf-8',
-                            contentType: 'application/json',
-                            //mimeType: 'application/json',
-                            success:ObtenerPuntos,
-                            beforeSend: function (xhr) {
-                                xhr.setRequestHeader('Accept', 'application/json');
-                                xhr.setRequestHeader('Content-Type', 'application/json');
-                                },
-                            
-                        }
-                    );
-                  //alert("solicitada la información");
-              }); 
-            });
-            
-            function ObtenerPuntos( data ){
-                alert("entera");
-                var a = JSON.parse('[{"id": "1","nombre": "nombre 1"},{"id": "2","nombre": "nombre 2"}]');
-                console.debug(a);
-                for(i=0;i<data.length;i++)
-                {
-                    console.debug("- data[i]: ");
-                    console.debug(data[i]);
-                    
-                    
-                    console.debug("- data[i].elementoId: ");
-                    console.debug(data[i].elementoId);
-                    
-                    console.debug("- data[i].elementoGrafico.descripcion: ");
-                    console.debug(data[i].elementoGrafico.descripcion);
-                }
-            }
-            
-        </script>
+        <script type="text/javascript" src="<c:url value='/resources/js/configAjaxJason.js'/>"></script>
+       
         <title>OPEN CNC</title>
         
     </head>
 
     <body>
         <input type="button" value="Traer Lista linea" id="btnLineas" />
+        
+        <button type='button' onclick='RestDelete()'>DELETE</button>
         
         <br>
             <a href="usuario/lista.htm">Usuario</a>

@@ -6,20 +6,13 @@
 
 package com.opencnc.controllers;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.opencnc.beans.Linea;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
 import org.hibernate.Session;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class LineaController {
     
-   @RequestMapping(     value="linea/crear", 
+   @RequestMapping(     value="linea/lista", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"
                         )
@@ -58,13 +51,13 @@ public class LineaController {
         return null;
     }
     @RequestMapping (/*"/linea/crear"*/
-                        value="linea/lista", 
+                        value="linea/crear", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"   
                     )
     public ModelAndView crear ( @RequestParam(value = "modeloId", required = true) int modeloId, 
-                                /*@RequestParam(value = "myVal2", required = true) String myVal2, */
-                                HttpServletRequest request, HttpServletResponse response){
+                                @RequestParam(value = "myVal2", required = true) String myVal2, 
+                                HttpServletRequest request, HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         Session s = HibernateUtil.getSessionFactory().openSession();
         Usuario us = (Usuario)sess.getAttribute("usuario");
@@ -72,19 +65,32 @@ public class LineaController {
        
         return obtener(request, response);
     }
-    
-    public ModelAndView obtener(HttpServletRequest request, HttpServletResponse response
+    @RequestMapping (/*"/linea/crear"*/
+                        value="linea/obtener", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*"   
+                    )
+    public ModelAndView obtener(HttpServletRequest request, 
+                                HttpServletResponse response
                                ){
         Session s = HibernateUtil.getSessionFactory().openSession();
  
         return null;
     }
-   
+     @RequestMapping (
+                        value="linea/actualizar", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*"   
+                    )
     public ModelAndView actualizar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    
+     @RequestMapping (
+                        value="linea/borrar", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*"   
+                    )
     public ModelAndView borrar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;

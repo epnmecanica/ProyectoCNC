@@ -19,9 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
  * @author root
  */
 @Controller
-@RequestMapping("/arco")
+
 public class ArcoController {
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="arco/crear", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView crear(){
         Arco ar = new Arco();
         Session s = HibernateUtil.getSessionFactory().openSession();

@@ -60,12 +60,15 @@
                 
                 <prop key="cad/cad.htm">cadController</prop>
                 
-                
                 <prop key="linea/lista.htm">lineaController</prop>
-                <!--
-                <prop key="arco/lista.htm">arcoController</prop>
-                <prop key="texto/lista.htm">textoController</prop>
-               -->
+                <prop key="linea/crear.htm">lineaController</prop>
+                <prop key="linea/obtener.htm">lineaController</prop>
+                <prop key="linea/actualizar.htm">lineaController</prop>
+                <prop key="linea/borrar.htm">lineaController</prop>
+                
+                
+
+               
             </props>
         </property>
     </bean>
@@ -113,15 +116,20 @@
           class="com.opencnc.controllers.ComandoController"
            />
    
+    <bean name="lineaController" 
+          class="com.opencnc.controllers.LineaController" 
+           />
     
+     
+   
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />
 
     <mvc:annotation-driven />
-    
-    <bean name="lineaController" class="com.opencnc.controllers.LineaController" />
     <!--
     <bean name="arcoController" class="com.opencnc.controllers.ArcoController" />
     <bean name="textoController" class="com.opencnc.controllers.TextoController" />
-    -->
+   -->
+    
+   
 </beans>

@@ -19,9 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
  * @author root
  */
 @Controller
-@RequestMapping("/texto")
+
 public class TextoController {
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="texto/crear", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView crear(){
         Texto tx = new Texto();
         Session s = HibernateUtil.getSessionFactory().openSession();
