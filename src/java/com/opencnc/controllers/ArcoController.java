@@ -29,17 +29,23 @@ public class ArcoController {
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="arco/obtener", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView obtener(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="arco/actualizar", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView actualizar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="arco/borrar", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView borrar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;

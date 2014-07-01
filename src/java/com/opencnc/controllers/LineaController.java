@@ -28,29 +28,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class LineaController {
     
-   @RequestMapping(     value="linea/lista", 
-                        method=RequestMethod.GET,
-                        headers = "Accept=*/*"
-                        )
-    public void listaLinea(@RequestParam(value = "modeloId", required = true) int modeloId, 
-                            /*@RequestParam(value = "myVal2", required = true) String myVal2, */
-                            HttpServletRequest request, HttpServletResponse response){
-        
-        Session s = HibernateUtil.getSessionFactory().openSession();
-        int modelos = modeloId;
-    }
-   /*
-    public ResponseEntity<String> listaLinea(@RequestParam int modeloId){
-     
-        return null;
-    }   
-*/
-    private ResponseEntity<String> createJsonResponse( Object o )
-    {
-       
-        return null;
-    }
-    @RequestMapping (/*"/linea/crear"*/
+   
+    @RequestMapping (
                         value="linea/crear", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"   
@@ -93,6 +72,28 @@ public class LineaController {
                     )
     public ModelAndView borrar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
+        return null;
+    }
+    @RequestMapping(     value="linea/lista", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*"
+                        )
+    public void listaLinea(@RequestParam(value = "modeloId", required = true) int modeloId, 
+                            /*@RequestParam(value = "myVal2", required = true) String myVal2, */
+                            HttpServletRequest request, HttpServletResponse response){
+        
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        int modelos = modeloId;
+    }
+   /*
+    public ResponseEntity<String> listaLinea(@RequestParam int modeloId){
+     
+        return null;
+    }   
+*/
+    private ResponseEntity<String> createJsonResponse( Object o )
+    {
+       
         return null;
     }
 }

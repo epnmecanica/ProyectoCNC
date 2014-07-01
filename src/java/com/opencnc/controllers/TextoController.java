@@ -29,17 +29,23 @@ public class TextoController {
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="texto/obtener", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView obtener(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="texto/actualizar", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView actualizar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value="texto/borrar", 
+                        method=RequestMethod.GET,
+                        headers = "Accept=*/*")
     public ModelAndView borrar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;

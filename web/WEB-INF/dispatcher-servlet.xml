@@ -66,7 +66,13 @@
                 <prop key="linea/actualizar.htm">lineaController</prop>
                 <prop key="linea/borrar.htm">lineaController</prop>
                 
+                <prop key="arco/crear.htm">arcoController</prop>
+                <prop key="arco/obtener.htm">arcoController</prop>
+                <prop key="arco/actualizar.htm">arcoController</prop>
+                <prop key="arco/borrar.htm">arcoController</prop>
+                <prop key="arco/lista.htm">arcoController</prop>
                 
+                <prop key="texto/crear.htm">textoController</prop>
 
                
             </props>
@@ -120,16 +126,19 @@
           class="com.opencnc.controllers.LineaController" 
            />
     
-     
+    <bean name="arcoController" 
+          class="com.opencnc.controllers.ArcoController" 
+           />
+    
+    <bean name="textoController" 
+          class="com.opencnc.controllers.TextoController" 
+           />
    
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />
 
     <mvc:annotation-driven />
-    <!--
-    <bean name="arcoController" class="com.opencnc.controllers.ArcoController" />
-    <bean name="textoController" class="com.opencnc.controllers.TextoController" />
-   -->
+    
     
    
 </beans>
