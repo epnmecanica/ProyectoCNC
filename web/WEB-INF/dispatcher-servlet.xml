@@ -73,6 +73,9 @@
                 <prop key="arco/lista.htm">arcoController</prop>
                 
                 <prop key="texto/crear.htm">textoController</prop>
+                <prop key="texto/obtener.htm">textoController</prop>
+                <prop key="texto/actualizar.htm">textoController</prop>
+                <prop key="texto/borrar.htm">textoController</prop>
 
                
             </props>

@@ -36,6 +36,9 @@ public class LineaController {
                     )
     public ModelAndView crear ( @RequestParam(value = "modeloId", required = true) int modeloId, 
                                 @RequestParam(value = "myVal2", required = true) String myVal2, 
+                                @RequestParam(value = "color", required = true) String color,
+                                @RequestParam(value = "x2", required = true) int x2,
+                                @RequestParam(value = "y2", required = true) int y2,
                                 HttpServletRequest request, HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -74,7 +77,7 @@ public class LineaController {
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(     value="linea/lista", 
+    @RequestMapping(    value="linea/lista", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"
                         )

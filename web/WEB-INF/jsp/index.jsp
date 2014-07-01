@@ -13,7 +13,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
        
         <script type="text/javascript" src="<c:url value='/resources/js/configAjaxJason.js'/>"></script>
-       
+        
         <title>OPEN CNC</title>
         
     </head>
