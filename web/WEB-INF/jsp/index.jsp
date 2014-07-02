@@ -42,8 +42,13 @@
             <a href="modelo/crearModelo.htm">Crear Nuevo Modelo</a>
         </br>
         <br>
-            <a href="resources/index.html">CAD</a>
-        </br>       
+            <a href="cad/cad.htm">CAD</a>
+        </br>
+        
+        <br>
+        <a href="resources/index.html">CAD</a>
+        </br>   
+        
         <br>
             <a href="rol/crear.htm">Crear Rol</a>
         </br>

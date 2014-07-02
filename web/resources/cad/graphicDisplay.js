@@ -120,7 +120,7 @@ GraphicDisplay.prototype.init = function() {
 	 */ 
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
-	
+	//alert(this.logicDisplay.exportJSON());
         
         
 	/*
@@ -1167,6 +1167,11 @@ GraphicDisplay.prototype.updateCamera = function() {
 GraphicDisplay.prototype.setModeShape = function(getShape) {
 	this.setMode(this.MODES.ADDSHAPE);
 	this.temporaryShape = getShape();
+};
+GraphicDisplay.prototype.getJSON = function(){
+        
+        alert(this.logicDisplay.exportJSON());
+        
 };
 
 GraphicDisplay.prototype.setMode = function(mode) {

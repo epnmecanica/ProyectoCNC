@@ -4,7 +4,26 @@
         alert("funciona 2335");
     };
        $(document).ready(function(){
-                
+        function DataJason (){
+                this.MODOS = {
+                    LINEA : 1,
+                    ARCO : 2,
+                    TEXTO : 3
+                };
+                this.ACTION ={
+                    CREAR : 1,
+                    OBTENER: 2,
+                    ACTUALIZAR: 3,
+                    BORRAR : 4
+                };
+                this.OPCIONES ={
+                    COLOR : "ROJO"
+                };
+        };
+
+        DataJason.prototype.mostrar = function(){
+            
+        };        
         var prefix = new Object();
         prefix.Modos = new Array();
         prefix.Acciones = new Array();
@@ -26,8 +45,41 @@
         
         alert(prefix.url);
               $("#btnLineas").click( function(){
-                  
-                   var datosJ = { modeloId: 1 , 
+              var datosJ = [{"active":true,
+                                "type":2,
+                                "color":"blue",
+                                "radius":1,
+                                "x1":478,
+                                "y1":-484,
+                                "x2":1110,
+                                "y2":-822},
+                            {"active":true,
+                                "type":3,
+                                "color":"blue",
+                                "radius":1,
+                                "x1":1112,
+                                "y1":-228,
+                                "x2":1102,
+                                "y2":-508},
+                            {"active":true,
+                                "type":5,
+                                "color":"blue",
+                                "radius":1,
+                                "x1":212,
+                                "y1":-672,
+                                "x2":226,
+                                "y2":-924,
+                                "x3":404,
+                                "y3":-696},
+                            {"active":true,
+                                "type":7,
+                                "color":"#eee",
+                                "radius":5,
+                                "x":484,
+                                "y":-968,
+                                "text":"hola"}]
+
+                  /* var datosJ = { modeloId: 1 , 
                                  myVal2: "hi",
                                  tipoElemento: "linea",
                                  posicionX1: 0,
@@ -41,11 +93,12 @@
                                  orden: 1,
                                  color:"blanco",
                                  descripcion: "",
+                                 acccion: "crear",
                                  x2: 5,
                                  y2: 3
-                                };
+                                };*/
                   //var datos = JSON.stringify( datosJ );
-                    datosJ.color = "negro";
+                   // datosJ.color = "negro";
                   
                   $.ajax({  type: 'GET',
                             url: prefix.url,
