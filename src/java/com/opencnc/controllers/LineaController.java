@@ -6,9 +6,15 @@
 
 package com.opencnc.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.opencnc.beans.Linea;
 import com.opencnc.beans.Usuario;
+import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
+import java.lang.reflect.Type;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,7 +40,8 @@ public class LineaController {
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"   
                     )
-    public ModelAndView crear ( @RequestParam(value = "modeloId", required = true) int modeloId, 
+    public ModelAndView crear ( 
+                                @RequestParam(value = "modeloId", required = true) int modeloId, 
                                 @RequestParam(value = "myVal2", required = true) String myVal2, 
                                 @RequestParam(value = "color", required = true) String color,
                                 @RequestParam(value = "x2", required = true) int x2,
@@ -81,12 +88,20 @@ public class LineaController {
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"
                         )
-    public void listaLinea(@RequestParam(value = "modeloId", required = true) int modeloId, 
-                            /*@RequestParam(value = "myVal2", required = true) String myVal2, */
+    public void listaLinea(@RequestParam(value = "datos", required = true) String datos, 
+                            
                             HttpServletRequest request, HttpServletResponse response){
         
         Session s = HibernateUtil.getSessionFactory().openSession();
-        int modelos = modeloId;
+        Gson gson = new Gson();
+       
+        Type collectionType = new TypeToken<List<lineatool>>(){}.getType();
+        List<lineatool> ints2 = gson.fromJson(datos, collectionType);
+        //GsonBuilder gsonBuilder = new GsonBuilder();
+        //Gson gson = gsonBuilder.registerTypeAdapter(Linea.class, new LineaJson()).create();
+        
+        //String datos = gson.toJson(l);
+        
     }
    /*
     public ResponseEntity<String> listaLinea(@RequestParam int modeloId){

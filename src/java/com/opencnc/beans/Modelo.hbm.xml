@@ -53,7 +53,8 @@
             </key>
             <one-to-many class="com.opencnc.beans.Programa" />
         </set>
-        <set name="elementoGraficos" table="ElementoGrafico" inverse="true" lazy="true" fetch="select">
+        <set name="elementoGraficos" table="ElementoGrafico" inverse="true" lazy="true" fetch="select" cascade="all">
+         
             <key>
                 <column name="modeloID" not-null="true" />
             </key>

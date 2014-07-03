@@ -4,26 +4,7 @@
         alert("funciona 2335");
     };
        $(document).ready(function(){
-        function DataJason (){
-                this.MODOS = {
-                    LINEA : 1,
-                    ARCO : 2,
-                    TEXTO : 3
-                };
-                this.ACTION ={
-                    CREAR : 1,
-                    OBTENER: 2,
-                    ACTUALIZAR: 3,
-                    BORRAR : 4
-                };
-                this.OPCIONES ={
-                    COLOR : "ROJO"
-                };
-        };
-
-        DataJason.prototype.mostrar = function(){
-            
-        };        
+        
         var prefix = new Object();
         prefix.Modos = new Array();
         prefix.Acciones = new Array();
@@ -43,9 +24,10 @@
         //prefix.url = 'linea/obtener.htm';
         prefix.url = prefix.Modos[0] + prefix.Acciones[0] + prefix.Extensiones[0];
         
-        alert(prefix.url);
+        //alert(prefix.url);
               $("#btnLineas").click( function(){
-              var datosJ = [{"active":true,
+                  
+              var datosJ = {datos:JSON.stringify([{"active":true,
                                 "type":2,
                                 "color":"blue",
                                 "radius":1,
@@ -77,9 +59,9 @@
                                 "radius":5,
                                 "x":484,
                                 "y":-968,
-                                "text":"hola"}]
-
-                  /* var datosJ = { modeloId: 1 , 
+                                "text":"hola"}])};
+/*
+                   var datosJ = { modeloId: 1 , 
                                  myVal2: "hi",
                                  tipoElemento: "linea",
                                  posicionX1: 0,
@@ -101,7 +83,7 @@
                    // datosJ.color = "negro";
                   
                   $.ajax({  type: 'GET',
-                            url: prefix.url,
+                            url: 'linea/lista.htm',
                             data: datosJ,
                             dataType: 'json',
                             //contentType: 'application/json; charset=utf-8',

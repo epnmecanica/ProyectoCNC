@@ -42,7 +42,7 @@
             <column name="modificadoFecha" length="19" />
         </property>
         <one-to-one name="arco" class="com.opencnc.beans.Arco"></one-to-one>
-        <set name="sentencias" table="Sentencia" inverse="true" lazy="true" fetch="select">
+        <set name="sentencias" table="Sentencia" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="elementoID" />
             </key>
