@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.opencnc.beans.Arco;
+import com.opencnc.beans.ElementoGrafico;
 import com.opencnc.beans.Linea;
 import com.opencnc.beans.Texto;
 import com.opencnc.beans.Usuario;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -98,14 +100,14 @@ public class LineaController {
                             HttpServletRequest request, 
                             HttpServletResponse response) throws Exception{
         
-        
+        Session s = HibernateUtil.getSessionFactory().openSession();
         Gson gson = new Gson();
        
         Type collectionType = new TypeToken<List<lineatool>>(){}.getType();
         List<lineatool> ints2 = gson.fromJson(datos, collectionType);
       
         Iterator<lineatool> elem = ints2.iterator();
-        
+        ElementoGraficoController egc = new ElementoGraficoController();
         while(elem.hasNext()){
             lineatool tipo = elem.next();
            // System.out.println("el tipo es: "+ tipo.getType());
@@ -113,7 +115,22 @@ public class LineaController {
                 case 1:  System.out.print("es punto");
                          break;
                 case 2:  System.out.print("es linea");
-                         guardarLinea(tipo);
+                         egc.actualizar(tipo, 63, request, response);
+                         
+                         ElementoGrafico e = (ElementoGrafico)s.get(ElementoGrafico.class,0);
+                         Linea l = new Linea();
+                         
+                         
+                         l.setPosicionX2(tipo.getX2());
+                         l.setPosicionY2(tipo.getY2());
+                         l.setElementoId(1);
+                         l.setElementoGrafico(e);
+                         Transaction t = s.getTransaction();
+                         s.beginTransaction();
+                         s.saveOrUpdate(l);
+                         t.commit();
+                         
+                         //guardarLinea(tipo);
                          break;
                 case 3:  System.out.print("es circulo");
                          break;
@@ -141,7 +158,7 @@ public class LineaController {
         l.setPosicionX2(tipo.getX2());
         l.setPosicionY2(tipo.getY2());
         ElementoGraficoController fm = new ElementoGraficoController();
-        fm.actualizar(tipo, 63, null, null);
+        fm.actualizar(tipo ,63, null, null);
     }
     public void guardarTexto (lineatool tipo){
         System.out.print(tipo);

@@ -32,6 +32,7 @@
         <br>
             <a href="usuario/recuperarContra.htm">Recuperar contraseña</a>
         </br>
+        <%--
         <br>
             <a href="modelo/abrir.htm">Abrir Modelo</a>
         </br>
@@ -59,12 +60,14 @@
             <a href="sentencia/crear.htm">Sentencia</a>
         </br>
         <br>
+            <a href="cad/cad.htm">CAD CRUD</a>
+        </br>
+        --%>
+        <br>
             <a href="usuario/logout.htm">Log out</a>
         </br>
         
-        <br>
-            <a href="cad/cad.htm">CAD CRUD</a>
-        </br>
+        
         
     </body>
 </html>

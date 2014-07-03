@@ -7,9 +7,13 @@
 package com.opencnc.controllers;
 
 import com.opencnc.beans.ElementoGrafico;
+import com.opencnc.beans.Linea;
 import com.opencnc.beans.Modelo;
 import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -81,7 +85,8 @@ public class ElementoGraficoController {
     }
     
     @RequestMapping  ("/elemento/actualizar")
-    public ModelAndView   actualizar  (lineatool ln,
+    public ElementoGrafico   actualizar  (lineatool ln,
+                                        
                                         @RequestParam Integer Id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
@@ -92,13 +97,18 @@ public class ElementoGraficoController {
             
             Modelo u = (Modelo)s.get(Modelo.class,Id);
             e.setModelo(u);
+            Calendar c = new GregorianCalendar();
+            Date d1 = c.getTime();
+            e.setCreadoFecha(d1);
+            e.setPosicionX(ln.getX1());
+            e.setPosicionY(ln.getY1());
             //falta seguir 
             Transaction t = s.getTransaction();
             s.beginTransaction();
             s.saveOrUpdate(e);
             t.commit();
             
-            return null; 
+            return e; 
        // }else{
         //     request.removeAttribute("usuario");
          //   return new ModelAndView("redirect:/usuario/login.htm");
