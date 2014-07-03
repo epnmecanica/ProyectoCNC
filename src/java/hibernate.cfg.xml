@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/opencnc?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password">epn1234</property>
     <mapping resource="com/opencnc/beans/UnidadMedida.hbm.xml"/>
     <mapping resource="com/opencnc/beans/Sentencia.hbm.xml"/>
     <mapping resource="com/opencnc/beans/Linea.hbm.xml"/>
