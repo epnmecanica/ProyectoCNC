@@ -19,10 +19,7 @@
     </head>
 
     <body>
-        <input type="button" value="Traer Lista linea" id="btnLineas" />
-        
-        <button type='button' onclick='RestDelete()'>DELETE</button>
-        
+                
         <br>
             <a href="usuario/lista.htm">Usuario</a>
         </br>

@@ -8,6 +8,7 @@ package com.opencnc.controllers;
 
 import com.opencnc.beans.ElementoGrafico;
 import com.opencnc.beans.Modelo;
+import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -30,6 +32,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class ElementoGraficoController {
+    
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
    
@@ -54,9 +57,11 @@ public class ElementoGraficoController {
                                     HttpServletResponse response) throws Exception{
         HttpSession sess =  request.getSession();
         if (sess != null){
-            ElementoGrafico e = new ElementoGrafico();
+            //ElementoGrafico e = new ElementoGrafico();
             ModelAndView m = new ModelAndView("/elemento/crear");
+            m.addObject("Id",id);
             
+            /*
             Session s = HibernateUtil.getSessionFactory().openSession();
             Modelo u = (Modelo)s.get(Modelo.class,id);
             e.setModelo(u);
@@ -66,8 +71,8 @@ public class ElementoGraficoController {
             s.saveOrUpdate(e);
             t.commit();
             
-            
-            m.addObject("elementoGrafico",e);
+            */
+           //m.addObject("elementoGrafico",e);
             return m;
         }else{
              request.removeAttribute("usuario");
@@ -76,16 +81,28 @@ public class ElementoGraficoController {
     }
     
     @RequestMapping  ("/elemento/actualizar")
-    public ModelAndView   actualizar  (@ModelAttribute ElementoGrafico e,
+    public ModelAndView   actualizar  (lineatool ln,
+                                        @RequestParam Integer Id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
-        HttpSession sess =  request.getSession();
-        if (sess != null){
-           return null; 
-        }else{
-             request.removeAttribute("usuario");
-            return new ModelAndView("redirect:/usuario/login.htm");
-        }
+        //HttpSession sess =  request.getSession();
+        //if (sess != null){
+            ElementoGrafico e = new ElementoGrafico();
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            
+            Modelo u = (Modelo)s.get(Modelo.class,Id);
+            e.setModelo(u);
+            //falta seguir 
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(e);
+            t.commit();
+            
+            return null; 
+       // }else{
+        //     request.removeAttribute("usuario");
+         //   return new ModelAndView("redirect:/usuario/login.htm");
+        //}
     }
     @RequestMapping  ("/elemento/borrar/{id}")
     public ModelAndView   borrar  (@PathVariable Integer id,
@@ -132,4 +149,9 @@ public class ElementoGraficoController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }  
+
+    /**
+     * @return the modelID
+     */
+   
 }

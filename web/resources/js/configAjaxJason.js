@@ -1,32 +1,12 @@
-    
-    
-    function RestDelete(){  
-        alert("funciona 2335");
-    };
        $(document).ready(function(){
         
-        var prefix = new Object();
-        prefix.Modos = new Array();
-        prefix.Acciones = new Array();
-        prefix.Extensiones = new Array();
-        
-        prefix.Modos[0]= 'linea/';
-        prefix.Modos[1]= 'arco/';
-        prefix.Modos[2]= 'texto/';
-        
-        prefix.Acciones[0]= 'crear';
-        prefix.Acciones[1]= 'obtener';
-        prefix.Acciones[2]= 'actualizar';
-        prefix.Acciones[3]= 'borrar';
-        
-        prefix.Extensiones[0] = '.htm';
-        
-        //prefix.url = 'linea/obtener.htm';
-        prefix.url = prefix.Modos[0] + prefix.Acciones[0] + prefix.Extensiones[0];
-        
-        //alert(prefix.url);
+        /*       
+        var pathname = window.location.pathname;
+        //alert();
+        var path = pathname.substring(0 , pathname.indexOf("."));
+        */
               $("#btnLineas").click( function(){
-                  
+             
               var datosJ = {datos:JSON.stringify([{"active":true,
                                 "type":2,
                                 "color":"blue",
@@ -81,7 +61,7 @@
                                 };*/
                   //var datos = JSON.stringify( datosJ );
                    // datosJ.color = "negro";
-                  
+                    //alert(datosJ);
                   $.ajax({  type: 'GET',
                             url: 'linea/lista.htm',
                             data: datosJ,

@@ -12,8 +12,8 @@ package com.opencnc.beans;
  */
 
 public class lineatool {
-    private boolean active;
-private         int                   type;
+private boolean                       active;
+private int                           type;
 private String                        color;
 private int                           radius;
 private int                           x;
@@ -22,7 +22,7 @@ private int                           x1;
 private int                           y1;
 private int                           x2;
 private int                           y2;
-private String                  text;
+private String                        text;
 
     /**
      * @return the active

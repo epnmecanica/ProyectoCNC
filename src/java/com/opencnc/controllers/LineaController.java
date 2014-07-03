@@ -9,18 +9,23 @@ package com.opencnc.controllers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.opencnc.beans.Arco;
 import com.opencnc.beans.Linea;
+import com.opencnc.beans.Texto;
 import com.opencnc.beans.Usuario;
 import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
 import java.lang.reflect.Type;
+import java.util.Iterator;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -84,31 +89,68 @@ public class LineaController {
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(    value="linea/lista", 
+    @RequestMapping(    value="elemento/crear/linea/lista", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"
                         )
     public void listaLinea(@RequestParam(value = "datos", required = true) String datos, 
-                            
-                            HttpServletRequest request, HttpServletResponse response){
+                           
+                            HttpServletRequest request, 
+                            HttpServletResponse response) throws Exception{
         
-        Session s = HibernateUtil.getSessionFactory().openSession();
+        
         Gson gson = new Gson();
        
         Type collectionType = new TypeToken<List<lineatool>>(){}.getType();
         List<lineatool> ints2 = gson.fromJson(datos, collectionType);
-        //GsonBuilder gsonBuilder = new GsonBuilder();
-        //Gson gson = gsonBuilder.registerTypeAdapter(Linea.class, new LineaJson()).create();
+      
+        Iterator<lineatool> elem = ints2.iterator();
         
-        //String datos = gson.toJson(l);
-        
+        while(elem.hasNext()){
+            lineatool tipo = elem.next();
+           // System.out.println("el tipo es: "+ tipo.getType());
+            switch (tipo.getType()) {
+                case 1:  System.out.print("es punto");
+                         break;
+                case 2:  System.out.print("es linea");
+                         guardarLinea(tipo);
+                         break;
+                case 3:  System.out.print("es circulo");
+                         break;
+                case 5:  System.out.print("es arco");
+                         break;
+                case 7:  System.out.print("es texto");
+                         guardarTexto(tipo);
+                         break;
+                default: System.out.print("no es");
+                         break;
+            }
+        }
     }
    /*
     public ResponseEntity<String> listaLinea(@RequestParam int modeloId){
      
         return null;
     }   
-*/
+    */
+    //@RequestMapping ("/linea/guardar")
+    public void guardarLinea (lineatool tipo) throws Exception{
+      
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Linea l = new Linea();
+        l.setPosicionX2(tipo.getX2());
+        l.setPosicionY2(tipo.getY2());
+        ElementoGraficoController fm = new ElementoGraficoController();
+        fm.actualizar(tipo, 63, null, null);
+    }
+    public void guardarTexto (lineatool tipo){
+        System.out.print(tipo);
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Texto tx = new Texto();
+        
+        
+    }
+    
     private ResponseEntity<String> createJsonResponse( Object o )
     {
        

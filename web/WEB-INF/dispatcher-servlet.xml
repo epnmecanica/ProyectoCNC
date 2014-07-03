@@ -60,7 +60,9 @@
                 
                 <prop key="cad/cad.htm">cadController</prop>
                 
-                <prop key="linea/lista.htm">lineaController</prop>
+                <prop key="elemento/crear/linea/lista.htm">lineaController</prop>
+                
+                <!--<prop key="linea/lista.htm">lineaController</prop>-->
                 <prop key="linea/crear.htm">lineaController</prop>
                 <prop key="linea/obtener.htm">lineaController</prop>
                 <prop key="linea/actualizar.htm">lineaController</prop>
