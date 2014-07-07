@@ -1,3 +1,4 @@
+       
        $(document).ready(function(){
         
         /*       
@@ -11,7 +12,7 @@
                                 "type":2,
                                 "color":"blue",
                                 "radius":1,
-                                "x1":478,
+                                "x1":500,
                                 "y1":-484,
                                 "x2":1110,
                                 "y2":-822},

@@ -56,7 +56,7 @@
                 
                 <input type="button" value="Traer Lista linea" id="btnLineas" />
                 
-                <button type='button' onclick='RestDelete()'>DELETE</button>
+                
                 <div class="cad">
                     <div id="titulo">OpenCNC</div>
                     <div id="paper2"></div>

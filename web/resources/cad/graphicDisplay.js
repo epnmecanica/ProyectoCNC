@@ -1211,6 +1211,11 @@ GraphicDisplay.prototype.zoomIn = function() {
 GraphicDisplay.prototype.zoomOut = function() {
 	this.setZoom(this.zoomout);
 };
+GraphicDisplay.prototype.getJSON = function(){
+        return(this.logicDisplay.exportJSON());
+        //alert(this.logicDisplay.exportJSON());
+        
+};
 
 GraphicDisplay.prototype.getCursorXLocal = function() {
 	return (this.mouse.cursorXGlobal - this.offsetX - this.displayWidth/2)/this.zoom - this.camX;

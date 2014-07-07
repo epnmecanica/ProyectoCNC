@@ -214,7 +214,7 @@
           iok.mousemove(function(){
               iok.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              
+                    
                   /*
                     var x = document.createElement("TEXTAREA");
                     
@@ -236,7 +236,8 @@
           iadd.mousemove(function(){
               iadd.attr({fill: colors, stroke: "none"});
           }).click(function () {
-                         
+             alert(gd.getJSON()); 
+             
           });
           iless.mousemove(function(){
               iless.attr({fill: colors, stroke: "none"});
