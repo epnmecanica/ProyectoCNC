@@ -7,6 +7,7 @@
         var path = pathname.substring(0 , pathname.indexOf("."));
         */
               $("#btnLineas").click( function(){
+                  
              
               var datosJ = {datos:JSON.stringify([{"active":true,
                                 "type":2,

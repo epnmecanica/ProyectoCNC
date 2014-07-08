@@ -91,7 +91,8 @@ public class LineaController {
         Session s = HibernateUtil.getSessionFactory().openSession();
         return null;
     }
-    @RequestMapping(    value="elemento/crear/linea/lista", 
+    @RequestMapping(    //value="elemento/crear/linea/lista", 
+                        value="linea/lista",
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"
                         )
@@ -107,7 +108,9 @@ public class LineaController {
         List<lineatool> ints2 = gson.fromJson(datos, collectionType);
       
         Iterator<lineatool> elem = ints2.iterator();
+        
         ElementoGraficoController egc = new ElementoGraficoController();
+        
         while(elem.hasNext()){
             lineatool tipo = elem.next();
            // System.out.println("el tipo es: "+ tipo.getType());
@@ -115,7 +118,8 @@ public class LineaController {
                 case 1:  System.out.print("es punto");
                          break;
                 case 2:  System.out.print("es linea");
-                         egc.actualizar(tipo, 63, request, response);
+                         
+                         egc.actualizar(tipo, 56, request, response);
                          
                          ElementoGrafico e = (ElementoGrafico)s.get(ElementoGrafico.class,0);
                          Linea l = new Linea();
@@ -129,7 +133,7 @@ public class LineaController {
                          s.beginTransaction();
                          s.saveOrUpdate(l);
                          t.commit();
-                         
+                        
                          //guardarLinea(tipo);
                          break;
                 case 3:  System.out.print("es circulo");
@@ -137,7 +141,11 @@ public class LineaController {
                 case 5:  System.out.print("es arco");
                          break;
                 case 7:  System.out.print("es texto");
-                         guardarTexto(tipo);
+                         egc.actualizar(tipo, 63, request, response);
+                         
+                         Texto tx = new Texto();
+                         
+                         //guardarTexto(tipo);
                          break;
                 default: System.out.print("no es");
                          break;

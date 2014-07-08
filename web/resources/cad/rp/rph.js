@@ -236,7 +236,54 @@
           iadd.mousemove(function(){
               iadd.attr({fill: colors, stroke: "none"});
           }).click(function () {
-             alert(gd.getJSON()); 
+            
+              var pathname = window.location.pathname;
+              var datosJ = {datos:gd.getJSON()};
+                  
+                
+                  $.ajax({  type: 'GET',
+                            url: 'linea/lista.htm',
+                            data: datosJ,
+                            dataType: 'json',
+                            //contentType: 'application/json; charset=utf-8',
+                            contentType: 'application/json',
+                            //mimeType: 'application/json',
+                            success:/*ObtenerPuntos*/alert('envio Ok'),
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader('Accept', 'application/json');
+                                xhr.setRequestHeader('Content-Type', 'application/json');
+                                }/*,
+                              
+                            error: function(jqXHR, textStatus, errorThrown) {
+                                alert("Issue fetching the JSON: "
+                                                    + textStatus + " "
+                                                    + errorThrown + " !");
+                            }*/
+                            
+                        }
+                    );
+                          
+              
+            /*
+            
+            function ObtenerPuntos( data ){
+                alert("entera");
+                var a = JSON.parse('[{"id": "1","nombre": "nombre 1"},{"id": "2","nombre": "nombre 2"}]');
+                console.debug(a);
+                for(i=0;i<data.length;i++)
+                {
+                    console.debug("- data[i]: ");
+                    console.debug(data[i]);
+                    
+                    
+                    console.debug("- data[i].elementoId: ");
+                    console.debug(data[i].elementoId);
+                    
+                    console.debug("- data[i].elementoGrafico.descripcion: ");
+                    console.debug(data[i].elementoGrafico.descripcion);
+                }
+            }
+             */
              
           });
           iless.mousemove(function(){

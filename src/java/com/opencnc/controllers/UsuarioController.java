@@ -92,6 +92,7 @@ public class UsuarioController {
             Date d1 = c.getTime();
             
             usuario.setCreadoFecha(d1);
+            usuario.setCreadoPor(1);
             Session s = HibernateUtil.getSessionFactory().openSession();
             
             Transaction t = s.getTransaction();

@@ -142,7 +142,7 @@ public class ModeloController {
             
             
             Usuario us = (Usuario)sess.getAttribute("usuario");
-            
+            modelo.setCreadoPor(us.getCreadoPor());
             //Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
             //Usuario us = (Usuario)s.get(Usuario.class, 2);
             

@@ -53,7 +53,10 @@
 	</head>
 	<body>  
 		Modelo : ${Id}
+                Nombre Modelo: ${NombreModel}
+                <%--Tipo Maquina: ${TipoMaquina}--%>
                 
+                <div id="theJson"></div>
                 <input type="button" value="Traer Lista linea" id="btnLineas" />
                 
                 
