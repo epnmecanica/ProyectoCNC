@@ -11,8 +11,11 @@ function LogicDisplay() {
 }
 
 LogicDisplay.prototype.init = function() {
+   
+
            //this.test(); // This create a list of basic components
            //this.importJSON(JSON.parse(this.exportJSON()), this.components);
+           //this.importJSON(f, this.components);
            //this.testPunto();
 };
 
@@ -63,6 +66,10 @@ LogicDisplay.prototype.test = function() {
 
 LogicDisplay.prototype.exportJSON = function() {
 	return JSON.stringify(this.components);
+};
+
+LogicDisplay.prototype.import = function(file) {
+	this.importJSON(file, this.components);
 };
 
 LogicDisplay.prototype.importJSON = function(arrJSON, parent) {

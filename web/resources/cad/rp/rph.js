@@ -214,7 +214,7 @@
           iok.mousemove(function(){
               iok.attr({fill: colors, stroke: "none"});
           }).click(function () {
-                    
+                    sendAjax(gd.getJSON());
                   /*
                     var x = document.createElement("TEXTAREA");
                     
@@ -224,9 +224,7 @@
                     document.body.appendChild(x);
                     
                    document.getElementById("codex").value="Codigo";
-                   */
-                   
-                           
+                   */              
           });
           icreateG.mousemove(function(){
               icreateG.attr({fill: colors, stroke: "none"});
@@ -236,55 +234,42 @@
           iadd.mousemove(function(){
               iadd.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              alert('hi json');
+                var f = [{"active":true,
+                            "type":2,
+                            "color":"blue",
+                            "radius":1,
+                            "x1":478,
+                            "y1":-484,
+                            "x2":1110,
+                            "y2":-822},
+                        {"active":true,
+                            "type":3,
+                            "color":"blue",
+                            "radius":1,
+                            "x1":1112,
+                            "y1":-228,
+                            "x2":1102,
+                            "y2":-508},
+                        {"active":true,
+                            "type":5,
+                            "color":"blue",
+                            "radius":1,
+                            "x1":212,
+                            "y1":-672,
+                            "x2":226,
+                            "y2":-924,
+                            "x3":404,
+                            "y3":-696},
+                        {"active":true,
+                            "type":7,
+                            "color":"#eee",
+                            "radius":5,
+                            "x":484,
+                            "y":-968,
+                            "text":"hola"}];
             
-              var pathname = window.location.pathname;
-              var datosJ = {datos:gd.getJSON()};
-                  
-                
-                  $.ajax({  type: 'GET',
-                            url: 'linea/lista.htm',
-                            data: datosJ,
-                            dataType: 'json',
-                            //contentType: 'application/json; charset=utf-8',
-                            contentType: 'application/json',
-                            //mimeType: 'application/json',
-                            success:/*ObtenerPuntos*/alert('envio Ok'),
-                            beforeSend: function (xhr) {
-                                xhr.setRequestHeader('Accept', 'application/json');
-                                xhr.setRequestHeader('Content-Type', 'application/json');
-                                }/*,
-                              
-                            error: function(jqXHR, textStatus, errorThrown) {
-                                alert("Issue fetching the JSON: "
-                                                    + textStatus + " "
-                                                    + errorThrown + " !");
-                            }*/
-                            
-                        }
-                    );
-                          
-              
-            /*
-            
-            function ObtenerPuntos( data ){
-                alert("entera");
-                var a = JSON.parse('[{"id": "1","nombre": "nombre 1"},{"id": "2","nombre": "nombre 2"}]');
-                console.debug(a);
-                for(i=0;i<data.length;i++)
-                {
-                    console.debug("- data[i]: ");
-                    console.debug(data[i]);
-                    
-                    
-                    console.debug("- data[i].elementoId: ");
-                    console.debug(data[i].elementoId);
-                    
-                    console.debug("- data[i].elementoGrafico.descripcion: ");
-                    console.debug(data[i].elementoGrafico.descripcion);
-                }
-            }
-             */
-             
+                gd.setJSON(f);
           });
           iless.mousemove(function(){
               iless.attr({fill: colors, stroke: "none"});

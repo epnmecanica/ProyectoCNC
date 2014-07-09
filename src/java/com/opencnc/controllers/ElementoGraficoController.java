@@ -21,15 +21,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,7 +77,7 @@ public class ElementoGraficoController {
        
         Type collectionType = new TypeToken<List<lineatool>>(){}.getType();
         List<lineatool> ints2 = gson.fromJson(datos, collectionType);
-      
+        
         Iterator<lineatool> elem = ints2.iterator();
         
         
@@ -94,6 +99,7 @@ public class ElementoGraficoController {
             elemento.setElementoId(index);
             elemento.setTipoElemento(tipo.getType());
             elemento.setCreadoPor(u.getCreadoPor());
+            elemento.setDescripcion(tipo.getText());
             //falta seguir 
             Transaction t = s.getTransaction();
             s.beginTransaction();
@@ -145,8 +151,16 @@ public class ElementoGraficoController {
                 case 6:  System.out.print("es label");
                          break;
                 case 7:  System.out.print("es texto");
+                         Session s2 = HibernateUtil.getSessionFactory().openSession();
                          Texto tx = new Texto();
+                         ElementoGrafico gr2 = (ElementoGrafico)s2.get(ElementoGrafico.class, elemento.getElementoId());
+                         tx.setElementoGrafico(gr2);
                          tx.setTamanio(12);
+                         Transaction t2 = s2.getTransaction();
+                         s2.beginTransaction();
+                         s2.saveOrUpdate(tx);
+                         
+                         t2.commit();
                          
                          break;
                 case 8:  System.out.print("es circulo");
@@ -164,19 +178,41 @@ public class ElementoGraficoController {
     @RequestMapping(    value="elemento/crear/linea/getJSON", 
                         method=RequestMethod.GET,headers = "Accept=*/*")
     public @ResponseBody String getJSON(){
-        
-        
-        String ss = "holas";
-                
+                   
         Session s = HibernateUtil.getSessionFactory().openSession();
             
         Modelo mod = (Modelo)s.get(Modelo.class, ident);
-
+        
+        
+        ElementoGrafico elem = new ElementoGrafico();
+        
+       
         Criteria c = s.createCriteria(ElementoGrafico.class);
         c.add(Restrictions.eq("modelo", mod));
         List<ElementoGrafico> leg = c.list();
+        if (leg.isEmpty()){
+            return null;
+        }else{
+            Gson gson = new Gson();
         
-        return ss;
+            //String json = gson.toJson(elem);
+            //System.out.println(json);
+            Type fooType = new TypeToken<List<ElementoGrafico>>() {}.getType();
+            gson.toJson(elem, fooType);
+            
+            return null;
+            //Type listType = new TypeToken<List<ElementoGrafico>>() {}.getType();
+            //List<ElementoGrafico> target = new LinkedList<ElementoGrafico>();
+            //target = leg;
+
+
+            //String json = gson.toJson(target);
+
+            //List<String> target2 = gson.fromJson(json, listType);
+
+            //return null;
+        }
+        
     }
     
    

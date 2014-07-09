@@ -36,6 +36,7 @@
                 <script src="<c:url value='/resources/cad/inputHandler.js'/>"></script>
                 <script src="<c:url value='/resources/cad/logicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
+                <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
                 <script src="<c:url value='/resources/cad/customShapes.js'/>"></script>
                 

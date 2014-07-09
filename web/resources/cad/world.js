@@ -7,26 +7,7 @@ $(document).ready(function() {
         gd.showOrigin = true;
         gd.showGrid = true;
         
-        $.ajax({
-            type: 'GET',
-            url:  "linea/getJSON.htm",
-            /*dataType: 'json',*/
-            async: true,
-            success: function(result) {
-                            
-                            
-                           // var tmp = JSON.stringify(result);
-                            
-                            
-                            $("#theJson").html(result);
-
-            }/*,
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert("Issue fetching the JSON: "
-                                    + textStatus + " "
-                                    + errorThrown + " !");
-            }*/
-        });
+       
 
         // Check for the various File API support.
         if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -35,8 +16,8 @@ $(document).ready(function() {
         } else {
           alert('Su navegador no es compatible con nuestra arquitectura.');
         }
-
-
+        
+        receiveAjax();
         loadIcons(gd);
         initCAD(gd);
 
