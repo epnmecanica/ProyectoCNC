@@ -19,6 +19,9 @@ import org.hibernate.Session;
  *
  * @author root
  */
+//******************************************************************************
+// Era una prueba.
+//******************************************************************************
 public class InfoUsuario extends HttpServlet {
 
     /**

@@ -18,6 +18,12 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+/**
+ * Cargador del Log4J
+ * @author root
+ */
+
+
 @WebServlet(name = "CargaLog4j", urlPatterns = {"/cargalog4j"},
         initParams = {@WebInitParam(name = "log4jPropertiesFile",
         value = "/WEB-INF/classes/log4j.properties")}, loadOnStartup = 1)
