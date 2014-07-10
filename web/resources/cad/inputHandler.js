@@ -1,4 +1,6 @@
-
+//******************************************************************************
+//Lectura de teclado y Mause.
+//******************************************************************************
 /**
  * Class used to store information about keyboard
  * associated event to a certain key

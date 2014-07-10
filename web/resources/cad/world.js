@@ -1,4 +1,9 @@
-                                
+/**
+ * *****************************************************************************
+ * Se inicializan todos los componentes.
+ * *****************************************************************************
+ * @param {type} param
+ */                                
 
 $(document).ready(function() {
        var gd = new GraphicDisplay("CADCanvas", 800, 600);

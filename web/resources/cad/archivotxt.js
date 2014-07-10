@@ -3,7 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/**
+ * *****************************************************************************
+ * Hace exportables en TXT y en XML
+ * *****************************************************************************
+ * Falta terminar
+ * *****************************************************************************
+ * @param {type} contenidoEnBlob
+ * @param {type} nombreArchivo
+ * @returns {undefined}
+ */
 function descargarArchivo(contenidoEnBlob, nombreArchivo) {
                     var reader = new FileReader();
                     reader.onload = function (event) {

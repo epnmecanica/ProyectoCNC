@@ -7,6 +7,12 @@
  
  var lenght = 800, tall = 34, paso = 30, st;
  
+ /**
+  * ****************************************************************************
+  * Iconos Lista
+  * ****************************************************************************
+  * @returns {icons}
+  */
  function icons(){
             container = document.getElementById('paper2');
             paper = new Raphael(container, lenght, tall);
@@ -106,6 +112,13 @@
            attrIcons(st);
             
  }     
+ /**
+  * ****************************************************************************
+  * Agrupa los iconos y les pone atributos a todos en general
+  * ****************************************************************************
+  * @param {type} st
+  * @returns {attrIcons}
+  */
  function attrIcons(st){
      this.st = st;
      var col = 'black';
@@ -115,6 +128,14 @@
          st.attr({fill: col, stroke: "none"});
      });
  }
+ 
+ /**
+  * ****************************************************************************
+  * Carga los iconos y los dibuja
+  * ****************************************************************************
+  * @param {type} gd
+  * @returns {loadIcons}
+  */
  function loadIcons(gd){
         this.gd = gd;
         var colors = 'blue';

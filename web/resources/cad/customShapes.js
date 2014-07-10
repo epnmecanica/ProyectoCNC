@@ -1,4 +1,12 @@
-
+/**
+ * 
+ * *****************************************************************************
+ * Hace figuras predefinidas.
+ * *****************************************************************************
+ * No se usa en el proyecto.
+ * *****************************************************************************
+ * @returns {Shape|getShapeSerbatoioOrizzontaleO.s}
+ */
 
 // Serbatoio orizzontale O
 function getShapeSerbatoioOrizzontaleO() {

@@ -3,8 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/**
+ * *****************************************************************************
+ * Ajax de los elementos dibujados.
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 
-
+//******************************************************************************
+//Recibe el Ajax del servidor.
+//******************************************************************************
     function receiveAjax(){
          $.ajax({
             type: 'GET',
@@ -27,6 +35,11 @@
             }*/
         });
     };
+    
+
+//******************************************************************************
+//Envia el Ajax del servidor.
+//******************************************************************************
     function sendAjax(datos){
           var pathname = window.location.pathname;
               var datosJ = {datos:datos};

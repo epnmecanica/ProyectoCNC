@@ -1,3 +1,7 @@
+//******************************************************************************
+//La logica de los graficos en el Display
+//******************************************************************************
+
 /**
  * This class handle the graphical behaviour
  * of the CAD
@@ -5,6 +9,15 @@
 // habilita funciones de grafico
 // este es el de trabajo
 var k, i = 0;
+/**
+ * *****************************************************************************
+ * Funcion constructora del Display.
+ * *****************************************************************************
+ * @param {type} displayName
+ * @param {type} width
+ * @param {type} height
+ * @returns {GraphicDisplay}
+ */
 function GraphicDisplay(displayName, width, height) {
 	// Enumerate all available modes
 	this.MODES = {
@@ -118,7 +131,13 @@ function GraphicDisplay(displayName, width, height) {
 	this.mouse = null;
 }
 
-//inicializa la logica del display
+
+/**
+ * *****************************************************************************
+ * Inicializa la logica del display
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.init = function() {
 	/*
 	 * INITIALIZE THE LOGIC
@@ -141,9 +160,14 @@ GraphicDisplay.prototype.init = function() {
 	this.context = this.cvn[0].getContext('2d');
 };
 
-// se ejecuta despues de las logica y ayuda a la ejecucion de 
-// funciones para graficos
 
+/**
+ * *****************************************************************************
+ *se ejecuta despues de las logica y ayuda a la ejecucion de 
+ *******************************************************************************
+ *funciones para graficos 
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.execute = function() {
 	this.offsetX = this.cvn.offset().left;
 	this.offsetY = this.cvn.offset().top;
@@ -177,7 +201,14 @@ GraphicDisplay.prototype.execute = function() {
         
 };
 
-// hace la cuadricula
+
+/**
+ * *****************************************************************************
+ * hace la cuadricula
+ * *****************************************************************************
+ * @param {type} e
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.clearGrid = function(e) {
 	this.context.restore();
 	//this.context.fillStyle = "#202020";
@@ -192,7 +223,15 @@ GraphicDisplay.prototype.clearGrid = function(e) {
 	this.context.lineWidth = 0.2;
 };
 
-//dibuja los componentes
+/**
+ * *****************************************************************************
+ * dibuja los componentes
+ * *****************************************************************************
+ * @param {type} components
+ * @param {type} moveByX
+ * @param {type} moveByY
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawAllComponents = function(components, moveByX, moveByY) {
 	for (var i = 0; i < components.length; i++) {
 		if ( !components[i].isActive() )
@@ -202,7 +241,15 @@ GraphicDisplay.prototype.drawAllComponents = function(components, moveByX, moveB
 	}
 };
 
-// dibuja un solo componente 
+/**
+ * *****************************************************************************
+ * dibuja un solo componente 
+ * *****************************************************************************
+ * @param {type} component
+ * @param {type} moveByX
+ * @param {type} moveByY
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawComponent = function(component, moveByX, moveByY) {
 	switch (component.type) {
 		case COMPONENT_TYPES.POINT:
@@ -278,6 +325,7 @@ GraphicDisplay.prototype.drawComponent = function(component, moveByX, moveByY) {
 
 /**
  * This method is used to draw current temporary component
+ * @returns {undefined}
  */
 GraphicDisplay.prototype.drawTemporaryComponent = function() {
 	switch (this.temporaryComponentType) {
@@ -396,7 +444,16 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 	} 
 };
 
-// dibuja puntos cuando se activa el boton.
+/**
+ * *****************************************************************************
+ *  dibuja puntos cuando se activa el boton.
+ * *****************************************************************************
+ * @param {type} x
+ * @param {type} y
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawPoint = function(x, y, color, radius) {
 	this.context.lineWidth = radius;
 	this.context.fillStyle = color;
@@ -411,7 +468,18 @@ GraphicDisplay.prototype.drawPoint = function(x, y, color, radius) {
         
 };
 
-// dibuja linea cuando se activa el boton.
+/**
+ * *****************************************************************************
+ * dibuja linea cuando se activa el boton.
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawLine = function(x1, y1, x2, y2, color, radius) {
         
         //para hacer con angulos.
@@ -469,7 +537,18 @@ GraphicDisplay.prototype.drawLine = function(x1, y1, x2, y2, color, radius) {
         //this.tooltipCode = 'Linea' + ' ' + firstAngle + ' ' + x1 + ' ' + y1 + '\n';
 };
 
-// dibuja circulos cuando se activa el boton.
+/**
+ * *****************************************************************************
+ * dibuja circulos cuando se activa el boton.
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawCircle = function(x1, y1, x2, y2, color, radius) {
 	this.context.lineWidth = radius;
 	this.context.fillStyle = color;
@@ -486,7 +565,18 @@ GraphicDisplay.prototype.drawCircle = function(x1, y1, x2, y2, color, radius) {
 	this.drawPoint(x1, y1, color, radius);
 };
 
-//Dibuja rectangulo cuando se activa el boton
+/**
+ * *****************************************************************************
+ * Dibuja rectangulo cuando se activa el boton
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawRectangle = function(x1, y1, x2, y2, color, radius) {
 	this.drawLine(x1, y1, x2, y1, color, radius);
 	this.drawLine(x2, y1, x2, y2, color, radius);
@@ -494,7 +584,18 @@ GraphicDisplay.prototype.drawRectangle = function(x1, y1, x2, y2, color, radius)
 	this.drawLine(x1, y2, x1, y1, color, radius);
 };
 
-// Dibuja una medida.
+/**
+ * *****************************************************************************
+ * Dibuja una medida.
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawMeasure = function(x1, y1, x2, y2, color, radius) {
 	var distance = this.getDistance(x1, y1, x2, y2) * this.unitFactor * this.unitConversionFactor;
 	
@@ -516,6 +617,17 @@ GraphicDisplay.prototype.drawMeasure = function(x1, y1, x2, y2, color, radius) {
 			(this.cOutY + y2 + 30 + localDiff) * this.zoom);
 };
 
+/**
+ * *****************************************************************************
+ * Dibuja temporalmente el angulo de la linea
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @param {type} color
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawAngle = function(x1, y1, x2, y2, color){
         var angle = 0 ;
         if (this.unitAngle === "Rad"){
@@ -541,7 +653,17 @@ GraphicDisplay.prototype.drawAngle = function(x1, y1, x2, y2, color){
 			(this.cOutY + y1 + 30 + localDiff) * this.zoom);
 };
 
-// inserta un texto.
+/**
+ * *****************************************************************************
+ * inserta un texto.
+ * *****************************************************************************
+ * @param {type} x
+ * @param {type} y
+ * @param {type} text
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawLabel = function(x, y, text, color, radius) {
 	this.drawPoint(x, y, '#0ff', 2);
 	
@@ -584,7 +706,20 @@ GraphicDisplay.prototype.drawLabel = function(x, y, text, color, radius) {
 			(this.cOutY + y + 30) * this.zoom);
 };
 
-// dibuja arcos.
+/**
+ * *****************************************************************************
+ * dibuja arcos.
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @param {type} x3
+ * @param {type} y3
+ * @param {type} color
+ * @param {type} radius
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radius) {
 	var firstAngle = this.getAngle(x1, y1, x2, y2);
 	var secondAngle = this.getAngle(x1, y1, x3, y3);
@@ -616,13 +751,24 @@ GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radiu
         //this.setToolTip('Angulo: ' + firstAngle + ' ' + secondAngle);
 };
 
-// dibuja formas
+/**
+ * *****************************************************************************
+ * dibuja formas
+ * *****************************************************************************
+ * @param {type} shape
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawShape = function(shape) {
 	this.drawAllComponents(shape.components, shape.x, shape.y);
 	this.drawPoint(shape.x, shape.y, shape.color, shape.radius);
 };
 
-//Dibuja el cuadro inferior de coordenadas
+/**
+ * *****************************************************************************
+ * Dibuja el cuadro inferior de coordenadas.
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawToolTip = function() {
 	//func for draw rectangle inf
         //coment star
@@ -641,12 +787,25 @@ GraphicDisplay.prototype.drawToolTip = function() {
         
 };
 
+/**
+ * *****************************************************************************
+ * Ventana de codigo.
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawToolCode  = function(){
     
     document.getElementById("codex").value = this.getTextCode();
 };
 
-// dibuja origenes
+/**
+ * *****************************************************************************
+ *  dibuja origenes
+ *  ****************************************************************************
+ * @param {type} cx
+ * @param {type} cy
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawOrigin = function(cx, cy) {
 	this.context.lineWidth = 1;
         // Origen Horizontal
@@ -668,6 +827,14 @@ GraphicDisplay.prototype.drawOrigin = function(cx, cy) {
         
 };
 
+/**
+ * *****************************************************************************
+ *  dibuja la cruz del origen
+ *  ****************************************************************************
+ * @param {type} cx
+ * @param {type} cy
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawOriginArrow = function(cx, cy){
         
         var delta = this.getDistance(0, 0, this.getCursorXLocal(), this.getCursorYLocal());
@@ -705,7 +872,13 @@ GraphicDisplay.prototype.drawOriginArrow = function(cx, cy){
 	this.context.closePath();
 	this.context.stroke();
 };
-// dibuja reglas guias
+
+/**
+ * *****************************************************************************
+ * dibuja reglas guias
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawRules = function() {
 	if (!this.showRules)
 		return;
@@ -731,7 +904,14 @@ GraphicDisplay.prototype.drawRules = function() {
 	// TODO Show rules!
 };
 
-// dibuja la cuadricula
+/**
+ * *****************************************************************************
+ * dibuja la cuadricula
+ * *****************************************************************************
+ * @param {type} camXoff
+ * @param {type} camYoff
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.drawGrid = function(camXoff, camYoff) {
 	var naught = (camXoff % this.gridSpacing) * this.zoom - this.displayWidth/2;
         
@@ -765,13 +945,17 @@ GraphicDisplay.prototype.drawGrid = function(camXoff, camYoff) {
 };
 
 /**
- * This method is used to perform a specithis.tooltipCode = "Linea" + " " +;fied action based on the
+ * *****************************************************************************
+ * determina que componente es seleccionado para dibujar.
+ * *****************************************************************************
+ * This method is used to perform a 
+ * specithis.tooltipCode = "Linea" + " " +;fied action based on the
+ * 
  * type of mouse action (action) see above MOUSEACTION
+ * *****************************************************************************
  * @param e
  * @param action
  */
-
-// determina que componente es seleccionado para dibujar.
 GraphicDisplay.prototype.performAction = function(e, action) {
 	switch(this.mode) {
 		case this.MODES.ADDPOINT:
@@ -1089,6 +1273,14 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 	}
 };
 
+/**
+ * *****************************************************************************
+ * Edicion de los componentes, encuentra el componente y lo habilita para su
+ * edicion
+ * *****************************************************************************
+ * @param {type} index
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.editComponent = function(index){
  //TODO editar componentes 
             if (index !== null) {
@@ -1152,7 +1344,15 @@ GraphicDisplay.prototype.editComponent = function(index){
 	}
 };
 
-// mueve los componentes
+/**
+ * *****************************************************************************
+ * mueve los componentes
+ * *****************************************************************************
+ * @param {type} index
+ * @param {type} x
+ * @param {type} y
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.moveComponent = function(index, x, y) {
 	if (index !== null) {
 		switch ( this.logicDisplay.components[index].type ) {
@@ -1194,7 +1394,13 @@ GraphicDisplay.prototype.moveComponent = function(index, x, y) {
 	}
 };
 
-// selecciona el componente
+/**
+ * *****************************************************************************
+ * selecciona el componente
+ * *****************************************************************************
+ * @param {type} index
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.selectComponent = function(index) {
 	if (index !== null) {
 		this.selectedComponent = index;
@@ -1205,7 +1411,12 @@ GraphicDisplay.prototype.selectComponent = function(index) {
 	}
 };
 
-// quita la seleccion del componente
+/**
+ * *****************************************************************************
+ * quita la seleccion del componente
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.unselectComponent = function() {
 	if ( this.selectedComponent !== null ) {
 		this.logicDisplay.components[this.selectedComponent].color = this.previousColor;
@@ -1214,7 +1425,12 @@ GraphicDisplay.prototype.unselectComponent = function() {
 	}
 };
 
-// Carga la camara
+/**
+ * *****************************************************************************
+ * Carga la camara
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.updateCamera = function() {
 	this.cOutX = this.camX;
 	this.cOutY = this.camY;
@@ -1233,12 +1449,26 @@ GraphicDisplay.prototype.setModeShape = function(getShape) {
 	this.setMode(this.MODES.ADDSHAPE);
 	this.temporaryShape = getShape();
 };
+
+/**
+ * *****************************************************************************
+ * Exporta JSON
+ * *****************************************************************************
+ * @returns {GraphicDisplay.prototype@pro;logicDisplay@call;exportJSON}
+ */
 GraphicDisplay.prototype.getJSON = function(){
         
         alert(this.logicDisplay.exportJSON());
         
 };
 
+/**
+ * *****************************************************************************
+ * Selecciona el modo.
+ * *****************************************************************************
+ * @param {type} mode
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.setMode = function(mode) {
 	this.resetMode();
 	
@@ -1248,6 +1478,12 @@ GraphicDisplay.prototype.setMode = function(mode) {
 		this.mode = mode;
 };
 
+/**
+ * *****************************************************************************
+ * Resetea el modo
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.resetMode = function() {
 	this.temporaryComponentType = null;
 	this.temporaryShape = null;
@@ -1259,6 +1495,13 @@ GraphicDisplay.prototype.resetMode = function() {
 	this.tooltip = this.tooltipDefault;
 };
 
+/**
+ * *****************************************************************************
+ * Setea el Zoom
+ * *****************************************************************************
+ * @param {type} zoomFactor
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.setZoom = function(zoomFactor) {
 	var newZoom = this.zoom * zoomFactor; 
 	
@@ -1269,42 +1512,105 @@ GraphicDisplay.prototype.setZoom = function(zoomFactor) {
 	this.zoom = newZoom;
 };
 
+/**
+ * *****************************************************************************
+ * Hace ZoomIn
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.zoomIn = function() {
 	this.setZoom(this.zoomin);
 };
 
+/**
+ * *****************************************************************************
+ * Hace ZoomOut
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.zoomOut = function() {
 	this.setZoom(this.zoomout);
 };
+
+/**
+ * *****************************************************************************
+ * Necesita un JSON para dibujar
+ * *****************************************************************************
+ * @param {type} fileJson
+ * @returns {GraphicDisplay.prototype@pro;logicDisplay@call;import}
+ */
 GraphicDisplay.prototype.setJSON = function(fileJson){
         return(this.logicDisplay.import(fileJson));
         //alert(this.logicDisplay.exportJSON());
         
 };
+
+/**
+ * *****************************************************************************
+ * Retorna un JSON
+ * *****************************************************************************
+ * @returns {GraphicDisplay.prototype@pro;logicDisplay@call;exportJSON}
+ */
 GraphicDisplay.prototype.getJSON = function(){
         return(this.logicDisplay.exportJSON());      
 };
+
+/**
+ * *****************************************************************************
+ * Obtiene la posicion del cursor en x
+ * *****************************************************************************
+ * @returns {GraphicDisplay.cvn.offset.left|newZoom|type|GraphicDisplay.mouse.cursorXGlobal|Number}
+ */
 
 GraphicDisplay.prototype.getCursorXLocal = function() {
 	return (this.mouse.cursorXGlobal - this.offsetX - this.displayWidth/2)/this.zoom - this.camX;
 };
 
+/**
+ * *****************************************************************************
+ * Obtiene la posicion del cursor en y
+ * *****************************************************************************
+ * @returns {GraphicDisplay.cvn.offset.top|newZoom|type|Number|GraphicDisplay.mouse.cursorYGlobal}
+ */
+
 GraphicDisplay.prototype.getCursorYLocal = function() {
 	return (this.mouse.cursorYGlobal - this.offsetY - this.displayHeight/2)/this.zoom - this.camY;
 };
+
+/**
+ * 
+ * @returns {GraphicDisplay.cvn.offset.left|type|GraphicDisplay.mouse.cursorXGlobal|Number}
+ */
 
 GraphicDisplay.prototype.getCursorXInFrame = function() {
 	return this.mouse.cursorXGlobal - this.offsetX - this.displayWidth/2;
 };
 
+/**
+ * 
+ * @returns {GraphicDisplay.cvn.offset.top|type|Number|GraphicDisplay.mouse.cursorYGlobal}
+ */
+
 GraphicDisplay.prototype.getCursorYInFrame = function() {
 	return this.mouse.cursorYGlobal - this.offsetY - this.displayHeight/2;
 };
+
+/**
+ * *****************************************************************************
+ * Textos en la barra inferior
+ * *****************************************************************************
+ * @param {type} text
+ * @returns {undefined}
+ */
 
 GraphicDisplay.prototype.setToolTip = function(text) {
 	this.tooltip = text;
 };
 
+/**
+ * 
+ * @returns {GraphicDisplay.prototype.getToolTip@pro;tooltip}
+ */
 
 GraphicDisplay.prototype.getToolTip = function() {
 	var text = this.tooltip;
@@ -1315,13 +1621,29 @@ GraphicDisplay.prototype.getToolTip = function() {
 };
 
 //TODO: Move in Utils.
+
+/**
+ * *****************************************************************************
+ * Devueltve la distancia entre dos puntos.
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @returns {unresolved}
+ */
 GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
 	var distance = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
 	
 	return distance.toFixed(2);
 };
 
-// encontrar la interseccion con los objetos, no los vertices.
+/**
+ * *****************************************************************************
+ * encontrar la interseccion con los objetos, no los vertices.
+ * *****************************************************************************
+ * @returns {Array}
+ */
 GraphicDisplay.prototype.findIntersectionObject = function(){
         
         this.selectedComponent = this.findIntersectionWith(
@@ -1362,6 +1684,15 @@ GraphicDisplay.prototype.findIntersectionObject = function(){
 };
 
 // TODO: Move in Utils.
+
+/**
+ * *****************************************************************************
+ * Interseccion con el puntero y el objeto
+ * *****************************************************************************
+ * @param {type} x
+ * @param {type} y
+ * @returns {Number|GraphicDisplay.prototype.findIntersectionWith@pro;logicDisplay@pro;components@pro;length}
+ */
 GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 	for ( var i = this.logicDisplay.components.length - 1; i >= 0; i-- ) {
 		if (!this.logicDisplay.components[i].isActive())
@@ -1395,7 +1726,16 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
  * Return the angle in radiants
  */
 
-
+/**
+ * *****************************************************************************
+ * Return the angle in radiants
+ * *****************************************************************************
+ * @param {type} x1
+ * @param {type} y1
+ * @param {type} x2
+ * @param {type} y2
+ * @returns {@exp;Math@pro;PI|@exp;GraphicDisplay@pro;prototype@pro;getAngle@pro;theta|@exp;Math@call;atan|Number}
+ */
 GraphicDisplay.prototype.getAngle = function(x1, y1, x2, y2) {
 	var m = ((y2 - y1) / (x2 - x1));
         var rad = 0, theta = 0;
@@ -1418,14 +1758,32 @@ GraphicDisplay.prototype.getAngle = function(x1, y1, x2, y2) {
 	return -1 * rad;
 };
 
+/**
+ * *****************************************************************************
+ * Selecciona el tipo de medida de los angulos
+ * *****************************************************************************
+ * @param {type} Grad
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.setAngleGrad = function(Grad){
         
 };
 
+/**
+ * 
+ * @param {type} ctext
+ * @returns {undefined}
+ */
 GraphicDisplay.prototype.setTextCode = function(ctext) {
             this.tooltipCode = ctext;
 };
 
+/**
+ * *****************************************************************************
+ * Obtiene el texto del tooltip
+ * *****************************************************************************
+ * @returns {GraphicDisplay.prototype.getTextCode@pro;tooltipCode}
+ */
 
 GraphicDisplay.prototype.getTextCode = function() {
 	var text = this.tooltipCode;
@@ -1436,6 +1794,13 @@ GraphicDisplay.prototype.getTextCode = function() {
 /*
  * Helper function used to initialize the
  * graphic environment and behaviour (mainly input events)
+ */
+/**
+ * *****************************************************************************
+ * Inicia todas las funciones.
+ * *****************************************************************************
+ * @param {type} gd
+ * @returns {undefined}
  */
 var initCAD = function(gd) {
 	gd.init();

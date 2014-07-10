@@ -1,4 +1,9 @@
-
+/**
+ * *****************************************************************************
+ * Constructor de componentes
+ * *****************************************************************************
+ * @type type
+ */
 
 // Enumerate all available types of component
 var COMPONENT_TYPES = {

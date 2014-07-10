@@ -1,4 +1,6 @@
-
+//******************************************************************************
+//La logica del Display
+//******************************************************************************
 /**
  * This class is used to handle all logic values
  * inside the CAD 
@@ -12,6 +14,12 @@ function LogicDisplay() {
         
 }
 
+/**
+ * *****************************************************************************
+ * Inicializa los modulos
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 LogicDisplay.prototype.init = function() {
    
 
@@ -23,11 +31,25 @@ LogicDisplay.prototype.init = function() {
            //alert(this.jsonArray);
 };
 
+/**
+ * *****************************************************************************
+ * Apila los componentes
+ * *****************************************************************************
+ * @param {type} component
+ * @returns {undefined}
+ */
 LogicDisplay.prototype.addComponent = function(component) {
 	this.components.push(component);
         //this.jsonArray = this.exportJSON();
         //alert(this.jsonArray);
 };
+
+/**
+ * *****************************************************************************
+ * Test de componente
+ * *****************************************************************************
+ * @returns {undefined}
+ */
 
 LogicDisplay.prototype.testPunto = function(){
         this.components.push(new Point(0, 0));
@@ -70,14 +92,32 @@ LogicDisplay.prototype.test = function() {
 	this.components.push(new Rectangle(200, 600, 500, 700));
 };
 
+/*
+ * Exporta el JSON
+ */
 LogicDisplay.prototype.exportJSON = function() {
 	return JSON.stringify(this.components);
 };
 
+/**
+ * *****************************************************************************
+ * Recibe el JSON
+ * *****************************************************************************
+ * @param {type} file
+ * @returns {undefined}
+ */
 LogicDisplay.prototype.import = function(file) {
 	this.importJSON(file, this.components);
 };
 
+/**
+ * *****************************************************************************
+ * agrega a componentes el JSON
+ * *****************************************************************************
+ * @param {type} arrJSON
+ * @param {type} parent
+ * @returns {undefined}
+ */
 LogicDisplay.prototype.importJSON = function(arrJSON, parent) {
 	for ( var i = 0; i < arrJSON.length; i++ ) {
 		if ( !arrJSON[i].active )
