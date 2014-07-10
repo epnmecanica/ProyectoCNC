@@ -8,6 +8,8 @@ function LogicDisplay() {
         // arreglo a guardar en base de datos
 	// Array of all components used inside CAD
 	this.components = new Array();
+        this.jsonArray = new Array();
+        
 }
 
 LogicDisplay.prototype.init = function() {
@@ -17,10 +19,14 @@ LogicDisplay.prototype.init = function() {
            //this.importJSON(JSON.parse(this.exportJSON()), this.components);
            //this.importJSON(f, this.components);
            //this.testPunto();
+           //this.jsonArray = this.exportJSON();
+           //alert(this.jsonArray);
 };
 
 LogicDisplay.prototype.addComponent = function(component) {
 	this.components.push(component);
+        //this.jsonArray = this.exportJSON();
+        //alert(this.jsonArray);
 };
 
 LogicDisplay.prototype.testPunto = function(){

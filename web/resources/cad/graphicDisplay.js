@@ -3,7 +3,7 @@
  * of the CAD
  */
 // habilita funciones de grafico
-
+// este es el de trabajo
 var k, i = 0;
 function GraphicDisplay(displayName, width, height) {
 	// Enumerate all available modes
@@ -30,7 +30,9 @@ function GraphicDisplay(displayName, width, height) {
 			DOWN : 1,
 			UP : 2
 	};
-	
+	// type of CAD
+        this.typeOfCad = "Torno";
+        
 	// Draw read only
 	this.readonly = false;
 	
@@ -50,13 +52,16 @@ function GraphicDisplay(displayName, width, height) {
 			null, null,   // x1, y1
 			null, null,   // x2, y2
 			null, null);  // x3, y3
-	
+	this.temporaryIntersectionsPoinst = new Array();
+        this.temporaryCoor = new Array();
+        this.temporaryCoorFirst = new Array(
+                        null, null);
 	// Temporary or selected color
 	this.selectedColor = "#c0c";
 	this.selectedRadius = "2";
 	
 	this.logicDisplay;
-	
+	this.logicAjax;
 	this.counter = 0;
 	
 	this.displayWidth = width;
@@ -89,6 +94,7 @@ function GraphicDisplay(displayName, width, height) {
 	this.conversionFactor = 1;
 	this.unitName = "px";
 	this.unitMeasure = "m";
+        this.unitAngle = "Grade";
 	this.unitFactor = 1;
 	this.unitConversionFactor = 1/100;
 	
@@ -101,8 +107,7 @@ function GraphicDisplay(displayName, width, height) {
 	this.displayName = displayName;
 	this.cvn = 0; // Canvas HTML element
 	this.context; // Canvas object
-	
-	//this.tooltipDefault = "WebCAD5";
+
         this.tooltipDefault = "OpenCNC";
 	this.tooltip = this.tooltipDefault;
         
@@ -121,7 +126,9 @@ GraphicDisplay.prototype.init = function() {
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
 	//alert(this.logicDisplay.exportJSON());
-        
+        //this.logicAjax = new LogicAjax();
+        //this.logicAjax.init(this.logicDisplay.exportJSON());
+        //alert(this.logicDisplay.exportJSON()); //asi se exporta json!!!!!!!!!!
         
 	/*
 	 * INITIALIZE INPUT HANDLER 
@@ -289,6 +296,13 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 					this.temporaryPoints[3],
 					this.selectedColor,
 					this.selectedRadius);
+                        this.drawAngle(
+					this.temporaryPoints[0],
+					this.temporaryPoints[1],
+					this.temporaryPoints[2],
+					this.temporaryPoints[3],
+                                        this.selectedColor);               
+                        
 			break;
 		case COMPONENT_TYPES.CIRCLE:
 			this.drawCircle(
@@ -344,6 +358,12 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 					this.temporaryPoints[3],
 					this.selectedColor,
 					this.selectedRadius);
+                        this.drawAngle(
+					this.temporaryPoints[0],
+					this.temporaryPoints[1],
+					this.temporaryPoints[2],
+					this.temporaryPoints[3],
+                                        this.selectedColor);
 			break;
 		case COMPONENT_TYPES.LABEL:
 			this.drawLabel(
@@ -363,6 +383,12 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 					this.temporaryPoints[5],
 					this.selectedColor,
 					this.selectedRadius);
+                        this.drawAngle(
+					this.temporaryPoints[0],
+					this.temporaryPoints[1],
+					this.temporaryPoints[2],
+					this.temporaryPoints[3],
+                                        this.selectedColor);
 			break;
 		case COMPONENT_TYPES.SHAPE:
 			this.drawShape(this.temporaryShape);
@@ -490,6 +516,31 @@ GraphicDisplay.prototype.drawMeasure = function(x1, y1, x2, y2, color, radius) {
 			(this.cOutY + y2 + 30 + localDiff) * this.zoom);
 };
 
+GraphicDisplay.prototype.drawAngle = function(x1, y1, x2, y2, color){
+        var angle = 0 ;
+        if (this.unitAngle === "Rad"){
+            angle = this.getAngle(x1, y1, x2, y2);
+        }else if(this.unitAngle === "Grade"){
+            angle = -this.getAngle(x1, y1, x2, y2) * 180 / Math.PI;
+        }
+        
+                	
+	var localZoom = this.zoom;
+	var localDiff = 0;
+	
+	if ( this.zoom <= 0.25 ) {
+		localZoom = 0.5;
+		localDiff = 20;
+	}
+		
+	this.context.fillStyle = color;
+	this.context.font = (this.fontSize * localZoom) + "px courier";
+	this.context.fillText(
+			angle.toFixed(1) + "º" + this.unitAngle,
+			(this.cOutX + x1 - 120) * this.zoom,
+			(this.cOutY + y1 + 30 + localDiff) * this.zoom);
+};
+
 // inserta un texto.
 GraphicDisplay.prototype.drawLabel = function(x, y, text, color, radius) {
 	this.drawPoint(x, y, '#0ff', 2);
@@ -542,7 +593,7 @@ GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radiu
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
 	this.context.beginPath();
-        if (x3>x1){
+        if (x3 > x1){
             this.context.arc(
                             (x1 + this.cOutX) * this.zoom, 
                         (y1 + this.cOutY) * this.zoom, 
@@ -750,12 +801,24 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			 
                        
 			this.cvn.css('cursor', 'default');
+                        
 			if (action === this.MOUSEACTION.MOVE) {
+                            
 				if (this.temporaryComponentType === null) {
 					this.temporaryComponentType = COMPONENT_TYPES.POINT;
+                                        
 				} else if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
-					this.temporaryPoints[0] = this.getCursorXLocal();
-					this.temporaryPoints[1] = this.getCursorYLocal();
+					 this.temporaryCoorFirst = this.findIntersectionObject();                                    
+                                    if (this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal()) !== null){
+                                        this.tooltip = "interseccion";
+                                        
+                                        this.temporaryPoints[0] = this.temporaryCoorFirst[0];
+					this.temporaryPoints[1] = this.temporaryCoorFirst[1];
+                                    }else{
+                                        this.tooltip = "no inter";
+                                        this.temporaryPoints[0] = this.getCursorXLocal();
+                                        this.temporaryPoints[1] = this.getCursorYLocal();
+                                    }
 				} else if (this.temporaryComponentType === COMPONENT_TYPES.LINE) {
 					this.temporaryPoints[2] = this.getCursorXLocal();
 					this.temporaryPoints[3] = this.getCursorYLocal();
@@ -781,7 +844,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                                 this.tooltipCode = this.getTextCode() + '\n' + ' Linea: ' + this.temporaryPoints[0] + ', ' + this.temporaryPoints[1];
                                 
 			}
-			this.tooltip = "Add linea";
+			//this.tooltip = "Add linea";
                         
 			break;
 		case this.MODES.ADDCIRCLE:
@@ -807,7 +870,9 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 							this.temporaryPoints[1],
 							this.temporaryPoints[2],
 							this.temporaryPoints[3]));
-                                                        this.tooltipCode = this.getTextCode() + '\n' + ' Circulo: ' + this.temporaryPoints;
+                                                        this.tooltipCode = this.getTextCode() + '\n' 
+                                                                + ' Circulo: ' + 
+                                                                this.temporaryPoints;
 					this.resetMode();      
 				}
 			}
@@ -921,7 +986,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 					this.temporaryPoints[1] = this.getCursorYLocal();
 				}
 			} else if ( action === this.MOUSEACTION.DOWN ) {
-				var text = prompt("Label:");
+				var text = prompt("Texto:");
 				if ( text.length > 0 ) {
 					this.logicDisplay.addComponent(new Label(
 							this.temporaryPoints[0],
@@ -1258,14 +1323,42 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
 
 // encontrar la interseccion con los objetos, no los vertices.
 GraphicDisplay.prototype.findIntersectionObject = function(){
-        for ( var i = this.logicDisplay.components.length - 1; i >= 0; i-- ) {
-		if (!this.logicDisplay.components[i].isActive()){
-                    
-                }		
-		
-	}
-	
-	return null;
+        
+        this.selectedComponent = this.findIntersectionWith(
+							this.getCursorXLocal(),
+							this.getCursorYLocal());
+                        
+                                if(this.selectedComponent !== null){
+                                    
+                                 
+                                    this.temporaryIntersectionsPoinst[0] = this.logicDisplay.components[this.selectedComponent].x1;
+                                    this.temporaryIntersectionsPoinst[1] = this.logicDisplay.components[this.selectedComponent].y1;
+                                    this.temporaryIntersectionsPoinst[2] = this.logicDisplay.components[this.selectedComponent].x2;
+                                    this.temporaryIntersectionsPoinst[3] = this.logicDisplay.components[this.selectedComponent].y2;
+                                    
+                                    
+                                    if (this.temporaryIntersectionsPoinst[0] === this.getCursorXLocal() 
+                                            && this.temporaryIntersectionsPoinst[1] === this.getCursorYLocal()){
+                                        
+                                                  //  this.tooltip = this.temporaryIntersectionsPoinst[0] + " | " 
+                                                        //    + -this.temporaryIntersectionsPoinst[1];
+                                                    this.temporaryCoor[0] = this.temporaryIntersectionsPoinst[0];
+                                                    this.temporaryCoor[1] = this.temporaryIntersectionsPoinst[1];
+                                                    
+                                    }else if (this.temporaryIntersectionsPoinst[2] === this.getCursorXLocal() 
+                                            && this.temporaryIntersectionsPoinst[3] === this.getCursorYLocal()){
+                                        
+                                                    //this.tooltip = this.temporaryIntersectionsPoinst[2] + " | "
+                                                          //  + -this.temporaryIntersectionsPoinst[3];
+                                                    this.temporaryCoor[0] = this.temporaryIntersectionsPoinst[2];
+                                                    this.temporaryCoor[1] = this.temporaryIntersectionsPoinst[3];
+                                    }
+                                    return this.temporaryCoor;
+                                    
+                                }else{
+                                    //this.tooltip = "Add linea";
+                                }    
+                                return null;
 };
 
 // TODO: Move in Utils.
@@ -1323,6 +1416,10 @@ GraphicDisplay.prototype.getAngle = function(x1, y1, x2, y2) {
         rad = ((theta * Math.PI) / 180);
 	//this.tooltip = theta;
 	return -1 * rad;
+};
+
+GraphicDisplay.prototype.setAngleGrad = function(Grad){
+        
 };
 
 GraphicDisplay.prototype.setTextCode = function(ctext) {
