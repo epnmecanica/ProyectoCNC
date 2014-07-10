@@ -29,10 +29,25 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
+
+//******************************************************************************
+//CRUD de programa.
+//Almacena en la base de datos los comandos de programa para el CAM
+//******************************************************************************
 @Controller
 public class ProgramaController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    
+/**
+ * *****************************************************************************
+ * Crea la lista de programas de los usuarios.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/programa/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
@@ -55,6 +70,17 @@ public class ProgramaController {
         }
        
     }
+    
+/**
+ * *****************************************************************************
+ * Crea los programas de los usuarios y los almacena en la base de datos.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/programa/crear/{id}")
     public ModelAndView crear (@PathVariable Integer id,
                                     HttpServletRequest request, 
@@ -91,6 +117,16 @@ public class ProgramaController {
         }
     }
     
+/**
+ *******************************************************************************
+ * Borra los programas de CAD de cualquier usuario.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/programa/borrar/{id}")
     public ModelAndView borrar  (@PathVariable Integer id,
                                     HttpServletRequest request, 
@@ -110,6 +146,17 @@ public class ProgramaController {
         
     }
     
+    
+/**
+ * *****************************************************************************
+ * Actualiza los atributos en la base de datos de los programas.
+ * *****************************************************************************
+ * @param p
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/programa/actualizar")
     public ModelAndView actualizar (@ModelAttribute Programa p,
                                     HttpServletRequest request, 
@@ -129,6 +176,18 @@ public class ProgramaController {
         }
     }
     
+/**
+ * *****************************************************************************
+ * Obtiene los programas de los usuarios.
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param programaID
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/programa/obtenerPrograma")
     public ModelAndView obtenerPrograma (int programaID,
                                             HttpServletRequest request, 
@@ -141,6 +200,19 @@ public class ProgramaController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
+    
+/**
+ * *****************************************************************************
+ * Obtiene programas por modelo
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param ModeloID
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/programa/obtenerProgramaPorModelo")
     public ModelAndView obtenerProgramaPorModelo (int ModeloID,
                                                     HttpServletRequest request, 

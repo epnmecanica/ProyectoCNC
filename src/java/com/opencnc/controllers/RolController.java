@@ -29,11 +29,25 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
+//******************************************************************************
+//Lista, Crea, Guarda, Borra, Actualiza y Obtiene Rol.
+//Son creados con el animo de modificar los permisos de los usuarios.
+//Por arquitectura solo usaremos 2, (A y B).
+//******************************************************************************
 @Controller
 public class RolController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
     
+/**
+ * *****************************************************************************
+ * Crea la lista de roles para la visualizacion.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/rol/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
@@ -48,6 +62,16 @@ public class RolController {
  
         return m;
     }
+    
+/**
+ * *****************************************************************************
+ * Crea Rol.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/rol/crear")
     public ModelAndView   crear  (
                                     HttpServletRequest request, 
@@ -67,6 +91,17 @@ public class RolController {
         }
         
     }
+    
+/**
+ * *****************************************************************************
+ * Guarda Rol
+ * *****************************************************************************
+ * @param rol
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping("/rol/guardarRol")
     public ModelAndView guardarRol(@ModelAttribute Rol rol,
                                             HttpServletRequest request, 
@@ -93,6 +128,17 @@ public class RolController {
         }
         
     }
+    
+/**
+ * *****************************************************************************
+ * Borra Rol
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/rol/borrarRol/{id}")
     public ModelAndView borrarRol (@PathVariable  Integer id,
                                             HttpServletRequest request, 
@@ -114,6 +160,19 @@ public class RolController {
         }
     }
     
+
+/**
+ * *****************************************************************************
+ * Actualiza los roles.
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param rol
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping ("/rol/actualizar")
     public ModelAndView actualizar (@ModelAttribute Rol rol,
                                             HttpServletRequest request, 
@@ -127,6 +186,19 @@ public class RolController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
+    
+/**
+ * *****************************************************************************
+ * Obtiene el Rol
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param rolID
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     
     @RequestMapping ("/rol/obtenerRol")
     public ModelAndView obtenerRol (int rolID,        

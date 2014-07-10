@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author root
  */
+
+//******************************************************************************
+//Sin uso por el momento
+//******************************************************************************
 @Controller
 @RequestMapping("/tipocodigo")
 public class TipoCodigoController {

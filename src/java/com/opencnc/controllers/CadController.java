@@ -16,6 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
+
+//******************************************************************************
+//Sin uso por el momento
+//******************************************************************************
 @Controller
 
 public class CadController {

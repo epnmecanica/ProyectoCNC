@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author root
  */
+//******************************************************************************
+//Sin uso por el momento
+//******************************************************************************
 @Controller
 @RequestMapping("/comando")
 public class ComandoController {

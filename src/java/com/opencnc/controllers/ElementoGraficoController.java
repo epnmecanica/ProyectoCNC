@@ -49,12 +49,19 @@ import org.springframework.web.servlet.ModelAndView;
  * @author root
  */
 @Controller
-
+//******************************************************************************
+//CRUD de los Elementos Graficos de CAM, ListaLinea, getJSON, lista
+//******************************************************************************
 public class ElementoGraficoController {
     int ident = 0;
     // Implemento Log4j para eventos tipo log
+    
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
     
+//******************************************************************************
+//AJAX, recibe los elementos de el js del cliente y los procesa para almacenar
+// en la base de datos.
+//******************************************************************************
     @RequestMapping(    value="elemento/crear/linea/lista", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"
@@ -175,6 +182,14 @@ public class ElementoGraficoController {
         }
     }
     
+//******************************************************************************
+//Obtiene la base de datos con los elementos graficos por modelo y los 
+//envia al Ajax del cliente
+//******************************************************************************
+//******************************************************************************
+//Metodo faltante de desarrollo y problemas en el envio de datos.
+//******************************************************************************
+    
     @RequestMapping(    value="elemento/crear/linea/getJSON", 
                         method=RequestMethod.GET,headers = "Accept=*/*")
     public @ResponseBody String getJSON(){
@@ -214,8 +229,20 @@ public class ElementoGraficoController {
         }
         
     }
-    
-   
+
+
+/**
+ * *****************************************************************************
+ * Se visualiza los elementos graficos de todos los usuarios.
+ *******************************************************************************
+ *******************************************************************************
+ * Metodo faltante de desarrllo.
+ *******************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/elemento/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
@@ -231,6 +258,17 @@ public class ElementoGraficoController {
  
         return m;
     }
+    
+/**
+ * *****************************************************************************
+ * Crea la vista del CAD, dependiendo del modelo.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     
     @RequestMapping  ("/elemento/crear/{id}")
     public ModelAndView   crear  (@PathVariable Integer id,
@@ -268,6 +306,22 @@ public class ElementoGraficoController {
         }
     }
     
+/**
+ * *****************************************************************************
+ * Actualiza los elementos graficos
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * La funcion de este metodo es encontrar todos los elementos graficos del mismo 
+ * modelo, los borra y sobrescribe.
+ * *****************************************************************************
+ * @param ln
+ * @param Id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/elemento/actualizar")
     public ElementoGrafico   actualizar  (lineatool ln,
                                         
@@ -298,6 +352,19 @@ public class ElementoGraficoController {
          //   return new ModelAndView("redirect:/usuario/login.htm");
         //}
     }
+    
+/**
+ * *****************************************************************************
+ * Borra los elementos graficos del modelo.
+ * *****************************************************************************
+ * Metodo sin funcion.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/elemento/borrar/{id}")
     public ModelAndView   borrar  (@PathVariable Integer id,
                                     HttpServletRequest request, 
@@ -318,6 +385,19 @@ public class ElementoGraficoController {
         
     }
     
+/**
+ * *****************************************************************************
+ * Obtiene los Elementos graficos de la base de datos.
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
+    
     @RequestMapping  ("/elemento/obtenerElemento")
     public ModelAndView   obtenerElemento  (@PathVariable Integer id,
                                                 HttpServletRequest request, 
@@ -330,6 +410,19 @@ public class ElementoGraficoController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
+
+/**
+ * *****************************************************************************
+ * Obtiene el elemento grafico por modelo.
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param ModeloID
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     
     @RequestMapping  ("/elemento/obtenerElementoPorModelo")
     public ModelAndView   obtenerElementoPorModelo  (int ModeloID,

@@ -36,14 +36,25 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
-
+//******************************************************************************
+//CRUD de modelos.
+//Se puede crean los modelos por usuario y los almacenan en la base de datos.
+//******************************************************************************
 @Controller
 //@SessionAttributes("usuario")
 public class ModeloController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
-       
-    
+
+/**
+ * *****************************************************************************
+ * Abre la lista de modelos por usuario.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  (value="/modelo/abrir")
     public ModelAndView   abrir  (/*@RequestParam Integer usuarioId,*/
                                             HttpServletRequest request, 
@@ -78,7 +89,16 @@ public class ModeloController {
         }
         
     }
-    
+
+/**
+ * *****************************************************************************
+ * Crea los modelos por usuario.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/modelo/crearModelo")
     static ModelAndView   crearModelo  (HttpServletRequest request, 
                                         HttpServletResponse response)
@@ -115,6 +135,19 @@ public class ModeloController {
         }  
     }
    
+/**
+ * *****************************************************************************
+ * Guarda los modelos en la base de datos.
+ * *****************************************************************************
+ * @param modelo
+ * @param unidadMedidaId
+ * @param tipoMaquinaId
+ * @param usuarioId
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */    
     @RequestMapping  ("/modelo/guardarModelo")
     public ModelAndView   guardarModelo     (@ModelAttribute Modelo modelo, 
                                             @RequestParam Integer unidadMedidaId, 
@@ -162,6 +195,18 @@ public class ModeloController {
         
     }
     
+/**
+ * *****************************************************************************
+ * Edita la informacion de los modelos.
+ * *****************************************************************************
+ * Metodo sin terminar.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     //@RequestMapping(value = "/modelo/editarModelo/{id}", method = RequestMethod.GET)
     @RequestMapping  ("modelo/editarModelo/{id}")
     public ModelAndView   editarModelo  (@PathVariable Integer id, 
@@ -188,7 +233,16 @@ public class ModeloController {
         
     }
     
-    
+/**
+ * *****************************************************************************
+ * Borra los modelos
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping ("/modelo/borrarModelo/{id}")
     public ModelAndView borrarModelo (@PathVariable Integer id, 
                                             HttpServletRequest request, 

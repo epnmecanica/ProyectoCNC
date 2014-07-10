@@ -32,12 +32,20 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
+//******************************************************************************
+//Creacion, visualizacion, edicion, borrado, inicio y fin de Sesion de usuarios,
+//cambio y recuperacion de contraseña, para los usuarios
+//******************************************************************************
 
 @Controller
 public class UsuarioController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
  
+//******************************************************************************
+//En lista los usuarios de la base de datos, esto es solo para cuentas 
+//administrativas.
+//******************************************************************************
     @RequestMapping  ("/usuario/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
                                     HttpServletResponse response) throws IOException{
@@ -66,6 +74,14 @@ public class UsuarioController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }   
     }
+/**
+ * *****************************************************************************
+ * Crea la vista para ingresar al formulario los datos para la creacion de 
+ * usuarios.
+ * *****************************************************************************
+ * @return
+ * @throws IOException 
+ */
     @RequestMapping ("/usuario/crear")
     public ModelAndView crear ()throws IOException{
         Usuario u = new Usuario();
@@ -76,7 +92,17 @@ public class UsuarioController {
         logger.info("Empieza a crear un nuevo usuario");
         return m;
     }
-    
+/**
+ * *****************************************************************************
+ * Recoge la informacion del formulario de creacion de usuario y valida que ç
+ * tenga contenido y los guarda en la base de datos.
+ * *****************************************************************************
+ * @param usuario
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping ("/usuario/guardar")
     public ModelAndView guardar (@ModelAttribute Usuario usuario, 
                                             HttpServletRequest request, 
@@ -104,6 +130,16 @@ public class UsuarioController {
         return lista(request, response);
     }
     
+/**
+ * *****************************************************************************
+ * Recibe el parametro "id" para editar el usuario ya creado.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws IOException 
+ */
     @RequestMapping  ("/usuario/editar/{id}")
     public ModelAndView   editar  ( @PathVariable  Integer id, 
                                             HttpServletRequest request, 
@@ -124,6 +160,17 @@ public class UsuarioController {
             return new ModelAndView("redirect:/usuario/login.htm");
         } 
     }
+    
+/**
+ * *****************************************************************************
+ * Recibe el "id" del usuario y lo borra de la base de datos.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws IOException 
+ */
     
     @RequestMapping ("/usuario/borrar/{id}")
     
@@ -153,6 +200,14 @@ public class UsuarioController {
         }    
     }
     
+/**
+ * *****************************************************************************
+ * Crea la vista para el login o inicio de la sesion.
+ * *****************************************************************************
+ * @return
+ * @throws IOException 
+ */
+    
     @RequestMapping("/usuario/login")
     public ModelAndView login ()throws IOException{
         
@@ -163,6 +218,16 @@ public class UsuarioController {
         return m;
     }
     
+/**
+ * *****************************************************************************
+ * Valida los datos de e-mail y contraseña, crea la variable de sesion.
+ * *****************************************************************************
+ * @param usuario
+ * @param request
+ * @param response
+ * @return
+ * @throws IOException 
+ */
         
     @RequestMapping("/usuario/iniciarSesion")
     public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario, 
@@ -210,6 +275,19 @@ public class UsuarioController {
       
     }
     
+/**
+ * *****************************************************************************
+ * Cambia la contraseña.
+ * *****************************************************************************
+ * *****************************************************************************
+ * Metodo aun si desarrollo.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws IOException 
+ */
+    
     @RequestMapping("usuario/cambiarContrasena")
     public ModelAndView cambiarContrasena (HttpServletRequest request, 
                                             HttpServletResponse response)
@@ -225,6 +303,16 @@ public class UsuarioController {
         }  
     }
     
+/**
+ * *****************************************************************************
+ * Recupera la contraseña.
+ * *****************************************************************************
+ * Metodo aun si desarrollo.
+ * *****************************************************************************
+ * @return
+ * @throws IOException 
+ */
+    
     @RequestMapping  ("/usuario/recuperarContra")
     public ModelAndView   recuperar  ()throws IOException{
         
@@ -232,6 +320,19 @@ public class UsuarioController {
         
         return m;
     } 
+    
+/**
+ * *****************************************************************************
+ * Hace el Logout.
+ * *****************************************************************************
+ * Metodo aun le fata desarrollo para algunas vistas, solo implementado para el
+ * index.jsp
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws IOException 
+ */
     @RequestMapping  ("/usuario/logout")
     public ModelAndView   logout  (HttpServletRequest request, 
                                     HttpServletResponse response)

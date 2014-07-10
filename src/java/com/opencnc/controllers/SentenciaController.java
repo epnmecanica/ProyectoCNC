@@ -29,11 +29,27 @@ import org.springframework.web.servlet.ModelAndView;
  *
  * @author root
  */
+//******************************************************************************
+//Creacion, visualizacion, actualizacion, borrado, obtenerSentenciaPorProgrma, 
+//obtenerSentencia de las sentencias a usar en el programa.
+//******************************************************************************
+
+
 @Controller
 public class SentenciaController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
-    
+
+/**
+ * *****************************************************************************
+ * Crea la vista con la lista de sentencias usadas por todos los usuarios y
+ * guardadas en la base de datos.
+ * *****************************************************************************
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/sentencia/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
@@ -48,6 +64,17 @@ public class SentenciaController {
  
         return m;
     }
+    
+/**
+ * *****************************************************************************
+ * Crea la sentencia.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/sentencia/crear/{id}")
     public ModelAndView crear (@PathVariable Integer id,
                                             HttpServletRequest request, 
@@ -82,7 +109,19 @@ public class SentenciaController {
         }
         
     }
-    
+ 
+/**
+ * *****************************************************************************
+ * Actualiza la sentencia.
+ * *****************************************************************************
+ * Metodo aun sin desarrollo.
+ * *****************************************************************************
+ * @param s
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/sentencia/actualizar")
     public ModelAndView actualizar (@ModelAttribute Sentencia s,
                                             HttpServletRequest request, 
@@ -97,6 +136,16 @@ public class SentenciaController {
         }
     }
     
+/**
+ * *****************************************************************************
+ * Borra la sentencia creada.
+ * *****************************************************************************
+ * @param id
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/sentencia/borrar/{id}")
     public ModelAndView borrar (@PathVariable Integer id,
                                             HttpServletRequest request, 
@@ -117,6 +166,18 @@ public class SentenciaController {
         
     }
     
+/**
+ * *****************************************************************************
+ * Obtiene la sentencia.
+ * *****************************************************************************
+ * Metodo sin desarrollo.
+ * *****************************************************************************
+ * @param sentenciaID
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/sentencia/obtenerSentencia")
     public ModelAndView obtenerSentencia (int sentenciaID,
                                             HttpServletRequest request, 
@@ -130,7 +191,18 @@ public class SentenciaController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
     }
-    
+/**
+ * *****************************************************************************
+ * Obtiene las sentencias por programa.
+ * *****************************************************************************
+ * Metodo aun sin desarrollo.
+ * *****************************************************************************
+ * @param programaID
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception 
+ */
     @RequestMapping  ("/sentencia/obtenerSentenciaPorPrograma")
     public ModelAndView obtenerSentenciaPorProgrma (int programaID,
                                             HttpServletRequest request, 
