@@ -54,6 +54,8 @@
                 <prop key="sentencia/lista.htm">sentenciaController</prop>
                 <prop key="sentencia/borrar/{1}.htm">sentenciaController</prop>
                 
+                <prop key="cam/abrir.htm">camController</prop>
+                
                 <prop key="programa/crear/{1}.htm">progrmaController</prop>
                 <prop key="programa/lista.htm">progrmaController</prop>
                 <prop key="programa/borrar/{1}.htm">progrmaController</prop>
@@ -117,6 +119,9 @@
     
     <bean name="sentenciaController"
           class="com.opencnc.controllers.SentenciaController"
+           />
+    <bean name="camController"
+          class="com.opencnc.controllers.CamController"
            />
     
     <bean name="elementoGraficoController"

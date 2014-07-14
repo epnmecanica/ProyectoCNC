@@ -32,6 +32,9 @@
         <br>
             <a href="usuario/recuperarContra.htm">Recuperar contraseña</a>
         </br>
+        <br>
+            <a href="cam/abrir.htm">CAM</a>
+        </br>
         <%--
         <br>
             <a href="modelo/abrir.htm">Abrir Modelo</a>
