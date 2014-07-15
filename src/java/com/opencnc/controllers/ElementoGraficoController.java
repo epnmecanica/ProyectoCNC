@@ -13,10 +13,12 @@ import com.opencnc.beans.ElementoGrafico;
 import com.opencnc.beans.GetJson;
 import com.opencnc.beans.Linea;
 import com.opencnc.beans.Modelo;
+import com.opencnc.beans.Serializacion;
 import com.opencnc.beans.Texto;
 import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -198,34 +200,42 @@ public class ElementoGraficoController {
             
         Modelo mod = (Modelo)s.get(Modelo.class, ident);
         
-        
         ElementoGrafico elem = new ElementoGrafico();
         
-       
         Criteria c = s.createCriteria(ElementoGrafico.class);
+        
         c.add(Restrictions.eq("modelo", mod));
+        
         List<ElementoGrafico> leg = c.list();
+        
         if (leg.isEmpty()){
             return null;
         }else{
+            ArrayList<Serializacion> lsr = new ArrayList<>();
+
             Gson gson = new Gson();
-        
-            //String json = gson.toJson(elem);
-            //System.out.println(json);
-            Type fooType = new TypeToken<List<ElementoGrafico>>() {}.getType();
-            gson.toJson(elem, fooType);
-            
-            return null;
-            //Type listType = new TypeToken<List<ElementoGrafico>>() {}.getType();
-            //List<ElementoGrafico> target = new LinkedList<ElementoGrafico>();
-            //target = leg;
 
+            Serializacion sr = new Serializacion();
 
-            //String json = gson.toJson(target);
+            for ( int j = 0; j <= leg.size()-1; j ++ ) {
+                    elem = leg.get(j);
+                    sr.setActive(true);
+                    sr.setType(elem.getTipoElemento());
+                    sr.setColor("blue");
+                    sr.setRadius(1);
+                    sr.setText(null);
+                    sr.setX(elem.getPosicionX());
+                    sr.setY(elem.getPosicionY());
+                    //Linea l = new Linea();
+                    sr.setX1(elem.getLinea().getPosicionX2());
+                    sr.setY2(elem.getLinea().getPosicionY2());
+                    sr.setX3(0);
+                    sr.setY3(0);
+                    lsr.add(sr);
 
-            //List<String> target2 = gson.fromJson(json, listType);
-
-            //return null;
+            }
+            String js = gson.toJson(lsr);  
+                return js;
         }
         
     }

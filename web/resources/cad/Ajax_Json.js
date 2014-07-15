@@ -13,34 +13,48 @@
 //******************************************************************************
 //Recibe el Ajax del servidor.
 //******************************************************************************
+var respuesta;
+
+//No esta habilitado todavia
     function receiveAjax(){
-         $.ajax({
+        
+        $.ajax({
             type: 'GET',
             url:  "linea/getJSON.htm",
-            /*dataType: 'json',*/
+            dataType: 'json',
             async: true,
             success: function(result) {
-                            
-                            
-                           // var tmp = JSON.stringify(result);
-                            
-                            
+                                                       
+                          var tmp = JSON.stringify(result);
                             $("#theJson").html(result);
-
+                            console.log("JSON: " + tmp);
+                            console.log("String: " + result);
+                            respuesta = tmp;
+                            console.log("respuesta: " + respuesta);
+                            
             }/*,
+            complete: function(){
+                
+            },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Issue fetching the JSON: "
                                     + textStatus + " "
                                     + errorThrown + " !");
             }*/
+            
         });
+        
+        
+        
     };
+    
     
 
 //******************************************************************************
 //Envia el Ajax del servidor.
 //******************************************************************************
-    function sendAjax(datos){
+//funciona perfecto    
+function sendAjax(datos){
           var pathname = window.location.pathname;
               var datosJ = {datos:datos};
                   

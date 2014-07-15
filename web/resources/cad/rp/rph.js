@@ -289,8 +289,9 @@
                             "x":484,
                             "y":-968,
                             "text":"hola"}];
-            
-                gd.setJSON(f);
+                   
+           gd.setJSON(f);
+                
           });
           iless.mousemove(function(){
               iless.attr({fill: colors, stroke: "none"});

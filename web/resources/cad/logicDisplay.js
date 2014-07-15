@@ -107,6 +107,7 @@ LogicDisplay.prototype.exportJSON = function() {
  * @returns {undefined}
  */
 LogicDisplay.prototype.import = function(file) {
+        //alert(file);
 	this.importJSON(file, this.components);
 };
 
