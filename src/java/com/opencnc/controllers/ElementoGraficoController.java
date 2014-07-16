@@ -105,13 +105,25 @@ public class ElementoGraficoController {
             Date d1 = c.getTime();
             elemento.setCreadoFecha(d1);
             elemento.setTipoElemento(tipo.getType());
-            if(elemento.getTipoElemento() == 7){
-                elemento.setPosicionX(tipo.getX());
-                elemento.setPosicionY(tipo.getY());
-            }else{
-                elemento.setPosicionX(tipo.getX1());
-                elemento.setPosicionY(tipo.getY1());
+            switch(elemento.getTipoElemento()){
+                case 2:
+                    elemento.setPosicionX(tipo.getX1());
+                    elemento.setPosicionY(tipo.getY1());
+                    break;
+                case 5:
+                    elemento.setPosicionX(tipo.getX1());
+                    elemento.setPosicionY(tipo.getY1());
+                    elemento.setOrden(tipo.getX2());// mala praxis pero es algo que tengo que hacer
+                    break;
+                case 7:
+                    elemento.setPosicionX(tipo.getX());
+                    elemento.setPosicionY(tipo.getY());
+                    break;
+                default:
+                    break;             
+                    
             }
+            
             elemento.setElementoId(index);
             elemento.setTipoElemento(tipo.getType());
             elemento.setCreadoPor(u.getCreadoPor());
@@ -153,9 +165,9 @@ public class ElementoGraficoController {
                          
                          ElementoGrafico gr1 = (ElementoGrafico)s1.get(ElementoGrafico.class, elemento.getElementoId());
                          arc.setElementoGrafico(gr1);
-                         arc.setRadio(tipo.getRadius());
-                         arc.setAngulo1(tipo.getX2());
-                         arc.setAngulo2(tipo.getY2());
+                         arc.setRadio(tipo.getY2());
+                         arc.setAngulo1(tipo.getX3());
+                         arc.setAngulo2(tipo.getY3());
                          
                          Transaction t1 = s1.getTransaction();
                          s1.beginTransaction();
@@ -217,12 +229,12 @@ public class ElementoGraficoController {
         
         List<ElementoGrafico> leg = c.list();
         
-        Iterator<ElementoGrafico> iters = leg.iterator();
+        
        
         if (leg.isEmpty()){
             return null;
         }else{
-            
+            Iterator<ElementoGrafico> iters = leg.iterator();
             List<Serializacion> lsr = new ArrayList<>();
 
             Gson gson = new Gson();
@@ -238,6 +250,38 @@ public class ElementoGraficoController {
                 sr.setColor("blue");
                 sr.setRadius(1);
                 
+                switch(elem.getTipoElemento()){
+                    case 2:
+                        sr.setText(null);
+                        sr.setX(0);
+                        sr.setY(0);
+                        sr.setText(null);
+                        sr.setX1(elem.getPosicionX());
+                        sr.setY1(elem.getPosicionY());
+                        //Linea l = new Linea();
+                        sr.setX2(elem.getLinea().getPosicionX2());
+                        sr.setY2(elem.getLinea().getPosicionY2());
+                        sr.setX3(0);
+                        sr.setY3(0);
+                        break;
+                    case 5:
+                        sr.setX1(elem.getPosicionX());
+                        sr.setY1(elem.getPosicionY());
+                        
+                        sr.setX2(elem.getOrden());// mala praxis pero es algo que necesito hacer
+                        sr.setY2(elem.getArco().getRadio());
+                        sr.setX3((int)elem.getArco().getAngulo1());
+                        sr.setY3((int)elem.getArco().getAngulo2());
+                        break;
+                    case 7:
+                        sr.setX(elem.getPosicionX());
+                        sr.setY(elem.getPosicionY());
+                        sr.setText(elem.getDescripcion());
+                        break;
+                    default:
+                        break;
+                }
+                /*
                 if (elem.getTipoElemento() == 7){//para setear los elementos tipo texto
                     sr.setX(elem.getPosicionX());
                     sr.setY(elem.getPosicionY());
@@ -255,7 +299,7 @@ public class ElementoGraficoController {
                     sr.setX3(0);
                     sr.setY3(0);
                 }
-                      
+                 */     
                 lsr.add(sr);
             }
             
