@@ -22,6 +22,8 @@ private int                           x1;
 private int                           y1;
 private int                           x2;
 private int                           y2;
+private int                           x3;
+private int                           y3;
 private String                        text;
 
     /**
@@ -176,5 +178,33 @@ private String                        text;
      */
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the x3
+     */
+    public int getX3() {
+        return x3;
+    }
+
+    /**
+     * @param x3 the x3 to set
+     */
+    public void setX3(int x3) {
+        this.x3 = x3;
+    }
+
+    /**
+     * @return the y3
+     */
+    public int getY3() {
+        return y3;
+    }
+
+    /**
+     * @param y3 the y3 to set
+     */
+    public void setY3(int y3) {
+        this.y3 = y3;
     }
 }

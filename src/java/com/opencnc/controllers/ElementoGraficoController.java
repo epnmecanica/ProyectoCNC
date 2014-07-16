@@ -127,8 +127,8 @@ public class ElementoGraficoController {
                          Linea l = new Linea();
                          ElementoGrafico gr = (ElementoGrafico)ss.get(ElementoGrafico.class, elemento.getElementoId());
                          l.setElementoGrafico(gr);
-                         l.setPosicionX2(tipo.getX2());
-                         l.setPosicionY2(tipo.getY2());
+                         l.setPosicionX2(tipo.getX1());
+                         l.setPosicionY2(tipo.getY1());
                          
                          Transaction tt = ss.getTransaction();
                          ss.beginTransaction();
@@ -211,12 +211,12 @@ public class ElementoGraficoController {
         if (leg.isEmpty()){
             return null;
         }else{
-            ArrayList<Serializacion> lsr = new ArrayList<>();
+            List<Serializacion> lsr = new ArrayList<>();
 
             Gson gson = new Gson();
 
             Serializacion sr = new Serializacion();
-
+            
             for ( int j = 0; j <= leg.size()-1; j ++ ) {
                     elem = leg.get(j);
                     sr.setActive(true);
@@ -224,15 +224,17 @@ public class ElementoGraficoController {
                     sr.setColor("blue");
                     sr.setRadius(1);
                     sr.setText(null);
-                    sr.setX(elem.getPosicionX());
-                    sr.setY(elem.getPosicionY());
+                    sr.setX(0);
+                    sr.setY(0);
+                    sr.setX1(elem.getPosicionX());
+                    sr.setY1(elem.getPosicionY());
                     //Linea l = new Linea();
-                    sr.setX1(elem.getLinea().getPosicionX2());
+                    sr.setX2(elem.getLinea().getPosicionX2());
                     sr.setY2(elem.getLinea().getPosicionY2());
                     sr.setX3(0);
                     sr.setY3(0);
+                    
                     lsr.add(sr);
-
             }
             String js = gson.toJson(lsr);  
                 return js;
