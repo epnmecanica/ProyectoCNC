@@ -76,6 +76,7 @@ public class ElementoGraficoController {
         
         Session s = HibernateUtil.getSessionFactory().openSession();
         Criteria cs = s.createCriteria(ElementoGrafico.class);
+        
         List<ElementoGrafico> leg = cs.list();
         
         int index=0;
@@ -103,8 +104,14 @@ public class ElementoGraficoController {
             Calendar c = new GregorianCalendar();
             Date d1 = c.getTime();
             elemento.setCreadoFecha(d1);
-            elemento.setPosicionX(tipo.getX1());
-            elemento.setPosicionY(tipo.getY1());
+            elemento.setTipoElemento(tipo.getType());
+            if(elemento.getTipoElemento() == 7){
+                elemento.setPosicionX(tipo.getX());
+                elemento.setPosicionY(tipo.getY());
+            }else{
+                elemento.setPosicionX(tipo.getX1());
+                elemento.setPosicionY(tipo.getY1());
+            }
             elemento.setElementoId(index);
             elemento.setTipoElemento(tipo.getType());
             elemento.setCreadoPor(u.getCreadoPor());
@@ -127,8 +134,8 @@ public class ElementoGraficoController {
                          Linea l = new Linea();
                          ElementoGrafico gr = (ElementoGrafico)ss.get(ElementoGrafico.class, elemento.getElementoId());
                          l.setElementoGrafico(gr);
-                         l.setPosicionX2(tipo.getX1());
-                         l.setPosicionY2(tipo.getY1());
+                         l.setPosicionX2(tipo.getX2());
+                         l.setPosicionY2(tipo.getY2());
                          
                          Transaction tt = ss.getTransaction();
                          ss.beginTransaction();
@@ -161,7 +168,9 @@ public class ElementoGraficoController {
                          break;
                 case 7:  System.out.print("es texto");
                          Session s2 = HibernateUtil.getSessionFactory().openSession();
+                         
                          Texto tx = new Texto();
+                         
                          ElementoGrafico gr2 = (ElementoGrafico)s2.get(ElementoGrafico.class, elemento.getElementoId());
                          tx.setElementoGrafico(gr2);
                          tx.setTamanio(12);
@@ -228,17 +237,25 @@ public class ElementoGraficoController {
                 sr.setType(elem.getTipoElemento());
                 sr.setColor("blue");
                 sr.setRadius(1);
-                sr.setText(null);
-                sr.setX(0);
-                sr.setY(0);
-                sr.setX1(elem.getPosicionX());
-                sr.setY1(elem.getPosicionY());
-                //Linea l = new Linea();
-                sr.setX2(elem.getLinea().getPosicionX2());
-                sr.setY2(elem.getLinea().getPosicionY2());
-                sr.setX3(0);
-                sr.setY3(0);
-
+                
+                if (elem.getTipoElemento() == 7){//para setear los elementos tipo texto
+                    sr.setX(elem.getPosicionX());
+                    sr.setY(elem.getPosicionY());
+                    sr.setText(elem.getDescripcion());
+                }else{// para las lienas
+                    sr.setText(null);
+                    sr.setX(0);
+                    sr.setY(0);
+                    sr.setText(null);
+                    sr.setX1(elem.getPosicionX());
+                    sr.setY1(elem.getPosicionY());
+                    //Linea l = new Linea();
+                    sr.setX2(elem.getLinea().getPosicionX2());
+                    sr.setY2(elem.getLinea().getPosicionY2());
+                    sr.setX3(0);
+                    sr.setY3(0);
+                }
+                      
                 lsr.add(sr);
             }
             
