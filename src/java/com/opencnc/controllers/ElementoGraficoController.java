@@ -200,7 +200,7 @@ public class ElementoGraficoController {
             
         Modelo mod = (Modelo)s.get(Modelo.class, ident);
         
-        ElementoGrafico elem = new ElementoGrafico();
+        //ElementoGrafico elem = new ElementoGrafico();
         
         Criteria c = s.createCriteria(ElementoGrafico.class);
         
@@ -208,16 +208,43 @@ public class ElementoGraficoController {
         
         List<ElementoGrafico> leg = c.list();
         
+        Iterator<ElementoGrafico> iters = leg.iterator();
+       
         if (leg.isEmpty()){
             return null;
         }else{
+            
             List<Serializacion> lsr = new ArrayList<>();
 
             Gson gson = new Gson();
 
-            Serializacion sr = new Serializacion();
             
+            
+            while(iters.hasNext()){
+                ElementoGrafico elem = iters.next();
+                Serializacion sr = new Serializacion();
+                
+                sr.setActive(true);
+                sr.setType(elem.getTipoElemento());
+                sr.setColor("blue");
+                sr.setRadius(1);
+                sr.setText(null);
+                sr.setX(0);
+                sr.setY(0);
+                sr.setX1(elem.getPosicionX());
+                sr.setY1(elem.getPosicionY());
+                //Linea l = new Linea();
+                sr.setX2(elem.getLinea().getPosicionX2());
+                sr.setY2(elem.getLinea().getPosicionY2());
+                sr.setX3(0);
+                sr.setY3(0);
+
+                lsr.add(sr);
+            }
+            
+            /*
             for ( int j = 0; j <= leg.size()-1; j ++ ) {
+                
                     elem = leg.get(j);
                     sr.setActive(true);
                     sr.setType(elem.getTipoElemento());
@@ -236,6 +263,7 @@ public class ElementoGraficoController {
                     
                     lsr.add(sr);
             }
+            */
             String js = gson.toJson(lsr);  
                 return js;
         }
