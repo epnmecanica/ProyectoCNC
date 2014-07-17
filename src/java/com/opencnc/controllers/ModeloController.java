@@ -75,6 +75,10 @@ public class ModeloController {
 
             Criteria c = s.createCriteria(Modelo.class);
             c.add(Restrictions.eq("usuario", us));
+            //Es una mala practica para cambiarlo referirse a borrarModelo
+            c.add(Restrictions.eq("creadoPor", 0 ));// justo filtra para no borrar los modelos
+            
+            //c.add(Restrictions.eq("creadoPor", 3));
             List<Modelo> lm = c.list();
 
 
@@ -175,7 +179,10 @@ public class ModeloController {
             
             
             Usuario us = (Usuario)sess.getAttribute("usuario");
-            modelo.setCreadoPor(us.getCreadoPor());
+            
+            // hay que hacer cambios
+            modelo.setCreadoPor(0);
+            //modelo.setCreadoPor(us.getCreadoPor());
             //Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
             //Usuario us = (Usuario)s.get(Usuario.class, 2);
             
@@ -256,8 +263,16 @@ public class ModeloController {
             Usuario us = (Usuario)sess.getAttribute("usuario");
 
             Modelo u = (Modelo) s.get(Modelo.class, id);
+            //Mala practica para borrado de modelo.
+            u.setCreadoPor(1);
+            /*
             Transaction t = s.beginTransaction();
             s.delete(u);
+            t.commit();
+                    */
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(u);
             t.commit();
             //return new ModelAndView("redirect:/usuario/login.htm");
             //return abrir(1);

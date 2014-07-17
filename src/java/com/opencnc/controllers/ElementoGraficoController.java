@@ -73,15 +73,33 @@ public class ElementoGraficoController {
                             //@ModelAttribute ElementoGrafico elemento,
                             HttpServletRequest request, 
                             HttpServletResponse response) throws Exception{
-        
+        int index=0;
+        int j=0;
         Session s = HibernateUtil.getSessionFactory().openSession();
+        Modelo u = (Modelo)s.get(Modelo.class,ident);
+        
         Criteria cs = s.createCriteria(ElementoGrafico.class);
         
         List<ElementoGrafico> leg = cs.list();
         
-        int index=0;
-        
         index = leg.size() + 1;
+        
+//******************************************************************************
+// Esta parte es para que no se redibuje varias veces el mismo elemento, a razon
+// de que no borramos nada de la base de datos.
+//******************************************************************************
+        
+        cs.add(Restrictions.eq("modelo", u));
+        
+        List <ElementoGrafico> leg2 = cs.list();
+        //REvisa si es un proyecto en blanco o si tiene elementos.
+        if (!leg2.isEmpty()){
+          for(j=0; j<= leg2.size()-1; j++){
+                leg2.get(j).setCreadoPor(1);
+          }             
+        }
+        
+//******************************************************************************        
         
         Gson gson = new Gson();
        
@@ -98,7 +116,7 @@ public class ElementoGraficoController {
             
             lineatool tipo = elem.next();
               
-            Modelo u = (Modelo)s.get(Modelo.class,ident);
+            //Modelo u = (Modelo)s.get(Modelo.class,ident);
            
             elemento.setModelo(u);
             Calendar c = new GregorianCalendar();
@@ -234,6 +252,7 @@ public class ElementoGraficoController {
         if (leg.isEmpty()){
             return null;
         }else{
+            
             Iterator<ElementoGrafico> iters = leg.iterator();
             List<Serializacion> lsr = new ArrayList<>();
 
@@ -243,15 +262,52 @@ public class ElementoGraficoController {
             
             while(iters.hasNext()){
                 ElementoGrafico elem = iters.next();
-                Serializacion sr = new Serializacion();
+                // Cuando CreadoPor == 1 es por que el elemento ya existe mas de una vez
+                if(elem.getCreadoPor() != 1){
+                    Serializacion sr = new Serializacion();
                 
-                sr.setActive(true);
-                sr.setType(elem.getTipoElemento());
-                sr.setColor("blue");
-                sr.setRadius(1);
-                
-                switch(elem.getTipoElemento()){
-                    case 2:
+                    sr.setActive(true);
+                    sr.setType(elem.getTipoElemento());
+                    sr.setColor("blue");
+                    sr.setRadius(1);
+
+                    switch(elem.getTipoElemento()){
+                        case 2:
+                            sr.setText(null);
+                            sr.setX(0);
+                            sr.setY(0);
+                            sr.setText(null);
+                            sr.setX1(elem.getPosicionX());
+                            sr.setY1(elem.getPosicionY());
+                            //Linea l = new Linea();
+                            sr.setX2(elem.getLinea().getPosicionX2());
+                            sr.setY2(elem.getLinea().getPosicionY2());
+                            sr.setX3(0);
+                            sr.setY3(0);
+                            break;
+                        case 5:
+                            sr.setX1(elem.getPosicionX());
+                            sr.setY1(elem.getPosicionY());
+
+                            sr.setX2(elem.getOrden());// mala praxis pero es algo que necesito hacer
+                            sr.setY2(elem.getArco().getRadio());
+                            sr.setX3((int)elem.getArco().getAngulo1());
+                            sr.setY3((int)elem.getArco().getAngulo2());
+                            break;
+                        case 7:
+                            sr.setX(elem.getPosicionX());
+                            sr.setY(elem.getPosicionY());
+                            sr.setText(elem.getDescripcion());
+                            break;
+                        default:
+                            break;
+                    }
+                    /*
+                    if (elem.getTipoElemento() == 7){//para setear los elementos tipo texto
+                        sr.setX(elem.getPosicionX());
+                        sr.setY(elem.getPosicionY());
+                        sr.setText(elem.getDescripcion());
+                    }else{// para las lienas
                         sr.setText(null);
                         sr.setX(0);
                         sr.setY(0);
@@ -263,44 +319,11 @@ public class ElementoGraficoController {
                         sr.setY2(elem.getLinea().getPosicionY2());
                         sr.setX3(0);
                         sr.setY3(0);
-                        break;
-                    case 5:
-                        sr.setX1(elem.getPosicionX());
-                        sr.setY1(elem.getPosicionY());
-                        
-                        sr.setX2(elem.getOrden());// mala praxis pero es algo que necesito hacer
-                        sr.setY2(elem.getArco().getRadio());
-                        sr.setX3((int)elem.getArco().getAngulo1());
-                        sr.setY3((int)elem.getArco().getAngulo2());
-                        break;
-                    case 7:
-                        sr.setX(elem.getPosicionX());
-                        sr.setY(elem.getPosicionY());
-                        sr.setText(elem.getDescripcion());
-                        break;
-                    default:
-                        break;
+                    }
+                     */     
+                    lsr.add(sr);
                 }
-                /*
-                if (elem.getTipoElemento() == 7){//para setear los elementos tipo texto
-                    sr.setX(elem.getPosicionX());
-                    sr.setY(elem.getPosicionY());
-                    sr.setText(elem.getDescripcion());
-                }else{// para las lienas
-                    sr.setText(null);
-                    sr.setX(0);
-                    sr.setY(0);
-                    sr.setText(null);
-                    sr.setX1(elem.getPosicionX());
-                    sr.setY1(elem.getPosicionY());
-                    //Linea l = new Linea();
-                    sr.setX2(elem.getLinea().getPosicionX2());
-                    sr.setY2(elem.getLinea().getPosicionY2());
-                    sr.setX3(0);
-                    sr.setY3(0);
-                }
-                 */     
-                lsr.add(sr);
+                
             }
             
             /*
@@ -356,7 +379,7 @@ public class ElementoGraficoController {
         
         ModelAndView m = new ModelAndView("/elemento/lista");
         m.addObject("sentencia",l);
- 
+        
         return m;
     }
     
