@@ -6,6 +6,7 @@
 
 package com.opencnc.controllers;
 
+import com.opencnc.beans.Rol;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -108,9 +110,29 @@ public class UsuarioController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        ModelAndView m = new ModelAndView("/usuario/crear");
+//******************************************************************************
+// valida si existe un mismo correo para no loguear el mismo usuario
+        Criteria criterio = s.createCriteria(Usuario.class);
+        criterio.add(Restrictions.eq("email", usuario.getEmail()));
+        List<Usuario> users = criterio.list();
+//******************************************************************************
+        
+        if(usuario.getClave().length < 7){
+            m.addObject("error", "la contraseña es muy corta");
+            return m;
+        }
+        if(!usuario.getEmail().contains("@")){
+            m.addObject("error", "no es un mail vaido");
+            return m;
+        }
         if (!"".equals(usuario.getApellido()) 
             && !"".equals(usuario.getNombre()) 
             && !"".equals(usuario.getEmail())
+            && users.isEmpty()
+            && usuario.getClave().length > 7
+            && usuario.getEmail().contains("@")
              ){
             
             usuario.setEstado("A");
@@ -118,13 +140,18 @@ public class UsuarioController {
             Date d1 = c.getTime();
             
             usuario.setCreadoFecha(d1);
-            usuario.setCreadoPor(0);
-            Session s = HibernateUtil.getSessionFactory().openSession();
+// usuarios validos todos los que son creados por 0, si son 1 son invalidos
+// Posterior.
+            usuario.setCreadoPor(0);        
             
             Transaction t = s.getTransaction();
             s.beginTransaction();
             s.saveOrUpdate(usuario);
             t.commit();
+        }else{
+            
+            m.addObject("error", "ya existe un mismo correo");
+            return m;
         }
         logger.info("Guarda un nuevo usuario");
         return lista(request, response);
@@ -239,6 +266,7 @@ public class UsuarioController {
       Session s = HibernateUtil.getSessionFactory().openSession();
       
       Criteria c = s.createCriteria(Usuario.class);
+      
       c.add(Restrictions.eq("email", usuario.getEmail()));
       c.add(Restrictions.eq("clave", usuario.getClave()));
       

@@ -29,6 +29,7 @@
     <body>
         
         <h1>Crear Usuario</h1>
+        ${error}
         <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
                    method="POST"
                    commandName="usuario">

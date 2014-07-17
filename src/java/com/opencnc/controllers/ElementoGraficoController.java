@@ -73,15 +73,15 @@ public class ElementoGraficoController {
                             //@ModelAttribute ElementoGrafico elemento,
                             HttpServletRequest request, 
                             HttpServletResponse response) throws Exception{
-        int index=0;
-        int j=0;
+        int index=0;//variable para ver el consecutivo de elementos graficos
+        
         Session s = HibernateUtil.getSessionFactory().openSession();
         Modelo u = (Modelo)s.get(Modelo.class,ident);
         
         Criteria cs = s.createCriteria(ElementoGrafico.class);
         
         List<ElementoGrafico> leg = cs.list();
-        
+        //Se asigna el unltimo elemento grafico.
         index = leg.size() + 1;
         
 //******************************************************************************
@@ -94,7 +94,7 @@ public class ElementoGraficoController {
         List <ElementoGrafico> leg2 = cs.list();
         //REvisa si es un proyecto en blanco o si tiene elementos.
         if (!leg2.isEmpty()){
-          for(j=0; j<= leg2.size()-1; j++){
+          for(int j=0; j<= leg2.size()-1; j++){
                 leg2.get(j).setCreadoPor(1);
           }             
         }
@@ -248,7 +248,8 @@ public class ElementoGraficoController {
         List<ElementoGrafico> leg = c.list();
         
         
-       
+//Revisa que en la base de datos contenga elementos graficos, si no hay retorna 
+// nada.
         if (leg.isEmpty()){
             return null;
         }else{
@@ -302,56 +303,12 @@ public class ElementoGraficoController {
                         default:
                             break;
                     }
-                    /*
-                    if (elem.getTipoElemento() == 7){//para setear los elementos tipo texto
-                        sr.setX(elem.getPosicionX());
-                        sr.setY(elem.getPosicionY());
-                        sr.setText(elem.getDescripcion());
-                    }else{// para las lienas
-                        sr.setText(null);
-                        sr.setX(0);
-                        sr.setY(0);
-                        sr.setText(null);
-                        sr.setX1(elem.getPosicionX());
-                        sr.setY1(elem.getPosicionY());
-                        //Linea l = new Linea();
-                        sr.setX2(elem.getLinea().getPosicionX2());
-                        sr.setY2(elem.getLinea().getPosicionY2());
-                        sr.setX3(0);
-                        sr.setY3(0);
-                    }
-                     */     
                     lsr.add(sr);
-                }
-                
+                }       
             }
-            
-            /*
-            for ( int j = 0; j <= leg.size()-1; j ++ ) {
-                
-                    elem = leg.get(j);
-                    sr.setActive(true);
-                    sr.setType(elem.getTipoElemento());
-                    sr.setColor("blue");
-                    sr.setRadius(1);
-                    sr.setText(null);
-                    sr.setX(0);
-                    sr.setY(0);
-                    sr.setX1(elem.getPosicionX());
-                    sr.setY1(elem.getPosicionY());
-                    //Linea l = new Linea();
-                    sr.setX2(elem.getLinea().getPosicionX2());
-                    sr.setY2(elem.getLinea().getPosicionY2());
-                    sr.setX3(0);
-                    sr.setY3(0);
-                    
-                    lsr.add(sr);
-            }
-            */
             String js = gson.toJson(lsr);  
                 return js;
         }
-        
     }
 
 
