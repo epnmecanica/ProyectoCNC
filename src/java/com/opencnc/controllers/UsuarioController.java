@@ -111,29 +111,14 @@ public class UsuarioController {
                                             HttpServletResponse response)
                                             throws Exception{
         Session s = HibernateUtil.getSessionFactory().openSession();
-        ModelAndView m = new ModelAndView("/usuario/crear");
-//******************************************************************************
-// valida si existe un mismo correo para no loguear el mismo usuario
-        Criteria criterio = s.createCriteria(Usuario.class);
-        criterio.add(Restrictions.eq("email", usuario.getEmail()));
-        List<Usuario> users = criterio.list();
-//******************************************************************************
         
-        if(usuario.getClave().length < 7){
-            m.addObject("error", "la contraseña es muy corta");
-            return m;
-        }
-        if(!usuario.getEmail().contains("@")){
-            m.addObject("error", "no es un mail vaido");
-            return m;
-        }
-        if (!"".equals(usuario.getApellido()) 
-            && !"".equals(usuario.getNombre()) 
-            && !"".equals(usuario.getEmail())
-            && users.isEmpty()
-            && usuario.getClave().length > 7
-            && usuario.getEmail().contains("@")
-             ){
+        //Clase de seguridades
+        SeguridadesController  sr = new SeguridadesController ();
+        
+        ModelAndView m = new ModelAndView("/usuario/crear");
+        
+        // verifica las seguridades.     
+        if (sr.seguridad(usuario).isPass()){
             
             usuario.setEstado("A");
             Calendar c = new GregorianCalendar();
@@ -150,7 +135,7 @@ public class UsuarioController {
             t.commit();
         }else{
             
-            m.addObject("error", "ya existe un mismo correo");
+            m.addObject("error", sr.seguridad(usuario).getThisArrayList());
             return m;
         }
         logger.info("Guarda un nuevo usuario");

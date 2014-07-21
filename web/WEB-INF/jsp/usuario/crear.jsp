@@ -24,7 +24,7 @@
                     
 		});
         </script>
-        <title>Crear Usuario</title>
+        
     </head>
     <body>
         
@@ -55,7 +55,7 @@
             </p>
             <p>
 		<label for="email">Confirmar Contraseña</label>
-                <form:input path="" type="password"/>
+                <form:input path="confirmaEmail" type="password"/>
             </p>
             
             <input id="botonGuardar" type="submit" value="Crear" />
