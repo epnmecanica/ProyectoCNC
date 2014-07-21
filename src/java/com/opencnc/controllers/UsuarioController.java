@@ -10,6 +10,7 @@ import com.opencnc.beans.Rol;
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.io.IOException;
+import static java.lang.Integer.decode;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -19,6 +20,7 @@ import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -110,12 +112,17 @@ public class UsuarioController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        byte[] clave = usuario.getClave();
         Session s = HibernateUtil.getSessionFactory().openSession();
         
         //Clase de seguridades
         SeguridadesController  sr = new SeguridadesController ();
-        
+        EncryptController enc = new EncryptController();
         ModelAndView m = new ModelAndView("/usuario/crear");
+        
+        
+        
+       
         
         // verifica las seguridades.     
         if (sr.seguridad(usuario).isPass()){
@@ -127,7 +134,9 @@ public class UsuarioController {
             usuario.setCreadoFecha(d1);
 // usuarios validos todos los que son creados por 0, si son 1 son invalidos
 // Posterior.
-            usuario.setCreadoPor(0);        
+            usuario.setCreadoPor(0);  
+            // se codifica la clave
+            usuario.setClave(enc.encriptado(clave));
             
             Transaction t = s.getTransaction();
             s.beginTransaction();
@@ -249,11 +258,13 @@ public class UsuarioController {
       ModelAndView m = new ModelAndView();
     
       Session s = HibernateUtil.getSessionFactory().openSession();
-      
+       EncryptController enc = new EncryptController();
+       
       Criteria c = s.createCriteria(Usuario.class);
       
       c.add(Restrictions.eq("email", usuario.getEmail()));
-      c.add(Restrictions.eq("clave", usuario.getClave()));
+      c.add(Restrictions.eq("clave", enc.encriptado(usuario.getClave())));
+      //c.add(Restrictions.eq("clave", usuario.getClave()));
       
       List<Usuario> l = c.list();
      

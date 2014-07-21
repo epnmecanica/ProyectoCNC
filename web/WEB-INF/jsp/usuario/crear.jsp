@@ -55,7 +55,7 @@
             </p>
             <p>
 		<label for="email">Confirmar Contraseña</label>
-                <form:input path="confirmaEmail" type="password"/>
+                <form:input path="" type="password"/>
             </p>
             
             <input id="botonGuardar" type="submit" value="Crear" />
