@@ -51,12 +51,14 @@ window.opencut = function() {
     if (job.units == "inch") {
       workspace.units = "inch";
     } else if (job.units != "mm") {
-      warnings.push("'units' is requried to be set to ['mm', 'inch']. assuming 'mm'");
+        warnings.push("'unidades' son requeridas para formatear ['mm', 'inch']. se asume como 'mm'");
+      //warnings.push("'units' is requried to be set to ['mm', 'inch']. assuming 'mm'");
     }
     workspace.feed_rate = (workspace.units == "mm") ? 100 : 4;
     if (job.feed_rate) {
       if (typeof job.feed_rate != "number") {
-        errors.push("'feed_rate' is expected to be a number");
+        errors.push("'feed_rate' se espera que sea un numero");
+        //errors.push("'feed_rate' is expected to be a number");
       } else {
         workspace.feed_rate = job.feed_rate;
       }
@@ -64,7 +66,8 @@ window.opencut = function() {
     workspace.plunge_rate = (workspace.units == "mm") ? 25 : 1;
     if (job.plunge_rate) {
       if (typeof job.plunge_rate != "number") {
-        errors.push("'plunge_rate' is expected to be a number");
+        errors.push("'plunge_rate' se espera que sea un numero");
+        //errors.push("'plunge_rate' is expected to be a number");
       } else {
         workspace.plunge_rate = job.plunge_rate;
       }
@@ -73,34 +76,41 @@ window.opencut = function() {
     workspace.safety_height = (workspace.units == "mm") ? 5 : 0.25;
     if (job.safety_height) {
       if (typeof job.safety_height != "number") {
-        errors.push("invalid safety_height: " + job.safety_height);
+        errors.push("invalido safety_height: " + job.safety_height);
+        //errors.push("invalid safety_height: " + job.safety_height);
       } else {
         workspace.safety_height = job.safety_height;
       }
     }
     workspace.z_step_size = (workspace.units == "mm") ? 1 : 0.125;
     if (!job.z_step_size) {
-      warnings.push("z_step_size not specified. using default [" + workspace.z_step_size + "]");
+      warnings.push("z_step_size no esta especificado. use por defecto [" + workspace.z_step_size + "]");
+      //warnings.push("z_step_size not specified. using default [" + workspace.z_step_size + "]");
     } else {
       if (typeof job.z_step_size != "number") {
-        errors.push("invalid z_step_size: " + job.z_step_size);
+        errors.push("invalido z_step_size: " + job.z_step_size);
+        //errors.push("invalid z_step_size: " + job.z_step_size);
       } else {
         workspace.z_step_size = job.z_step_size;
       }
     }
     if (!job.bit_diameter) {
-      errors.push("bit_diameter is a required parameter");
+      errors.push("bit_diameter es un parametro requerido");
+      //errors.push("bit_diameter is a required parameter");
     } else if (typeof job.bit_diameter != "number") {
-      errors.push("bit_diameter is expected to be a number");
+      errors.push("bit_diameter se espera que sea un numero");
+      //errors.push("bit_diameter is expected to be a number");
     } else if (job.bit_diameter <= 0) {
-      errors.push("bit_diameter must be a number greater than 0");
+      errors.push("bit_diameter debe ser mas grande que 0");
+      //errors.push("bit_diameter must be a number greater than 0");
     } else {
       workspace.bit_diameter = job.bit_diameter;
     }
 
     if (job.default_depth) {
       if (typeof job.default_depth != "number" || job.default_depth >= 0) {
-        errors.push("default_depth must be a number < 0");
+        errors.push("default_depth debe ser menor que 0");
+        //errors.push("default_depth must be a number < 0");
       } else {
         workspace.default_depth = job.default_depth;
       }
@@ -112,7 +122,8 @@ window.opencut = function() {
 
     // Add commands for each cut operation.
     if (!job.cuts || job.cuts.length === 0) {
-      warnings.push("no 'cuts' were specified!");
+      warnings.push("'cuts' no esta especificado");
+      //warnings.push("no 'cuts' were specified!");
       job.cuts = [];
     }
     for (var i = 0; i < job.cuts.length; i++) {
@@ -130,10 +141,12 @@ window.opencut = function() {
 
           // Check the response as a safety for any poorly implemented cut code.
           if (ret.warnings === undefined || ret.warnings === null) {
-            throw "response of [" + cutType + "] did not define 'warning'";
+            throw "La respuesta de [" + cutType + "] no definio el 'warning'";
+            //throw "response of [" + cutType + "] did not define 'warning'";
           }
           if (ret.gcode === undefined || ret.gcode === null) {
-            throw "response of [" + cutType + "] did not define 'gcode'";
+            throw "La respuesta de [" + cutType + "] no definio el 'gcode'";
+            //throw "response of [" + cutType + "] did not define 'gcode'";
           }
 
           // Add the response to our compiled list of commands.
@@ -147,7 +160,8 @@ window.opencut = function() {
           console.error(err);
         }
       } else {
-        errors.push("unknown cut type [" + cutType + "]");
+        errors.push("se desconoce cut type [" + cutType + "]");
+        //errors.push("unknown cut type [" + cutType + "]");
       }
     }
 
@@ -186,9 +200,14 @@ window.opencut = function() {
     var GRBL_LINE_LIMIT = 50;
     for (var j = 0; j < commands.length; j++) {
       if (commands[j].length >= GRBL_LINE_LIMIT) {
+        warnings.push("linea " + (j + 1) + " de gcode excedido " +
+            GRBL_LINE_LIMIT + " caracteres. Tableros grbl viejos " +
+            " lineas extensas y probablemente no hagan lo que usted desea.");
+        /*
         warnings.push("line " + (j + 1) + " of gcode exceeds " +
             GRBL_LINE_LIMIT + " characters. Old grbl boards will truncate" +
             " long lines and likely not do what you want.");
+        */
             break;
       }
     }

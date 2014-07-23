@@ -255,7 +255,8 @@
           iadd.mousemove(function(){
               iadd.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              alert('hi json');
+             /* alert('his json');
+              
                 var f = [{"active":true,
                             "type":2,
                             "color":"blue",
@@ -288,9 +289,10 @@
                             "radius":5,
                             "x":484,
                             "y":-968,
-                            "text":"hola"}];
+                            "text":"hola"}];*/
+                    
                    
-           gd.setJSON(f);
+           //gd.setJSON(f);
                 
           });
           iless.mousemove(function(){

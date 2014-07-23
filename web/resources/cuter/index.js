@@ -1,5 +1,12 @@
 $(document).ready(function() {
-  // Helper function to show warnings to the user.
+
+/**
+ * *****************************************************************************
+ * Helper function to show warnings to the user.
+ * *****************************************************************************
+ * @param {type} msg
+ * @returns {undefined}
+ */
   var showWarning = function(msg) {
     var warningsElement = $("#user-warnings");
     var m = $("<div>");
@@ -194,7 +201,9 @@ $(document).ready(function() {
 
   // Load up an example file.
   $.ajax({
-    url : "examples/demo.yaml",
+    //url : "examples/demo.yaml",
+    url : "examples/prueba.yml",
+    //url : "examples/coaster.yaml",
     dataType: "text",
     success : function (data) {
       editor.setValue(data);

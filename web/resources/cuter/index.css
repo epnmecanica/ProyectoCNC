@@ -6,8 +6,10 @@ body {
 }
 
 nav {
-  color: #0D3914;
-  background: #A0B57D;
+  //color: #0D3914;
+  color: #366097;
+  //background: #A0B57D;
+  background: #2B81AF;
   border-bottom: 2px solid #556B2F;
   height: 24px;
   text-align: right;

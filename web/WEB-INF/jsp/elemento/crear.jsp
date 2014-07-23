@@ -29,6 +29,11 @@
                 <script src="<c:url value='/resources/cad/lib/external/jquery.min.js'/>"></script>
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
                 <script src="<c:url value='/resources/cad/lib/external/jquery-ui.min.js'/>"></script>
+                
+                <script src="<c:url value='/resources/cad/lib/external/js-yaml.js'/>"></script>
+                
+                <script src="<c:url value='/resources/cad/lib/external/json2yaml.js'/>"></script>
+                
                 <script src="<c:url value='/resources/cad/lib/external/raphael-min.js'/>"></script>	
                 <script type="text/javascript" src="<c:url value='/resources/cad/rp/rph.js'/>"></script>
                 <script src="<c:url value='/resources/cad/component.js'/>"></script>
@@ -40,6 +45,8 @@
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
                 <script src="<c:url value='/resources/cad/customShapes.js'/>"></script>
                 
+                
+                 
                 <link href="<c:url value='/resources/cad/styles/main.css" rel="stylesheet'/>">
                 
                 <script src="<c:url value="/resources/js/jquery-1.10.2.js"/>" > </script>

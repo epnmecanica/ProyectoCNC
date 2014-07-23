@@ -68,6 +68,7 @@
         --%>
         <br>
             <a href="usuario/logout.htm">Log out</a>
+            <a href="resources/cuter/index.html">CAD</a>
         </br>
         
         

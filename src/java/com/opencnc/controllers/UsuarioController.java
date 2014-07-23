@@ -263,6 +263,8 @@ public class UsuarioController {
       Criteria c = s.createCriteria(Usuario.class);
       
       c.add(Restrictions.eq("email", usuario.getEmail()));
+      
+      //encripta la clave y la compara con la de la base de datos.
       c.add(Restrictions.eq("clave", enc.encriptado(usuario.getClave())));
       //c.add(Restrictions.eq("clave", usuario.getClave()));
       
