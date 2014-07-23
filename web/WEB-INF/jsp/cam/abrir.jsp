@@ -15,8 +15,6 @@
     <meta name="viewport" content="width=device-width">
   </head>
   <body>
-    hola
-    <a href="resources/cuter/index.html">CAD</a>
-    <a href="../resources/cuter/index.html" target="_parent">v</a>
+    <a href="../resources/cuter/index.html" target="_parent">CAM</a>
   </body>
 </html>

@@ -23,7 +23,12 @@
                 <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
                 <script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script>
                 <script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.js"></script>
-        
+                
+                
+                
+                
+                
+                
                 <script type="text/javascript" src="<c:url value='/resources/cad/archivotxt.js'/>"></script>
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
                 <script src="<c:url value='/resources/cad/lib/external/jquery.min.js'/>"></script>
@@ -57,15 +62,15 @@
 
                 <script type="text/javascript" src="<c:url value='/resources/js/configAjaxJason.js'/>"></script>
                 
+               
         
 	</head>
 	<body>  
+            
 		Modelo : ${Id}
                 Nombre Modelo: ${NombreModel}
                 <%--Tipo Maquina: ${TipoMaquina}--%>
-                
-                <div id="theJson"></div>
-                       
+                                       
                 <div class="cad">
                     <div id="titulo">OpenCNC</div>
                     <div id="paper2"></div>
@@ -74,12 +79,15 @@
                                     height="600"
                                     onContextMenu="javascript: return false;"
                                     tabindex="1"></canvas>
-                    <div id="paper"></div>
+                    <%-- Es un paper raphael para ayuda de tools
+                    <div id="paper"></div> --%>
                 </div>
+            <%--   Quito opciones por el momento!!!!!! sirve para modificar las figuras
             <div id="comandos">
                 <textarea id="codex" name="codex" rows="45" cols="30" spellcheck="false">
                 </textarea>
             </div>
+                
             <div id="opciones">
                 <table border="0">
                     <thead>
@@ -123,7 +131,12 @@
                     </tbody>
                 </table>
             </div>
+            --%>
             
+           
+
+                   
+
         </body>
                 
                 
