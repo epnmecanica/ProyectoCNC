@@ -35,9 +35,7 @@
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
                 <script src="<c:url value='/resources/cad/lib/external/jquery-ui.min.js'/>"></script>
                 
-                <script src="<c:url value='/resources/cad/lib/external/js-yaml.js'/>"></script>
-                
-                <script src="<c:url value='/resources/cad/lib/external/json2yaml.js'/>"></script>
+               
                 
                 <script src="<c:url value='/resources/cad/lib/external/raphael-min.js'/>"></script>	
                 <script type="text/javascript" src="<c:url value='/resources/cad/rp/rph.js'/>"></script>
@@ -48,12 +46,16 @@
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
-                <script src="<c:url value='/resources/cad/codexg.js'/>"></script>
-                <script src="<c:url value='/resources/cad/componentg.js'/>"></script>
+                
                 <script src="<c:url value='/resources/cad/customShapes.js'/>"></script>
                 
+                <script src="<c:url value='/resources/cad/lib/external/js-yaml.js'/>"></script>
+                <script src="<c:url value='/resources/cad/lib/external/json2yaml.js'/>"></script>
+                <script src="<c:url value='/resources/cad/codexg.js'/>"></script>
                 
-                 
+               <%--                
+                <script src="<c:url value='/resources/cad/componentg.js'/>"></script>              
+                 --%>
                 <link href="<c:url value='/resources/cad/styles/main.css" rel="stylesheet'/>">
                 
                 <script src="<c:url value="/resources/js/jquery-1.10.2.js"/>" > </script>
@@ -61,7 +63,7 @@
                     src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
                 </script>
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-
+                    
                 <script type="text/javascript" src="<c:url value='/resources/js/configAjaxJason.js'/>"></script>
                 
                
@@ -72,7 +74,7 @@
 		Modelo : ${Id}
                 Nombre Modelo: ${NombreModel}
                 <%--Tipo Maquina: ${TipoMaquina}--%>
-                                       
+                <div id="theJson"></div>                      
                 <div class="cad">
                     <div id="titulo">OpenCNC</div>
                     <div id="paper2"></div>

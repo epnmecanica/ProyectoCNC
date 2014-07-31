@@ -35,6 +35,9 @@
         <br>
             <a href="cam/abrir.htm">CAM</a>
         </br>
+         <br>
+        <a href="resources/index_back_cad.html">CAD</a>
+        </br> 
         <%--
         <br>
             <a href="modelo/abrir.htm">Abrir Modelo</a>
@@ -42,9 +45,7 @@
         <br>
             <a href="modelo/crearModelo.htm">Crear Nuevo Modelo</a>
         </br>
-        <br>
-            <a href="cad/cad.htm">CAD</a>
-        </br>
+        
         
         <br>
         <a href="resources/index.html">CAD</a>

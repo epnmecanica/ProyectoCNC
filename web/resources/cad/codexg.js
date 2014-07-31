@@ -39,10 +39,10 @@ Codexg.prototype.test = function(){
    
    
    
-   this.components.push(new Drill(1,2,3,4,5,6));
-   console.log(this.components);
+   //this.components.push(new Drill(1,2,3,4,5,6));
+   //console.log(this.components);
     //this.components.push("{type: 'drill', points:[[0.93, 0.75], [0.93, 0.75], [0.93, 0.75]]}");
-   //console.log(yaml);
+   console.log(yaml);
    
 };
 

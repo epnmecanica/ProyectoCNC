@@ -988,6 +988,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			}
 			this.tooltip = "Add punto";
 			break;
+                        
 		case this.MODES.ADDLINE:
 			 
                        
@@ -1036,7 +1037,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                                 
 			}
 			//this.tooltip = "Add linea";
-                        
+                    
 			break;
 		case this.MODES.ADDCIRCLE:
 			this.cvn.css('cursor', 'default');

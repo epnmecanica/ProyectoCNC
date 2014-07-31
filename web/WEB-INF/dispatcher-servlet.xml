@@ -65,6 +65,8 @@
                 <prop key="elemento/crear/linea/lista.htm">elementoGraficoController</prop>
                 <prop key="elemento/crear/linea/getJSON.htm">elementoGraficoController</prop>
                 <!--
+                
+                
                 <prop key="elemento/crear/linea/lista.htm">lineaController</prop>
                 <prop key="linea/lista.htm">lineaController</prop>-->
                 <prop key="linea/lista.htm">lineaController</prop>

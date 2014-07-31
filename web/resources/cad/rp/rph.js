@@ -190,12 +190,12 @@
               ilapiz.attr({fill: colors, stroke: "none"});
           }).click(function () {
             gd.setMode(gd.MODES.ADDLINE);
-            
+            console.log('se selecciona Linea');
           });
           iback.mousemove(function(){
               iback.attr({fill: colors, stroke: "none"});
           }).click(function () {
-                        
+             console.log('se selecciona');           
           });
           inew.mousemove(function(){
               inew.attr({fill: colors, stroke: "none"});
@@ -219,7 +219,11 @@
           iwizar.mousemove(function(){
               iwizar.attr({fill: colors, stroke: "none"});
           }).click(function () {
-            gd.setMode(gd.MODES.EDIT);         
+              console.log('se selecciona Wizard!!');
+              
+              var ksk =gd.getJSON();
+              console.log(ksk);
+            //gd.setMode(gd.MODES.EDIT);         
           });
           idim.mousemove(function(){
               idim.attr({fill: colors, stroke: "none"});
