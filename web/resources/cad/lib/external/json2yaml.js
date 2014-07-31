@@ -52,15 +52,16 @@
         break;
     }
   }
-
+//Organizar el array
   function convertArray(obj, ret) {
     for (var i=0; i<obj.length; i++) {
       var ele     = obj[i];
       var recurse = [];
       convert(ele, recurse);
-
+      //console.log("el objeto es " + obj);
       for (var j=0; j<recurse.length; j++) {
         ret.push((j == 0 ? "- " : spacing) + recurse[j]);
+        //console.log("objeto " + j + " " + ret);
       }
     }
   }

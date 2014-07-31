@@ -48,6 +48,8 @@
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
+                <script src="<c:url value='/resources/cad/codexg.js'/>"></script>
+                <script src="<c:url value='/resources/cad/componentg.js'/>"></script>
                 <script src="<c:url value='/resources/cad/customShapes.js'/>"></script>
                 
                 
@@ -79,10 +81,10 @@
                                     height="600"
                                     onContextMenu="javascript: return false;"
                                     tabindex="1"></canvas>
-                    <%-- Es un paper raphael para ayuda de tools
-                    <div id="paper"></div> --%>
+                    
+                    <div id="paper"></div> 
                 </div>
-            <%--   Quito opciones por el momento!!!!!! sirve para modificar las figuras
+        
             <div id="comandos">
                 <textarea id="codex" name="codex" rows="45" cols="30" spellcheck="false">
                 </textarea>
@@ -131,13 +133,6 @@
                     </tbody>
                 </table>
             </div>
-            --%>
-            
-           
-
-                   
-
-        </body>
-                
-                
+                  
+        </body>    
 </html>
