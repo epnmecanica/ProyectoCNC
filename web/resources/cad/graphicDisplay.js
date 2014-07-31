@@ -1562,7 +1562,9 @@ GraphicDisplay.prototype.setJSON = function(fileJson){
 GraphicDisplay.prototype.getJSON = function(){
         return(this.logicDisplay.exportJSON());      
 };
-
+GraphicDisplay.prototype.getObjects = function(){
+        return(this.logicDisplay.exportObject());      
+};
 /**
  * *****************************************************************************
  * Obtiene la posicion del cursor en x

@@ -221,8 +221,10 @@
           }).click(function () {
               console.log('se selecciona Wizard!!');
               
-              var ksk =gd.getJSON();
-              console.log(ksk);
+              var ksk =gd.getObjects();
+              console.log(ksk[1]);
+              
+              
             //gd.setMode(gd.MODES.EDIT);         
           });
           idim.mousemove(function(){

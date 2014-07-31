@@ -98,7 +98,13 @@ LogicDisplay.prototype.test = function() {
 LogicDisplay.prototype.exportJSON = function() {
 	return JSON.stringify(this.components);
 };
-
+/**
+ * Exporta el objeto
+ * @returns {Array}
+ */
+LogicDisplay.prototype.exportObject = function() {
+	return this.components;
+};
 /**
  * *****************************************************************************
  * Recibe el JSON
