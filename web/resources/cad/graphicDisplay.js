@@ -77,6 +77,7 @@ function GraphicDisplay(displayName, width, height) {
 	this.logicAjax;
         //variable para codigo g YAML
         this.codexgYAML;
+        this.componentG;
 	this.counter = 0;
 	
 	this.displayWidth = width;
@@ -146,10 +147,10 @@ GraphicDisplay.prototype.init = function() {
 	 */ 
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
-        
         //Inicializa la logica de codexg
         this.codexgYAML = new Codexg();
         this.codexgYAML.init();
+        console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
         
 	//alert(this.logicDisplay.exportJSON());
         //this.logicAjax = new LogicAjax();

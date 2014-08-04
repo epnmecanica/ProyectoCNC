@@ -220,10 +220,32 @@
               iwizar.attr({fill: colors, stroke: "none"});
           }).click(function () {
               console.log('se selecciona Wizard!!');
-              
+               /*             
               var ksk =gd.getObjects();
-              console.log(ksk[1]);
-              
+              ksk.componentes = "hola";
+              var yaml = '';
+              var points = '';
+              yaml = "name: cut_demo "+ "\n" +
+                    "units: inch "+ "\n" +
+                    "bit_diameter: 0.125 "+ "\n"+
+                    "feed_rate: 15 "+"\n"+
+                    "plunge_rate: 5 "+"\n"+
+                    "z_step_size: 0.1 "+"\n"+
+                    "default_depth: -0.2 "+"\n"+"\n"+
+
+                    "cuts: "+"\n"+
+                    "- type: drill "+"\n";
+               console.log(yaml);
+              //console.log(ksk.toString());
+              for (var i=0; i<=ksk.length - 1; i++){
+                  console.log(ksk[i]);
+                  points = ksk[i].x1;
+                  points.create(ksk[i].y1)
+                  console.log(points.toString());
+              }
+              */
+              //console.log(JSON.stringify(ksk.componentes));
+              //console.log(ksk);
               
             //gd.setMode(gd.MODES.EDIT);         
           });
