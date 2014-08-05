@@ -41,7 +41,7 @@ function seleccionElementos(component){
 		//focus: "input[name='fname']",
 		submit: function(e,v,m,f){ 
 			//console.log(f);
-                        component.machined = f; 
+                        component.machined = f.typeMecanizado; 
                         console.log(component);
                     
 			e.preventDefault();

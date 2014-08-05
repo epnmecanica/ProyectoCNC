@@ -268,6 +268,7 @@
               iok.attr({fill: colors, stroke: "none"});
           }).click(function () {
                     avisoEntrada('Vamos a enviar la informacion al servidor. Estas de acuerdo?');
+                    //alert(sendAjax(gd.getJSON()));
                     sendAjax(gd.getJSON());
                   /*
                     var x = document.createElement("TEXTAREA");
