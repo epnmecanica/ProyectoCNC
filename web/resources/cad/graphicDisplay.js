@@ -34,7 +34,8 @@ function GraphicDisplay(displayName, width, height) {
 			NAVIGATE : 22,
 			MOVE : 23,
 			EDIT : 24,
-                        NAN : 25
+                        NAN : 25,
+                        CODE_G : 26
 	};
 	
 	// Enumerate all type of action
@@ -1277,6 +1278,28 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			}
 			this.tooltip = "Borrar";
 			break;
+                        
+                case this.MODES.CODE_G:
+			this.cvn.css('cursor', 'default');
+			if (action === this.MOUSEACTION.MOVE) {
+				if ( this.selectedComponent === null ) {
+					this.temporarySelectedComponent = this.findIntersectionWith(
+							this.getCursorXLocal(),
+							this.getCursorYLocal());
+				} else {
+					
+				}
+			} else if ( action === this.MOUSEACTION.DOWN ) {
+				if ( this.selectedComponent === null ) {
+                                        this.selectComponent(this.temporarySelectedComponent);
+					//console.log(this.logicDisplay.components[this.temporarySelectedComponent]);
+                                        seleccionElementos(this.logicDisplay.components[this.temporarySelectedComponent]);
+				} else {
+					this.unselectComponent();
+				}
+			}
+			this.tooltip = "Seleccion elemento para codigo G";
+			break;
 		default:
 			this.tooltip = this.tooltipDefault;
 	}
@@ -1827,7 +1850,7 @@ var initCAD = function(gd) {
 	
 	// Adding keyboard events 
 	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-		gd.logicDisplay.foo();
+		//gd.logicDisplay.foo();
 	});
 	
 	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.I, function(){

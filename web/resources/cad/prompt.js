@@ -3,38 +3,68 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function seleccionElementos(){
-    
-        var statesdemo = {
+function avisoEntrada(message, title){
+    this.message = message;
+    this.title = title;
+    //console.log(this.title);
+    if(this.title === undefined){
+        this.title = 'Aviso!!!';
+    }
+                $.prompt(this.message, {
+                       title: this.title,
+                       buttons: { "Si": true, "No": false },
+                       classes: {
+                            box: '',
+                            fade: '',
+                            prompt: '',
+                            close: '',
+                            title: 'lead',
+                            message: 'pure-form',
+                            buttons: '',
+                            button: 'pure-button',
+                            defaultButton: 'pure-button-primary'
+                    }
+               });  
+};
+
+function seleccionElementos(component){
+   
+    var statesdemo = {
 	state0: {
-		html:'Estamos proximos a comenzar.',
-                title:"Estas listo?",
-		buttons: { 'No lo estoy': false, 'Siguiente': true },
-		focus: 1,
-		submit:function(e,v,m,f){
-			if(v){
-				e.preventDefault();
-				$.prompt.goToState('state1');
-				return false;
-			}
-			$.prompt.close();
-		}
-	},
-	state1: {
-		html:'Escoge la funcion de mecanizado que necesitas.',
-		buttons: { 'Atras': -1, 'Salir': 0 },
-		focus: 1,
-		submit:function(e,v,m,f){
+		title: 'Name',
+		html:'<label><input type="radio" name="typeMecanizado" value="Drill"> Drill</label><br />'+
+			'<label><input type="radio" name="typeMecanizado" value="Path"> Path</label>'+
+                        '<label><input type="radio" name="typeMecanizado" value="Profile"> Profile</label>'+
+                        '<label><input type="radio" name="typeMecanizado" value="Pocket"> Pocket</label>',
+		buttons: { Next: 1 },
+                focus: 1,
+		//focus: "input[name='fname']",
+		submit: function(e,v,m,f){ 
+			//console.log(f);
+                        component.machined = f; 
+                        console.log(component);
+                    
 			e.preventDefault();
-			if(v==0)
-				$.prompt.close();
-			else if(v==-1)
-				$.prompt.goToState('state0');
+                        $.prompt.close();
+			//$.prompt.goToState('state1');
 		}
 	}
 };
 
-$.prompt(statesdemo);
-  
-};
-
+$.prompt(statesdemo,{
+                
+                    classes: {
+                            box: '',
+                            fade: '',
+                            prompt: '',
+                            close: '',
+                            title: 'lead',
+                            message: 'pure-form',
+                            buttons: '',
+                            button: 'pure-button',
+                            defaultButton: 'pure-button-primary'
+                    }
+            });
+            
+    
+}

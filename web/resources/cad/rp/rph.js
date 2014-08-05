@@ -189,6 +189,7 @@
           ilapiz.mousemove(function(){
               ilapiz.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de lineas');
             gd.setMode(gd.MODES.ADDLINE);
             console.log('se selecciona Linea');
           });
@@ -206,6 +207,7 @@
               iretro.attr({fill: colors, stroke: "none"});
           }).click(function () {
                 // crea arcos prueba
+                avisoEntrada('Vas a usar la herramienta de Arcos!');
                  gd.setMode(gd.MODES.ADDARC);       
           });
           iadvan.mousemove(function(){
@@ -220,7 +222,7 @@
           }).click(function () {
               console.log('se selecciona Wizard!!');
               
-              $.prompt("Hello World!");
+              
                /*             
               var ksk =gd.getObjects();
               ksk.componentes = "hola";
@@ -253,6 +255,7 @@
           idim.mousemove(function(){
               idim.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de medicion!');
              gd.setMode(gd.MODES.ADDMEASURE);
             
           });
@@ -264,6 +267,7 @@
           iok.mousemove(function(){
               iok.attr({fill: colors, stroke: "none"});
           }).click(function () {
+                    avisoEntrada('Vamos a enviar la informacion al servidor. Estas de acuerdo?');
                     sendAjax(gd.getJSON());
                   /*
                     var x = document.createElement("TEXTAREA");
@@ -279,8 +283,11 @@
           icreateG.mousemove(function(){
               icreateG.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              console.log('Presiona icono tool');     
-              seleccionElementos();
+              console.log('Presiona icono tool');
+              avisoEntrada('Estamos listos para empezar a definir los tipos de mecanizado. Estas Listo?','Estas listo para empezar?');
+              gd.setMode(gd.MODES.CODE_G);
+              //seleccionElementos();
+              
           });
           iadd.mousemove(function(){
               iadd.attr({fill: colors, stroke: "none"});
@@ -328,6 +335,7 @@
           iless.mousemove(function(){
               iless.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de borrado!');
              gd.setMode(gd.MODES.DELETE);
           });
           isave.mousemove(function(){
@@ -338,42 +346,50 @@
           imove.mousemove(function(){
               imove.attr({fill: colors, stroke: "none"});
           }).click(function () {
+            avisoEntrada('Vas a usar la herramienta de Mover objetos!','Mover!!');
              gd.setMode(gd.MODES.MOVE);
             
           });
           ihand.mousemove(function(){
               ihand.attr({fill: colors, stroke: "none"});
           }).click(function () {
+            avisoEntrada('Vas a usar la herramienta de Navegado!','Navegar');
              gd.setMode(gd.MODES.NAVIGATE);
           });
           izoomless.mousemove(function(){
               izoomless.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de Zoom OUT!');
              gd.zoomOut();  
           });
           izoompluss.mousemove(function(){
               izoompluss.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de Zoom In!');
              gd.zoomIn();
           });
           irectangle.mousemove(function(){
               irectangle.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de Rectangulos!');
              gd.setMode(gd.MODES.ADDRECTANGLE);            
           });
           isync.mousemove(function(){
               isync.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de Circulos');
              gd.setMode(gd.MODES.ADDCIRCLE);
           });
           ilabel.mousemove(function(){
               ilabel.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de Texto');
              gd.setMode(gd.MODES.ADDLABEL);   
           });
           idot.mousemove(function(){
               idot.attr({fill: colors, stroke: "none"});
           }).click(function () {
+              avisoEntrada('Vas a usar la herramienta de Puntos');
              gd.setMode(gd.MODES.ADDPOINT);
           });
  }

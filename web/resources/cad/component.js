@@ -28,6 +28,7 @@ function Component() {
         //color del componente
 	this.color = "blue";
 	this.radius = 1;
+        this.machined = 'null';
 }
 
 Component.prototype.setActive = function(active) {
