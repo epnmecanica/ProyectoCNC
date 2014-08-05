@@ -34,8 +34,10 @@
                 <script src="<c:url value='/resources/cad/lib/external/jquery.min.js'/>"></script>
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
                 <script src="<c:url value='/resources/cad/lib/external/jquery-ui.min.js'/>"></script>
-                
                
+                <link rel='stylesheet' type='text/css' href='http://trentrichardson.com/Impromptu/jquery-impromptu.css' />
+                
+                <script src="http://trentrichardson.com/Impromptu/jquery-impromptu.min.js"></script>
                 
                 <script src="<c:url value='/resources/cad/lib/external/raphael-min.js'/>"></script>	
                 <script type="text/javascript" src="<c:url value='/resources/cad/rp/rph.js'/>"></script>
@@ -46,6 +48,7 @@
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
+                
                 
                 <script src="<c:url value='/resources/cad/customShapes.js'/>"></script>
                 
@@ -59,18 +62,27 @@
                 <link href="<c:url value='/resources/cad/styles/main.css" rel="stylesheet'/>">
                 
                 <script src="<c:url value="/resources/js/jquery-1.10.2.js"/>" > </script>
-                <script type="text/javascript"
-                    src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
-                </script>
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
                     
                 <script type="text/javascript" src="<c:url value='/resources/js/configAjaxJason.js'/>"></script>
                 
+                
                
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		
+                <link href="<c:url value='/resources/theme_prompt/base.css" rel="stylesheet'/>">
+                
+                <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css" />
+		
+		<script src="<c:url value='/resources/cad/prompt.js'/>"></script>
+		                
+                <script type="text/javascript" src="<c:url value='/resources/js/jquery-impromptu.js'/>"></script>
+               
+                
         
 	</head>
-	<body>  
-            
+	<body>              
 		Modelo : ${Id}
                 Nombre Modelo: ${NombreModel}
                 <%--Tipo Maquina: ${TipoMaquina}--%>

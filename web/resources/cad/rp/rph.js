@@ -200,8 +200,7 @@
           inew.mousemove(function(){
               inew.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              window.open('http://localhost:8383/WebCad5/index.html','','width=600\n\
-                ,height=400,left=50,top=50,toolbar=yes');
+              arranqueTXT(); 
           });
           iretro.mousemove(function(){
               iretro.attr({fill: colors, stroke: "none"});
@@ -220,6 +219,8 @@
               iwizar.attr({fill: colors, stroke: "none"});
           }).click(function () {
               console.log('se selecciona Wizard!!');
+              
+              $.prompt("Hello World!");
                /*             
               var ksk =gd.getObjects();
               ksk.componentes = "hola";
@@ -278,7 +279,8 @@
           icreateG.mousemove(function(){
               icreateG.attr({fill: colors, stroke: "none"});
           }).click(function () {
-               arranqueTXT();          
+              console.log('Presiona icono tool');     
+              seleccionElementos();
           });
           iadd.mousemove(function(){
               iadd.attr({fill: colors, stroke: "none"});
