@@ -13,6 +13,8 @@
  * @param {type} nombreArchivo
  * @returns {undefined}
  */
+ 
+ //comentario
 function descargarArchivo(contenidoEnBlob, nombreArchivo) {
                     var reader = new FileReader();
                     reader.onload = function (event) {
