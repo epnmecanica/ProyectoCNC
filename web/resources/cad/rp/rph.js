@@ -256,13 +256,19 @@
               idim.attr({fill: colors, stroke: "none"});
           }).click(function () {
               avisoEntrada('Vas a usar la herramienta de medicion!');
-             gd.setMode(gd.MODES.ADDMEASURE);
+              gd.setMode(gd.MODES.ADDMEASURE);
             
           });
           idimx.mousemove(function(){
               idimx.attr({fill: colors, stroke: "none"});
           }).click(function () {
-            
+              ilapiz.show();
+              idim.show();
+              iless.show();
+              irectangle.show();
+              isync.show();
+              ilabel.show();
+              idot.show();
           });
           iok.mousemove(function(){
               iok.attr({fill: colors, stroke: "none"});
@@ -286,7 +292,14 @@
           }).click(function () {
               console.log('Presiona icono tool');
               avisoEntrada('Estamos listos para empezar a definir los tipos de mecanizado. Estas Listo?','Estas listo para empezar?');
-              gd.setMode(gd.MODES.CODE_G);
+              ilapiz.hide();
+              idim.hide();
+              iless.hide();
+              irectangle.hide();
+              isync.hide();
+              ilabel.hide();
+              idot.hide();
+               gd.setMode(gd.MODES.CODE_G);
               //seleccionElementos();
               
           });

@@ -47,6 +47,7 @@
                 <prop key="rol/borrarRol/{1}.htm">rolController</prop>
                 
                 <prop key="elemento/crear/{1}.htm">elementoGraficoController</prop>
+                <prop key="elemento/crear_G.htm">elementoGraficoController</prop>
                 <prop key="elemento/lista.htm">elementoGraficoController</prop>
                 <prop key="elemento/borrar/{1}.htm">elementoGraficoController</prop>
                 

@@ -47,17 +47,7 @@ html, body
 	left:0;
 }
 
-#comandos {
-    
-    margin: auto;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    margin-top: 60px;   /* height/2 = 500px / 2 */
-    margin-left: 850px;  
-    border-radius: 20px;
-     
-}
+
 textarea{
     background:#6E6E6E;
     border-radius: 2px;
@@ -76,7 +66,7 @@ textarea{
     top: 0%;
     left: 0%;
     margin-top: 60px;   /* height/2 = 500px / 2 */
-    margin-left: 1100px;  
+    margin-left: 850px;  
     border-radius: 0px;
      
 }
@@ -149,3 +139,4 @@ input#xml:hover, input#xml:focus{
     -moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
     box-shadow: 0 0 1px rgba(0,0,0, .75);
 }
+

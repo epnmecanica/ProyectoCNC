@@ -46,6 +46,7 @@
                 <script src="<c:url value='/resources/cad/inputHandler.js'/>"></script>
                 <script src="<c:url value='/resources/cad/logicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
+                                
                 <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
                 <script src="<c:url value='/resources/cad/world.js'/>"></script>
                 
@@ -86,7 +87,7 @@
 		Modelo : ${Id}
                 Nombre Modelo: ${NombreModel}
                 <%--Tipo Maquina: ${TipoMaquina}--%>
-                <div id="theJson"></div>                      
+                                    
                 <div class="cad">
                     <div id="titulo">OpenCNC</div>
                     <div id="paper2"></div>
@@ -96,13 +97,10 @@
                                     onContextMenu="javascript: return false;"
                                     tabindex="1"></canvas>
                     
-                    <div id="paper"></div> 
+                    
                 </div>
         
-            <div id="comandos">
-                <textarea id="codex" name="codex" rows="45" cols="30" spellcheck="false">
-                </textarea>
-            </div>
+            
                 
             <div id="opciones">
                 <table border="0">
@@ -147,6 +145,5 @@
                     </tbody>
                 </table>
             </div>
-                  
         </body>    
 </html>

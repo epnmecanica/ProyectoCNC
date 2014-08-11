@@ -200,14 +200,30 @@ $(document).ready(function() {
   });
 
   // Load up an example file.
+  
   $.ajax({
-    //url : "examples/demo.yaml",
-    url : "examples/prueba.yml",
+    url : "examples/demo.yaml",
+    //url : "examples/prueba.yml",
     //url : "examples/coaster.yaml",
     dataType: "text",
     success : function (data) {
-      editor.setValue(data);
+        //console.log('los daots son: ' + data);
+        var datas = "name: cut_demo "+ "\n" +
+                    "units: inch "+ "\n" +
+                    "bit_diameter: 0.125 "+ "\n"+
+                    "feed_rate: 15 "+"\n"+
+                    "plunge_rate: 5 "+"\n"+
+                    "z_step_size: 0.1 "+"\n"+
+                    "default_depth: -0.2 "+"\n"+"\n"+
+
+                    "cuts: "+"\n"+
+                    "- type: drill "+"\n"+
+                      "  points: [[0.9375, 0.75], [0.9375, 0.5], [0.9375, 0.25]]"
+       editor.setValue(datas); 
+      //editor.setValue(data);
       editor.moveCursorToPosition({row: 0, col: 0});
     }
   });
+    
+    
 });

@@ -339,6 +339,27 @@ public class ElementoGraficoController {
         
         return m;
     }
+    /**
+     * *****************************************************************************
+    * CAM.
+    *******************************************************************************
+    *******************************************************************************
+    * Metodo faltante de desarrllo.
+    *******************************************************************************
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception 
+     */
+    @RequestMapping  ("/elemento/crear_G")
+    public ModelAndView   crear_G  (HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        
+        ModelAndView m = new ModelAndView("/elemento/crear_G");
+               
+        return m;
+    }
     
 /**
  * *****************************************************************************

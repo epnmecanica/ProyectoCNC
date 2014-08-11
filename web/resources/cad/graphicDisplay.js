@@ -803,8 +803,8 @@ GraphicDisplay.prototype.drawToolTip = function() {
  * @returns {undefined}
  */
 GraphicDisplay.prototype.drawToolCode  = function(){
-    
-    document.getElementById("codex").value = this.getTextCode();
+    //console.log(this.getTextCode.valueOf());
+    //document.getElementById("codex").value = this.getTextCode();
 };
 
 /**
