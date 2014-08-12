@@ -70,6 +70,27 @@ public class ProgramaController {
         }
        
     }
+ /**
+     * *****************************************************************************
+    * CAM.
+    *******************************************************************************
+    *******************************************************************************
+    * Metodo faltante de desarrllo.
+    *******************************************************************************
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception 
+     */
+    @RequestMapping  ("/programa/crear_G")
+    public ModelAndView   crear_G  (HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        
+        ModelAndView m = new ModelAndView("/programa/crear_G");
+               
+        return m;
+    }
     
 /**
  * *****************************************************************************

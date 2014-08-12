@@ -200,15 +200,7 @@ $(document).ready(function() {
   });
 
   // Load up an example file.
-  
-  $.ajax({
-    url : "examples/demo.yaml",
-    //url : "examples/prueba.yml",
-    //url : "examples/coaster.yaml",
-    dataType: "text",
-    success : function (data) {
-        //console.log('los daots son: ' + data);
-        var datas = "name: cut_demo "+ "\n" +
+  var datas = "name: cut_demo "+ "\n" +
                     "units: inch "+ "\n" +
                     "bit_diameter: 0.125 "+ "\n"+
                     "feed_rate: 15 "+"\n"+
@@ -218,12 +210,23 @@ $(document).ready(function() {
 
                     "cuts: "+"\n"+
                     "- type: drill "+"\n"+
-                      "  points: [[0.9375, 0.75], [0.9375, 0.5], [0.9375, 0.25]]"
-       editor.setValue(datas); 
+                      "  points: [[0.9375, 0.75], [0.9375, 0.5], [0.9375, 0.25]]";
+              editor.setValue(datas); 
+              editor.moveCursorToPosition({row: 0, col: 0});
+  /*            
+  $.ajax({
+    url : "examples/demo.yaml",
+    //url : "examples/prueba.yml",
+    //url : "examples/coaster.yaml",
+    dataType: "text",
+    success : function (data) {
+        //console.log('los daots son: ' + data);
+        
+       
       //editor.setValue(data);
       editor.moveCursorToPosition({row: 0, col: 0});
     }
   });
-    
+    */
     
 });

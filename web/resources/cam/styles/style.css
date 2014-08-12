@@ -1,10 +1,16 @@
 body {
-  color: #44502F;
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
+  //color: #44502F;
+  
 }
-
+.container{
+    
+    width:530px;
+    height:34px;
+    margin: auto;
+    margin-top: 10px;   /* height/2 = 500px / 2 */
+    margin-left: 850px;
+    
+}
 nav {
   //color: #0D3914;
   color: #366097;

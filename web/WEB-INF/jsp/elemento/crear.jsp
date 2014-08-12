@@ -39,6 +39,20 @@
                 
                 <script src="http://trentrichardson.com/Impromptu/jquery-impromptu.min.js"></script>
                 
+                <link href="<c:url value='/resources/cam/styles/style.css" rel="stylesheet'/>">
+                
+                <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
+
+                <script src="<c:url value='/resources/cam/cuts/opencut.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-drill.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-gcode.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-path.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-pocket.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-profile.js'/>"></script>
+
+
+                <script src="<c:url value='/resources/cam/cam.js'/>"></script>
+                
                 <script src="<c:url value='/resources/cad/lib/external/raphael-min.js'/>"></script>	
                 <script type="text/javascript" src="<c:url value='/resources/cad/rp/rph.js'/>"></script>
                 <script src="<c:url value='/resources/cad/component.js'/>"></script>
@@ -83,13 +97,48 @@
                 
         
 	</head>
-	<body>              
-		Modelo : ${Id}
+	<body>  
+            <nav id="top-nav">
+              <h1>OpenCNC</h1>
+                Modelo : ${Id}
                 Nombre Modelo: ${NombreModel}
                 <%--Tipo Maquina: ${TipoMaquina}--%>
+                <script>
+                    var modeloNum = ${Id};
+                    var modeloName = ${NombreModel};
+                    
+                </script>
+              </nav>
+
+              <div id="controls">
+                <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
+                <input type="file" id="input-file-local" style="display:none">
+
+                <button id="btn-open-file">Abrir Archivo</button>
+                <button id="btn-save-file">Guardar Archivo</button>
+                <button id="btn-compile-gcode">Compilar codigo G</button>
+
+                <a id="link-download-gcode" style="display:none">download gcode</a>
+              </div>
+
+              <div id="user-warnings"></div>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div id="editor-holder">
+                      <div id="yaml-editor"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>   
+            
+		
                                     
                 <div class="cad">
+                    <!--
                     <div id="titulo">OpenCNC</div>
+                    -->
                     <div id="paper2"></div>
                     <canvas id="CADCanvas"
                                     width="800"
@@ -99,9 +148,7 @@
                     
                     
                 </div>
-        
-            
-                
+              <!--
             <div id="opciones">
                 <table border="0">
                     <thead>
@@ -144,6 +191,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div>   
+                -->
         </body>    
 </html>

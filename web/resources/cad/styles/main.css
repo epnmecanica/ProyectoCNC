@@ -11,7 +11,14 @@ and open the template in the editor.
 html, body
         {
         background-color: #333;
-        
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        }
+.cad{
+        margin: auto;
+        margin-top: 15px;   /* height/2 = 500px / 2 */
+        margin-left: 10px;
         }
 .cad #paper{
 	/*1245*0.618*/
@@ -29,11 +36,12 @@ html, body
 	width:800px;
 	height:34px;
 	border: 1px solid #000000;
-	position:relative;
+        position:relative;
 	top:0;
 	left:0;
         background-color: #BDBDBD;
 }
+/*
 .cad #titulo{
 	
 	width:800px;
@@ -46,7 +54,7 @@ html, body
 	top:0;
 	left:0;
 }
-
+*/
 
 textarea{
     background:#6E6E6E;
