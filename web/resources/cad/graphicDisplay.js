@@ -149,10 +149,11 @@ GraphicDisplay.prototype.init = function() {
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
         //Inicializa la logica de codexg
+        /*
         this.codexgYAML = new Codexg();
         this.codexgYAML.init();
         console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
-        
+        */
 	//alert(this.logicDisplay.exportJSON());
         //this.logicAjax = new LogicAjax();
         //this.logicAjax.init(this.logicDisplay.exportJSON());

@@ -98,18 +98,18 @@
         
 	</head>
 	<body>  
+            
             <nav id="top-nav">
               <h1>OpenCNC</h1>
-                Modelo : ${Id}
-                Nombre Modelo: ${NombreModel}
-                <%--Tipo Maquina: ${TipoMaquina}--%>
-                <script>
-                    var modeloNum = ${Id};
-                    var modeloName = ${NombreModel};
-                    
-                </script>
-              </nav>
-
+            <c:forEach var="modelo" items="${modelos}"  >
+                ${modelo.modeloId}
+                ${modelo.nombre}
+                ${modelo.unidadMedida}
+                ${modelo.tipoMaquina}
+            </c:forEach>
+            ${TipoMaquina}
+            </nav>
+            
               <div id="controls">
                 <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
                 <input type="file" id="input-file-local" style="display:none">

@@ -199,6 +199,13 @@ $(document).ready(function() {
     window.pp = previewPopup;
   });
 
+
+
+        this.codexgYAML = new Codexg();
+        this.codexgYAML.init();
+        console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
+        var yaml = json2yaml(JSON.stringify(this.codexgYAML));
+        console.log(yaml);
   // Load up an example file.
   var datas = "name: cut_demo "+ "\n" +
                     "units: inch "+ "\n" +
@@ -211,7 +218,7 @@ $(document).ready(function() {
                     "cuts: "+"\n"+
                     "- type: drill "+"\n"+
                       "  points: [[0.9375, 0.75], [0.9375, 0.5], [0.9375, 0.25]]";
-              editor.setValue(datas); 
+              editor.setValue(yaml); 
               editor.moveCursorToPosition({row: 0, col: 0});
   /*            
   $.ajax({

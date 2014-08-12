@@ -42,7 +42,7 @@ Codexg.prototype.exportYAML = function(){
 Codexg.prototype.init = function(){
     //alert('codexg');
     this.test();
-    console.log(this.exportYAML());
+    //console.log(this.exportYAML());
 };
 
 Codexg.prototype.test = function(){

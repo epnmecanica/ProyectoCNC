@@ -359,13 +359,19 @@ public class ElementoGraficoController {
         HttpSession sess =  request.getSession();
         if (sess != null){
             Session  s = HibernateUtil.getSessionFactory().openSession();
-        
+            Modelo mod = (Modelo)s.get(Modelo.class, id);
+           
+            Criteria c = s.createCriteria(Modelo.class);
+            c.add(Restrictions.eq("modeloId",id));
+            List<Modelo> lm = c.list();
             //ElementoGrafico e = new ElementoGrafico();
             ModelAndView m = new ModelAndView("/elemento/crear");
+            m.addObject("modelos",lm);
+            
             m.addObject("Id",id);
-            Modelo mod = (Modelo)s.get(Modelo.class, id);
+            
             m.addObject("NombreModel",mod.getNombre());
-            //m.addObject("TipoMaquina",mod.getTipoMaquina());
+            m.addObject("TipoMaquina",mod.getTipoMaquina());
             ident = id;
             
             

@@ -64,19 +64,19 @@
                 </select>
             </p>
             <p>
-                <label from="puntoCeroMaquinaction="${pageContext.request.contextPath}aX">Punto Cero Maquina X: </label>
+                <label>Punto Cero Maquina X: </label>
                 <form:input path="puntoCeroMaquinaX" />
             </p>
             <p>
-                <label from="puntoCeroMaquinaY">Punto Cero Maquina Y: </label>
+                <label>Punto Cero Maquina Y: </label>
                 <form:input path="puntoCeroMaquinaY" />
             </p>
              <p>
-                <label from="piezaAncho">Pieza Ancho: </label>
+                <label>Pieza Ancho: </label>
                 <form:input path="piezaAncho" />
             </p>
              <p>
-                <label from="piezaLargo">Pieza Largo: </label>
+                <label>Pieza Largo: </label>
                 <form:input path="piezaLargo" />
             </p>
             <p>                    

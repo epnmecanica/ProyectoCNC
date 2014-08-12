@@ -27,6 +27,7 @@ $(document).ready(function() {
         } else {
           alert('Su navegador no es compatible con nuestra arquitectura.');
         }
+        /*
          var f = [{"active":true,
                             "type":2,
                             "color":"blue",
@@ -60,6 +61,7 @@ $(document).ready(function() {
                             "x":484,
                             "y":-968,
                             "text":"hola"}];
+    */
        
         
         
