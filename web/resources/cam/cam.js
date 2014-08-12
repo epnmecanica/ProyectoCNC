@@ -191,7 +191,7 @@ $(document).ready(function() {
         setTimeout(function() {
           previewPopup.postMessage(editor.getValue(), "*");
         }, 50);
-      })
+      });
     } else {
       previewPopup.postMessage(editor.getValue(), "*");
       previewPopup.focus();

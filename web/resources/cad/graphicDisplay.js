@@ -7,7 +7,7 @@
  * of the CAD
  */
 // habilita funciones de grafico
-// este es el de trabajo
+
 var k, i = 0;
 /**
  * *****************************************************************************
