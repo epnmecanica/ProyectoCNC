@@ -24,31 +24,32 @@ function Drill(x1,y1,x2,y2) {
 Drill.prototype = new Points();
 Drill.prototype.constructor = Drill;
 
-function Path() {
-    Points.call(this);
+function Path(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.PATH;
     
 };
 Path.prototype = new Points();
 Path.prototype.constructor = Path;
 
-function Profile() {
-    ComponentG.call(this);
+function Profile(x1,y1,x2,y2) {
+   
     this.type = COMPONENT_G_TYPES.PROFILE;
     this.depth = -0.05;
     this.side = 'outside';
     this.size = new Array();
     this.origin = new Array();
     this.corner_compensation = true;
+    Points.call(this,x1,y1,x2,y2);
 };
 Profile.prototype = new ComponentG();
 Profile.prototype.constructor = Profile;
 
-function Pocket() {
-    ComponentG.call(this);
+function Pocket(x1,y1,x2,y2) {
+    
     this.type = COMPONENT_G_TYPES.POCKET;
     this.depth = -0.05;
-
+    Points.call(this,x1,y1,x2,y2);
 };
 Pocket.prototype = new ComponentG();
 Pocket.prototype.constructor = Pocket;

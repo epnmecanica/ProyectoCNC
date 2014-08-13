@@ -4,16 +4,6 @@
  * and open the template in the editor.
  */
 
-var yaml = {
-       name: "Cut_Demo",
-       units: "Inch",
-       cuts: [{
-               type: "drill",
-               points: ["[1,2]","[2,2]","[2,3]","[2,4]"]
-       }]
-   }
-   
- 
 function Codexg(){
     //this.components = new Array();
     
@@ -52,10 +42,8 @@ Codexg.prototype.test = function(){
    
    this.cuts.push(new Drill(1,2,5,6));
    this.cuts.push(new Drill(15,22,55,66));
-   //this.cuts.push(new Path());
-   //console.log(this.components);
-    //this.components.push("{type: 'drill', points:[[0.93, 0.75], [0.93, 0.75], [0.93, 0.75]]}");
-   //console.log(yaml);
+   this.cuts.push(new Drill(1,2));
+  
    
 };
 

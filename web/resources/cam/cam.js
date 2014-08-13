@@ -1,4 +1,6 @@
-$(document).ready(function() {
+
+function helperYAML (datosYaml){
+    this.DatosYaml = datosYaml;
 
 /**
  * *****************************************************************************
@@ -198,25 +200,12 @@ $(document).ready(function() {
     }
     window.pp = previewPopup;
   });
-        this.codexgYAML = new Codexg();
-        this.codexgYAML.init();
-        console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
-        var yaml = json2yaml(JSON.stringify(this.codexgYAML));
-        console.log(yaml);
-  // Load up an example file.
-  var datas = "name: cut_demo "+ "\n" +
-                    "units: inch "+ "\n" +
-                    "bit_diameter: 0.125 "+ "\n"+
-                    "feed_rate: 15 "+"\n"+
-                    "plunge_rate: 5 "+"\n"+
-                    "z_step_size: 0.1 "+"\n"+
-                    "default_depth: -0.2 "+"\n"+"\n"+
-
-                    "cuts: "+"\n"+
-                    "- type: drill "+"\n"+
-                      "  points: [[0.9375, 0.75], [0.9375, 0.5], [0.9375, 0.25]]";
-              editor.setValue(yaml); 
-              editor.moveCursorToPosition({row: 0, col: 0});
+  
+  
+  
+  editor.setValue(json2yaml(JSON.stringify(this.DatosYaml)));
+  editor.moveCursorToPosition({row: 0, col: 0});
+ 
   /*            
   $.ajax({
     url : "examples/demo.yaml",
@@ -232,5 +221,4 @@ $(document).ready(function() {
     }
   });
     */
-    
-});
+  }  

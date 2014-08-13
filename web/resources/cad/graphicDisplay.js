@@ -207,7 +207,7 @@ GraphicDisplay.prototype.execute = function() {
 	
 	// Draw to tooltip
 	this.drawToolTip();
-        this.drawToolCode();
+        //this.drawToolCode();
         
 };
 
