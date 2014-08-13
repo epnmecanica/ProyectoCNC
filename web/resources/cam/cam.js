@@ -198,9 +198,6 @@ $(document).ready(function() {
     }
     window.pp = previewPopup;
   });
-
-
-
         this.codexgYAML = new Codexg();
         this.codexgYAML.init();
         console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
