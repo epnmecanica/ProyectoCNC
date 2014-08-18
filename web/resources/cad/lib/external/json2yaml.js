@@ -13,6 +13,7 @@
 
   function getType(obj) {
     var type = typeof obj;
+    
     if (obj instanceof Array) {
       return 'array';
     } else if (type == 'string') {
@@ -30,7 +31,7 @@
 
   function convert(obj, ret) {
     var type = getType(obj);
-
+   
     switch(type) {
       case 'array':
         convertArray(obj, ret);
@@ -54,14 +55,25 @@
   }
 //Organizar el array
   function convertArray(obj, ret) {
+      console.log(obj);
+      k++;
     for (var i=0; i<obj.length; i++) {
       var ele     = obj[i];
       var recurse = [];
       convert(ele, recurse);
       //console.log("el objeto es " + obj);
       for (var j=0; j<recurse.length; j++) {
-        ret.push((j == 0 ? "- " : spacing) + recurse[j]);
+          if (j === 0 & recurse[0].charAt(0) === 't'){
+              ret.push(('- ') + recurse[j]);
+          }else if (j === 0 & recurse[0].charAt(0) !== 't'){
+               ret.push(('[ ') + recurse[j] + (']'));
+          }else{
+             ret.push((spacing + recurse[j]));  
+          }
+          console.log(recurse);
+        //ret.push((j === 0 ? "- " : spacing) + recurse[j]);
         //console.log("objeto " + j + " " + ret);
+        
       }
     }
   }
@@ -99,11 +111,15 @@
   
   self.json2yaml = function(obj) {
     if (typeof obj == 'string') {
+        
       obj = JSON.parse(obj);
+      //console.log(obj.cuts[0].points);
     }
 
     var ret = [];
     convert(obj, ret);
+    
     return ret.join("\n");
+    
   };
 })(this);

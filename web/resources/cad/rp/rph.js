@@ -223,6 +223,7 @@
               console.log('se selecciona Wizard!!');
            
              this.cuthandler = new CutHandler(gd.displayName, gd.unitMeasure);
+             
              helperYAML(this.cuthandler.setObject(gd.getObjects()));  
                 
                       //gd.getObjects();

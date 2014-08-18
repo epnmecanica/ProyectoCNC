@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @param {type} datosYaml
+ * @returns {helperYAML}
+ */
 function helperYAML (datosYaml){
     this.DatosYaml = datosYaml;
 
@@ -19,6 +23,7 @@ function helperYAML (datosYaml){
   };
 
   // Helper function to clear warnings to the user.
+  
   var clearWarnings = function() {
     var warningsElement = $("#user-warnings");
     warningsElement.text("");
@@ -26,6 +31,7 @@ function helperYAML (datosYaml){
   };
 
   // Helper function to parse the YAML input.
+  
   var parseYaml = function(editor) {
     var contentLines = [];
     var lines = editor.getValue().split("\n");
@@ -202,8 +208,11 @@ function helperYAML (datosYaml){
   });
   
   
+  var datos = (json2yaml(this.DatosYaml));
   
-  editor.setValue(json2yaml(JSON.stringify(this.DatosYaml)));
+  editor.setValue(datos);
+  //editor.setValue(json2yaml(this.DatosYaml));
+  //editor.setValue(yaml.safeLoad(JSON.stringify(this.DatosYaml)));
   editor.moveCursorToPosition({row: 0, col: 0});
  
   /*            
