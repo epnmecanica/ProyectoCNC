@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 var COMPONENT_G_TYPES = {
 		DRILL : 'drill',
 		PATH : 'path',
@@ -20,6 +21,7 @@ function Drill(x1,y1,x2,y2) {
     Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.DRILL;
     
+    
 };
 Drill.prototype = new Points();
 Drill.prototype.constructor = Drill;
@@ -33,23 +35,23 @@ Path.prototype = new Points();
 Path.prototype.constructor = Path;
 
 function Profile(x1,y1,x2,y2) {
-   
+    Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.PROFILE;
     this.depth = -0.05;
     this.side = 'outside';
     this.size = new Array();
     this.origin = new Array();
     this.corner_compensation = true;
-    Points.call(this,x1,y1,x2,y2);
+    
 };
 Profile.prototype = new ComponentG();
 Profile.prototype.constructor = Profile;
 
 function Pocket(x1,y1,x2,y2) {
-    
+    Points.call(this,x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.POCKET;
     this.depth = -0.05;
-    Points.call(this,x1,y1,x2,y2);
+    
 };
 Pocket.prototype = new ComponentG();
 Pocket.prototype.constructor = Pocket;
