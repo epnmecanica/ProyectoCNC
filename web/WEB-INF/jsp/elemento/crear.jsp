@@ -39,7 +39,7 @@
                 
                 <script src="http://trentrichardson.com/Impromptu/jquery-impromptu.min.js"></script>
                 
-                <link href="<c:url value='/resources/cam/styles/style.css" rel="stylesheet'/>">
+                <%-- <link href="<c:url value='/resources/cam/styles/style.css" rel="stylesheet'/>"> --%>
                 
                 <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
 
