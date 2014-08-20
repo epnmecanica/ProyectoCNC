@@ -1,0 +1,188 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/08/2014, 08:24:28 AM
+    Author     : root
+*/
+
+html, body
+{
+background-color: #333;
+font-family: sans-serif;
+margin: 0;
+padding: 0;
+}
+.cad{
+margin: auto;
+margin-top: 15px; /* height/2 = 500px / 2 */
+margin-left: 10px;
+}
+.cad #paper{
+/*1245*0.618*/
+width:800px;
+height:50px;
+border: 1px solid #000000;
+position:relative;
+top:0;
+left:0;
+cursor:crosshair;
+background-color: black;
+}
+.cad #paper2{
+/*1245*0.618*/
+width:800px;
+height:34px;
+border: 1px solid #000000;
+position:relative;
+top:0;
+left:0;
+background-color: #BDBDBD;
+}
+/*
+.cad #titulo{
+width:800px;
+height:50px;
+border: 1px solid #000000;
+color: white;
+text-align: center;
+font-size:36px;
+position:relative;
+top:0;
+left:0;
+}
+*/
+textarea{
+background:#6E6E6E;
+border-radius: 2px;
+border-top-style: none;
+border-right-style: none;
+border-bottom-style: none;
+border-left-style: none;
+color: white;
+text-align: left;
+}
+#opciones {
+margin: auto;
+position: absolute;
+top: 0%;
+left: 0%;
+margin-top: 60px; /* height/2 = 500px / 2 */
+margin-left: 850px;
+border-radius: 0px;
+}
+td{
+width: 30px;
+}
+tr{
+color: #35b128;
+}
+input{
+width: 90px;
+background:#6E6E6E;
+border-radius: 2px;
+border-top-style: none;
+border-right-style: none;
+border-bottom-style: none;
+border-left-style: none;
+color: #00BFFF;
+text-align: left;
+}
+#txt{
+cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+padding:5px 25px; /*add some padding to the inside of the button*/
+background:#35b128; /*the colour of the button*/
+border:1px solid #33842a; /*required or the default border for the browser will appear*/
+/*give the button curved corners, alter the size as required*/
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+/*give the button a drop shadow*/
+-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+box-shadow: 0 0 4px rgba(0,0,0, .75);
+/*style the text*/
+color:#f3f3f3;
+font-size:1.1em;
+}
+#xml{
+cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
+padding:5px 25px; /*add some padding to the inside of the button*/
+background:#35b128; /*the colour of the button*/
+border:1px solid #33842a; /*required or the default border for the browser will appear*/
+/*give the button curved corners, alter the size as required*/
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+/*give the button a drop shadow*/
+-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+box-shadow: 0 0 4px rgba(0,0,0, .75);
+/*style the text*/
+color:#f3f3f3;
+font-size:1.1em;
+}
+input#txt:hover, input#txt:focus{
+background-color :#399630; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+input#xml:hover, input#xml:focus{
+background-color :#399630; /*make the background a little darker*/
+/*reduce the drop shadow size to give a pushed button effect*/
+-webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+
+.container{
+
+width:530px;
+height:34px;
+margin: auto;
+margin-top: 10px; /* height/2 = 500px / 2 */
+margin-left: 850px;
+
+}
+nav {
+//color: #0D3914;
+ color: #366097;
+ //background: #A0B57D;
+ background: #2B81AF;
+ border-bottom: 2px solid #556B2F;
+ height: 24px;
+ text-align: right;
+ padding: 0.5em
+}
+h1 {
+ float: left;
+ font-size: 24px;
+ padding: 0;
+ margin: 0;
+}
+nav a {
+ color: #0D3914;
+ padding-left: 1em;
+ vertical-align: middle;
+}
+
+#output-gcode {
+ overflow: auto;
+}
+
+#controls {
+ background: #CCC;
+}
+
+.warning {
+ color: #a94442;
+ background: #f2dede;
+ border: solid 1px #ebccd1;
+ border-radius: 2px;
+ margin: 0.25em;
+ padding: 0.25em;
+}
