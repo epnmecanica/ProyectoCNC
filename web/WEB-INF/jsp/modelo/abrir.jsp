@@ -14,136 +14,134 @@
         <title>Abrir Modelo</title>
         <link href="${pageContext.request.contextPath}/resources/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/css/jquery.dataTables.css" rel="stylesheet">
-        
-        
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.js"></script>
          <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
         <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
-       
-         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-         <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">      
-      
-        
+        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>
+        <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">                   
     </head>
+    
     <body>
         
-         <div id="art-main">
+          <div id="art-main">
             <div class="art-sheet clearfix">
                 <header class="art-header">
                     <div class="art-slider art-slidecontainerheader" data-width="978" data-height="100">
                         <div class="art-slider-inner">
-                            <div class="art-slide-item art-slideheader0">
-                            </div>
-                            <div class="art-slide-item art-slideheader1">
-                            </div>
-                            <div class="art-slide-item art-slideheader2">
-                            </div>
-                            </div>
+                            <div class="art-slide-item art-slideheader0"></div>
+                            <div class="art-slide-item art-slideheader1"></div>
+                            <div class="art-slide-item art-slideheader2"></div>
+                        </div>
                     </div>
                     <div class="art-slidenavigator art-slidenavigatorheader" data-left="93.46">
-                    <a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
-                    </div>                   
+                        <a href="#" class="art-slidenavigatoritem"></a>
+                        <a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
+                    </div>
+                    <div class="art-shapes">
+                    </div>                                   
                 </header>
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article">                                               
-                                        
-        <h1>Abrir modelo existente.</h1>
-        
-        ${nombreUsuario}
-        <table id="tablaModelo" class="display" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Usuario</th>
-                <th>Descripcion</th>
-                <th>Creado</th>
-                <th>Unidades</th>
-                <th>Tipo de Maquina</th>
-                <th>Cero de Maquina X</th>
-                <th>Cero de Maquina Y</th>
-                <th>Pieza ancho</th>
-                <th>Pieza largo</th>
-                <th></th>
-                <th></th>
-                </tr>
-            </thead>
-            <tfoot>
-                 <tr>
-                    <td>Id</td>
-                    <td>Nombre</td>
-                    <td>Usuario</td>
-                    <td>Descripcion</td>
-                    <td>Creado</td>
-                    <td>Unidades</td>
-                    <td>Tipo de Maquina</td>
-                    <td>Cero de Maquina X</td>
-                    <td>Cero de Maquina Y</td>
-                    <td>Pieza ancho</td>
-                    <td>Pieza largo</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tfoot>
-            <tbody>
-            <c:forEach var="modelo" items="${modelos}"  >
-                <tr>
-                    <td>
-                        ${modelo.modeloId}
-                    </td>
-                    <td>
-                        ${modelo.nombre}
-                    </td>
-                    <td>
-                        <%--${modelo.usuario}--%>
-                    </td>
-                    <td>
-                        ${modelo.descripcion} 
-                    </td>
-                    <td>
-                        ${modelo.creadoPor} 
-                    </td>
-                    <td>
-                        <%--${modelo.unidadMedida} --%>
-                    </td>
-                    <td> 
-                        <%-- ${modelo.tipoMaquina} --%>
-                    </td>
-                    <td>
-                        ${modelo.puntoCeroMaquinaX} 
-                    </td>
-                    <td>
-                        ${modelo.puntoCeroMaquinaY} 
-                    </td>
-                    <td>
-                        ${modelo.piezaAncho} 
-                    </td>
-                    <td>
-                        ${modelo.piezaLargo} 
-                    </td>
-                    <td>
-                       
-                        <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm">Editar</a>
-                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm">Borrar</a>
-                        <a href="${pageContext.request.contextPath}/programa/crear/${modelo.modeloId}.htm">Programa</a>
-                        <a href="${pageContext.request.contextPath}/elemento/crear/${modelo.modeloId}.htm">AbrirCad</a>
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-        <footer class="art-footer">
-                    <div class="art-footer-inner">
-                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
-                    </div>
-        </footer>
-     </div>
-  </div>
+                                <article class="art-post art-article">                                                                                       
+                                    <h1>Abrir modelo existente.</h1>       
+                                        ${nombreUsuario}
+                                        <table id="tablaModelo" class="display" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                <th>Id</th>
+                                                <th>Nombre</th>
+                                                <th>Usuario</th>
+                                                <th>Descripcion</th>
+                                                <th>Creado</th>
+                                                <th>Unidades</th>
+                                                <th>Tipo de Maquina</th>
+                                                <th>Cero de Maquina X</th>
+                                                <th>Cero de Maquina Y</th>
+                                                <th>Pieza ancho</th>
+                                                <th>Pieza largo</th>
+                                                <th></th>
+                                                <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                 <tr>
+                                                    <td>Id</td>
+                                                    <td>Nombre</td>
+                                                    <td>Usuario</td>
+                                                    <td>Descripcion</td>
+                                                    <td>Creado</td>
+                                                    <td>Unidades</td>
+                                                    <td>Tipo de Maquina</td>
+                                                    <td>Cero de Maquina X</td>
+                                                    <td>Cero de Maquina Y</td>
+                                                    <td>Pieza ancho</td>
+                                                    <td>Pieza largo</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                            <c:forEach var="modelo" items="${modelos}"  >
+                                                <tr>
+                                                    <td>
+                                                        ${modelo.modeloId}
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.nombre}
+                                                    </td>
+                                                    <td>
+                                                        <%--${modelo.usuario}--%>
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.descripcion} 
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.creadoPor} 
+                                                    </td>
+                                                    <td>
+                                                        <%--${modelo.unidadMedida} --%>
+                                                    </td>
+                                                    <td> 
+                                                        <%-- ${modelo.tipoMaquina} --%>
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.puntoCeroMaquinaX} 
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.puntoCeroMaquinaY} 
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.piezaAncho} 
+                                                    </td>
+                                                    <td>
+                                                        ${modelo.piezaLargo} 
+                                                    </td>
+                                                    <td>
+                                                        <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm">Editar</a>
+                                                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm">Borrar</a>
+                                                        <a href="${pageContext.request.contextPath}/programa/crear/${modelo.modeloId}.htm">Programa</a>
+                                                        <a href="${pageContext.request.contextPath}/elemento/crear/${modelo.modeloId}.htm">AbrirCad</a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                <footer class="art-footer">
+                                    <div class="art-footer-inner">
+                                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
+                                    </div>
+                                </footer>
+                                </article>        
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>   
+        </div>                                                                      
     </body>
 </html>
