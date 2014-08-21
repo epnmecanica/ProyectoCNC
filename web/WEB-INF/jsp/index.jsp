@@ -78,12 +78,13 @@
                         </div>
                     </div>
                 </div>
+                <footer class="art-footer">
+                    <div class="art-footer-inner">
+                        <p style="text-align: left;"><span styder-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
+                    </div>
+                </footer> 
             </div>
-            <footer class="art-footer">
-                <div class="art-footer-inner">
-                    <p style="text-align: left;"><span styder-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
-                </div>
-            </footer>         
+                    
         </div>
                             
          <%--    AUN FALTAN ESTILOS   
