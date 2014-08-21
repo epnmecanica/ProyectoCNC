@@ -17,6 +17,15 @@
          
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script>
+         <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
+       
+         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+         <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">      
+      
+        
+        
         <script>
             $(document).ready(function() {
 			$("#botonGuardarModelo").button();
@@ -27,6 +36,31 @@
         </script>
     </head>
     <body>
+        
+         <div id="art-main">
+            <div class="art-sheet clearfix">
+                <header class="art-header">
+                    <div class="art-slider art-slidecontainerheader" data-width="978" data-height="100">
+                        <div class="art-slider-inner">
+                            <div class="art-slide-item art-slideheader0">
+                            </div>
+                            <div class="art-slide-item art-slideheader1">
+                            </div>
+                            <div class="art-slide-item art-slideheader2">
+                            </div>
+                            </div>
+                    </div>
+                    <div class="art-slidenavigator art-slidenavigatorheader" data-left="93.46">
+                    <a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
+                    </div>                   
+                </header>
+                <div class="art-layout-wrapper">
+                    <div class="art-content-layout">
+                        <div class="art-content-layout-row">
+                            <div class="art-layout-cell art-content">
+                                <article class="art-post art-article">                                               
+                                    <div class="art-postcontent art-postcontent-0 clearfix"><p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;"><img width="267" height="189" alt="" class="art-lightbox" src="../images/PUERTAS%20ABIERTAS.jpeg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;"><span style="font-size: 14px;"><br></span></p>                                              
+                                    </div>                  
         <h1>Crear Modelo</h1>
         
         <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
@@ -64,19 +98,19 @@
                 </select>
             </p>
             <p>
-                <label>Punto Cero Maquina X: </label>
+                <label from="puntoCeroMaquinaction="${pageContext.request.contextPath}aX">Punto Cero Maquina X: </label>
                 <form:input path="puntoCeroMaquinaX" />
             </p>
             <p>
-                <label>Punto Cero Maquina Y: </label>
+                <label from="puntoCeroMaquinaY">Punto Cero Maquina Y: </label>
                 <form:input path="puntoCeroMaquinaY" />
             </p>
              <p>
-                <label>Pieza Ancho: </label>
+                <label from="piezaAncho">Pieza Ancho: </label>
                 <form:input path="piezaAncho" />
             </p>
              <p>
-                <label>Pieza Largo: </label>
+                <label from="piezaLargo">Pieza Largo: </label>
                 <form:input path="piezaLargo" />
             </p>
             <p>                    
@@ -84,5 +118,13 @@
             </p>
             <input id="botonGuardarModelo" type="submit" value="Guardar Modelo" />
         </form:form>
+            <footer class="art-footer">
+                    <div class="art-footer-inner">
+                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
+                    </div>
+            </footer>
+            
+    </div>
+    </div>
     </body>
 </html>
