@@ -8,6 +8,7 @@ package com.opencnc.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,14 +26,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class LineaController {
     
-   
+    private static final Logger logger = Logger.getLogger(LineaController.class.getName());
     @RequestMapping (
                         value="linea/crear", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*"   
                     )
     public ModelAndView crear () throws Exception{
-       
+        logger.info("Se creara una linea...");
        
         return null;
     }
@@ -44,6 +45,7 @@ public class LineaController {
     public ModelAndView obtener(HttpServletRequest request, 
                                 HttpServletResponse response
                                ){
+        logger.info("Se obtendra la linea.");
  
         return null;
     }
@@ -74,5 +76,6 @@ public class LineaController {
                            
                             HttpServletRequest request, 
                             HttpServletResponse response) throws Exception{
+        logger.info("La lista de lineas es:");
             }    
     }

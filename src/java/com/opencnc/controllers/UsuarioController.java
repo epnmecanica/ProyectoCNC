@@ -11,6 +11,7 @@ import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.io.IOException;
 import static java.lang.Integer.decode;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -53,10 +54,15 @@ public class UsuarioController {
     @RequestMapping  ("/usuario/lista")
     public ModelAndView   lista  (HttpServletRequest request, 
                                     HttpServletResponse response) throws IOException{
-        HttpSession sess =  request.getSession();
+        
+        
+       try{
+            HttpSession sess =  request.getSession();
+         
+         
         if (sess != null){
             Session  s = HibernateUtil.getSessionFactory().openSession();
-        
+       
             Criteria  c =s.createCriteria(Usuario.class);
             List<Usuario> l = c.list();
             ModelAndView m = new ModelAndView("/usuario/lista");
@@ -66,18 +72,28 @@ public class UsuarioController {
             //Usuario us = (Usuario)session.getAttribute("usuario");
 
             if(us == null){
-                 return new ModelAndView("redirect:/usuario/login.htm");   
+                 return new ModelAndView("redirect:/usuario/login.htm"); 
+                 
             }else {
                 m.addObject("nombreUsuario",us.getNombre());
                 m.addObject("usuarios",l);
-                logger.info("Empieza a mostrar lista");
+                logger.info("Se iniciado la sesion con el usuario "+us.getNombre());
+                logger.info("Empieza a mostrar lista de los usuarios.");
                 return m;
             }
         }else{
             request.removeAttribute("usuario");
+            
             return new ModelAndView("redirect:/usuario/login.htm");
-        }   
+        }  
+       }catch (Exception ex){ 
+        logger.error("Error Inicie session por favor "+ex); 
+               
+       }
+       return null;
+      
     }
+
 /**
  * *****************************************************************************
  * Crea la vista para ingresar al formulario los datos para la creacion de 
@@ -88,6 +104,10 @@ public class UsuarioController {
  */
     @RequestMapping ("/usuario/crear")
     public ModelAndView crear ()throws IOException{
+        
+    
+        try{
+                            
         Usuario u = new Usuario();
         
         ModelAndView m = new ModelAndView("/usuario/crear");
@@ -95,6 +115,12 @@ public class UsuarioController {
         
         logger.info("Empieza a crear un nuevo usuario");
         return m;
+        
+        }catch(NumberFormatException  ex){
+            logger.error("Error...Ingrese sus datos"+ex);
+           
+        }
+        return null;
     }
 /**
  * *****************************************************************************
@@ -166,6 +192,8 @@ public class UsuarioController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws IOException{
+        try{
+            logger.info("Se Modificara los datos del Usuario");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Session s = HibernateUtil.getSessionFactory().openSession();
@@ -174,12 +202,16 @@ public class UsuarioController {
             ModelAndView m = new ModelAndView ("/usuario/editar");
             m.addObject("usuario",u);
 
-            logger.info("Empieza a mostrar lista");
+            logger.info("Empieza a mostrar lista de usuarios");
             return m;
         }else{
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         } 
+        }catch(Exception ex){
+            logger.error("Error... Al Editar los datos del Usuario",ex);
+        }
+        return null;
     }
     
 /**
@@ -199,6 +231,7 @@ public class UsuarioController {
                                                 HttpServletRequest request, 
                                                 HttpServletResponse response)
                                                 throws IOException{
+        logger.info("Se eliminara al usuario");
         HttpSession sess =  request.getSession();
         if (sess != null){
            Usuario us = (Usuario)sess.getAttribute("usuario");
@@ -217,6 +250,7 @@ public class UsuarioController {
             } 
         }else{
             request.removeAttribute("usuario");
+            logger.error("");
             return new ModelAndView("redirect:/usuario/login.htm");
         }    
     }
@@ -231,12 +265,23 @@ public class UsuarioController {
     
     @RequestMapping("/usuario/login")
     public ModelAndView login ()throws IOException{
-        
+       
+        try{
+            
+        logger.info("Ingrese sus datos del login"); 
         Usuario u = new Usuario();
         
         ModelAndView m = new ModelAndView("/usuario/login");
         m.addObject("usuario",u);
+        
         return m;
+        
+        
+        }catch(Exception ex){
+             java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+             logger.error("Error... Al ingresar al login");
+        }
+        return null;
     }
     
 /**
@@ -255,6 +300,9 @@ public class UsuarioController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws IOException{
+        
+      
+  
       ModelAndView m = new ModelAndView();
     
       Session s = HibernateUtil.getSessionFactory().openSession();
@@ -274,10 +322,13 @@ public class UsuarioController {
           m.addObject("errorId", null);
           request.removeAttribute("usuario");
           try {
+              logger.info("Debe... Inicie sesion por favor...");
+            
               return login();
               //return m;
           } catch (Exception ex) {
-              java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+              java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE,null , ex);
+              logger.error("Error de inicio de session"+ex.getMessage());
           }
                
       }
@@ -287,18 +338,20 @@ public class UsuarioController {
           HttpSession ses =  request.getSession();
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
+          logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
           try {
               //return lista(request);
               //return new ModelAndView("redirect:/modelo/crearModelo.htm");
               //return  crearModelo(request);
               return ModeloController.crearModelo(request, response);
           } catch (Exception ex) {
+              logger.error("Error... por favor inicie sus datos");
               java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
           }
           
       }   
         return null;
-      
+   
     }
     
 /**
@@ -318,6 +371,8 @@ public class UsuarioController {
     public ModelAndView cambiarContrasena (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws IOException{
+      try {
+          logger.info("Ingrese la nueva contraseña.");
         HttpSession sess =  request.getSession();
         if (sess != null){
             ModelAndView m = new ModelAndView();
@@ -326,7 +381,11 @@ public class UsuarioController {
         }else{
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
-        }  
+        }
+         } catch (Exception e) {
+              logger.error("Se produjo un error al cambiar la contraseña",e);
+          }
+          return null;
     }
     
 /**
@@ -341,7 +400,7 @@ public class UsuarioController {
     
     @RequestMapping  ("/usuario/recuperarContra")
     public ModelAndView   recuperar  ()throws IOException{
-        
+        logger.info("Ingrese su e-mail para enviarle la contraseña");
         ModelAndView m = new ModelAndView("/usuario/recuperarContra");
         
         return m;
@@ -363,13 +422,20 @@ public class UsuarioController {
     public ModelAndView   logout  (HttpServletRequest request, 
                                     HttpServletResponse response)
                                     throws IOException{
+        try{
+            logger.info("Se cerrara sesion");
         HttpSession sess =  request.getSession();
         if (sess != null){
             sess.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }else{
             return new ModelAndView("redirect:/usuario/login.htm");
-        }  
-    } 
+        }
+        }catch(Exception e) {
+              logger.error("Se produjo un error al Cerrar sesion",e);
+        }
+        return null;
+        }
+    
     
 }

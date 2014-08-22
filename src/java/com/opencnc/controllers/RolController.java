@@ -77,6 +77,7 @@ public class RolController {
                                     HttpServletRequest request, 
                                     HttpServletResponse response)
                                     throws Exception{
+        logger.info("Se crea el rol de Usuario");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Rol r = new Rol();

@@ -58,7 +58,7 @@ public class ElementoGraficoController {
     int ident = 0;
     // Implemento Log4j para eventos tipo log
     
-    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    private static final Logger logger = Logger.getLogger(ElementoGraficoController.class.getName());
     
 //******************************************************************************
 //AJAX, recibe los elementos de el js del cliente y los procesa para almacenar
@@ -274,6 +274,7 @@ public class ElementoGraficoController {
 
                     switch(elem.getTipoElemento()){
                         case 2:
+                            logger.info("Usted a escojido la linea");
                             sr.setText(null);
                             sr.setX(0);
                             sr.setY(0);
@@ -287,6 +288,7 @@ public class ElementoGraficoController {
                             sr.setY3(0);
                             break;
                         case 5:
+                            logger.info("Usted a escojido el Arco");
                             sr.setX1(elem.getPosicionX());
                             sr.setY1(elem.getPosicionY());
 
@@ -328,6 +330,8 @@ public class ElementoGraficoController {
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+            logger.info("Se mostrara la lista de los Elementos");
         Session  s = HibernateUtil.getSessionFactory().openSession();
         
         Criteria  c =s.createCriteria(ElementoGrafico.class);
@@ -338,6 +342,11 @@ public class ElementoGraficoController {
         m.addObject("sentencia",l);
         
         return m;
+        
+        }catch(Exception ex){
+         logger.error("Error... Al mostrar las lista de Elementos");   
+        }        
+        return null;
     }
     
 /**
@@ -355,6 +364,8 @@ public class ElementoGraficoController {
     public ModelAndView   crear  (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
+        try{
+            logger.info("Se creara un elemento");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Session  s = HibernateUtil.getSessionFactory().openSession();
@@ -385,7 +396,12 @@ public class ElementoGraficoController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch(Exception ex){
+            logger.error("Error... Al crear el id del elemento");
+        }
+        return null;
     }
+        
     
 /**
  * *****************************************************************************
@@ -409,6 +425,8 @@ public class ElementoGraficoController {
                                         @RequestParam Integer Id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
+        try{
+            logger.info("Se Modificara el Elemento");
         //HttpSession sess =  request.getSession();
         //if (sess != null){
             ElementoGrafico e = new ElementoGrafico();
@@ -432,6 +450,10 @@ public class ElementoGraficoController {
         //     request.removeAttribute("usuario");
          //   return new ModelAndView("redirect:/usuario/login.htm");
         //}
+        }catch(Exception ex){
+            logger.error("Error... Al modificar el Elemento");
+        }
+        return null;
     }
     
 /**
@@ -450,6 +472,8 @@ public class ElementoGraficoController {
     public ModelAndView   borrar  (@PathVariable Integer id,
                                     HttpServletRequest request, 
                                     HttpServletResponse response) throws Exception{
+        try{
+            logger.info("Se Eliminara el Elemento");
         HttpSession sess =  request.getSession();
         if (sess != null){
            Session s = HibernateUtil.getSessionFactory().openSession();
@@ -463,7 +487,10 @@ public class ElementoGraficoController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
-        
+        }catch(Exception ex){
+            logger.error("Error ....Al Eliminar el Elemento");
+        }
+        return null;
     }
     
 /**
@@ -483,6 +510,8 @@ public class ElementoGraficoController {
     public ModelAndView   obtenerElemento  (@PathVariable Integer id,
                                                 HttpServletRequest request, 
                                                 HttpServletResponse response) throws Exception{
+        try{
+            logger.info("Se obtendra el Elemento");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -490,6 +519,10 @@ public class ElementoGraficoController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch(Exception ex){
+            logger.error("Error... Al obtener el Elemento");
+        }
+        return null;
     }
 
 /**
@@ -509,6 +542,8 @@ public class ElementoGraficoController {
     public ModelAndView   obtenerElementoPorModelo  (int ModeloID,
                                                         HttpServletRequest request, 
                                                         HttpServletResponse response) throws Exception{
+        try{
+            logger.info("Se obtendra el Elemento por Modelo");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -516,6 +551,10 @@ public class ElementoGraficoController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch(Exception ex){
+            logger.error("Error... Al obtener el Elemento por Modelo");
+        }
+        return null;
     }  
 
     /**
