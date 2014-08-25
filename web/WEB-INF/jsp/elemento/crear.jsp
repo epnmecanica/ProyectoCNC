@@ -38,9 +38,7 @@
                 <link rel='stylesheet' type='text/css' href='http://trentrichardson.com/Impromptu/jquery-impromptu.css' />
                 
                 <script src="http://trentrichardson.com/Impromptu/jquery-impromptu.min.js"></script>
-                
-                <%-- <link href="<c:url value='/resources/cam/styles/style.css" rel="stylesheet'/>"> --%>
-                
+                      
                 <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
 
                 <script src="<c:url value='/resources/cam/cuts/opencut.js'/>"></script>
@@ -137,62 +135,16 @@
 		
                                     
                 <div class="cad">
-                    <!--
-                    <div id="titulo">OpenCNC</div>
-                    -->
+                    
                     <div id="paper2"></div>
                     <canvas id="CADCanvas"
-                                    width="800"
+                                    width="960"
                                     height="600"
                                     onContextMenu="javascript: return false;"
                                     tabindex="1"></canvas>
                     
                     
                 </div>
-              <!--
-            <div id="opciones">
-                <table border="0">
-                    <thead>
-                        <tr>Opciones de comandos.
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><label for="textNombre"></label>
-                            </td>
-                            <td> <label for="textTelefono"></label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" id="textNombre" value="NaN" /></td>
-                            <td><input type="text" id="textTelefono" value="NaN" /></td>
-                        </tr>
-                        <tr>
-                            <td>X</td>
-                            <td>Y</td>
-                        </tr>
-                        <tr>
-                            <td>x1<input type="text" id="x1Pos" name="X1" value="0" /></td>
-                            <td>y1<input type="text" id="y1Pos" name="Y1" value="0" /></td>
-                        </tr>
-                        <tr>
-                            <td>x2<input type="text" id="x2Pos" name="X2" value="0" /> </td>
-                            <td>y2<input type="text" id="y2Pos" name="Y2" value="0" /></td>
-                        </tr>
-                         <tr>
-                            <td>R<input type="text" name="R" value="0" /></td>
-                            <td>A<input type="text" name="A" value="0" /></td>
-                        </tr>
-                        <tr>
-                            <td><input id="xml" type="submit" value="XML" onclick="arranqueXML()"/>    
-                            </td>
-                            <td><input id="txt" type="submit" value="TXT" onclick="arranqueTXT()"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>   
-                -->
+              
         </body>    
 </html>

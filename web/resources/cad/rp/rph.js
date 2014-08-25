@@ -226,7 +226,7 @@
              
              helperYAML(this.cuthandler.setObject(gd.getObjects()));  
                 
-                      //gd.getObjects();
+             console.log(JSON.stringify(gd.getObjects()));
             //gd.setMode(gd.MODES.EDIT);         
           });
           

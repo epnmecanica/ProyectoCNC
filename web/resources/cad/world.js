@@ -8,7 +8,7 @@ var respuesta;
 $(document).ready(function() {
     
      
-        var gd = new GraphicDisplay("CADCanvas", 800, 600);
+        var gd = new GraphicDisplay("CADCanvas", 960, 600);
         gd.camX = -750;
         gd.camY =  500;
         gd.unitMeasure = "cm";
