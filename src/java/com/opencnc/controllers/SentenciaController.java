@@ -38,7 +38,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SentenciaController {
     // Implemento Log4j para eventos tipo log
-    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    private static final Logger logger = Logger.getLogger(SentenciaController.class.getName());
 
 /**
  * *****************************************************************************

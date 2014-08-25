@@ -44,7 +44,8 @@ import org.springframework.web.servlet.ModelAndView;
 //@SessionAttributes("usuario")
 public class ModeloController {
     // Implemento Log4j para eventos tipo log
-    private static final Logger logger = Logger.getLogger(ModeloController.class.getName());
+    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+
 /**
  * *****************************************************************************
  * Abre la lista de modelos por usuario.
@@ -59,13 +60,15 @@ public class ModeloController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
-        try{
+        
         HttpSession sess =  request.getSession();
         if (sess != null){
           //String sid = session.getId();
-           logger.info("Lista de modelos");
+        
             Session s = HibernateUtil.getSessionFactory().openSession();
             //Usuario us = (Usuario)s.get(Usuario.class, usuarioId);
+
+           
             Usuario us = (Usuario)sess.getAttribute("usuario");
 
             Integer luser = us.getUsuarioId();
@@ -80,24 +83,16 @@ public class ModeloController {
 
 
 
-            ModelAndView m = new ModelAndView("/modelo/abrir/nuevo");
+            ModelAndView m = new ModelAndView("/modelo/abrir");
             m.addObject("modelos",lm);
             m.addObject("nombreUsuario",us.getNombre());
             return m;  
-           
         }else{
-            logger.error("Se produjo un error al abrir un modelo");
-            request.removeAttribute("usuario");
-            return new ModelAndView("redirect:/usuario/login.htm/lmn");
+             request.removeAttribute("usuario");
+            return new ModelAndView("redirect:/usuario/login.htm");
         }
-        }
-        catch(Exception ex){ 
         
-        logger.error("Sel produjo un error al abrir un modelo",ex);
-        }
-        return null;
-    } 
-
+    }
 
 /**
  * *****************************************************************************
@@ -115,7 +110,6 @@ public class ModeloController {
         
         HttpSession sess =  request.getSession();
         if (sess != null){
-            logger.info("Crea moledo ");
             Modelo md = new Modelo();
             ModelAndView m = new ModelAndView("/modelo/crearModelo");
             m.addObject("modelo",md);
@@ -140,10 +134,8 @@ public class ModeloController {
             //m.addObject("numUsuarioId", us.getUsuarioId());
             return m;
         }else{
-            logger.info("No puede crear Modelo inicie sesion ");
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
-            
         }  
     }
    
@@ -170,7 +162,6 @@ public class ModeloController {
                                             )throws Exception{
         
         HttpSession sess =  request.getSession();
-        try {
         if (sess != null){
             if (!"".equals(modelo.getNombre())){
             
@@ -188,7 +179,7 @@ public class ModeloController {
             
             
             Usuario us = (Usuario)sess.getAttribute("usuario");
-            logger.info("Se almacena el modelo de: "+"   "+us.getNombre());
+            
             // hay que hacer cambios
             modelo.setCreadoPor(0);
             //modelo.setCreadoPor(us.getCreadoPor());
@@ -205,16 +196,10 @@ public class ModeloController {
         //return abrir(usuarioId);
         return abrir(request, response);
         }else{
-            logger.info("Inicie Sesion para almacenar el elemento grafico");
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
-         }
-        catch (Exception ex){
-            
-            logger.error("Se produjo un error",ex);
-            return null;
-         }
+        
     }
     
 /**
@@ -237,31 +222,23 @@ public class ModeloController {
                                             )throws Exception{
         
         HttpSession sess =  request.getSession();
-        
-        try
-            {
         if (sess != null){
             Session s = HibernateUtil.getSessionFactory().openSession();
-            
+        
             //Modelo u = (Modelo)s.get(Modelo.class, 2);
             Modelo u = (Modelo)s.get(Modelo.class,id);
 
             ModelAndView m = new ModelAndView ("/modelo/editarModelo");
             m.addObject("modelo",u);
-            logger.info("Se edita el modelo"+ u.getNombre()+m.getViewName());
+
+
             return m;
         }else{
-            logger.error("Inicie Sesion para poder modificar el modelo");
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
-        }
-        catch (Exception ex){
-            logger.error("Se produjo un error",ex);    
-        }
-         return null;
+        
     }
-    
     
 /**
  * *****************************************************************************

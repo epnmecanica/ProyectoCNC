@@ -55,7 +55,7 @@ public class LineaController {
                         headers = "Accept=*/*"   
                     )
     public ModelAndView actualizar(){
-       
+       logger.info("Se modificara la linea");
         return null;
     }
      @RequestMapping (
@@ -64,7 +64,7 @@ public class LineaController {
                         headers = "Accept=*/*"   
                     )
     public ModelAndView borrar(){
-        
+        logger.info("Se eliminara la linea");
         return null;
     }
     @RequestMapping(    //value="elemento/crear/linea/lista", 
