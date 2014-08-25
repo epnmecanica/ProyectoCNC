@@ -19,6 +19,7 @@ $(document).ready(function() {
         gd.showGrid = true;
         gd.snapTolerance = 5;
        
+       alert('hola');
 
         // Check for the various File API support.
         if (window.File && window.FileReader && window.FileList && window.Blob) {
