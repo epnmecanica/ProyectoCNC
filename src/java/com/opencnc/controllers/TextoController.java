@@ -8,6 +8,7 @@ package com.opencnc.controllers;
 
 import com.opencnc.beans.Texto;
 import com.opencnc.util.HibernateUtil;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class TextoController {
+    private static final Logger logger = Logger.getLogger(TextoController.class.getName());
     @RequestMapping(value="texto/crear", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
