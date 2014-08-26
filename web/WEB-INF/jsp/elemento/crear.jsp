@@ -138,7 +138,7 @@
                     
                     <div id="paper2"></div>
                     <canvas id="CADCanvas"
-                                    width="960"
+                                    width="800"
                                     height="600"
                                     onContextMenu="javascript: return false;"
                                     tabindex="1"></canvas>
