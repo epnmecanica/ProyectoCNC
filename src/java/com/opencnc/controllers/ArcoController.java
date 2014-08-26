@@ -8,6 +8,7 @@ package com.opencnc.controllers;
 
 import com.opencnc.beans.Arco;
 import com.opencnc.util.HibernateUtil;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +26,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class ArcoController {
+       private static final Logger logger = Logger.getLogger(ArcoController.class.getName());
     @RequestMapping(value="arco/crear", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView crear(){
         Arco ar = new Arco();
         Session s = HibernateUtil.getSessionFactory().openSession();
+        logger.info("Se creado el Arco");
         return null;
     }
     @RequestMapping(value="arco/obtener", 
@@ -38,6 +41,7 @@ public class ArcoController {
                         headers = "Accept=*/*")
     public ModelAndView obtener(){
         Session s = HibernateUtil.getSessionFactory().openSession();
+        logger.info("Se obtendra el Arco");
         return null;
     }
     @RequestMapping(value="arco/actualizar", 
@@ -45,6 +49,7 @@ public class ArcoController {
                         headers = "Accept=*/*")
     public ModelAndView actualizar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
+        logger.info("Se modificara el Arco");
         return null;
     }
     @RequestMapping(value="arco/borrar", 
@@ -52,6 +57,7 @@ public class ArcoController {
                         headers = "Accept=*/*")
     public ModelAndView borrar(){
         Session s = HibernateUtil.getSessionFactory().openSession();
+        logger.info("Se eliminara el Arco");
         return null;
     }
 }
