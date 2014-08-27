@@ -88,9 +88,9 @@ public class UsuarioController {
         }  
        }catch (Exception ex){ 
         logger.error("Error Inicie session por favor "+ex); 
-               
+        return new ModelAndView("redirect:/error/abrir_error.htm");       
        }
-       return null;
+       //return null;
       
     }
 
@@ -118,9 +118,10 @@ public class UsuarioController {
         
         }catch(NumberFormatException  ex){
             logger.error("Error...Ingrese sus datos"+ex);
-           
+            //Redirecciona para enviar a la pagina de error
+            return new ModelAndView("redirect:/error/abrir_error.htm");   
         }
-        return null;
+        //return null;
     }
 /**
  * *****************************************************************************
@@ -401,7 +402,6 @@ public class UsuarioController {
     public ModelAndView   recuperar  ()throws IOException{
         logger.info("Ingrese su e-mail para enviarle la contraseña");
         ModelAndView m = new ModelAndView("/usuario/recuperarContra");
-        
         return m;
     } 
     

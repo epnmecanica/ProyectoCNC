@@ -27,9 +27,12 @@
             <props>
                 <prop key="index.htm">indexController</prop>
                 
+                
                 <prop key="inicio/acercade.htm">inicioController</prop>
                 <prop key="inicio/infcad.htm">inicioController</prop>
                 <prop key="inicio/infcam.htm">inicioController</prop>
+                
+                <prop key="error/abrir_error.htm">errorController</prop>
                 
                 <prop key="usuario/lista.htm">usuarioController</prop>
                 <prop key="usuario/crear.htm">usuarioController</prop>
@@ -112,6 +115,9 @@
     
     <bean name="inicioController"
           class="com.opencnc.controllers.InicioController"
+           />
+    <bean name="errorController"
+          class="com.opencnc.controllers.ErrorController"
            />
     
     <bean name="usuarioController"
