@@ -44,7 +44,7 @@ import org.springframework.web.servlet.ModelAndView;
 //@SessionAttributes("usuario")
 public class ModeloController {
     // Implemento Log4j para eventos tipo log
-    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    private static final Logger logger = Logger.getLogger(ModeloController.class.getName());
 
 /**
  * *****************************************************************************
@@ -60,7 +60,8 @@ public class ModeloController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
-        
+        try{
+        logger.info("Se abrio el modelo");        
         HttpSession sess =  request.getSession();
         if (sess != null){
           //String sid = session.getId();
@@ -91,6 +92,11 @@ public class ModeloController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+         }catch (Exception ex){ 
+        logger.error("Error... Al abrir el modelo"+ex); 
+               
+       }
+       return null;
         
     }
 
@@ -107,7 +113,8 @@ public class ModeloController {
     static ModelAndView   crearModelo  (HttpServletRequest request, 
                                         HttpServletResponse response)
                                         throws Exception{
-        
+        try{
+        logger.info("Se creara el modelo.");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Modelo md = new Modelo();
@@ -136,7 +143,12 @@ public class ModeloController {
         }else{
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
-        }  
+        } 
+        }catch (Exception ex){ 
+        logger.error("Error... Al crear el modelo"+ex); 
+               
+       }
+       return null;
     }
    
 /**
@@ -160,7 +172,8 @@ public class ModeloController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response
                                             )throws Exception{
-        
+        try{
+        logger.info("Se guardara el modelo");
         HttpSession sess =  request.getSession();
         if (sess != null){
             if (!"".equals(modelo.getNombre())){
@@ -199,6 +212,11 @@ public class ModeloController {
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+         }catch (Exception ex){ 
+        logger.error("Error... Al guardar el modelo"+ex); 
+               
+       }
+       return null;
         
     }
     
@@ -220,7 +238,8 @@ public class ModeloController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response
                                             )throws Exception{
-        
+        try{
+        logger.info("Se modificara el modelo");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Session s = HibernateUtil.getSessionFactory().openSession();
@@ -237,6 +256,11 @@ public class ModeloController {
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+         }catch (Exception ex){ 
+        logger.error("Error... Al modificar el modelo "+ex); 
+               
+       }
+       return null;
         
     }
     
@@ -255,6 +279,8 @@ public class ModeloController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se elimino el modelo seleccionado");
         HttpSession sess =  request.getSession();
         if (sess != null){
            Session s = HibernateUtil.getSessionFactory().openSession();
@@ -281,7 +307,11 @@ public class ModeloController {
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
-        
+         }catch (Exception ex){ 
+        logger.error("Error... Al eliminar el modelo"+ex); 
+               
+       }
+       return null;
         
     }    
 }

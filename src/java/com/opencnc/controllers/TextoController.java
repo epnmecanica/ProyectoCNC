@@ -30,29 +30,52 @@ public class TextoController {
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView crear(){
+        try{
         Texto tx = new Texto();
         Session s = HibernateUtil.getSessionFactory().openSession();
-        return null;
+        logger.info("Se abre sesion y se crea");
+        }catch (Exception ex){ 
+        logger.error("Error... Al crear"+ex); 
+               
+       }
+       return null;
+       
     }
     @RequestMapping(value="texto/obtener", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView obtener(){
+        try{
         Session s = HibernateUtil.getSessionFactory().openSession();
-        return null;
+        logger.info("Se obtendra.");
+         }catch (Exception ex){ 
+        logger.error("Error... Al obtener"+ex); 
+               
+       }
+       return null;
     }
     @RequestMapping(value="texto/actualizar", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView actualizar(){
+        try{
         Session s = HibernateUtil.getSessionFactory().openSession();
-        return null;
+        logger.info("Se modificara.");
+         }catch (Exception ex){ 
+        logger.error("Error... Al modificar"+ex);     
+       }
+       return null;
     }
     @RequestMapping(value="texto/borrar", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView borrar(){
+        try{
         Session s = HibernateUtil.getSessionFactory().openSession();
-        return null;
+        logger.info("Se eliminara.");
+         }catch (Exception ex){ 
+        logger.error("Error... Al eliminar"+ex);   
+       }
+       return null;
     }
 }

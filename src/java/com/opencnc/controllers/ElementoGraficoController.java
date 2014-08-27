@@ -451,7 +451,7 @@ public class ElementoGraficoController {
          //   return new ModelAndView("redirect:/usuario/login.htm");
         //}
         }catch(Exception ex){
-            logger.error("Error... Al modificar el Elemento");
+            logger.error("Error... Al modificar el Elemento"+ex);
         }
         return null;
     }
@@ -488,7 +488,7 @@ public class ElementoGraficoController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
         }catch(Exception ex){
-            logger.error("Error ....Al Eliminar el Elemento");
+            logger.error("Error ....Al Eliminar el Elemento"+ex);
         }
         return null;
     }
@@ -520,7 +520,7 @@ public class ElementoGraficoController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
         }catch(Exception ex){
-            logger.error("Error... Al obtener el Elemento");
+            logger.error("Error... Al obtener el Elemento"+ex);
         }
         return null;
     }
@@ -552,7 +552,7 @@ public class ElementoGraficoController {
             return new ModelAndView("redirect:/usuario/login.htm");
         }
         }catch(Exception ex){
-            logger.error("Error... Al obtener el Elemento por Modelo");
+            logger.error("Error... Al obtener el Elemento por Modelo"+ex);
         }
         return null;
     }  

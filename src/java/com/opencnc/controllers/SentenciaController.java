@@ -54,6 +54,8 @@ public class SentenciaController {
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Lista de Sentencias");
         Session  s = HibernateUtil.getSessionFactory().openSession();
         
         Criteria  c =s.createCriteria(Sentencia.class);
@@ -63,6 +65,11 @@ public class SentenciaController {
         m.addObject("sentencia",l);
  
         return m;
+        }catch (Exception ex){ 
+        logger.error("Error... Al obtener la lista de sentencias"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -80,6 +87,8 @@ public class SentenciaController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se Crea el id de sentencias");
          HttpSession sess =  request.getSession();
         if (sess != null){
             Sentencia sen = new Sentencia();
@@ -107,6 +116,11 @@ public class SentenciaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... al crear el id de la sentencia"+ex); 
+               
+       }
+       return null;
         
     }
  
@@ -127,6 +141,8 @@ public class SentenciaController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se modificara la sentencia");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -134,6 +150,11 @@ public class SentenciaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al modificar la sentencia"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -151,6 +172,8 @@ public class SentenciaController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se eliminara la sentencia");
         HttpSession sess =  request.getSession();
         if (sess != null){
            Session s = HibernateUtil.getSessionFactory().openSession();
@@ -163,6 +186,11 @@ public class SentenciaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al eliminar la sentencia"+ex); 
+               
+       }
+       return null;
         
     }
     
@@ -183,6 +211,8 @@ public class SentenciaController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se obtendra la sentencia");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -190,6 +220,11 @@ public class SentenciaController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al o btener la sentencia"+ex); 
+               
+       }
+       return null;
     }
 /**
  * *****************************************************************************
@@ -208,12 +243,19 @@ public class SentenciaController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
-       HttpSession sess =  request.getSession();
+        try{
+        logger.info("Se obtendra la sentencia del programa");
+        HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
         }else{
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al obtener la sentencia del programa"+ex); 
+               
+       }
+       return null;
     }
 }
