@@ -31,33 +31,51 @@ public class ArcoController {
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView crear(){
+        try{
         Arco ar = new Arco();
         Session s = HibernateUtil.getSessionFactory().openSession();
         logger.info("Se creado el Arco");
+         }catch(NumberFormatException  ex){
+            logger.error("Error... Al crear el Arco"+ex);
+        }
         return null;
     }
     @RequestMapping(value="arco/obtener", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView obtener(){
+        try{
         Session s = HibernateUtil.getSessionFactory().openSession();
         logger.info("Se obtendra el Arco");
+         }catch(NumberFormatException  ex){
+            logger.error("Error... Al obtener el Arco"+ex);
+           
+        }
         return null;
     }
     @RequestMapping(value="arco/actualizar", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView actualizar(){
+        try{
         Session s = HibernateUtil.getSessionFactory().openSession();
         logger.info("Se modificara el Arco");
+         }catch(NumberFormatException  ex){
+            logger.error("Error... Al modificar el Arco"+ex);
+           
+        }
         return null;
     }
     @RequestMapping(value="arco/borrar", 
                         method=RequestMethod.GET,
                         headers = "Accept=*/*")
     public ModelAndView borrar(){
+        try{
         Session s = HibernateUtil.getSessionFactory().openSession();
         logger.info("Se eliminara el Arco");
+         }catch(NumberFormatException  ex){
+            logger.error("Error... Al eliminar el Arco"+ex);
+        }
         return null;
     }
 }
