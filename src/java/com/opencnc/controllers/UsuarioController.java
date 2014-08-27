@@ -250,7 +250,6 @@ public class UsuarioController {
             } 
         }else{
             request.removeAttribute("usuario");
-            logger.error("");
             return new ModelAndView("redirect:/usuario/login.htm");
         }    
     }

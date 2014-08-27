@@ -11,6 +11,7 @@ import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -31,6 +32,7 @@ public class SeguridadesController {
      * @param usuario
      * @return 
      */
+     private static final Logger logger = Logger.getLogger(SeguridadesController.class.getName());
     public Seguridades seguridad (@ModelAttribute Usuario usuario){
         //Cantidad minima caracteres para la contraseña
         int cantidadCaracteres = 7;
@@ -53,7 +55,8 @@ public class SeguridadesController {
 //******************************************************************************
    
         Seguridades acces = new Seguridades();
-        
+        try{
+        logger.info("Mensajes de Validacion de los campos");
         if (usuario.getNombre().isEmpty() || usuario.getNombre().length() > maxNom){
             System.out.println("muy corto o largo el nombre");
         
@@ -101,8 +104,10 @@ public class SeguridadesController {
             acces.setThisArrayList(listaError);
         }
         
-        
-        
+        }catch (Exception ex){ 
+        logger.error("Error...  En los mensajes de validacion"+ex); 
+               
+       }
         return acces;
     }
     
