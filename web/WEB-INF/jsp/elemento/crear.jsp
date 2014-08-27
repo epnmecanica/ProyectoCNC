@@ -42,6 +42,7 @@
                 <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
 
                 <script src="<c:url value='/resources/cam/cuts/opencut.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-arc.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-drill.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-gcode.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-path.js'/>"></script>

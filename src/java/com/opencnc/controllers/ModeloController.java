@@ -44,7 +44,7 @@ import org.springframework.web.servlet.ModelAndView;
 //@SessionAttributes("usuario")
 public class ModeloController {
     // Implemento Log4j para eventos tipo log
-    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    private static final Logger logger = Logger.getLogger(ModeloController.class.getName());
 
 /**
  * *****************************************************************************
