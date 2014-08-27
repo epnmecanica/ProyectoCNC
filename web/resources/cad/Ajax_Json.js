@@ -27,10 +27,10 @@ var respuesta;
                                                        
                           var tmp = JSON.stringify(result);
                             $("#theJson").html(result);
-                            console.log("JSON: " + tmp);
-                            console.log("String: " + result);
+                           // console.log("JSON: " + tmp);
+                            //console.log("String: " + result);
                             respuesta = tmp;
-                            console.log("respuesta: " + respuesta);
+                            //console.log("respuesta: " + respuesta);
                             
             }/*,
             complete: function(){

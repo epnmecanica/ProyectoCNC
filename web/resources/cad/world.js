@@ -6,14 +6,15 @@
  */                                
 var respuesta;
 $(document).ready(function() {
-    
-     
+        
+        
         var gd = new GraphicDisplay("CADCanvas", 800, 600);
         gd.camX = -750;
         gd.camY =  500;
         gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
+        gd.typeOfCad = "fresadora";
         gd.unitConversionFactor = 1/100; 
         gd.showOrigin = true;
         gd.showGrid = true;
@@ -41,10 +42,10 @@ $(document).ready(function() {
                                                        
                           var tmp = JSON.stringify(result);
                             $("#theJson").html(result);
-                            console.log("JSON: " + tmp);
-                            console.log("String: " + result);
+                           // console.log("JSON: " + tmp);
+                            //console.log("String: " + result);
                             respuesta = tmp;
-                            console.log("respuesta: " + respuesta);
+                           // console.log("respuesta: " + respuesta);
                             gd.setJSON(result);
             }/*,
             complete: function(){

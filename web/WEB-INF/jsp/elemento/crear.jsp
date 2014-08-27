@@ -99,16 +99,9 @@
 	</head>
 	<body>  
             
-            <nav id="top-nav">
-              <h1>OpenCNC</h1>
-            <c:forEach var="modelo" items="${modelos}"  >
-                ${modelo.modeloId}
-                ${modelo.nombre}
-                ${modelo.unidadMedida}
-                ${modelo.tipoMaquina}
-            </c:forEach>
-            ${TipoMaquina}
-            </nav>
+                <nav id="top-nav">
+                    <h1>OpenCNC</h1>
+                </nav>      
             
               <div id="controls">
                 <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
@@ -145,6 +138,17 @@
                     
                     
                 </div>
-              
+              <div id="info">
+                  <c:forEach var="modelo" items="${modelos}"  >
+                      <br> Modelo: ${modelo.modeloId} 
+                      <br> Nombre: ${modelo.nombre}
+                      <br> Unidad Medida: ${modelo.unidadMedida}
+                      <br> Tipo de Maquina: ${modelo.tipoMaquina}
+                      <br> Ancho: ${modelo.piezaAncho}
+                      <br> Largo: ${modelo.piezaLargo}
+                      <br> Cero X: ${modelo.puntoCeroMaquinaX}
+                      <br> Cero Y: ${modelo.puntoCeroMaquinaY}
+                  </c:forEach>
+            </div>
         </body>    
 </html>
