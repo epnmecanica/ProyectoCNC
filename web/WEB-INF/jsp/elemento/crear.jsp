@@ -112,8 +112,7 @@
             
               <div id="controls">
                 <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
-                <input type="file" id="input-file-local" style="display:none">
-
+                 <input type="file" id="input-file-local" style="display:none">
                 <button id="btn-open-file">Abrir Archivo</button>
                 <button id="btn-save-file">Guardar Archivo</button>
                 <button id="btn-compile-gcode">Compilar codigo G</button>
@@ -136,7 +135,7 @@
 		
                                     
                 <div class="cad">
-                    
+                   
                     <div id="paper2"></div>
                     <canvas id="CADCanvas"
                                     width="800"

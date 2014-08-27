@@ -17,7 +17,7 @@
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.js"></script>
-         <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
         <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
