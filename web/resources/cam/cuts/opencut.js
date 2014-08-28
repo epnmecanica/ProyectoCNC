@@ -115,11 +115,28 @@ window.opencut = function() {
         workspace.default_depth = job.default_depth;
       }
     }
+    
+    
+    
 
     // Configure the job parameters.
     commands.push("G90"); // Absolute distance mode
     commands.push((workspace.units == "inch") ? "G20" : "G21");
-
+    
+    //
+    if(workspace.z_x <= 0 && workspace.z_y <= 0){
+        errors.push("Zero de pieza no especificado");
+    }else{
+        commands.push("G54 " + "X" + job.z_x + " Y" +job.z_y + " S" + job.spindle_speed);
+    }
+    
+    //
+    (workspace.wise === 'clock') ? commands.push("M03") : commands.push("M04");
+    
+    //
+    
+    (!workspace.security_zone) ? commands.push("G43" + " Z" + job.security_zone): null;
+    
     // Add commands for each cut operation.
     if (!job.cuts || job.cuts.length === 0) {
       warnings.push("'cuts' no esta especificado");
@@ -153,6 +170,7 @@ window.opencut = function() {
           commands.push("");
           commands.push("; begin cut: " + cut.type);
           commands = commands.concat(ret.gcode);
+          
           commands.push("; end cut: " + cut.type);
           warnings = warnings.concat(ret.warnings);
         } catch (err) {

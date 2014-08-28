@@ -539,7 +539,7 @@ public class ElementoGraficoController {
  * *****************************************************************************
  * Obtiene el elemento grafico por modelo.
  * *****************************************************************************
- * Metodo sin desarrollo.
+ * Obtiene los datos del modelo de la base de datos y los manda via AJAX al cliente
  * *****************************************************************************
  * @param ModeloID
  * @param request
@@ -565,6 +565,8 @@ public class ElementoGraficoController {
              m.setModeloId(ident);
              m.setUnidadMedida(mod.getUnidadMedida().getNombre());
              m.setTipoMaquina(mod.getTipoMaquina().getNombre());
+             m.setPiezaAncho(mod.getPiezaAncho());
+             m.setPiezaLargo(mod.getPiezaLargo());
              lsr.add(m);
           
              String js = gson.toJson(lsr);
