@@ -101,17 +101,18 @@
             
                 <nav id="top-nav">
                     <h1>OpenCNC</h1>
+                     <div id="controls">
+                        <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
+                         <input type="file" id="input-file-local" style="display:none">
+                        <button id="btn-open-file">Abrir Archivo</button>
+                        <button id="btn-save-file">Guardar Archivo</button>
+                        <button id="btn-compile-gcode">Compilar codigo G</button>
+
+                        <a id="link-download-gcode" style="display:none">download gcode</a>
+                      </div>
                 </nav>      
             
-              <div id="controls">
-                <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
-                 <input type="file" id="input-file-local" style="display:none">
-                <button id="btn-open-file">Abrir Archivo</button>
-                <button id="btn-save-file">Guardar Archivo</button>
-                <button id="btn-compile-gcode">Compilar codigo G</button>
-
-                <a id="link-download-gcode" style="display:none">download gcode</a>
-              </div>
+             
 
               <div id="user-warnings"></div>
 
@@ -142,8 +143,8 @@
                   <c:forEach var="modelo" items="${modelos}"  >
                       <br> Modelo: ${modelo.modeloId} 
                       <br> Nombre: ${modelo.nombre}
-                      <br> Unidad Medida: ${modelo.unidadMedida}
-                      <br> Tipo de Maquina: ${modelo.tipoMaquina}
+                      <br> Unidad Medida: ${modelo.unidadMedida.nombre}
+                      <br> Tipo de Maquina: ${modelo.tipoMaquina.nombre}
                       <br> Ancho: ${modelo.piezaAncho}
                       <br> Largo: ${modelo.piezaLargo}
                       <br> Cero X: ${modelo.puntoCeroMaquinaX}

@@ -222,8 +222,8 @@
           }).click(function () {
               console.log('se selecciona Wizard!!');
            
-             this.cuthandler = new CutHandler(gd.displayName, gd.unitMeasure);
-             
+            // this.cuthandler = new CutHandler(gd.displayName, gd.unitMeasure, gd.typeOfCad);
+             this.cuthandler = new CutHandler(gd);
              helperYAML(this.cuthandler.setObject(gd.getObjects()));  
                 
              console.log(JSON.stringify(gd.getObjects()));

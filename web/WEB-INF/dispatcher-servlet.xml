@@ -74,6 +74,7 @@
                 
                 <prop key="elemento/crear/linea/lista.htm">elementoGraficoController</prop>
                 <prop key="elemento/crear/linea/getJSON.htm">elementoGraficoController</prop>
+                <prop key="elemento/crear/linea/obtenerElementoPorModelo.htm">elementoGraficoController</prop>
                 <!--
                 
                 

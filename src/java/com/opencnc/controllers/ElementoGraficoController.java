@@ -11,10 +11,12 @@ import com.google.gson.reflect.TypeToken;
 import com.opencnc.beans.Arco;
 import com.opencnc.beans.ElementoGrafico;
 import com.opencnc.beans.GetJson;
+import com.opencnc.beans.InfoModelo;
 import com.opencnc.beans.Linea;
 import com.opencnc.beans.Modelo;
 import com.opencnc.beans.Serializacion;
 import com.opencnc.beans.Texto;
+import com.opencnc.beans.TipoMaquina;
 import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
 import java.lang.reflect.Type;
@@ -31,6 +33,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -544,21 +547,32 @@ public class ElementoGraficoController {
  * @return
  * @throws Exception 
  */
-    
-    @RequestMapping  ("/elemento/obtenerElementoPorModelo")
-    public ModelAndView   obtenerElementoPorModelo  (int ModeloID,
-                                                        HttpServletRequest request, 
-                                                        HttpServletResponse response) throws Exception{
+        
+    @RequestMapping(    value="elemento/crear/linea/obtenerElementoPorModelo", 
+                        method=RequestMethod.GET,headers = "Accept=*/*")
+    public @ResponseBody String   obtenerElementoPorModelo  () throws Exception{
         try{
-            logger.info("Se obtendra el Elemento por Modelo");
-        HttpSession sess =  request.getSession();
-        if (sess != null){
-           return null; 
-        }else{
-             request.removeAttribute("usuario");
-            return new ModelAndView("redirect:/usuario/login.htm");
-        }
-        }catch(Exception ex){
+                logger.info("Se obtendra el Elemento por Modelo");
+           
+             Session s = HibernateUtil.getSessionFactory().openSession();
+             Modelo mod = (Modelo)s.get(Modelo.class, ident);
+             Gson gson = new Gson();
+             InfoModelo m = new InfoModelo();
+             List<InfoModelo> lsr = new ArrayList<>();
+             
+             m.setNombre(mod.getNombre());
+             m.setDescripcion(mod.getDescripcion());
+             m.setModeloId(ident);
+             m.setUnidadMedida(mod.getUnidadMedida().getNombre());
+             m.setTipoMaquina(mod.getTipoMaquina().getNombre());
+             lsr.add(m);
+          
+             String js = gson.toJson(lsr);
+             
+            
+             //String str = mod.getTipoMaquina();
+             return js;
+        }catch(HibernateException ex){
             logger.error("Error... Al obtener el Elemento por Modelo"+ex);
         }
         return null;

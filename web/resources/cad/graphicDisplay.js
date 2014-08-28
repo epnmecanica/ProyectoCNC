@@ -133,6 +133,12 @@ function GraphicDisplay(displayName, width, height) {
 	
         this.keyboard = null;
 	this.mouse = null;
+        
+        this.z_x = 0;
+        this.z_y = 0;
+        this.max_size_x = 100;
+        this.max_size_y = 100;
+        this.spindle_speed = 900;
 }
 
 
