@@ -9,9 +9,14 @@ $(document).ready(function() {
         
         // Create the canvas
         
+        var canvas = document.createElement("canvas");
+        //var ctx = canvas.getContext("2d");
+        canvas.width = 800;
+        canvas.height = 600;
+        canvas.id = "Canvas";
+        document.body.appendChild(canvas);
         
-        
-        var gd = new GraphicDisplay("CADCanvas", 800, 600);
+        var gd = new GraphicDisplay("Canvas", 800, 600);
         gd.camX = -750;
         gd.camY =  500;
         //gd.unitMeasure = "mm";

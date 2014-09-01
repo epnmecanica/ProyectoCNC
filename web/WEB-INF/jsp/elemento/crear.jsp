@@ -131,7 +131,7 @@
                 <div class="cad">
                    
                     <div id="paper2"></div>
-                    
+                    <!--
                     <canvas id="CADCanvas"
                                     width="800"
                                     height="600"
@@ -139,7 +139,7 @@
                                     tabindex="1">
                                         
                     </canvas>
-                    
+                    -->
                     
                     
                 </div>
