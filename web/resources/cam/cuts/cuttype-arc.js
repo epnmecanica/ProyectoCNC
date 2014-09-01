@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-window.opencut.registerCutType("arc", function generatePathCut(workspace, cut) {
+window.opencut.registerCutType("arcs", function generatePathCut(workspace, cut) {
   var warnings = [];
   var gcode = [];
 
