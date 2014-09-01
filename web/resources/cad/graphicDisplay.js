@@ -120,7 +120,7 @@ function GraphicDisplay(displayName, width, height) {
 	this.snapTolerance = 10;
 	
 	this.fontSize = 24;
-	
+             
 	this.displayName = displayName;
 	this.cvn = 0; // Canvas HTML element
 	this.context; // Canvas object
@@ -171,10 +171,19 @@ GraphicDisplay.prototype.init = function() {
 	this.keyboard = new KeyboardHandler();
 	this.mouse = new MouseHandler();
 	
+        // Create the canvas
+        // Create the canvas
         
-	this.cvn = $('#' + this.displayName);
+       var canvas = document.createElement("CADCanvas");
+       canvas.width = this.displayWidth;
+       canvas.height = this.displayHeight;
+       document.body.appendChild(canvas);
+     
+        this.cvn = $('#' + this.displayName);
+	//this.cvn = $("CADCanvas");
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
+        //console.log(this.cvn);
         
        
 };
