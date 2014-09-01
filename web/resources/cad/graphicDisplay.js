@@ -173,12 +173,12 @@ GraphicDisplay.prototype.init = function() {
 	
         // Create the canvas
         // Create the canvas
-        
+        /*
        var canvas = document.createElement("CADCanvas");
        canvas.width = this.displayWidth;
        canvas.height = this.displayHeight;
        document.body.appendChild(canvas);
-     
+        */
         this.cvn = $('#' + this.displayName);
 	//this.cvn = $("CADCanvas");
 	this.cvn.css('cursor','crosshair');
