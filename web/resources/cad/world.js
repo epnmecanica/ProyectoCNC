@@ -7,6 +7,9 @@
 var respuesta;
 $(document).ready(function() {
         
+        // Create the canvas
+        
+        
         
         var gd = new GraphicDisplay("CADCanvas", 800, 600);
         gd.camX = -750;

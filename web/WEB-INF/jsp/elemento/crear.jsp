@@ -100,7 +100,7 @@
 	<body>  
             
                 <nav id="top-nav">
-                    <h1>OpenCNC</h1>
+                   <!-- <h1>OpenCNC</h1> -->
                      <div id="controls">
                         <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
                          <input type="file" id="input-file-local" style="display:none">
@@ -131,11 +131,15 @@
                 <div class="cad">
                    
                     <div id="paper2"></div>
+                    
                     <canvas id="CADCanvas"
                                     width="800"
                                     height="600"
                                     onContextMenu="javascript: return false;"
-                                    tabindex="1"></canvas>
+                                    tabindex="1">
+                                        
+                    </canvas>
+                    
                     
                     
                 </div>

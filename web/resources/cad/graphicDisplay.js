@@ -171,9 +171,12 @@ GraphicDisplay.prototype.init = function() {
 	this.keyboard = new KeyboardHandler();
 	this.mouse = new MouseHandler();
 	
+        
 	this.cvn = $('#' + this.displayName);
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
+        
+       
 };
 
 

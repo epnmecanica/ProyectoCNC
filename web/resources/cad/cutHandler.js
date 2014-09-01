@@ -5,6 +5,7 @@
  */
 var MODES_G_TYPE = {
     DRILL : 'Drill',
+    ARCS : 'Arcs',
     PATH : 'Path',
     PROFILE : 'Profile',
     POCKET : 'Pocket'
@@ -53,6 +54,12 @@ CutHandler.prototype.setObject = function(objects){
                             break;
             case MODES_G_TYPE.POCKET:
                             this.codexgYAML.addCuts(new Pocket(this.component[i].x1,
+                                            Math.abs(this.component[i].y1),
+                                            this.component[i].x2,
+                                            Math.abs(this.component[i].y2)));
+                            break;
+            case MODES_G_TYPE.ARCS:
+                            this.codexgYAML.addCuts(new Arcs(this.component[i].x1,
                                             Math.abs(this.component[i].y1),
                                             this.component[i].x2,
                                             Math.abs(this.component[i].y2)));

@@ -6,6 +6,7 @@
 
 var COMPONENT_G_TYPES = {
 		DRILL : 'drill',
+                ARCS : 'arcs',
 		PATH : 'path',
 		PROFILE : 'profile',
 		POCKET : 'pocket',
@@ -25,6 +26,14 @@ function Drill(x1,y1,x2,y2) {
 };
 Drill.prototype = new Points();
 Drill.prototype.constructor = Drill;
+
+function Arcs(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
+    this.type = COMPONENT_G_TYPES.ARCS;
+        
+};
+Arcs.prototype = new Points();
+Arcs.prototype.constructor = Arcs;
 
 function Path(x1,y1,x2,y2) {
     Points.call(this,x1,y1,x2,y2);

@@ -35,6 +35,7 @@ function seleccionElementos(component){
 		html:'<label><input type="radio" name="typeMecanizado" value="Drill"> Drill</label><br />'+
 			'<label><input type="radio" name="typeMecanizado" value="Path"> Path</label>'+
                         '<label><input type="radio" name="typeMecanizado" value="Profile"> Profile</label>'+
+                        '<label><input type="radio" name="typeMecanizado" value="Arcs"> Arcs</label>'+
                         '<label><input type="radio" name="typeMecanizado" value="Pocket"> Pocket</label>',
 		buttons: { Next: 1 },
                 focus: 1,
