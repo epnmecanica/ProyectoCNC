@@ -7,6 +7,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="<c:url value="/resources/js/jquery-1.10.2.js"/>" > </script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
         <script type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
         </script>

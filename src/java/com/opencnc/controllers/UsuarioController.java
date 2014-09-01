@@ -16,11 +16,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Level;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JTextField;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -397,11 +405,46 @@ public class UsuarioController {
  * @return
  * @throws IOException 
  */
+    /*implemento carina */
     
     @RequestMapping  ("/usuario/recuperarContra")
-    public ModelAndView   recuperar  ()throws IOException{
+    public ModelAndView   recuperar  ()throws IOException, MessagingException{
         logger.info("Ingrese su e-mail para enviarle la contraseña");
         ModelAndView m = new ModelAndView("/usuario/recuperarContra");
+        final String username="tucorreo@gmail.com";
+        final String password="tu clave";
+        
+        Properties props= new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable","true");
+        props.put("mail.smtp.host","smtp.gmail.com");
+        props.put("mail.smtp.port", 587);
+        
+        javax.mail.Session session=javax.mail.Session.getInstance(props,new javax.mail.Authenticator() {
+            protected PasswordAuthentication
+                    getPasswordAuthentication(){
+                        return new PasswordAuthentication(username,password);
+                    }
+                    
+});
+        try{
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("carinayaucan@gmail.com"));
+            JTextField jtextfield = new JTextField();
+            String cadena= jtextfield.getText();
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(cadena));
+//            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("carina_yaucan@hotmail.es"));
+            message.setSubject("Nueva Contraseña");
+            message.setText("aki va la nueva clave");
+            Transport.send(message);
+            System.out.println("mensaje enviado");
+                        
+        }catch(MessagingException e){
+            System.out.println("hubo un error");
+            throw new RuntimeException(e);
+            
+        }
         return m;
     } 
     
