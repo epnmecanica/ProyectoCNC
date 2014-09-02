@@ -411,8 +411,8 @@ public class UsuarioController {
     public ModelAndView   recuperar  ()throws IOException, MessagingException{
         logger.info("Ingrese su e-mail para enviarle la contraseña");
         ModelAndView m = new ModelAndView("/usuario/recuperarContra");
-        final String username="tucorreo@gmail.com";
-        final String password="tu clave";
+        final String username="cepravii@gmail.com";//correo de la empresa
+        final String password="epncepra";//clave del correo 
         
         Properties props= new Properties();
         props.put("mail.smtp.auth", "true");
@@ -431,10 +431,10 @@ public class UsuarioController {
             Session s = HibernateUtil.getSessionFactory().openSession();
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("carinayaucan@gmail.com"));
-            JTextField jtextfield = new JTextField();
-            String cadena= jtextfield.getText();
-            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(cadena));
-//            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("carina_yaucan@hotmail.es"));
+//            JTextField jtextfield = new JTextField();
+//            String cadena= jtextfield.getText();
+//            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(cadena));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("carina_yaucan@hotmail.es"));
             message.setSubject("Nueva Contraseña");
             message.setText("aki va la nueva clave");
             Transport.send(message);
