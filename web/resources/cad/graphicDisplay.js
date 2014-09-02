@@ -154,17 +154,7 @@ GraphicDisplay.prototype.init = function() {
 	 */ 
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
-        //Inicializa la logica de codexg
-        /*
-        this.codexgYAML = new Codexg();
-        this.codexgYAML.init();
-        console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
-        */
-	//alert(this.logicDisplay.exportJSON());
-        //this.logicAjax = new LogicAjax();
-        //this.logicAjax.init(this.logicDisplay.exportJSON());
-        //alert(this.logicDisplay.exportJSON()); //asi se exporta json!!!!!!!!!!
-        
+     
 	/*
 	 * INITIALIZE INPUT HANDLER 
 	 */
@@ -172,10 +162,9 @@ GraphicDisplay.prototype.init = function() {
 	this.mouse = new MouseHandler();
 	
         // Create the canvas
-        // Create the canvas
+       
     
         this.cvn = $('#' + this.displayName);
-	//this.cvn = $("CADCanvas");
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
         //console.log(this.cvn);

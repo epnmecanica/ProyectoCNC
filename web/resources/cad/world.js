@@ -8,15 +8,17 @@ var respuesta;
 $(document).ready(function() {
         
         // Create the canvas
+        this.width = 800;
+        this.height = 600;
+        this.id = "CADCanvas"
         
         var canvas = document.createElement("canvas");
-        //var ctx = canvas.getContext("2d");
-        canvas.width = 800;
-        canvas.height = 600;
-        canvas.id = "Canvas";
+        canvas.width = this.width;
+        canvas.height = this.height;
+        canvas.id = this.id;
         document.body.appendChild(canvas);
         
-        var gd = new GraphicDisplay("Canvas", 800, 600);
+        var gd = new GraphicDisplay(this.id, this.width, this.height);
         gd.camX = -750;
         gd.camY =  500;
         //gd.unitMeasure = "mm";
