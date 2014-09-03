@@ -37,12 +37,18 @@
                     <div class="art-shapes">
                     </div>                                   
                 </header>
+                <nav class="art-nav">
+                    <ul class="art-hmenu"><li><a href="/OpenCNC/index.htm">Ingresar</a></li><li><a href="infcad.htm">CAD</a></li><li><a href="infcam.htm">CAM</a></li><li><a href="acercade.htm">Acerca de</a></li></ul> 
+                </nav>
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">
-                                    <h2 class="art-postheader"><span class="art-postheadericon">Acerca de</span></h2>                                               
+                                    <h2 class="art-postheader"><span class="art-postheadericon">Acerca de</span></h2>   
+                                    
+                                    <img width="640" height="388" alt="" class="art-lightbox" src="../resources/images/slidebdb2811.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; ">     
+
                                     <div class="art-postcontent art-postcontent-0 clearfix"><p>Grupo de Trabajo:</p><p>EPN</p><p>ESPOCH</p><p>UPS</p>
                                     </div>
                                 </article>
@@ -54,13 +60,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <footer class="art-footer">
-                <div class="art-footer-inner">
-                    <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
-                        
-                </div>
-            </footer>
+                <footer class="art-footer">
+                    <div class="art-footer-inner">
+                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>                       
+                    </div>
+                </footer>
+            </div>           
         </div>
     </body>
 </html>
