@@ -49,8 +49,8 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                                                                       
                                     <h1>Abrir modelo existente.</h1>       
-                                        ${nombreUsuario}
-                                        <table id="tablaModelo" class="display" cellspacing="0" width="100%">
+                                    Nombre de usuario: ${nombreUsuario}
+                                        <table id="tablaModelo" class="display" cellspacing="0" width="80%">
                                             <thead>
                                                 <tr>
                                                 <th>Id</th>
@@ -64,8 +64,7 @@
                                                 <th>Cero de Maquina Y</th>
                                                 <th>Pieza ancho</th>
                                                 <th>Pieza largo</th>
-                                                <th></th>
-                                                <th></th>
+                                                <th>Opciones</th>                                              
                                                 </tr>
                                             </thead>
                                             <tfoot>
@@ -81,8 +80,7 @@
                                                     <td>Cero de Maquina Y</td>
                                                     <td>Pieza ancho</td>
                                                     <td>Pieza largo</td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>Opciones</td>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
