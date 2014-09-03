@@ -1,6 +1,6 @@
 #art-main
 {
-   background: #4388AD url('../images/pageglare.png') no-repeat fixed;
+   background: #4388AD url('../resources/images//pageglare.png') no-repeat fixed;
    margin:0 auto;
    font-size: 20px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -16,7 +16,7 @@
 }
 table, ul.art-hmenu
 {
-   font-size: 20px;
+   font-size: 17px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
    font-weight: normal;
    font-style: normal;
@@ -465,7 +465,6 @@ li p, .art-postcontent li p, .art-blockcontent li p
     background-repeat: no-repeat;
 }
 
-
 .art-slidenavigatorheader {
   display: inline-block;
   position: absolute;
@@ -595,7 +594,7 @@ height: 10px;
 
 .art-nav
 {
-   background: #FFFFFF url('../images/nav.png') bottom left repeat-x scroll;
+   background: #FFFFFF url('../resources/images/nav.png') bottom left repeat-x scroll;
    -webkit-border-radius:0 0 3px 3px;
    -moz-border-radius:0 0 3px 3px;
    border-radius:0 0 3px 3px;
@@ -788,7 +787,7 @@ ul.art-hmenu>li:before
    left:  -9px;
    width:9px;
    height: 37px;
-   background: url('../images/menuseparator.png') center center no-repeat;
+   background: url('../resources/images/menuseparator.png') center center no-repeat;
 }
 ul.art-hmenu>li:first-child:before{
    display:none;
@@ -909,7 +908,7 @@ ul.art-hmenu ul
    z-index: 10;
    left: 0;
    top: 0;
-   background-image: url('../images/spacer.gif');
+   background-image: url('../resources/images/spacer.gif');
 }
 
 .desktop ul.art-hmenu>li>ul
@@ -1092,7 +1091,7 @@ div.art-block img
 }
 .art-block ul>li:before
 {
-   content:url('../images/blockbullets.png');
+   content:url('../resources/images/blockbullets.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1848,7 +1847,7 @@ pre
 
 .art-postheadericon:before
 {
-   content:url('images/postheadericon.png');
+   content:url('../resources/images/postheadericon.png');
    margin-right:6px;
    bottom: 4px;
    position:relative;
@@ -1959,7 +1958,7 @@ pre
 
 .art-postdateicon:before
 {
-   content:url('../images/postdateicon.png');
+   content:url('../resources/images/postdateicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1976,7 +1975,7 @@ pre
 
 .art-postauthoricon:before
 {
-   content:url('../images/postauthoricon.png');
+   content:url('../resources/images/postauthoricon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -1993,7 +1992,7 @@ pre
 
 .art-postpdficon:before
 {
-   content:url('../images/postpdficon.png');
+   content:url('../resources/images/postpdficon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2010,7 +2009,7 @@ pre
 
 .art-postprinticon:before
 {
-   content:url('../images/postprinticon.png');
+   content:url('../resources/images/postprinticon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2027,7 +2026,7 @@ pre
 
 .art-postemailicon:before
 {
-   content:url('../images/postemailicon.png');
+   content:url('../resources/images/postemailicon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2044,7 +2043,7 @@ pre
 
 .art-postediticon:before
 {
-   content:url('../images/postediticon.png');
+   content:url('../resources/images/postediticon.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2061,7 +2060,7 @@ pre
 
 .art-postcontent ul>li:before,  .art-post ul>li:before,  .art-textblock ul>li:before
 {
-   content:url('../images/postbullets.png');
+   content:url('../resources/images/postbullets.png');
    margin-right:6px;
    bottom: 3px;
    position:relative;
@@ -2130,7 +2129,7 @@ pre
 
 blockquote
 {
-   background: #BCD2E1 url('../images/postquote.png') no-repeat scroll;
+   background: #BCD2E1 url('../resources/images/postquote.png') no-repeat scroll;
    padding:6px 6px 6px 34px;
    margin:0 0 0 20px;
    color: #080E12;
