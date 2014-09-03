@@ -16,6 +16,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
+        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">
+               
     </head>
     
     <body>
@@ -36,6 +38,9 @@
                     <div class="art-shapes">
                     </div>                                   
                 </header>
+                <nav class="art-nav">
+                    <ul class="art-hmenu"><li><a href="/OpenCNC/index.htm">Ingresar</a></li><li><a href="infcad.htm">CAD</a></li><li><a href="infcam.htm">CAM</a></li><li><a href="acercade.htm">Acerca de</a></li></ul> 
+                </nav>
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
@@ -46,40 +51,25 @@
                                         <div class="art-content-layout layout-item-0">
                                             <div class="art-content-layout-row">
                                                 <div class="art-layout-cell" style="width: 33%" >
-                                                    <p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p><p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;">Producción Asistida por Computadora.&nbsp;</span></p><p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p><p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;">Se trata de la tecnología implicada en el uso&nbsp;</span></p><p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;">de computadores para realizar tareas de:</span></p><ul><li><span style="font-family: Arial; font-size: 14px; line-height: normal;">Modelación geométrica,&nbsp;</span><br></li><li><span style="font-family: Arial; font-size: 14px; line-height: normal;">Planificación,&nbsp;</span><span style="font-family: Arial; font-size: 14px; line-height: normal;">Programación,&nbsp;</span></li><li><span style="font-family: Arial; font-size: 14px; line-height: normal;">Inspección,&nbsp;</span><span style="font-family: Arial; font-size: 14px; line-height: normal;">Ensamblado&nbsp;</span></li><li><span style="font-family: Arial; font-size: 14px; line-height: normal;">y Embalaje de la producción.</span><br></li></ul>
+                                                    <img width="640" height="388" alt="" class="art-lightbox" src="../resources/images/slideCNC30.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;">     
+                                                    <p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p><p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;">Producción Asistida por Computadora.&nbsp;</span></p><p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p><p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;">Se trata de la tecnología implicada en el uso de computadores para realizar tareas de Modelación geométrica Planificación Programación Inspección  Ensamblado y Embalaje de la producción.&nbsp;</span></p>
+                                                    <br>
                                                     <p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;"></span> </p>
-                                                </div>
-                                                <div class="art-layout-cell" style="width: 67%" >
-                                                    <div id="CNC3" style="position: relative; display: inline-block; z-index: 0; margin: 5px;  border-style: solid; border-color: #000000; border-width: 1px;  " class="art-collage">
-                                                        <div class="art-slider art-slidecontainerCNC3" data-width="581" data-height="338">
-                                                            <div class="art-slider-inner">
-                                                                <div class="art-slide-item art-slideCNC30"></div>
-                                                                <div class="art-slide-item art-slideCNC31"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="art-slidenavigator art-slidenavigatorCNC3" data-left="92.43">
-                                                            <a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
-                                                        </div>
-                                                    </div>
-                                                    <p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px; text-align: justify;">El término CAM se puede definir como el uso de sistemas informáticos para la planificación, gestión y control de las operaciones de una planta de fabricación mediante una interfaz directa o indirecta entre el sistema informático y los recursos de producción.</span><br></p>
-                                                </div>
+                                                </div>                                               
                                             </div>
                                         </div>
                                     </div>
-                                </article>
-                                <div class="art-block clearfix">
-                                    <div class="art-blockcontent"><p>Saber para ser....<br></p></div>
-                                </div>
+                                </article>                              
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>              
+                <footer class="art-footer">
+                    <div class="art-footer-inner">
+                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>                  
+                    </div>
+                </footer>
             </div>
-            <footer class="art-footer">
-                <div class="art-footer-inner">
-                    <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>                  
-                </div>
-            </footer>
         </div>
     </body>
 </html>

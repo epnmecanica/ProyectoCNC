@@ -21,7 +21,7 @@
        
          <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
          <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">      
-             
+         <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">    
         <script>
             $(document).ready(function() {
 			$("#botonEntrarLogin").button();
@@ -29,7 +29,7 @@
                     
                     
 		});
-        </script>
+        </script>}
     </head>
     <body>
         
@@ -50,13 +50,16 @@
                     <a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
                     </div>                   
                 </header>
+                
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                               
-                                    <div class="art-postcontent art-postcontent-0 clearfix"><p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;"><img width="267" height="189" alt="" class="art-lightbox" src="../images/PUERTAS%20ABIERTAS.jpeg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;"><span style="font-size: 14px;"><br></span></p>                                              
-                                    </div>            
+                                    <div class="art-postcontent art-postcontent-0 clearfix"><p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
+                                            <img width="267" height="189" alt="" class="art-lightbox" src="../resources/images/PUERTASABIERTAS.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;">                                           
+                                        <span style="font-size: 14px;"><br></span></p>                                                                            
+                                    </div>                        
                                   <h1>Login</h1>                 
                                   ${errorId}
                                     <form:form id="formLogin" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 

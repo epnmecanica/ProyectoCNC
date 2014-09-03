@@ -22,7 +22,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
-  
+        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet" media="all">
+               
     </head>
     <body>
         
@@ -52,7 +53,7 @@
                                         <div class="art-content-layout">
                                             <div class="art-content-layout-row">
                                                 <div class="art-layout-cell" style="width: 50%" >
-                                                    <p style="text-align: center;"><img width="250" height="300" alt="" class="art-lightbox" src="../../images/olvido1.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; "><br></p><p style="text-align: center;"><br></p><p style="text-align: center;"><br></p>
+                                                    <p style="text-align: center;"><img width="250" height="300" alt="" class="art-lightbox" src="../resources/images/olvido1.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 6px; border-right-width: 6px; border-bottom-width: 6px; border-left-width: 6px; "><br></p><p style="text-align: center;"><br></p><p style="text-align: center;"><br></p>
                                                 </div>
                                             </div>
                                         </div>
