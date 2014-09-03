@@ -21,6 +21,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">      
+        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">
+               
         <script>
             $(document).ready(function() {
 			$("#botonGuardar").button();
@@ -64,7 +66,7 @@
                                                     </span>
                                                 </p>
                                                 <p style="text-align: center;">
-                                                    <img width="454" height="303" alt="" class="art-lightbox" src="../images/TORNO3.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; ">
+                                                    <img width="454" height="303" alt="" class="art-lightbox" src="../resources/images/TORNO3.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; ">
                                                     <span style="font-size: 14px;">
                                                     <br>
                                                     </span>
