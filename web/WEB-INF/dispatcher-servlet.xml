@@ -40,6 +40,9 @@
                 <prop key="usuario/iniciarSesion.htm">usuarioController</prop>
                 <prop key="usuario/cambiarContrasena.htm">usuarioController</prop>
                 <prop key="usuario/recuperarComtra.htm">usuarioController</prop>
+                
+                <prop key="usuario/enviarMail.htm">usuarioController</prop>         
+                 
                 <prop key="usuario/editar/{1}.htm">usuarioController</prop>
                 <prop key="usuario/borrar/{1}.htm">usuarioController</prop>
                 

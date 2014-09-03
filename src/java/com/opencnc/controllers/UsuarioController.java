@@ -39,6 +39,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -408,11 +409,28 @@ public class UsuarioController {
     /*implemento carina */
     
     @RequestMapping  ("/usuario/recuperarContra")
-    public ModelAndView   recuperar  ()throws IOException, MessagingException{
+    public ModelAndView   recuperar  ()throws IOException{
         logger.info("Ingrese su e-mail para enviarle la contraseña");
         ModelAndView m = new ModelAndView("/usuario/recuperarContra");
-        final String username="tucorreo@gmail.com";
-        final String password="tu clave";
+        return m;
+    } 
+    
+/**
+ * *****************************************************************************
+ * Envia mail con contraseña.
+ * *****************************************************************************
+     * @param tipoMaquinaId
+ * @return
+ * @throws IOException 
+ */
+    @RequestMapping ("/usuario/enviarMail")
+    public ModelAndView  enviarMail (
+                                    @RequestParam String enviarMail)
+                                    throws IOException, MessagingException{
+        logger.info("Ingrese su e-mail para enviarle la contraseña");
+                
+        final String username="cepravii@gmail.com";//correo de la empresa
+        final String password="epncepra";//clave del correo 
         
         Properties props= new Properties();
         props.put("mail.smtp.auth", "true");
@@ -420,32 +438,45 @@ public class UsuarioController {
         props.put("mail.smtp.host","smtp.gmail.com");
         props.put("mail.smtp.port", 587);
         
-        javax.mail.Session session=javax.mail.Session.getInstance(props,new javax.mail.Authenticator() {
-            protected PasswordAuthentication
-                    getPasswordAuthentication(){
-                        return new PasswordAuthentication(username,password);
-                    }
-                    
-});
+            javax.mail.Session session=javax.mail.Session.getInstance(props,new javax.mail.Authenticator() {
+                protected PasswordAuthentication
+                        getPasswordAuthentication(){
+                            return new PasswordAuthentication(username,password);
+                        }       
+            });
         try{
             Session s = HibernateUtil.getSessionFactory().openSession();
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("carinayaucan@gmail.com"));
-            JTextField jtextfield = new JTextField();
-            String cadena= jtextfield.getText();
-            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(cadena));
-//            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("carina_yaucan@hotmail.es"));
-            message.setSubject("Nueva Contraseña");
-            message.setText("aki va la nueva clave");
-            Transport.send(message);
-            System.out.println("mensaje enviado");
-                        
+            Criteria c = s.createCriteria(Usuario.class);
+            c.add(Restrictions.eq("email", enviarMail));
+            List<Usuario> l = c.list();
+            if(l.isEmpty()){
+                return new ModelAndView("redirect:/error/abrir_error.htm");
+            }else{
+                String clave_prov = "prov1234";
+                byte[] clave = clave_prov.getBytes();
+                EncryptController enc = new EncryptController();
+                Usuario us = l.get(0);
+                us.setClave(enc.encriptado(clave));
+                
+                Transaction t = s.getTransaction();
+                s.beginTransaction();
+                s.saveOrUpdate(us);
+                t.commit();
+                
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("cepravii@gmail.com"));
+                message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(enviarMail));
+                message.setSubject("Clave temporal OpenCNC");
+                message.setText("Tiene 24 horas para usar esta clave 'prov1234' ");
+                Transport.send(message);
+                System.out.println("mensaje enviado");
+            }             
         }catch(MessagingException e){
             System.out.println("hubo un error");
             throw new RuntimeException(e);
             
         }
-        return m;
+       return new ModelAndView("redirect:/usuario/login.htm");
     } 
     
 /**

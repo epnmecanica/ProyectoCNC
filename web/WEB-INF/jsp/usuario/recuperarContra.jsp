@@ -58,18 +58,14 @@
                                         </div>
                                     </div>       
                                     <h1>Recuperar Contraseña</h1>
-                                    <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
-                                               method="POST"
-                                               commandName="usuario">
+                                    <form:form action="${pageContext.request.contextPath}/usuario/enviarMail.htm"
+                                                method="POST"
+                                                commandName="mail"
+                                                >
+                                        <input id="enviarMail" value="example@example.com" name="enviarMail" type="text"/>
 
-                                        <p>
-                                            <label for="clave">e-Mail: </label>
-                                            <input type="text" name="email" value="" />
-                                        </p>
-
-                                        <input id="botonGuardar" type="submit" value="Enviar" />
-
-                                    </form:form>     
+                                         <input type="submit" value="Enviar contraseña"/>
+                                     </form:form>
                                 </article>                                
                             </div>
                         </div>
