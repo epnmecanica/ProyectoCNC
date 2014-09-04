@@ -53,11 +53,9 @@
                                         <table id="tablaModelo" class="display" cellspacing="0" width="80%">
                                             <thead>
                                                 <tr>
-                                                <th>Id</th>
+                                                
                                                 <th>Nombre</th>
-                                                <th>Usuario</th>
                                                 <th>Descripcion</th>
-                                                <th>Creado</th>
                                                 <th>Unidades</th>
                                                 <th>Tipo de Maquina</th>
                                                 <th>Cero de Maquina X</th>
@@ -69,11 +67,9 @@
                                             </thead>
                                             <tfoot>
                                                  <tr>
-                                                    <td>Id</td>
+                                                    
                                                     <td>Nombre</td>
-                                                    <td>Usuario</td>
                                                     <td>Descripcion</td>
-                                                    <td>Creado</td>
                                                     <td>Unidades</td>
                                                     <td>Tipo de Maquina</td>
                                                     <td>Cero de Maquina X</td>
@@ -87,25 +83,16 @@
                                             <c:forEach var="modelo" items="${modelos}"  >
                                                 <tr>
                                                     <td>
-                                                        ${modelo.modeloId}
-                                                    </td>
-                                                    <td>
                                                         ${modelo.nombre}
-                                                    </td>
-                                                    <td>
-                                                        <%--${modelo.usuario}--%>
                                                     </td>
                                                     <td>
                                                         ${modelo.descripcion} 
                                                     </td>
                                                     <td>
-                                                        ${modelo.creadoPor} 
-                                                    </td>
-                                                    <td>
-                                                        <%--${modelo.unidadMedida} --%>
+                                                        ${modelo.unidadMedida.nombre}
                                                     </td>
                                                     <td> 
-                                                        <%-- ${modelo.tipoMaquina} --%>
+                                                        ${modelo.tipoMaquina.nombre}
                                                     </td>
                                                     <td>
                                                         ${modelo.puntoCeroMaquinaX} 
@@ -122,7 +109,7 @@
                                                     <td>
                                                         <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm">Editar</a>
                                                         <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm">Borrar</a>
-                                                        <a href="${pageContext.request.contextPath}/programa/crear/${modelo.modeloId}.htm">Programa</a>
+                                                        <%--<a href="${pageContext.request.contextPath}/programa/crear/${modelo.modeloId}.htm">Programa</a>--%>
                                                         <a href="${pageContext.request.contextPath}/elemento/crear/${modelo.modeloId}.htm">AbrirCad</a>
                                                     </td>
                                                 </tr>
