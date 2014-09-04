@@ -1270,9 +1270,12 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			this.cvn.css('cursor', 'default');
 			if (action === this.MOUSEACTION.MOVE) {
 				if ( this.selectedComponent === null ) {
-					this.temporarySelectedComponent = this.findIntersectionWith(
+                                    this.temporarySelectedComponent = this.interseccion(
 							this.getCursorXLocal(),
 							this.getCursorYLocal());
+					/*this.temporarySelectedComponent = this.findIntersectionWith(
+							this.getCursorXLocal(),
+							this.getCursorYLocal());*/
 				}
 			} else if ( action === this.MOUSEACTION.DOWN ) {
 				if ( this.temporarySelectedComponent !== null && confirm("Desea borrar este componente?") ) {
@@ -1674,7 +1677,18 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
 	
 	return distance.toFixed(2);
 };
-
+/**
+ * 
+ * @param {type} x
+ * @param {type} y
+ * @param {type} x1
+ * @param {type} y1
+ * @returns {y2|x2}
+ */
+GraphicDisplay.prototype.getSlope = function(x, y, x1, y1) {
+	var m = (y1-y)/(x1-x);
+	return m;
+};
 /**
  * *****************************************************************************
  * encontrar la interseccion con los objetos, no los vertices.
@@ -1757,6 +1771,32 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 	
 	return null;
 };
+
+GraphicDisplay.prototype.interseccion = function(x,y){
+    for ( var i = this.logicDisplay.components.length - 1; i >= 0; i-- ) {
+		if (!this.logicDisplay.components[i].isActive())
+			continue;
+		
+		switch (this.logicDisplay.components[i].type) {
+			case COMPONENT_TYPES.POINT:
+			case COMPONENT_TYPES.LABEL:	
+			case COMPONENT_TYPES.SHAPE:
+			case COMPONENT_TYPES.LINE:
+			case COMPONENT_TYPES.CIRCLE:
+			case COMPONENT_TYPES.RECTANGLE:
+			case COMPONENT_TYPES.MEASURE:
+                            var m = this.getSlope(x,y,this.logicDisplay.components[i].x1 ,this.logicDisplay.components[i].y1);
+                            //console.log('m: ' + m);
+                            if(m <= this.snapTolerance / 100){
+                                return i;
+                            }else{
+                                return null;
+                            }
+				break;
+		}
+	}
+};
+
 
 //TODO: Move in Utils.
 /**
