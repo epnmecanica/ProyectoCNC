@@ -120,7 +120,7 @@ function GraphicDisplay(displayName, width, height) {
 	this.snapTolerance = 10;
 	
 	this.fontSize = 24;
-	
+             
 	this.displayName = displayName;
 	this.cvn = 0; // Canvas HTML element
 	this.context; // Canvas object
@@ -133,6 +133,12 @@ function GraphicDisplay(displayName, width, height) {
 	
         this.keyboard = null;
 	this.mouse = null;
+        
+        this.z_x = 0;
+        this.z_y = 0;
+        this.max_size_x = 100;
+        this.max_size_y = 100;
+        this.spindle_speed = 900;
 }
 
 
@@ -148,26 +154,22 @@ GraphicDisplay.prototype.init = function() {
 	 */ 
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
-        //Inicializa la logica de codexg
-        /*
-        this.codexgYAML = new Codexg();
-        this.codexgYAML.init();
-        console.log('nombre de cut: '+JSON.stringify(this.codexgYAML));
-        */
-	//alert(this.logicDisplay.exportJSON());
-        //this.logicAjax = new LogicAjax();
-        //this.logicAjax.init(this.logicDisplay.exportJSON());
-        //alert(this.logicDisplay.exportJSON()); //asi se exporta json!!!!!!!!!!
-        
+     
 	/*
 	 * INITIALIZE INPUT HANDLER 
 	 */
 	this.keyboard = new KeyboardHandler();
 	this.mouse = new MouseHandler();
 	
-	this.cvn = $('#' + this.displayName);
+        // Create the canvas
+       
+    
+        this.cvn = $('#' + this.displayName);
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
+        //console.log(this.cvn);
+        
+       
 };
 
 
@@ -1268,9 +1270,12 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			this.cvn.css('cursor', 'default');
 			if (action === this.MOUSEACTION.MOVE) {
 				if ( this.selectedComponent === null ) {
-					this.temporarySelectedComponent = this.findIntersectionWith(
+                                    this.temporarySelectedComponent = this.interseccion(
 							this.getCursorXLocal(),
 							this.getCursorYLocal());
+					/*this.temporarySelectedComponent = this.findIntersectionWith(
+							this.getCursorXLocal(),
+							this.getCursorYLocal());*/
 				}
 			} else if ( action === this.MOUSEACTION.DOWN ) {
 				if ( this.temporarySelectedComponent !== null && confirm("Desea borrar este componente?") ) {
@@ -1672,7 +1677,18 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
 	
 	return distance.toFixed(2);
 };
-
+/**
+ * 
+ * @param {type} x
+ * @param {type} y
+ * @param {type} x1
+ * @param {type} y1
+ * @returns {y2|x2}
+ */
+GraphicDisplay.prototype.getSlope = function(x, y, x1, y1) {
+	var m = (y1-y)/(x1-x);
+	return m;
+};
 /**
  * *****************************************************************************
  * encontrar la interseccion con los objetos, no los vertices.
@@ -1755,6 +1771,32 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 	
 	return null;
 };
+
+GraphicDisplay.prototype.interseccion = function(x,y){
+    for ( var i = this.logicDisplay.components.length - 1; i >= 0; i-- ) {
+		if (!this.logicDisplay.components[i].isActive())
+			continue;
+		
+		switch (this.logicDisplay.components[i].type) {
+			case COMPONENT_TYPES.POINT:
+			case COMPONENT_TYPES.LABEL:	
+			case COMPONENT_TYPES.SHAPE:
+			case COMPONENT_TYPES.LINE:
+			case COMPONENT_TYPES.CIRCLE:
+			case COMPONENT_TYPES.RECTANGLE:
+			case COMPONENT_TYPES.MEASURE:
+                            var m = this.getSlope(x,y,this.logicDisplay.components[i].x1 ,this.logicDisplay.components[i].y1);
+                            //console.log('m: ' + m);
+                            if(m <= this.snapTolerance / 100){
+                                return i;
+                            }else{
+                                return null;
+                            }
+				break;
+		}
+	}
+};
+
 
 //TODO: Move in Utils.
 /**

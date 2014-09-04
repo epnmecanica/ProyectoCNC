@@ -14,7 +14,12 @@
         <title>Recuperar Contraseña</title>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>         
+        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
         <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet" media="all">
@@ -54,18 +59,14 @@
                                         </div>
                                     </div>       
                                     <h1>Recuperar Contraseña</h1>
-                                    <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
-                                               method="POST"
-                                               commandName="usuario">
+                                    <form:form action="${pageContext.request.contextPath}/usuario/enviarMail.htm"
+                                                method="POST"
+                                                commandName="mail"
+                                                >
+                                        <input id="enviarMail" value="example@example.com" name="enviarMail" type="text"/>
 
-                                        <p>
-                                            <label for="clave">e-Mail: </label>
-                                            <input type="text" name="email" value="" />
-                                        </p>
-
-                                        <input id="botonGuardar" type="submit" value="Enviar" />
-
-                                    </form:form>     
+                                         <input type="submit" value="Enviar contraseña"/>
+                                     </form:form>
                                 </article>                                
                             </div>
                         </div>

@@ -9,6 +9,14 @@ function Codexg(){
     
     this.name = 'cut_demo';
     this.units = 'inch';
+    this.z_x = 0;
+    this.z_y = 0;
+    this.max_size_x = 100;
+    this.max_size_y = 100;
+    this.spindle_speed = 900;
+    this.type_machine = 'Fresa';
+    this.wise = "clock";
+    this.security_zone = 10000;
     this.bit_diameter = 0.125;
     this.feed_rate = 15;
     this.plunge_rate = 5;

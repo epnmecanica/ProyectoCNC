@@ -15,6 +15,12 @@ font-family: sans-serif;
 margin: 0;
 padding: 0;
 }
+#info{
+  
+   font-family: cursive;
+   position:relative; 
+   color: white;
+}
 .cad{
 margin: auto;
 margin-top: 15px; /* height/2 = 500px / 2 */

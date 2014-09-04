@@ -42,6 +42,7 @@
                 <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
 
                 <script src="<c:url value='/resources/cam/cuts/opencut.js'/>"></script>
+                <script src="<c:url value='/resources/cam/cuts/cuttype-arc.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-drill.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-gcode.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-path.js'/>"></script>
@@ -98,27 +99,20 @@
 	</head>
 	<body>  
             
-            <nav id="top-nav">
-              <h1>OpenCNC</h1>
-            <c:forEach var="modelo" items="${modelos}"  >
-                ${modelo.modeloId}
-                ${modelo.nombre}
-                ${modelo.unidadMedida}
-                ${modelo.tipoMaquina}
-            </c:forEach>
-            ${TipoMaquina}
-            </nav>
+                <nav id="top-nav">
+                   <!-- <h1>OpenCNC</h1> -->
+                     <div id="controls">
+                        <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
+                         <input type="file" id="input-file-local" style="display:none">
+                        <button id="btn-open-file">Abrir Archivo</button>
+                        <button id="btn-save-file">Guardar Archivo</button>
+                        <button id="btn-compile-gcode">Compilar codigo G</button>
+
+                        <a id="link-download-gcode" style="display:none">download gcode</a>
+                      </div>
+                </nav>      
             
-              <div id="controls">
-                <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
-                <input type="file" id="input-file-local" style="display:none">
-
-                <button id="btn-open-file">Abrir Archivo</button>
-                <button id="btn-save-file">Guardar Archivo</button>
-                <button id="btn-compile-gcode">Compilar codigo G</button>
-
-                <a id="link-download-gcode" style="display:none">download gcode</a>
-              </div>
+             
 
               <div id="user-warnings"></div>
 
@@ -135,16 +129,31 @@
 		
                                     
                 <div class="cad">
-                    
+                   
                     <div id="paper2"></div>
+                    <!--
                     <canvas id="CADCanvas"
-                                    width="960"
+                                    width="800"
                                     height="600"
                                     onContextMenu="javascript: return false;"
-                                    tabindex="1"></canvas>
+                                    tabindex="1">
+                                        
+                    </canvas>
+                    -->
                     
                     
                 </div>
-              
+              <div id="info">
+                  <c:forEach var="modelo" items="${modelos}"  >
+                      <br> Modelo: ${modelo.modeloId} 
+                      <br> Nombre: ${modelo.nombre}
+                      <br> Unidad Medida: ${modelo.unidadMedida.nombre}
+                      <br> Tipo de Maquina: ${modelo.tipoMaquina.nombre}
+                      <br> Ancho: ${modelo.piezaAncho}
+                      <br> Largo: ${modelo.piezaLargo}
+                      <br> Cero X: ${modelo.puntoCeroMaquinaX}
+                      <br> Cero Y: ${modelo.puntoCeroMaquinaY}
+                  </c:forEach>
+            </div>
         </body>    
 </html>

@@ -5,15 +5,23 @@
  */
 var MODES_G_TYPE = {
     DRILL : 'Drill',
+    ARCS : 'Arcs',
     PATH : 'Path',
     PROFILE : 'Profile',
     POCKET : 'Pocket'
-  }
-function CutHandler(name, units){
-  this.component = new Object();  
-  this.codexgYAML = new Codexg();
-  this.codexgYAML.name = name;
-  this.codexgYAML.units = units;
+  };
+function CutHandler(gd){
+    this.component = new Object();  
+    this.codexgYAML = new Codexg();
+    
+    this.codexgYAML.name = gd.displayName;
+    this.codexgYAML.units = gd.unitMeasure;
+    this.codexgYAML.type_machine = gd.typeOfCad;
+    this.codexgYAML.z_x = gd.z_x;
+    this.codexgYAML.z_y = gd.z_y;
+    this.codexgYAML.max_size_x = gd.max_size_x;
+    this.codexgYAML.max_size_y = gd.max_size_y;
+    this.codexgYAML.spindle_speed = gd.spindle_speed;
 
   
 };
@@ -46,6 +54,12 @@ CutHandler.prototype.setObject = function(objects){
                             break;
             case MODES_G_TYPE.POCKET:
                             this.codexgYAML.addCuts(new Pocket(this.component[i].x1,
+                                            Math.abs(this.component[i].y1),
+                                            this.component[i].x2,
+                                            Math.abs(this.component[i].y2)));
+                            break;
+            case MODES_G_TYPE.ARCS:
+                            this.codexgYAML.addCuts(new Arcs(this.component[i].x1,
                                             Math.abs(this.component[i].y1),
                                             this.component[i].x2,
                                             Math.abs(this.component[i].y2)));

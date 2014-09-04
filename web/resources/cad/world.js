@@ -6,14 +6,25 @@
  */                                
 var respuesta;
 $(document).ready(function() {
-    
-     
-        var gd = new GraphicDisplay("CADCanvas", 960, 600);
+        
+        // Create the canvas
+        this.width = 800;
+        this.height = 600;
+        this.id = "CADCanvas"
+        
+        var canvas = document.createElement("canvas");
+        canvas.width = this.width;
+        canvas.height = this.height;
+        canvas.id = this.id;
+        document.body.appendChild(canvas);
+        
+        var gd = new GraphicDisplay(this.id, this.width, this.height);
         gd.camX = -750;
         gd.camY =  500;
-        gd.unitMeasure = "cm";
+        //gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
+        //gd.typeOfCad = "fresadora";
         gd.unitConversionFactor = 1/100; 
         gd.showOrigin = true;
         gd.showGrid = true;
@@ -28,44 +39,7 @@ $(document).ready(function() {
         } else {
           alert('Su navegador no es compatible con nuestra arquitectura.');
         }
-        /*
-         var f = [{"active":true,
-                            "type":2,
-                            "color":"blue",
-                            "radius":1,
-                            "x1":478,
-                            "y1":-484,
-                            "x2":1110,
-                            "y2":-822},
-                        {"active":true,
-                            "type":3,
-                            "color":"blue",
-                            "radius":1,
-                            "x1":1112,
-                            "y1":-228,
-                            "x2":1102,
-                            "y2":-508},
-                        {"active":true,
-                            "type":5,
-                            "color":"blue",
-                            "radius":1,
-                            "x1":212,
-                            "y1":-672,
-                            "x2":226,
-                            "y2":-924,
-                            "x3":404,
-                            "y3":-696},
-                        {"active":true,
-                            "type":7,
-                            "color":"#eee",
-                            "radius":5,
-                            "x":484,
-                            "y":-968,
-                            "text":"hola"}];
-    */
-       
-        
-        
+               
         loadIcons(gd);
         initCAD(gd);
         //deberia estar todo en una sola funcion
@@ -78,8 +52,8 @@ $(document).ready(function() {
                                                        
                           var tmp = JSON.stringify(result);
                             $("#theJson").html(result);
-                            console.log("JSON: " + tmp);
-                            console.log("String: " + result);
+                           // console.log("JSON: " + tmp);
+                            //console.log("String: " + result);
                             respuesta = tmp;
                             console.log("respuesta: " + respuesta);
                             gd.setJSON(result);
@@ -94,7 +68,27 @@ $(document).ready(function() {
             }*/
             
         });
-        
+        $.ajax({
+            type: 'GET',
+            url:  "linea/obtenerElementoPorModelo.htm",
+            dataType: 'json',
+            async: true,
+            success: function(result) {
+                          var tmp = JSON.stringify(result);
+                          console.log('nombre: '+tmp);    
+                          console.log(gd.typeOfCad = result[0].tipoMaquina);
+                          console.log(gd.displayName = result[0].nombre);
+                          console.log(gd.unitMeasure = result[0].unidadMedida);
+                          
+                          console.log(gd.z_x = result[0].puntoCeroMaquinaX);
+                          console.log(gd.z_y = result[0].puntoCeroMaquinaY);
+                          console.log(gd.max_size_x = result[0].piezaAncho);
+                          console.log(gd.max_size_y = result[0].piezaLargo);
+                          console.log(gd.spindle_speed = 1600);
+                          //alert(tmp);
+                          
+            }
+        });
         receiveAjax();
         
         

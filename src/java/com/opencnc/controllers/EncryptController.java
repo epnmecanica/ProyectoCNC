@@ -7,14 +7,18 @@
 package com.opencnc.controllers;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author root
  */
 public class EncryptController {
+     private static final Logger logger = Logger.getLogger(EncryptController.class.getName());
+     
     public byte[] encriptado(byte[] clave){
         byte[] encript=DigestUtils.md2(clave);
+         logger.info("Elementos Encriptados");
         return encript;
         //System.out.println("shaHex:"+encript);
     }

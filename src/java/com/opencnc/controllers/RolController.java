@@ -37,7 +37,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RolController {
     // Implemento Log4j para eventos tipo log
-    private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+    private static final Logger logger = Logger.getLogger(RolController.class.getName());
     
 /**
  * *****************************************************************************
@@ -52,8 +52,10 @@ public class RolController {
     public ModelAndView   lista  (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
-        Session  s = HibernateUtil.getSessionFactory().openSession();
         
+        try{
+        logger.info("Se obtendra la lista de roles");
+        Session  s = HibernateUtil.getSessionFactory().openSession();
         Criteria  c =s.createCriteria(Rol.class);
         List<Rol> l = c.list();
         
@@ -61,6 +63,11 @@ public class RolController {
         m.addObject("rol",l);
  
         return m;
+        }catch (Exception ex){ 
+        logger.error("Error... Al obtener la lista de roles"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -77,6 +84,8 @@ public class RolController {
                                     HttpServletRequest request, 
                                     HttpServletResponse response)
                                     throws Exception{
+        try{
+        logger.info("Se crea el rol de Usuario");
         HttpSession sess =  request.getSession();
         if (sess != null){
             Rol r = new Rol();
@@ -89,7 +98,11 @@ public class RolController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
-        
+        }catch (Exception ex){ 
+        logger.error("Error... Al crear el rol."+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -107,6 +120,9 @@ public class RolController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        
+        try{
+        logger.info("Se guardara el Rol");
         HttpSession sess =  request.getSession();
         if (sess != null){
             
@@ -126,7 +142,11 @@ public class RolController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
-        
+        }catch (Exception ex){ 
+        logger.error("Error... Al guardar el rol"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -144,6 +164,8 @@ public class RolController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se elminara el Rol");
         HttpSession sess =  request.getSession();
         if (sess != null){
            Session s = HibernateUtil.getSessionFactory().openSession();
@@ -158,6 +180,11 @@ public class RolController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al eliminar el rol"+ex); 
+               
+       }
+       return null;
     }
     
 
@@ -178,6 +205,8 @@ public class RolController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se modificara el rol");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -185,6 +214,11 @@ public class RolController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al modificar el rol"+ex); 
+               
+       }
+       return null;
     }
     
 /**
@@ -205,6 +239,8 @@ public class RolController {
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        try{
+        logger.info("Se obtendra el rol");
         HttpSession sess =  request.getSession();
         if (sess != null){
            return null; 
@@ -212,6 +248,11 @@ public class RolController {
              request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }
+        }catch (Exception ex){ 
+        logger.error("Error... Al obtener el rol"+ex); 
+               
+       }
+       return null;
     }
     /*
     @RequestMapping("/rol/obtenerRol")
