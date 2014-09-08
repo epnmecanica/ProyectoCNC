@@ -58,25 +58,28 @@
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                               
-                                    <div class="art-postcontent art-postcontent-0 clearfix"><p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;"><img width="267" height="189" alt="" class="art-lightbox" src="../resources/images/crear.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;"><span style="font-size: 14px;"><br></span></p>                                              
+                                    <div class="art-postcontent art-postcontent-0 clearfix">
                                     </div>                  
-                                    <h1>Crear Modelo</h1>        
-                                    <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
-                                    ${nombreUsuario}
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
+                                    <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Crear un Nuevo Modelo</h1>        
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
+                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Nombre de Usuario: ${nombreUsuario} &nbsp &nbsp &nbsp  &nbsp <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
                                     <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                                                method="POST"
                                                commandName="modelo">
                                         <p>
-                                            <label for="nombre">Nombre de Modelo</label>
+                                            <label for="nombre"> &nbsp &nbsp &nbsp Nombre de Modelo:</label>
                                             <form:input path="nombre" />
                                         </p>
+                                        <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                         <p>
-                                            <label for="descripcion">Descripcion de modelo</label>
+                                            <label for="descripcion"> &nbsp &nbsp &nbsp Descripcion de modelo:</label>
                                             <form:textarea path="descripcion" rows="4" cols="5" />
                                         </p>
 
                                         <p>
-                                            <label for="unidadMedidaId">Unidad Medida</label>
+                                            <label for="unidadMedidaId"> &nbsp &nbsp &nbsp Unidad Medida:</label>
                                             <%--<input id="unidadMedidaId" value="1" name="unidadMedidaId" type="text"/>--%>
                                             <select id="unidadMedidaId" name="unidadMedidaId">
                                                 <option value=""></option>
@@ -86,7 +89,8 @@
                                             </select>
                                         </p>
                                         <p>
-                                            <label for="tipoMaquinaId">Tipo Maquina</label>
+                                            <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: left">
+                                            <label for="tipoMaquinaId"> &nbsp &nbsp &nbsp Tipo Maquina:</label>
 
                                             <select id="tipoMaquinaId" name="tipoMaquinaId">
                                                 <option value=""></option>
@@ -95,25 +99,30 @@
                                                 </c:forEach>
                                             </select>
                                         </p>
+                                        <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                         <p>
-                                            <label from="puntoCeroMaquinaction="${pageContext.request.contextPath}aX">Punto Cero Maquina X: </label>
+                                            <label from="puntoCeroMaquinaction="${pageContext.request.contextPath}aX"> &nbsp &nbsp &nbsp Punto Cero Maquina X: </label>
                                             <form:input path="puntoCeroMaquinaX" />
                                         </p>
+                                        <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                         <p>
-                                            <label from="puntoCeroMaquinaY">Punto Cero Maquina Y: </label>
+                                            <label from="puntoCeroMaquinaY"> &nbsp &nbsp &nbsp Punto Cero Maquina Y: </label>
                                             <form:input path="puntoCeroMaquinaY" />
                                         </p>
-                                         <p>
-                                            <label from="piezaAncho">Pieza Ancho: </label>
+                                         <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
+                                        <p>
+                                            <label from="piezaAncho"> &nbsp &nbsp &nbsp Pieza Ancho: </label>
                                             <form:input path="piezaAncho" />
                                         </p>
-                                         <p>
-                                            <label from="piezaLargo">Pieza Largo: </label>
+                                        <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
+                                        <p>
+                                            <label from="piezaLargo"> &nbsp &nbsp &nbsp Pieza Largo: </label>
                                             <form:input path="piezaLargo" />
                                         </p>
                                         <p>                    
                                            <input id="${usuarioId}" value="${listaUsuarios}" name="usuarioId" type="hidden"/>     
                                         </p>
+                                        <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                         <input id="botonGuardarModelo" type="submit" value="Guardar Modelo" />
                                     </form:form>
                                     <footer class="art-footer">
