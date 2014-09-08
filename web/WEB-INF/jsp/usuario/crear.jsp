@@ -59,51 +59,41 @@
                                 <div class="art-postcontent art-postcontent-0 clearfix">
                                     <div class="art-content-layout">
                                         <div class="art-content-layout-row">
-                                            <div class="art-layout-cell" style="width: 50%" >
-                                                <p style="text-align: center;">
-                                                    <span style="font-size: 14px;">
-                                                    <br>
-                                                    </span>
-                                                </p>
-                                                <p style="text-align: center;">
-                                                    <img width="454" height="303" alt="" class="art-lightbox" src="../resources/images/TORNO3.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; ">
-                                                    <span style="font-size: 14px;">
-                                                    <br>
-                                                    </span>
-                                                </p><p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p><br></p>
-                                            </div>
-                                            <div class="art-layout-cell" style="width: 50%" >                                   
+                                            <div class="art-layout-cell" style="width: 100%" >
+                                                
+                                            <div class="art-layout-cell" style="width: 100%" >                                   
                                                 <p style="text-align: center;">                                          
-                                                <h1>Crear Usuario</h1>
+                                                <h1>&nbsp; &nbsp; &nbsp; Crear Nuevo Usuario</h1>
                                                     ${error}
                                                     <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
                                                        method="POST"
                                                        commandName="usuario">
-                                                    <p>
-                                                        <label for="nombre">Nombre de usuario</label>
+                                                    
+                                                        <p>
+                                                        <label for="nombre"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre de usuario: &nbsp; &nbsp; &nbsp; </label>
                                                             <form:input path="nombre" />
-                                                    </p>                                                           
+                                                    </p>                                                                                                            
                                                     <p> 
-                                                        <label for="apellido">Apellido</label>
+                                                        <label for="apellido"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Apellido: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
                                                             <form:input path="apellido" />
                                                     </p>
                                                     <p>
-                                                        <label for="organizacion">Organizacion</label>
+                                                        <label for="organizacion"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Organizacion: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
                                                             <form:input path="organizacion" />
                                                     </p>
                                                     <p>
-                                                        <label for="email">Email</label>
+                                                        <label for="email"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
                                                             <form:input path="email" />
                                                     </p>
                                                     <p>
-                                                        <label for="clave">Contraseña</label>
+                                                        <label for="clave"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Contraseña: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
                                                             <form:input path="clave" type="password"/>
                                                     </p>
                                                     <p>
-                                                        <label for="email">Confirmar Contraseña</label>
+                                                        <label for="email"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Confirmar Contraseña:&nbsp;</label>
                                                             <form:input path="" type="password"/>
                                                     </p>
-                                                        <input id="botonGuardar" type="submit" value="Crear" />
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input id="botonGuardar" type="submit" value="Crear" />
                                                     </form:form>     
                                             </div>
                                         </div> 

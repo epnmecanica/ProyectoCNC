@@ -56,24 +56,29 @@
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                               
-                                    <div class="art-postcontent art-postcontent-0 clearfix"><p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
-                                            <img width="267" height="189" alt="" class="art-lightbox" src="../resources/images/PUERTASABIERTAS.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;">                                           
-                                        <span style="font-size: 14px;"><br></span></p>                                                                            
+                                    <div class="art-postcontent art-postcontent-0 clearfix">
+                                          
+                                        <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                     </div>                        
-                                  <h1>Login</h1>                 
+                                  <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Login</h1>                 
                                   ${errorId}
+                                   <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>     
+                                   <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                     <form:form id="formLogin" action="${pageContext.request.contextPath}/usuario/iniciarSesion.htm" 
                                     method="POST"
                                     commandName="usuario">          
                                     <p>
-                                        <label for="email">Email</label>
+                                        <label for="email"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ingrese su Email : </label>
                                         <form:input path="email" />
                                     </p>
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                     <p>
-                                        <label for="nombre">Contraseña</label>
+                                        <label for="nombre"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ingrese su Contraseña : </label>
                                         <form:input path="clave" type="password"/>
-                                    </p>           
-                                        <input id="botonEntrarLogin" type="submit" value="Ingresar" />
+                                    </p>     
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
+                                      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="botonEntrarLogin" type="submit"  value="Ingresar" />
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                         </form:form>                   
                                 </article>
                             </div>
