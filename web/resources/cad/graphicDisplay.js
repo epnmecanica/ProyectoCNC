@@ -1687,7 +1687,7 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
  */
 GraphicDisplay.prototype.getSlope = function(x, y, x1, y1) {
 	var m = (y1-y)/(x1-x);
-	return m;
+	return m.toFixed(2);
 };
 /**
  * *****************************************************************************
@@ -1754,7 +1754,7 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 			case COMPONENT_TYPES.LABEL:	
 			case COMPONENT_TYPES.SHAPE:
 				var delta = this.getDistance(x, y, this.logicDisplay.components[i].x, this.logicDisplay.components[i].y); 
-				if ( delta >= 0 && delta <= this.snapTolerance / this.zoom )
+                                if ( delta >= 0 && delta <= this.snapTolerance / this.zoom )
 					return i;
 				break;
 			case COMPONENT_TYPES.LINE:
@@ -1773,6 +1773,7 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 };
 
 GraphicDisplay.prototype.interseccion = function(x,y){
+    
     for ( var i = this.logicDisplay.components.length - 1; i >= 0; i-- ) {
 		if (!this.logicDisplay.components[i].isActive())
 			continue;
@@ -1781,20 +1782,31 @@ GraphicDisplay.prototype.interseccion = function(x,y){
 			case COMPONENT_TYPES.POINT:
 			case COMPONENT_TYPES.LABEL:	
 			case COMPONENT_TYPES.SHAPE:
-			case COMPONENT_TYPES.LINE:
-			case COMPONENT_TYPES.CIRCLE:
+                        case COMPONENT_TYPES.CIRCLE:
 			case COMPONENT_TYPES.RECTANGLE:
 			case COMPONENT_TYPES.MEASURE:
-                            var m = this.getSlope(x,y,this.logicDisplay.components[i].x1 ,this.logicDisplay.components[i].y1);
-                            //console.log('m: ' + m);
-                            if(m <= this.snapTolerance / 100){
-                                return i;
-                            }else{
-                                return null;
-                            }
+				break;
+			case COMPONENT_TYPES.LINE:
+                                var m_PointA_Cursor = this.getSlope(
+                                                    this.logicDisplay.components[i].x1, 
+                                                    this.logicDisplay.components[i].y1,
+                                                    x,y);
+                                var m_Cursor_PointB = this.getSlope(x,y,
+                                                    this.logicDisplay.components[i].x2, 
+                                                    this.logicDisplay.components[i].y2);
+                                var m_PointA_PointB = this.getSlope(
+                                                    this.logicDisplay.components[i].x1, 
+                                                    this.logicDisplay.components[i].y1,
+                                                    this.logicDisplay.components[i].x2, 
+                                                    this.logicDisplay.components[i].y2);
+                       
+				if (m_PointA_Cursor === m_Cursor_PointB && m_PointA_Cursor === m_PointA_PointB && m_Cursor_PointB === m_PointA_PointB)
+					return i;
 				break;
 		}
 	}
+	
+	return null;
 };
 
 
