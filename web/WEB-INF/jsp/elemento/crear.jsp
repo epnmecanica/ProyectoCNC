@@ -99,24 +99,14 @@
 	</head>
 	<body>  
             
-                <nav id="top-nav">
-                   <!-- <h1>OpenCNC</h1> -->
-                     <div id="controls">
-                        <!-- this input is needed to let a user select a file, but it is ugly so we hide it. -->
-                         <input type="file" id="input-file-local" style="display:none">
-                        <button id="btn-open-file">Abrir Archivo</button>
-                        <button id="btn-save-file">Guardar Archivo</button>
-                        <button id="btn-compile-gcode">Compilar codigo G</button>
-
-                        <a id="link-download-gcode" style="display:none">download gcode</a>
-                      </div>
-                </nav>      
+            <nav id="top-nav">
+            </nav>      
             
              
 
               <div id="user-warnings"></div>
 
-              <div class="container">
+              <div class="container">        
                 <div class="row">
                   <div class="col-md-8">
                     <div id="editor-holder">
@@ -128,21 +118,7 @@
             
 		
                                     
-                <div class="cad">
-                   
-                    <div id="paper2"></div>
-                    <!--
-                    <canvas id="CADCanvas"
-                                    width="800"
-                                    height="600"
-                                    onContextMenu="javascript: return false;"
-                                    tabindex="1">
-                                        
-                    </canvas>
-                    -->
-                    
-                    
-                </div>
+                
               <div id="info">
                   <c:forEach var="modelo" items="${modelos}"  >
                       <br> Modelo: ${modelo.modeloId} 
@@ -155,5 +131,18 @@
                       <br> Cero Y: ${modelo.puntoCeroMaquinaY}
                   </c:forEach>
             </div>
+              
+                    <div id ="menu">
+                        <input type="file" id="input-file-local" style="display:none">
+                        <button id="btn-open-file">Abrir Archivo</button>
+                        <button id="btn-save-file">Guardar Archivo</button>
+                        <button id="btn-compile-gcode">Compilar codigo G</button>
+                        <a id="link-download-gcode" style="display:none">download gcode</a>
+                    </div>
+             
+                    <div id="paper2"> </div>
+              
+            
+                
         </body>    
 </html>
