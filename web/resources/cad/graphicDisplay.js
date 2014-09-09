@@ -118,6 +118,8 @@ function GraphicDisplay(displayName, width, height) {
 	// Snapping setting
 	this.snap = false;
 	this.snapTolerance = 10;
+        // Radius mouse
+        this.radius = 1;
 	
 	this.fontSize = 24;
              
@@ -1270,12 +1272,13 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			this.cvn.css('cursor', 'default');
 			if (action === this.MOUSEACTION.MOVE) {
 				if ( this.selectedComponent === null ) {
-                                    this.temporarySelectedComponent = this.interseccion(
-							this.getCursorXLocal(),
-							this.getCursorYLocal());
-					/*this.temporarySelectedComponent = this.findIntersectionWith(
+                                    //console.log(this.IntersectionWith(false));
+                                    /*this.temporarySelectedComponent = this.interseccion(
 							this.getCursorXLocal(),
 							this.getCursorYLocal());*/
+					this.temporarySelectedComponent = this.findIntersectionWith(
+							this.getCursorXLocal(),
+							this.getCursorYLocal());
 				}
 			} else if ( action === this.MOUSEACTION.DOWN ) {
 				if ( this.temporarySelectedComponent !== null && confirm("Desea borrar este componente?") ) {
@@ -1677,6 +1680,7 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
 	
 	return distance.toFixed(2);
 };
+
 /**
  * 
  * @param {type} x
@@ -1686,8 +1690,14 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
  * @returns {y2|x2}
  */
 GraphicDisplay.prototype.getSlope = function(x, y, x1, y1) {
-	var m = (y1-y)/(x1-x);
+	var m = (Math.abs(y1)-Math.abs(y))/(Math.abs(x1)-Math.abs(x));
+        //var m = ((y1-y)/(x1-x));
+        //console.log(m);
 	return m.toFixed(2);
+};
+GraphicDisplay.prototype.getB = function(m,x1,y1) {
+	var b = (y1-(m*x1));
+	return b.toFixed(1);
 };
 /**
  * *****************************************************************************
@@ -1772,6 +1782,45 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 	return null;
 };
 
+//Funcion fuera de linea.
+GraphicDisplay.prototype.IntersectionWith = function(positive) {
+    this.positive = true; 
+    this.positive = positive;
+    
+    var x1 = 400;
+    var x2 = 700;
+    var y1 = 500;
+    var y2 = 600;
+    //var x_C = 3;
+    //var y_C = 3;
+    this.x_C = this.getCursorXLocal();
+    this.y_C = this.getCursorYLocal();
+    
+    var m = this.getSlope(x1,y1,x2,y2);
+    
+    var z = this.getB(m,x1,y1);
+    
+    var c = Math.pow((this.x_C),2) + Math.pow((this.y_C),2) - Math.pow(this.radius,2);
+    
+    var b = -(2*this.y_C);
+    var a = -(2*this.x_C);
+    var f_a = Math.pow(m,2) + 1;
+    var f_b = (b*m) + (2*m*z) + a;  
+    var f_c = Math.pow(z,2) + (b*z) + c;
+    console.log('a: ' + f_a + ' b: ' + f_b + ' c: ' + f_c);
+    var x_f = Math.pow(f_b,2) - (4*f_a*f_c);
+    x_f = Math.sqrt(x_f);
+    if(this.positive === true){
+        x_f = -f_b + x_f;
+        x_f = x_f / (2*f_a);
+    }else{
+        x_f = -f_b - x_f;
+        x_f = x_f / (2*f_a);
+    }
+    
+    return x_f;
+    
+};
 GraphicDisplay.prototype.interseccion = function(x,y){
     
     for ( var i = this.logicDisplay.components.length - 1; i >= 0; i-- ) {

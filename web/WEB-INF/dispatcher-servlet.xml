@@ -99,6 +99,13 @@
                 <prop key="texto/obtener.htm">textoController</prop>
                 <prop key="texto/actualizar.htm">textoController</prop>
                 <prop key="texto/borrar.htm">textoController</prop>
+                
+                <prop key="web_info/Inicio.htm">webInfoController</prop>
+                <prop key="web_info/contacto_info.htm">webInfoController</prop>
+                <prop key="web_info/github_info.htm">webInfoController</prop>
+                <prop key="web_info/grupo_info.htm">webInfoController</prop>
+                <prop key="web_info/proyecto_info.htm">webInfoController</prop>
+                <prop key="web_info/ubicacion_info.htm">webInfoController</prop>
 
                
             </props>
@@ -169,6 +176,10 @@
     <bean name="textoController" 
           class="com.opencnc.controllers.TextoController" 
            />
+    
+    <bean name="webInfoController"
+          class="com.opencnc.controllers.WebInfoController"
+    />
    
     
     <mvc:resources mapping="/resources/**" location="classpath:/resources" />
