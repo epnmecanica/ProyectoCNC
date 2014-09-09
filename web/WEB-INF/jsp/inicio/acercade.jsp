@@ -46,9 +46,6 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">
                                     <h2 class="art-postheader"><span class="art-postheadericon">Acerca de</span></h2>   
-                                    
-                                    <img width="640" height="388" alt="" class="art-lightbox" src="../resources/images/slidebdb2811.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; ">     
-
                                     <div class="art-postcontent art-postcontent-0 clearfix"><p>Grupo de Trabajo:</p><p>EPN</p><p>ESPOCH</p><p>UPS</p>
                                     </div>
                                 </article>

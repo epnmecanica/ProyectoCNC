@@ -48,7 +48,8 @@
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                                                                       
-                                    <h1>Abrir modelo existente.</h1>       
+                                    <h1>Abrir modelo existente.</h1>  
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                     Nombre de usuario: ${nombreUsuario}
                                         <table id="tablaModelo" class="display" cellspacing="0" width="80%">
                                             <thead>

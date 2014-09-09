@@ -45,20 +45,14 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article">
-                                    <h2 class="art-postheader"><span class="art-postheadericon">‘Computer Aided Manufacturing’</span></h2>
-                                    <div class="art-postcontent art-postcontent-0 clearfix">
-                                        <div class="art-content-layout layout-item-0">
-                                            <div class="art-content-layout-row">
-                                                <div class="art-layout-cell" style="width: 33%" >
-                                                    <img width="640" height="388" alt="" class="art-lightbox" src="../resources/images/slideCNC30.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(142, 180, 204); border-right-color: rgb(142, 180, 204); border-bottom-color: rgb(142, 180, 204); border-left-color: rgb(142, 180, 204); border-top-width: 8px; border-right-width: 8px; border-bottom-width: 8px; border-left-width: 8px;">     
-                                                    <p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p><p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;">Producción Asistida por Computadora.&nbsp;</span></p><p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p><p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;">Se trata de la tecnología implicada en el uso de computadores para realizar tareas de Modelación geométrica Planificación Programación Inspección  Ensamblado y Embalaje de la producción.&nbsp;</span></p>
-                                                    <br>
-                                                    <p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;"></span> </p>
-                                                </div>                                               
-                                            </div>
-                                        </div>
-                                    </div>
+                                <article class="art-post art-article">                                                                                                                                                                                       
+                                    <p style="text-align: justify; margin-right: 5px;"><span style="font-family: 'Palatino Linotype';"><span style="font-size: 14px;"><br></span></span></p>                                                                                
+                                        <span class="art-postheadericon">Computer Aided Manufacturing</span>                                                                                   
+                                            <p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p>
+                                            <p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;">Producción Asistida por Computadora.&nbsp;</span></p>
+                                            <p style="text-align: center;"><span style="font-family: Arial; font-size: 14px;"><br></span></p>
+                                            <p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;">Se trata de la tecnología implicada en el uso de computadores para realizar tareas de Modelación geométrica Planificación Programación Inspección  Ensamblado y Embalaje de la producción.&nbsp;</span></p>
+                                            <p style="text-align: justify;"><span style="font-family: Arial; font-size: 14px;"></span>                        
                                 </article>                              
                             </div>
                         </div>
