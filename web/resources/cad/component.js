@@ -26,7 +26,7 @@ function Component() {
 	this.type = 0; 
 	//this.color = "#fff";
         //color del componente
-	this.color = "blue";
+	this.color = "white";
 	this.radius = 1;
         this.machined = 'null';
 }

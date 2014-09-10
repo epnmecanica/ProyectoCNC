@@ -18,25 +18,23 @@ padding: 0;
 #info{
   
    font-family: cursive;
-   position:relative; 
+   position: absolute;
+   top: 680px;
    color: white;
    font-size: 10px;
-   float: right;
-   visibility: hidden;
+}
+#paper2{
+    position: absolute;
+    top: 130px;
+    left: 60px;
+    z-index: 1;
 }
 
 canvas{
-   
-   
-}
-
-paper2{
-
-
-float: left;
-}
-menu{
-    float: right;
+  position: absolute;
+  top:  120px; 
+  left: 50px;  
+  z-index: 0;
 }
 
 #btn-compile-gcode , #btn-save-file , #btn-open-file{
@@ -64,7 +62,7 @@ menu{
 width:530px;
 height:34px;
 margin: auto;
-
+z-index: 2;
 float: right;
 }
 nav {

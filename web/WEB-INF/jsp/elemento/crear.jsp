@@ -102,8 +102,6 @@
             <nav id="top-nav">
             </nav>      
             
-             
-
               <div id="user-warnings"></div>
 
               <div class="container">        
@@ -119,7 +117,21 @@
 		
                                     
                 
-              <div id="info">
+            
+              
+              
+                  <div id ="sub-menu">
+                    <input type="file" id="input-file-local" style="display:none">
+                    <button id="btn-open-file">Abrir Archivo</button>
+                    <button id="btn-save-file">Guardar Archivo</button>
+                    <button id="btn-compile-gcode">Compilar codigo G</button>
+                    <a id="link-download-gcode" style="display:none">download gcode</a>
+                    </div>
+             
+                    <div id="paper2">
+                       </div>
+                    
+            <div id="info">
                   <c:forEach var="modelo" items="${modelos}"  >
                       <br> Modelo: ${modelo.modeloId} 
                       <br> Nombre: ${modelo.nombre}
@@ -132,15 +144,7 @@
                   </c:forEach>
             </div>
               
-                    <div id ="menu">
-                        <input type="file" id="input-file-local" style="display:none">
-                        <button id="btn-open-file">Abrir Archivo</button>
-                        <button id="btn-save-file">Guardar Archivo</button>
-                        <button id="btn-compile-gcode">Compilar codigo G</button>
-                        <a id="link-download-gcode" style="display:none">download gcode</a>
-                    </div>
-             
-                    <div id="paper2"> </div>
+                    
               
             
                 

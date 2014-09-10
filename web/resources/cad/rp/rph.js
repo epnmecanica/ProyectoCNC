@@ -118,7 +118,7 @@ function icons(){
   */
  function attrIcons(st){
      this.st = st;
-     var col = 'black';
+     var col = 'gainsboro';
      st.hide();
      st.attr({fill: col, stroke: "none"});
      st.mouseout(function(){

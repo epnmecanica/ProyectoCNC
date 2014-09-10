@@ -6,21 +6,39 @@
  */                                
 var respuesta;
 $(document).ready(function() {
+       
         
+        if( typeof( window.innerWidth ) == 'number' ) {
+          //No-IE
+          this.width = window.innerWidth - 100;
+          this.height = window.innerHeight - 200;
+        } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+          //IE 6+
+          this.width = document.documentElement.clientWidth;
+          this.height = document.documentElement.clientHeight;
+        } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+          //IE 4 compatible
+          this.width = document.body.clientWidth;
+          this.height = document.body.clientHeight;
+        }
+       
         // Create the canvas
-        this.width = 800;
-        this.height = 600;
+        //this.width = 800;
+        //this.height = 600;
+        
+        
         this.id = "CADCanvas"
         
         var canvas = document.createElement("canvas");
         canvas.width = this.width;
         canvas.height = this.height;
         canvas.id = this.id;
+           
         document.body.appendChild(canvas);
         
         var gd = new GraphicDisplay(this.id, this.width, this.height);
-        gd.camX = -750;
-        gd.camY =  500;
+        gd.camX = - this.width + 50;
+        gd.camY =  this.height -100;
         //gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
