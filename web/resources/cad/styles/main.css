@@ -59,8 +59,8 @@ canvas{
 
 .container{
 
-width:530px;
-height:34px;
+width: 400px;
+height: 150px;
 margin: auto;
 z-index: 2;
 float: right;

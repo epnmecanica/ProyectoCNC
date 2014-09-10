@@ -6,20 +6,21 @@
  */                                
 var respuesta;
 $(document).ready(function() {
-       
+       this.compenzacionWidth = 500;
+       this.compenzacionHeight = 200;
         
         if( typeof( window.innerWidth ) == 'number' ) {
           //No-IE
-          this.width = window.innerWidth - 100;
-          this.height = window.innerHeight - 200;
+          this.width = window.innerWidth - this.compenzacionWidth;
+          this.height = window.innerHeight - this.compenzacionHeight;
         } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
           //IE 6+
-          this.width = document.documentElement.clientWidth;
-          this.height = document.documentElement.clientHeight;
+          this.width = document.documentElement.clientWidth - this.compenzacionWidth;
+          this.height = document.documentElement.clientHeight - this.compenzacionHeight;
         } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
           //IE 4 compatible
-          this.width = document.body.clientWidth;
-          this.height = document.body.clientHeight;
+          this.width = document.body.clientWidth - this.compenzacionWidth;
+          this.height = document.body.clientHeight - this.compenzacionHeight;
         }
        
         // Create the canvas
