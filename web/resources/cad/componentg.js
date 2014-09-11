@@ -29,6 +29,7 @@ Drill.prototype.constructor = Drill;
 
 function Arcs(x1,y1,x2,y2) {
     Points.call(this,x1,y1,x2,y2);
+    this.radius = Distance(x1,y1,x2,y2);
     this.type = COMPONENT_G_TYPES.ARCS;
         
 };
@@ -75,3 +76,8 @@ function Points(x1, y1, x2, y2) {
 Points.prototype = new ComponentG();
 Points.prototype.constructor = Points;
 
+function Distance (x1,y1,x2,y2){
+    var distance = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
+	
+	return distance.toFixed(2);
+}

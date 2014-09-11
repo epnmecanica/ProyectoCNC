@@ -25,8 +25,8 @@ window.opencut.registerCutType("arcs", function generatePathCut(workspace, cut) 
     }
   }
   //N0070 G3 X15.183 Z-20.14 R11.818(g03=interpolacion circular en sentido antihorario, entre el punto anterior y el punto X15.183 Z-20.14 R11.818)
-  gcode.push("G03");
-  
+ 
+  gcode.push("G03" + " X" + cut.points[0][0] + " Z" + cut.points[0][1] + " R"+cut.radius);
   var z = workspace.safety_height;
   gcode.push("G1 Z" + z + " F" + workspace.z_rapid_rate);
     return {

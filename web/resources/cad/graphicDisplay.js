@@ -1302,6 +1302,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 				if ( this.selectedComponent === null ) {
                                         this.selectComponent(this.temporarySelectedComponent);
 					//console.log(this.logicDisplay.components[this.temporarySelectedComponent]);
+                                        
                                         seleccionElementos(this.logicDisplay.components[this.temporarySelectedComponent]);
 				} else {
 					this.unselectComponent();
