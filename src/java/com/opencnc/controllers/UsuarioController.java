@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Set;
 import java.util.logging.Level;
 import javax.mail.Message;
@@ -55,6 +56,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class UsuarioController {
     // Implemento Log4j para eventos tipo log
     private static final Logger logger = Logger.getLogger(UsuarioController.class.getName());
+                    Date fechaInicio = null;
+                    Date fechaLlegada = null;
+                   
+                Calendar calendario = Calendar.getInstance();
+                Calendar fechaenvio=Calendar.getInstance();
+                Calendar fecha24horas = Calendar.getInstance();
  
 //******************************************************************************
 //En lista los usuarios de la base de datos, esto es solo para cuentas 
@@ -348,6 +355,21 @@ public class UsuarioController {
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
           logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
+           //Obtiene la fecha actual del sistema
+                    Calendar fecha = Calendar.getInstance();
+                    System.out.println("la fecha del sistema es: "+fecha);
+                    //Calculos de las fechas para cambiar la fecha en 24 horas
+                    
+                    long milisegundos1 = fecha24horas.getTimeInMillis();
+                    long milisegundos2 = fecha.getTimeInMillis();
+                     //diferencia en milisegundos
+                    long diferenciaMilisegundos = milisegundos2 - milisegundos1;
+                        // calcular la diferencia en minutos
+                    long diffMinutos =  Math.abs (diferenciaMilisegundos / (60 * 1000));
+                    long restominutos = diffMinutos%60;
+                    long diffHoras =   ((diferenciaMilisegundos / (60 * 60 * 1000)))*-1;
+                
+                    System.out.println("Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña");
           try {
               //return lista(request);
               //return new ModelAndView("redirect:/modelo/crearModelo.htm");
@@ -452,11 +474,16 @@ public class UsuarioController {
             if(l.isEmpty()){
                 return new ModelAndView("redirect:/error/abrir_error.htm");
             }else{
-                String clave_prov = "prov1234";
+                 //diferentes claves para cada usuario
+                Random rand = new Random();
+                int x = rand.nextInt(1000);
+                String clave_prov = "cepra"+Integer.toString(x);//creacion de una clave
                 byte[] clave = clave_prov.getBytes();
                 EncryptController enc = new EncryptController();
                 Usuario us = l.get(0);
                 us.setClave(enc.encriptado(clave));
+                fechaInicio=calendario.getTime();//guarda la fecha actual en la qu envia el msm
+                us.setModificadoFecha(fechaInicio);
                 
                 Transaction t = s.getTransaction();
                 s.beginTransaction();
@@ -467,9 +494,18 @@ public class UsuarioController {
                 message.setFrom(new InternetAddress("cepravii@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(enviarMail));
                 message.setSubject("Clave temporal OpenCNC");
-                message.setText("Tiene 24 horas para usar esta clave 'prov1234' ");
+                message.setText("Tiene 24 horas para usar esta clave es : "+clave_prov);
                 Transport.send(message);
+                System.out.println("la fecha que se envio el msm es: "+fechaInicio);
                 System.out.println("mensaje enviado");
+                 //fecha 24 horas despues
+               
+                calendario.add(Calendar.HOUR, 24);  // numero de horas a añadir, o restar en caso de horas<0
+                fechaLlegada=calendario.getTime();//guarda la fecha despues de 24 horas.
+                System.out.println("fecha despued de 24 horas es: "+fechaLlegada);
+
+                      fechaenvio.setTime(fechaInicio);
+                      fecha24horas.setTime(fechaLlegada); 
             }             
         }catch(MessagingException e){
             System.out.println("hubo un error");
