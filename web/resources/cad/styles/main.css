@@ -14,12 +14,14 @@ background-color: #333;
 font-family: sans-serif;
 margin: 0;
 padding: 0;
+background: url('http://api.thumbr.it/whitenoise-361x370.png?background=484d4fff&noise=b3b1b3&density=77&opacity=14 ');
 }
 #info{
   
    font-family: cursive;
    position: absolute;
-   top: 680px;
+   top: 720px;
+   left: 50px;
    color: white;
    font-size: 10px;
 }
@@ -29,7 +31,11 @@ padding: 0;
     left: 60px;
     z-index: 1;
 }
-
+#sub-menu{
+    position: absolute;
+    left: 50px;
+    z-index: 3;
+}
 canvas{
   position: absolute;
   top:  120px; 
@@ -40,7 +46,8 @@ canvas{
 #btn-compile-gcode , #btn-save-file , #btn-open-file{
     cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
     padding:5px 25px; /*add some padding to the inside of the button*/
-    background:#35b128; /*the colour of the button*/
+    //background:#35b128; /*the colour of the button*/
+    background: #707070;
     border:1px solid #33842a; /*required or the default border for the browser will appear*/
     /*give the button curved corners, alter the size as required*/
     -moz-border-radius: 10px;
@@ -66,16 +73,21 @@ z-index: 2;
 float: right;
 }
 nav {
-
- color: #366097;
-
+ text-align: center; 
+ color: whitesmoke;
+ font-family: cursive;
+ font-size: 25px;
  background: #2B81AF;
  border-bottom: 2px solid #556B2F;
  height: 24px;
- text-align: right;
  padding: 0.5em
 }
 
+a{
+   color: #09BDDC;
+   font-size: 15px;
+   float: right;
+}
 .warning {
  color: #a94442;
  background: #f2dede;

@@ -100,6 +100,9 @@
 	<body>  
             
             <nav id="top-nav">
+                OpenCNC...
+                <a href="about.html" > acerca de.. </a>
+                <a href="docs.html" > docs </a>
             </nav>      
             
               <div id="user-warnings"></div>
@@ -133,14 +136,33 @@
                     
             <div id="info">
                   <c:forEach var="modelo" items="${modelos}"  >
-                      <br> Modelo: ${modelo.modeloId} 
-                      <br> Nombre: ${modelo.nombre}
-                      <br> Unidad Medida: ${modelo.unidadMedida.nombre}
-                      <br> Tipo de Maquina: ${modelo.tipoMaquina.nombre}
-                      <br> Ancho: ${modelo.piezaAncho}
-                      <br> Largo: ${modelo.piezaLargo}
-                      <br> Cero X: ${modelo.puntoCeroMaquinaX}
-                      <br> Cero Y: ${modelo.puntoCeroMaquinaY}
+                     
+                              <table border="1">
+                                  <thead>
+                                      <tr>
+                                          Datos
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>Modelo: ${modelo.modeloId}</td>
+                                          <td>Nombre: ${modelo.nombre}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Unidad Medida: ${modelo.unidadMedida.nombre}</td>
+                                          <td>Tipo de Maquina: ${modelo.tipoMaquina.nombre}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Ancho: ${modelo.piezaAncho}</td>
+                                          <td>Largo: ${modelo.piezaLargo}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Cero X: ${modelo.puntoCeroMaquinaX}</td>
+                                          <td>Cero Y: ${modelo.puntoCeroMaquinaY}</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+
                   </c:forEach>
             </div>
               
