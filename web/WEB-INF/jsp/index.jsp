@@ -59,7 +59,7 @@
                                                 <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
                                                 <span style="color: rg b(27, 47, 60); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; ">&nbsp;
                                                     <span style="color: rgb(129, 136, 152); font-family: Arial; font-size: 20px; text-align: center; ">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp; Más Información:</span>                                                             
-                                                </span><span style="border-collapse: collapse; color: rgb(129, 136, 152); font-family: Arial; font-weight: bold; ">&nbsp;<a href="http://www.automatizafill.com/wp/">http://www.automatizafill.com/wp/</a></span><p></p><p></p>                                        
+                                                </span><span style="border-collapse: collapse; color: rgb(129, 136, 152); font-family: Arial; font-weight: bold; ">&nbsp;<a href="web_info/Inicio.htm">http://www.opencnc.cedia.ec</a></span><p></p><p></p>                                        
                                     </div>                                    
 				</article>
 				<div class="art-block clearfix">
