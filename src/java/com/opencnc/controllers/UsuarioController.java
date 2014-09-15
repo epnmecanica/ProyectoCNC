@@ -6,11 +6,11 @@
 
 package com.opencnc.controllers;
 
-import com.opencnc.beans.Rol;
+
+
 import com.opencnc.beans.Usuario;
 import com.opencnc.util.HibernateUtil;
 import java.io.IOException;
-import static java.lang.Integer.decode;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.Random;
-import java.util.Set;
 import java.util.logging.Level;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -30,8 +29,6 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JTextField;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -358,8 +355,21 @@ public class UsuarioController {
           request.setAttribute("usuario", ul);
           logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
            //Obtiene la fecha actual del sistema
-                    Calendar fecha = Calendar.getInstance();
-                    System.out.println("la fecha del sistema es: "+fecha);
+//                  
+           
+            if(ul.getModificadoPor()==1){
+                
+                fechaenvio.setTime(ul.getModificadoFecha()); //obtiene la fecha de envio del msm            
+                System.out.println("fecha de envio es: "+fechaenvio.getTime());
+                fechaenvio.add(Calendar.HOUR, 24);  // numero de horas a añadir, o restar en caso de horas<0
+                fechaLlegada=fechaenvio.getTime();//guarda la fecha despues de 24 horas.
+                System.out.println("fecha despues de 24 horas es: "+fechaLlegada);
+                Calendar fecha = Calendar.getInstance();
+                System.out.println("la fecha del sistema es: "+fecha.getTime());
+                fecha24horas.setTime(fechaLlegada); 
+                
+                
+                 if(fecha.before(fecha24horas)){           
                     //Calculos de las fechas para cambiar la fecha en 24 horas
                     
                     long milisegundos1 = fecha24horas.getTimeInMillis();
@@ -370,8 +380,16 @@ public class UsuarioController {
                     long diffMinutos =  Math.abs (diferenciaMilisegundos / (60 * 1000));
                     long restominutos = diffMinutos%60;
                     long diffHoras =   ((diferenciaMilisegundos / (60 * 60 * 1000)))*-1;
-                
+                   
                     System.out.println("Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña");
+                   
+                 
+                    }
+                    else{
+                        return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+                    }
+         }
+//            
           try {
               //return lista(request);
               //return new ModelAndView("redirect:/modelo/crearModelo.htm");
@@ -420,7 +438,53 @@ public class UsuarioController {
           }
           return null;
     }
-    
+ /**
+ * *****************************************************************************
+ * Nueva Contraseña
+ * *****************************************************************************
+     * @param tipoMaquinaId
+     * @param tipoMaquina
+ * @return
+ * @throws IOException 
+ */
+    @RequestMapping ("/usuario/nuevaContrasena")
+    public ModelAndView  nuevaContrasena (@RequestParam String mail,@RequestParam String nuevaContrasena)   
+                                    throws IOException{
+        
+        logger.info("Ingrese su e-mail para cambiar la contraseña");
+                
+              try{
+            //utilizar para cambiar la contraseña
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Criteria c = s.createCriteria(Usuario.class);
+            c.add(Restrictions.eq("email", mail));
+            List<Usuario> l = c.list();
+            if(l.isEmpty()){
+                return new ModelAndView("redirect:/error/abrir_error.htm");
+            }else{
+               
+                String clave_prov = nuevaContrasena;
+                byte[] clave = clave_prov.getBytes();
+                EncryptController enc = new EncryptController();
+                Usuario us = l.get(0);
+                us.setClave(enc.encriptado(clave));
+                us.setModificadoPor(0);//modificado la contrasena por el usuario
+                Calendar fecha = Calendar.getInstance();
+                us.setModificadoFecha(fecha.getTime());//se guarda la fecha actual de modificacion
+                Transaction t = s.getTransaction();
+                s.beginTransaction();
+                s.saveOrUpdate(us);
+                t.commit();
+             
+                System.out.println("tiene nueva contraseña");
+            }             
+        }catch(Exception e){
+            System.out.println("hubo un error al cambiar la contraseña");
+            throw new RuntimeException(e);
+            
+        }
+       return new ModelAndView("redirect:/usuario/login.htm");
+    }    
 /**
  * *****************************************************************************
  * Recupera la contraseña.
@@ -485,7 +549,8 @@ public class UsuarioController {
                 Usuario us = l.get(0);
                 us.setClave(enc.encriptado(clave));
                 fechaInicio=calendario.getTime();//guarda la fecha actual en la qu envia el msm
-                us.setModificadoFecha(fechaInicio);
+                us.setModificadoFecha(fechaInicio);//asigna la fecha actual al usuario
+                us.setModificadoPor(1);//modificado la contraseña por el sistema
                 
                 Transaction t = s.getTransaction();
                 s.beginTransaction();
@@ -500,14 +565,7 @@ public class UsuarioController {
                 Transport.send(message);
                 System.out.println("la fecha que se envio el msm es: "+fechaInicio);
                 System.out.println("mensaje enviado");
-                 //fecha 24 horas despues
-               
-                calendario.add(Calendar.HOUR, 24);  // numero de horas a añadir, o restar en caso de horas<0
-                fechaLlegada=calendario.getTime();//guarda la fecha despues de 24 horas.
-                System.out.println("fecha despued de 24 horas es: "+fechaLlegada);
-
-                      fechaenvio.setTime(fechaInicio);
-                      fecha24horas.setTime(fechaLlegada); 
+                
             }             
         }catch(MessagingException e){
             System.out.println("hubo un error");
@@ -516,7 +574,7 @@ public class UsuarioController {
         }
        return new ModelAndView("redirect:/usuario/login.htm");
     } 
-    
+
 /**
  * *****************************************************************************
  * Hace el Logout.
