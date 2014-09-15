@@ -439,16 +439,17 @@ public class UsuarioController {
           return null;
     }
  /**
- * *****************************************************************************
+  ******************************************************************************
  * Nueva Contraseña
  * *****************************************************************************
-     * @param tipoMaquinaId
-     * @param tipoMaquina
- * @return
- * @throws IOException 
- */
+  * @param mail
+  * @param nuevaContrasena
+  * @return
+  * @throws IOException 
+  */
     @RequestMapping ("/usuario/nuevaContrasena")
-    public ModelAndView  nuevaContrasena (@RequestParam String mail,@RequestParam String nuevaContrasena)   
+    public ModelAndView  nuevaContrasena (@RequestParam String mail,
+                                            @RequestParam String nuevaContrasena)   
                                     throws IOException{
         
         logger.info("Ingrese su e-mail para cambiar la contraseña");
