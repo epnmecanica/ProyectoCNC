@@ -31,7 +31,7 @@
             </header>
             <nav class="art-nav">
                 <div class="art-nav-inner">
-                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="active">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
+                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm" class="active">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
                 </div>
             </nav>      
                  <div class="art-sheet clearfix">
@@ -43,18 +43,11 @@
                                         <div class="art-postmetadataheader">
                                             <h2 class="art-postheader"><span >Contactos</span></h2>
                                         </div>                                               
-                                        <div class="art-postcontent art-postcontent-0 clearfix">
-                                            <div class="art-content-layout">
-                                                <div class="art-content-layout-row">
-                                                    <div class="art-layout-cell layout-item-0" style="width: 50%" >
-                                                        <p><span style="font-weight: bold;"><br></span></p><p><span style="font-weight: bold;">Proyecto:</span><br></p><p><br></p><p style="padding-left: 20px;">Cuenta GitHub:<br>&nbsp;&nbsp;&nbsp; Usuario: epnmecanica</p><p style="padding-left: 20px;"><br><br>Cuenta gmail:<br>&nbsp;&nbsp;&nbsp; Usuario: cepravii@gmail.com</p><p style="padding-left: 20px;"><br><br>Cuenta Dropbox:<br>&nbsp;&nbsp;&nbsp; Usuario: cepravii@gmail.com<br></p><p><br></p><p><br></p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-weight: bold;">Link del Proyecto:</span> &nbsp;</p><p style="text-align: right;">W. <a href="#">http://www.automatizafill.com/wp/</a><br></p>
-                                                    </div>
-                                                    <div class="art-layout-cell layout-item-0" style="width: 50%" >
-                                                    <p><br></p><p><span style="font-weight: bold;">EPN:</span><br></p><p style="padding-left: 20px;">xxxxx</p><p style="padding-left: 20px;">email:&nbsp;<a href="mailto:crecalde672000@yahoo.com" target="_blank">crecalde672000@yahoo.com</a><br></p><p style="padding-left: 20px;">Teléfonos:</p><p style="padding-left: 20px;"><br></p><p><span style="font-weight: bold;">ESPOCH:</span></p><p style="padding-left: 20px;">Dr. Celso Recalde<br>email:&nbsp;<a href="mailto:crecalde672000@yahoo.com" target="_blank">crecalde672000@yahoo.com</a><br>Móvil: 0998598161</p><p style="padding-left: 20px;"><br></p><p><span style="font-weight: bold;">UPS:</span><br></p><p style="padding-left: 20px;">xxxxx</p><p style="padding-left: 20px;">email:&nbsp;<a href="mailto:crecalde672000@yahoo.com" target="_blank">crecalde672000@yahoo.com</a><br></p><p style="padding-left: 20px;">Teléfonos:</p><p><br></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>                                
+                                        <div class="art-sheet clearfix">            
+                                            <h2 class="art-postheader"><span >¿Qué es GitHub?</span></h2>
+                                        </div>                                               
+                                        <div class="art-postcontent art-postcontent-0 clearfix"><p><span style="font-size: 18px;"><br></span></p><p style="padding-left: 15px; padding-right: 20px; text-align: center;"><img width="580" height="230" alt="" class="art-lightbox" src="../resources/images/fotosinfo/github.png"><span style="font-weight: bold; color: rgb(164, 223, 222); text-shadow: rgba(23, 23, 23, 0.808594) 1.4px 1.4px 0px; font-size: 20px;"><br></span></p><p style="padding-left: 20px;"><span style="font-weight: bold; color: rgb(164, 223, 222); text-shadow: rgba(23, 23, 23, 0.808594) 1.4px 1.4px 0px; font-size: 20px;">GitHub es una plataforma de desarrollo colaborativo de <span style="height: 16px; text-shadow: rgba(23, 23, 23, 0.808594) 1.4px 1.4px 0px;" id="l7op05_1" class="l7op05">software</span> para alojar proyectos utilizando el <span style="height: 16px; text-shadow: rgba(23, 23, 23, 0.808594) 1.4px 1.4px 0px;" id="l7op05_8" class="l7op05">sistema de control</span> de versiones Git.</span></p><p style="padding-left: 20px;"><span style="font-size: 18px;"><br></span></p><p style="padding-left: 20px;"><span style="font-size: 18px;">El Proyecto se encuentra alojado en la siguiente dirección de Git Hub:&nbsp;</span></p><p style="padding-left: 20px;"><span style="font-size: 18px;"><br></span></p><p style="padding-left: 20px; text-align: center;"><span style="text-align: right; font-size: 22px;"><a href="#">http://github.com/epnmecanica</a></span><span style="font-size: 18px;"><br></span></p><p style="padding-left: 20px;"><span style="font-size: 18px;"><br></span></p><p><br></p>
+                                        </div>                                            
                                     </article>
                                 </div>
                                 <div class="art-layout-cell art-sidebar1">

@@ -32,7 +32,7 @@
             </header>
             <nav class="art-nav">
                 <div class="art-nav-inner">
-                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="active">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
+                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm" class="active">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
                 </div>
             </nav>       
             <div class="art-sheet clearfix">

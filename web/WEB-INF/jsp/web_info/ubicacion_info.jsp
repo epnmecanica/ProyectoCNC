@@ -30,7 +30,7 @@
             </header>
             <nav class="art-nav">
                 <div class="art-nav-inner">
-                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="active">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
+                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" >Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><  li><a href="/OpenCNC/web_info/ubicacion_info.htm" class="active">Ubicación</a></li></ul> 
                 </div>
             </nav>       
             <div class="art-sheet clearfix">
@@ -40,8 +40,11 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">
                                     <div class="art-postmetadataheader">
-                                        <h2 class="art-postheader"><span >Página Nueva</span></h2>
+                                        <h2 class="art-postheader"><span >Ubicación EPN</span></h2>
+                                        
                                     </div>                                                
+                                    <p style="text-align: center;"><img width="596" height="452" alt="" class="art-lightbox" src="../resources/images/fotosinfo/mapaEPN.jpg">
+                                    <span style="color: rgb(51, 149, 225); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 20px; font-weight: bold;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Escuela Politécnica Nacional, Ladron de Guevera E11-253. Quito<br></span>
                                     <div class="art-postcontent art-postcontent-0 clearfix"><p><br/></p>
                                     </div>                                               
                                 </article>

@@ -51,7 +51,7 @@
                                                          de computo distribuido disponibles en la RedCEDIA, y generará un ambiente
                                                          de trabajo científico colaborativo para los programadores de Maquinas CNC con una plataforma del tipo opensource.
                                                         </p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">La plataforma virtual consiste de:</p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">a. Una interface de integración CAD-CAM base, en la que se
-                                                         implementaron primitivas para la generación de un programa CNC, y&nbsp;</p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">b. Un simulador virtual que utilice el programa CNC para simular,
+                                                         implementaron primitivas para la generación de un programa CNC.</p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">b. Un simulador virtual que utilice el programa CNC para simular,
                                                          en un sistema táctil, los resultados del proceso de operación de
                                                          máquinas y herramientas CNC.</p><p style="text-align: center; font-weight: bold;"><span style="color: rgb(38, 44, 42);"><br></span></p>
                                                     </div>
