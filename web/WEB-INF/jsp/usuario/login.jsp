@@ -29,7 +29,7 @@
                     
                     
 		});
-        </script>}
+        </script>
     </head>
     <body>
         

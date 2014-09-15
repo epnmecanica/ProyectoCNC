@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
@@ -191,7 +192,8 @@ public class UsuarioController {
             return m;
         }
         logger.info("Guarda un nuevo usuario");
-        return lista(request, response);
+        //return lista(request, response);
+        return ModeloController.crearModelo(request, response);
     }
     
 /**
@@ -256,7 +258,7 @@ public class UsuarioController {
             Session s = HibernateUtil.getSessionFactory().openSession();
 
             Usuario u = (Usuario) s.get(Usuario.class, id);
-            if (us.getUsuarioId() == u.getUsuarioId()){
+            if (Objects.equals(us.getUsuarioId(), u.getUsuarioId())){
                 return lista(request, response);
             }else{
                 Transaction t = s.beginTransaction();
