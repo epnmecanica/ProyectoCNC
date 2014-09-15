@@ -22,7 +22,7 @@
             <header class="art-header">
                 <div class="art-shapes">
                     <p style="text-align: center;"><img width="900" height="347" alt="" class="art-lightbox" src="../resources/images/fotosinfo/uno.png">
-                    <div class="art-object701860" data-left="0%"></div>
+                    
                 </div>
                 <h1 class="art-headline" data-left="49.12%">
                     <a href="#">Laboratorio Virtual Para Maquinas CNC</a>
@@ -68,7 +68,7 @@
                                         <div class="art-blockheader">
                                             <h3 class="t">Inicio de Sesión</h3>
                                         </div>
-                                        <div class="art-blockcontent"><p style="text-align: center;"><img width="224" height="149" alt="" class="art-lightbox" src="../resources/images/fotosinfo/rompecabezas.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(214, 220, 218); border-right-color: rgb(214, 220, 218); border-bottom-color: rgb(214, 220, 218); border-left-color: rgb(214, 220, 218); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;"></p><p style="text-align: center;"><a href="#" class="art-button">Inicia Aqui</a></p></div>
+                                        <div class="art- blockcontent"><p style="text-align: center;"><img width="224" height="149" alt="" class="art-lightbox" src="../resources/images/fotosinfo/rompecabezas.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(214, 220, 218); border-right-color: rgb(214, 220, 218); border-bottom-color: rgb(214, 220, 218); border-left-color: rgb(214, 220, 218); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;"></p><p style="text-align: center;"><a href="/OpenCNC/index.htm" class="art-button">Inicia Aqui</a></p></div>
                                     </div>
                                 </div>
                             </div>

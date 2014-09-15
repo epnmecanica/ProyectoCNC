@@ -11,7 +11,7 @@ and open the template in the editor.
 #art-main
 {
    background: #F6F7F9 url('../resources/images/fotosinfo/page.jpeg') repeat-x scroll;
-   background: url('../resources/images/fotosinfo/pageglare.png') no-repeat, url('../resources/images/fotosinfo/page.jpeg') repeat-x, #F6F7F9;
+   background: url('../resources/images/fotosinfo/pageglare.png') no-repeat, url('../resources/images/fotosinfo/page.jpeg') repeat-x, #54A1BE;
    margin:0 auto;
    font-size: 13px;
    font-family: Tahoma, Arial, Helvetica, Sans-Serif;
@@ -573,7 +573,7 @@ ul.art-hmenu
 {
    display: inline-block;
    vertical-align: middle;
-   padding-left: 6px;
+   padding-left: 220px;
    padding-right: 6px;
 }
 

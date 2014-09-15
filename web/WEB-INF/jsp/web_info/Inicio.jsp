@@ -22,7 +22,7 @@
             <header class="art-header">
                 <div class="art-shapes">
                     <p style="text-align: center;"><img width="900" height="347" alt="" class="art-lightbox" src="../resources/images/fotosinfo/uno.png">
-                    <div class="art-object701860" data-left="0%"></div>
+                    
                 </div>
                 <h1 class="art-headline" data-left="49.12%">
                     <a href="#">Laboratorio Virtual Para Maquinas CNC</a>
@@ -31,7 +31,7 @@
             </header>
             <nav class="art-nav">
                 <div class="art-nav-inner">
-                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="active">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
+                    <ul class="art-hmenu"><li><a href="/OpenCNC/web_info/Inicio.htm" class="">Inicio</a></li><li><a href="/OpenCNC/web_info/proyecto_info.htm">Proyecto</a></li><li><a href="/OpenCNC/web_info/github_info.htm">Git Hub</a></li><li><a href="/OpenCNC/web_info/grupo_info.htm">Grupo</a></li><li><a href="/OpenCNC/web_info/contacto_info.htm">Contactos</a></li><li><a href="/OpenCNC/web_info/ubicacion_info.htm">Ubicación</a></li></ul> 
                 </div>
             </nav>
                 <div class="art-sheet clearfix">
@@ -44,13 +44,14 @@
                                             <div class="art-content-layout">
                                                 <div class="art-content-layout-row">
                                                     <div class="art-layout-cell layout-item-0" style="width: 100%" >
-                                                        <span style="color: rgb(51, 149, 225); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 20px; font-weight: bold;">CEPRA VII<br></span><p style="text-align: center;"><img width="423" height="276" alt="" class="art-lightbox" src="../resources/images/fotosinfo/Captura-de-pantalla-de-2014-02-19-021944.png"><span style="color: rgb(38, 44, 42);"><br></span></p><p style="text-align: center; font-weight: bold;"><br></p><p style="text-align: center; font-weight: bold;">Laboratorio Virtual para Maquinas CNC Open Source.<br></p><p style="text-align: center; font-weight: bold;">Componente tecnológica y de investigación.<br></p><p style="font-weight: bold; text-align: justify;">El desarrollo de la
+                                                        
+                                                        <span style="color: rgb(51, 149, 225); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 20px; font-weight: bold;">CEPRA VII<br></span><p style="text-align: center;"><img width="423" height="276" alt="" class="art-lightbox" src="../resources/images/fotosinfo/Captura-de-pantalla-de-2014-02-19-021944.png"><span style="color: rgb(38, 44, 42);"><br></span></p><p style="text-align: center; font-weight: bold;"><br></p><p style="text-align: center; font-weight: bold;">Laboratorio Virtual para Maquinas CNC Open Source.<br></p><p style="text-align: center; padding-left: 20px; font-weight: bold;">Componente tecnológica y de investigación.<br></p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">El desarrollo de la
                                                          plataforma virtual para la simulación de procesos de operación de
                                                          máquinas-herramientas CNC explotará las capacidades
                                                          de computo distribuido disponibles en la RedCEDIA, y generará un ambiente
                                                          de trabajo científico colaborativo para los programadores de Maquinas CNC con una plataforma del tipo opensource.
-                                                        </p><p style="font-weight: bold; text-align: justify;">La plataforma virtual consiste de:</p><p style="font-weight: bold; text-align: justify;">a. Una interface de integración CAD-CAM base, en la que se
-                                                         implementaron primitivas para la generación de un programa CNC, y&nbsp;</p><p style="font-weight: bold; text-align: justify;">b. Un simulador virtual que utilice el programa CNC para simular,
+                                                        </p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">La plataforma virtual consiste de:</p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">a. Una interface de integración CAD-CAM base, en la que se
+                                                         implementaron primitivas para la generación de un programa CNC, y&nbsp;</p><p style="font-weight: bold; padding-left: 20px; padding-right: 20px; text-align: justify;">b. Un simulador virtual que utilice el programa CNC para simular,
                                                          en un sistema táctil, los resultados del proceso de operación de
                                                          máquinas y herramientas CNC.</p><p style="text-align: center; font-weight: bold;"><span style="color: rgb(38, 44, 42);"><br></span></p>
                                                     </div>
@@ -70,7 +71,7 @@
                                         <div class="art-blockheader">
                                             <h3 class="t">Inicio de Sesión</h3>
                                         </div>
-                                        <div class="art-blockcontent"><p style="text-align: center;"><img width="224" height="149" alt="" class="art-lightbox" src="../resources/images/fotosinfo/rompecabezas.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(214, 220, 218); border-right-color: rgb(214, 220, 218); border-bottom-color: rgb(214, 220, 218); border-left-color: rgb(214, 220, 218); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;"></p><p style="text-align: center;"><a href="#" class="art-button">Inicia Aqui</a></p></div>
+                                        <div class="art-blockcontent"><p style="text-align: center;"><img width="224" height="149" alt="" class="art-lightbox" src="../resources/images/fotosinfo/rompecabezas.jpg" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(214, 220, 218); border-right-color: rgb(214, 220, 218); border-bottom-color: rgb(214, 220, 218); border-left-color: rgb(214, 220, 218); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;"></p><p style="text-align: center;"><a href="/OpenCNC/index.htm" class="art-button">Inicia Aqui</a></p></div>
                                     </div>
                                 </div>
                             </div>
