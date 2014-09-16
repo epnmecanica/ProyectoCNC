@@ -106,6 +106,20 @@
                 <prop key="web_info/grupo_info.htm">webInfoController</prop>
                 <prop key="web_info/proyecto_info.htm">webInfoController</prop>
                 <prop key="web_info/ubicacion_info.htm">webInfoController</prop>
+                
+                <prop key="web_info/aguinaga_info.htm">webInfoController</prop>
+                <prop key="web_info/avila_info.htm">webInfoController</prop>
+                <prop key="web_info/cando_info.htm">webInfoController</prop>
+                <prop key="web_info/celso_recalde_info.htm">webInfoController</prop>
+                <prop key="web_info/duque_info.htm">webInfoController</prop>
+                <prop key="web_info/jara_info.htm">webInfoController</prop>
+                <prop key="web_info/licencia_info.htm">webInfoController</prop>
+                <prop key="web_info/cedia_info.htm">webInfoController</prop>
+                <prop key="web_info/ups_info.htm">webInfoController</prop>
+                <prop key="web_info/espoch_info.htm">webInfoController</prop>
+                <prop key="web_info/epn_info.htm">webInfoController</prop>
+                <prop key="web_info/gnu_info.htm">webInfoController</prop>
+                <prop key="web_info/faq_info.htm">webInfoController</prop>
 
                
             </props>
