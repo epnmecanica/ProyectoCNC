@@ -106,6 +106,7 @@
                 <prop key="web_info/grupo_info.htm">webInfoController</prop>
                 <prop key="web_info/proyecto_info.htm">webInfoController</prop>
                 <prop key="web_info/ubicacion_info.htm">webInfoController</prop>
+                
                 <prop key="web_info/aguinaga_info.htm">webInfoController</prop>
                 <prop key="web_info/avila_info.htm">webInfoController</prop>
                 <prop key="web_info/cando_info.htm">webInfoController</prop>
