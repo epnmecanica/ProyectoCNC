@@ -90,6 +90,7 @@ public class UsuarioController {
                  
             }else {
                 m.addObject("nombreUsuario",us.getNombre());
+                
                 m.addObject("usuarios",l);
                 logger.info("Se iniciado la sesion con el usuario "+us.getNombre());
                 logger.info("Empieza a mostrar lista de los usuarios.");
@@ -176,6 +177,7 @@ public class UsuarioController {
 // usuarios validos todos los que son creados por 0, si son 1 son invalidos
 // Posterior.
             usuario.setCreadoPor(0);  
+            usuario.setModificadoPor(0);//modificado la contraseña por el sistema
             // se codifica la clave
             usuario.setClave(enc.encriptado(clave));
             
@@ -354,7 +356,7 @@ public class UsuarioController {
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
           logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
-           //Obtiene la fecha actual del sistema
+     
 //                  
            
             if(ul.getModificadoPor()==1){
@@ -388,7 +390,9 @@ public class UsuarioController {
                     else{
                         return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
                     }
-         }
+            }//else{
+//                return new ModelAndView("redirect:/modelo/crearModelo.htm");
+//              }
 //            
           try {
               //return lista(request);
@@ -536,6 +540,8 @@ public class UsuarioController {
         try{
             Session s = HibernateUtil.getSessionFactory().openSession();
             Criteria c = s.createCriteria(Usuario.class);
+//            Criteria c1=s.createCriteria(Rol.class);
+            
             c.add(Restrictions.eq("email", enviarMail));
             List<Usuario> l = c.list();
             if(l.isEmpty()){
@@ -597,6 +603,7 @@ public class UsuarioController {
         HttpSession sess =  request.getSession();
         if (sess != null){
             sess.removeAttribute("usuario");
+    
             return new ModelAndView("redirect:/usuario/login.htm");
         }else{
             return new ModelAndView("redirect:/usuario/login.htm");
