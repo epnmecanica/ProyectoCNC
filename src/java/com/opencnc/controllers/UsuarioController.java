@@ -356,9 +356,7 @@ public class UsuarioController {
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
           logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
-     
-//                  
-           
+ 
             if(ul.getModificadoPor()==1){
                 
                 fechaenvio.setTime(ul.getModificadoFecha()); //obtiene la fecha de envio del msm            
@@ -390,10 +388,7 @@ public class UsuarioController {
                     else{
                         return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
                     }
-            }//else{
-//                return new ModelAndView("redirect:/modelo/crearModelo.htm");
-//              }
-//            
+            }      
           try {
               //return lista(request);
               //return new ModelAndView("redirect:/modelo/crearModelo.htm");
