@@ -81,7 +81,7 @@ public class WebInfoController {
     }
     @RequestMapping ("/web_info/licencia_info")
     public ModelAndView licencia (){
-        ModelAndView m = new ModelAndView("/web_info/alicencia_info");
+        ModelAndView m = new ModelAndView("/web_info/licencia_info");
         return m;
     }
     @RequestMapping ("/web_info/cedia_info")
