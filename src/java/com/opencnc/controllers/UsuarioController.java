@@ -29,6 +29,7 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -118,7 +119,7 @@ public class UsuarioController {
  * @throws IOException 
  */
     @RequestMapping ("/usuario/crear")
-    public ModelAndView crear ()throws IOException{
+public ModelAndView crear ()throws IOException{
         
     
         try{
@@ -143,6 +144,7 @@ public class UsuarioController {
  * Recoge la informacion del formulario de creacion de usuario y valida que ç
  * tenga contenido y los guarda en la base de datos.
  * *****************************************************************************
+ * @param email
  * @param usuario
  * @param request
  * @param response
@@ -150,10 +152,27 @@ public class UsuarioController {
  * @throws Exception 
  */
     @RequestMapping ("/usuario/guardar")
-    public ModelAndView guardar (@ModelAttribute Usuario usuario, 
+    public ModelAndView guardar (@RequestParam String email,@ModelAttribute Usuario usuario, 
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
+        
+            final String username="cepravii@gmail.com";//correo de la empresa
+            final String password="epncepra";//clave del correo 
+
+            Properties props= new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable","true");
+            props.put("mail.smtp.host","smtp.gmail.com");
+            props.put("mail.smtp.port", 587);
+
+            javax.mail.Session session=javax.mail.Session.getInstance(props,new javax.mail.Authenticator() {
+                         protected PasswordAuthentication
+                                 getPasswordAuthentication(){
+                                     return new PasswordAuthentication(username,password);
+                                 }       
+            });
+        
         byte[] clave = usuario.getClave();
         Session s = HibernateUtil.getSessionFactory().openSession();
         
@@ -177,7 +196,7 @@ public class UsuarioController {
 // usuarios validos todos los que son creados por 0, si son 1 son invalidos
 // Posterior.
             usuario.setCreadoPor(0);  
-            usuario.setModificadoPor(0);//modificado la contraseña por el sistema
+            usuario.setModificadoPor(0);//modificado la contraseña por el usuario
             // se codifica la clave
             usuario.setClave(enc.encriptado(clave));
             
@@ -185,14 +204,23 @@ public class UsuarioController {
             s.beginTransaction();
             s.saveOrUpdate(usuario);
             t.commit();
+            
+            //mensaje de bienvenida al sistema
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("cepravii@gmail.com"));
+                message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));//
+                message.setSubject("Bienvenido OpenCNC");//el asunto del correo 
+                message.setText("Bienvenido a la Plataforma Virtual OpenCNC");// mensaje 
+                Transport.send(message); 
+                System.out.println("mensaje enviado");   
+            
         }else{
             
             m.addObject("error", sr.seguridad(usuario).getThisArrayList());
             return m;
         }
         logger.info("Guarda un nuevo usuario");
-        //return lista(request, response);
-        return ModeloController.crearModelo(request, response);
+        return lista(request, response);
     }
     
 /**
@@ -356,7 +384,8 @@ public class UsuarioController {
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
           logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
- 
+          
+            
             if(ul.getModificadoPor()==1){
                 
                 fechaenvio.setTime(ul.getModificadoFecha()); //obtiene la fecha de envio del msm            
@@ -382,11 +411,20 @@ public class UsuarioController {
                     long diffHoras =   ((diferenciaMilisegundos / (60 * 60 * 1000)))*-1;
                    
                     System.out.println("Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña");
+                    JOptionPane.showMessageDialog(null, "Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña","Advertencia",2);
                    
-                 
+                    int a =JOptionPane.showConfirmDialog(null,"Desea Cambiar la Contraseña");
+                    if(a== JOptionPane.YES_OPTION )
+                    {
+                        return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+                    }
+                    
                     }
                     else{
-                        return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+//                       
+                     JOptionPane.showMessageDialog(null, "Caduco su Contraseña Ingrese una Nueva por favor","Informacion",1);
+                     return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+                        
                     }
             }      
           try {
@@ -403,7 +441,7 @@ public class UsuarioController {
         return null;
    
     }
-    
+        
 /**
  * *****************************************************************************
  * Cambia la contraseña.
@@ -544,7 +582,7 @@ public class UsuarioController {
             }else{
                  //diferentes claves para cada usuario
                 Random rand = new Random();
-                int x = rand.nextInt(1000);
+                int x = rand.nextInt(100000);
                 String clave_prov = "cepra"+Integer.toString(x);//creacion de una clave
                 byte[] clave = clave_prov.getBytes();
                 EncryptController enc = new EncryptController();
@@ -563,14 +601,14 @@ public class UsuarioController {
                 message.setFrom(new InternetAddress("cepravii@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(enviarMail));
                 message.setSubject("Clave temporal OpenCNC");
-                message.setText("Tiene 24 horas para usar esta clave es : "+clave_prov);
-                Transport.send(message);
+                message.setText("Tiene 24 horas para usar esta clave es :"+" "+clave_prov);
+                Transport.send(message); 
                 System.out.println("la fecha que se envio el msm es: "+fechaInicio);
                 System.out.println("mensaje enviado");
                 
             }             
         }catch(MessagingException e){
-            System.out.println("hubo un error");
+            System.out.println("hubo un error al enviar el mensaje");
             throw new RuntimeException(e);
             
         }
