@@ -220,7 +220,8 @@ public ModelAndView crear ()throws IOException{
             return m;
         }
         logger.info("Guarda un nuevo usuario");
-        return lista(request, response);
+        //return lista(request, response);
+        return login();
     }
     
 /**

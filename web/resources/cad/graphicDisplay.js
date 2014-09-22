@@ -10,7 +10,7 @@
 // habilita funciones de grafico
 
 var k, i = 0;
-var sal;
+
 /**
  * *****************************************************************************
  * Funcion constructora del Display.
