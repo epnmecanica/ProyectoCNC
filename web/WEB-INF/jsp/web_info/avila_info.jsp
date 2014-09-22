@@ -57,7 +57,7 @@
                                 </p><p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;">Post Doctorado, Geomecánica Computacional Northwestern U - USA.</span></p><p style="margin-right: 25px; margin-left: 25px;">
 
                                 </p><p class="MsoNormal" style="margin-bottom: 0.0001pt; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;">Post
-                                Doctorado, Geomecánica Computacional CALTECH - USA.</span></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Correo electrónico:</span> cavila67@caltech.edu .ec</span></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Cargo dentro de la Institución:</span> INVESTIGADOR PROMETEO</span></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><br></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;">ASESORIA Y COORDINACION
+                                Doctorado, Geomecánica Computacional CALTECH - USA.</span></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Correo electrónico:</span> cavila67@caltech.edu .ec</span></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Cargo dentro de la Institución:</span> INVESTIGADOR PROMETEO</span></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;">ASESORIA Y COORDINACION
                                 IKIAM-MCCTH (2013-a la fecha): Asesor en temas académicos y de ciencia y
                                 tecnología en el proyecto de la universidad amazónica IKIAM.
                                 SNNA-SENESCYT (2012-a la fecha): Asesor en varios temas académicos del SNNA.
@@ -79,7 +79,33 @@
                                 Co-Dirección Proyecto de Investigación en Flujos-Granulares:
                                 Robert Rivers Ingersoll - Georgia Institute of Technology
                                 Wesley Swank - California Institute of Technology
-                                CALTECH (USA: 2010-2011): Teacher Assistant.</span><br></p><p><br></p><p><br></p></div>
+                                CALTECH (USA: 2010-2011): Teacher Assistant.</span></p><p></p>
+                                <p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Publicaciónes: </span></span></p>
+                                        <p style="text-align: center;"></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;">
+                                        2013: Avila, C., Ramos, A., Rivera, D., Modelamiento discreto de la descarga de silos de almacenamiento: Un enfoque micromecánico estocástico. En preparación.
+                                        2013: Avila, C., Vega, Rafael., Impacto ambiental de la construcción del metro de Quito en el patrimonio hist_orico de la ciudad. En preparación.
+                                        2013: Avila, C., Andrade, J., Modelamiento multi-escala de geomateriales. Revista Politécnica.
+                                        2012: Avila C., Andrade J., Advances in Multiscale modeling and characterization of granular matter, Procedia IUTAM, Volume 3, 2012, Pages 157-171, ISSN 2210-9838, 10.1016/j.piutam.2012.03.011.
+                                        2012: J. E. Andrade, K.W. Lim, C.F. _ Avila, and I. Vlahinich. Granular element for computational particle methods. Computer Methods in Applied Mechanics and Engineering. 2012. DOI: 10.1016/6
+                                        2012: J. E. Andrade, Q. Chen, P. H. Le, C. F. _ Avila, and T. M. Evans. On the rheology of dilative granular media: bridging solid- and fluid-like behavior. Journal of the Mechanics and Physics of Solids, 60:1122-1136, 2012.
+                                        2012: J. E. Andrade and C. F. Avila. Granular element method (GEM): linking interparticle forces with macroscopic loading. Granular Matter, 14:5161, 2012.
+                                        2012: Avila C.,Andrade, J., "The life cycle of avalanches: Modeling and simulations".World Congress on Computational Mechanics, Brazil 2012.
+                                        2011: J. E. Andrade, C. F. _ Avila, S. A. Hall, N. Lenoir, and G. Viggiani. Multiscale modeling and characterization of granular matter: from grain kinematics to continuum mechanics. Journal of the Mechanics and Physics of Solids, 59:237250, 2011.
+                                        2011: Avila C.,Andrade, J., "Experiment based multiscale computations for granular matter: from grain kinematics to continuum mechanics.", ASCE, Soil/Rock Mechanics and modeling. DOI: 10.1061/41165(397)443, 2011.
+                                        2011: Andrade, J., Avila C., Hall, S.A., Lenoir, N., Viggiani, G.,"Multiscale modeling and characterization of granular matter: from grain kinematics to continuum mechanics". Journal of the Mechanics and Physics of Solids, V59, Issue 2, 2011. Pg. 237-250.
+                                        2011: Andrade, J., Phong B. H. Le, Qiushi Chen, Avila C., ,"A rate-dependent plasticity model for dilative granular materials,". Jame Rice symposium on geophysics, Enero 2011, Pasadena.
+                                        2011: Andrade, J., Phong B. H. Le, Qiushi Chen, Avila C., ,"Multi-scale ratedependent plasticity model for granular materials,". Aceptado para: USNCCM, 2011, Minesota.
+                                        2011: Andrade, J., Avila C., Phong, Le. ,"Uncovering inter-particle contact forces hidden behind experimental information,". Aceptado para: COMPLAS, 2011, Barcelona.
+                                        2010: Avila C.,Andrade, J.,"Multiscale computations for the prediction of strain localization in granular media,". US Congress on Theoretical and Applied Mechanics, USA 2010.
+                                        2010: Andrade, J., Avila C.,"Capturing strain localization in granular matter with multiscale computations,". World Congress in Computational Mechanics, AUSTRALIA.
+                                        2009: Andrade, J., Tu Xuxin, Avila C.,"Multiscale modeling of granular matter: Connecting the continuum and granular scales,". Proceedings of the X International Conference on Computational Plasticity, COMPLAS X, Barcelona 2009.
+                                        2009: Andrade, J., Tu Xuxin, Avila C., "Predictive Multiscale modeling of Granular Matter: from discrete mechanics to continuum mechanics,". US Congress on Computational Mechanics Ohaio, USA, July 2009.
+                                        2005: Avila C., Tsuji Y., Shiraishi Y.,Tsugiyama T., "Crack Width prediction by articial neural networks," IEEE, ICANGA, Coimbra-Portugal.
+                                        2005: Avila C., Tsuji Y., Shiraishi Y.,Tsugiyama T., "A genetic articial neural network for the prediction of the flexural response of precast RC beams joined by mechanical connectors," Cement Science and Concrete Technology, v.No.597 2003: Avila C., Tsuji Y., Tosida M., Yutaka I., "Flexural behaviour of precast RC beams joined by mechanical connectors," Cement Science and Concrete Technology. ,v.No.57, p.683 690
+                                        2003: Avila C., Tsuji Y., Tsugiyama T., Shiraishi Y., "Prediction of the flexural response of precast RC beams with mechanical connectors by Artificial Neural Networks," Cement Science and Concrete Technology. , v.No.57, p.691 699.
+                                        <p><br></p> 
+                                <p><br></p></div>
+                                    
                                 </article>
                             </div>
                             <div class="art-layout-cell art-sidebar1">

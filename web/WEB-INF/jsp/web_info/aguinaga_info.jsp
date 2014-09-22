@@ -49,8 +49,8 @@
                                         </p><p style="margin-right: 25px; margin-left: 25px; padding-left: 20px;"><span style="font-family: Arial;">Masterado Universidad
                                         Politécnica De Madrid, Madrid – España.</span></p><p style="padding-left: 20px;">
                                         </p><p style="margin-right: 25px; margin-left: 25px; padding-left: 20px;"><span style="font-family: Arial;">Especialización Universidad
-                                        Politécnica De Madrid, Madrid – España.</span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;"><br></span><br></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Correo electrónico:</span> alvaro.aguinaga@epn.edu.ec<br></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Cargo dentro de la Institución:</span> Decano de la Facultad de Ingeniería Mecánica de la
-                                        Escuela Politécnica Nacional.<br></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><br></span></p><p style="margin-right: 25px; margin-left: 25px; text-align: justify;"><span style="font-family: Arial;">En la actualidad el Dr. Álvaro Aguinaga se desempeña como Profesor de la
+                                        Politécnica De Madrid, Madrid – España.</span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;"></span></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Correo electrónico:</span> alvaro.aguinaga@epn.edu.ec<br></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Cargo dentro de la Institución:</span> Decano de la Facultad de Ingeniería Mecánica de la
+                                        Escuela Politécnica Nacional.</span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"></span></p><p style="margin-right: 25px; margin-left: 25px; text-align: justify;"><span style="font-family: Arial;">En la actualidad el Dr. Álvaro Aguinaga se desempeña como Profesor de la
                                         Escuela Politécnica Nacional (Profesor Principal Nivel 10), con dedicación a
                                         tiempo completo en la Facultad de Ingeniería Mecánica (FIM) de la EPN.
                                         Actualmente ejerce las funciones de Decano de la Facultad de Ingeniería
@@ -77,7 +77,19 @@
                                         Álvaro Aguinaga ha fortalecido y potenciado su desempeño docente. Ha presentado
                                         numerosos cursos, seminarios, conferencias científicas y técnicas en foros
                                         nacionales e internacionales y ha publicado varios artículos científicos y de
-                                        difusión en medios nacionales e internacionales.</span></p><p style="text-align: center;"><br></p><p><br></p>
+                                        difusión en medios nacionales e internacionales. </span></p>
+                                        <p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold;">Publicaciónes: </span><br></span></p>
+                                        <p style="text-align: center;"></p><p class="MsoNormal" style="margin-bottom: 0.0001pt; text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;">
+                                        1. “Diseño y Construcción de un Prototipo de Planta Dispensadora de Hidrógeno Doméstica, con Electrolizador Híbrido, Solar y Eléctrico”, Revista Escuela Politécnica Nacional No. 30 Volumen 1, Mayo 2012.
+                                        2. Análisis de Factibilidad Técnica y Ambiental para la Propulsión Eléctrica de Autos Particulares en la Ciudad de Quito. Escuela Politécnica Nacional, 2011, ISBN 978-9942-07-048-7.
+                                        3. Simulación de Control y Monitores Vehicular Usando Tecnología GSM Como Medio de Transmisión. Escuela Politécnica Nacional, 2011, ISBN 978-9942-07-048-7.
+                                        4. Publicación de ponencia en Foro Internacional en Gestión del Mantenimiento, Comisión Latinoamericana de Productividad y Medio Ambiente CLAPAM, Guayaquil, 10 y 11 de julio 2009.
+                                        5. Publicación de ponencia en el XXIII Seminario del Sector Eléctrico, ECUACIER, MEPE, Salinas, Mayo 2008.
+                                        Experiencia investigativa y en ejecución de proyectos.
+                                        Proyecto Semilla No. PIS-12-06: “Producción de Hidrógeno a Partir de Vapor Sobrecalentado de Agua en un Panel Solar Capilar con Control Difuso”
+                                        Proyecto Semilla No. PIS-09-02: “Diseño y Construcción de un Prototipo de Planta Dispensadora de Hidrógeno Doméstica, con Electrolizador Híbrido, Solar y Eléctrico”.
+                                        “Desarrollo, Diseño y Producción de un Sistema de un Prototipo para el Control de Calidad de Productos Industriales Ecuatorianos por Visión Artificial”. Fundacyt/Senecyt.
+                                        <p><br></p>                                            
                                     </div>
                                 </article>
                             </div>
