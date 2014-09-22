@@ -41,12 +41,8 @@
                                         <h2 class="art-postheader"><span class="">Mauricio Duque Orozco.</span></h2>
                                     </div>                                              
                                 <div class="art-postcontent art-postcontent-0 clearfix"><p><br></p><p style="margin-right: 25px; margin-left: 25px; text-align: center;"><img width="150" height="197" alt="" class="art-lightbox" src="../resources/images/fotosinfo/tmpC241.png" style="border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(214, 220, 218); border-right-color: rgb(214, 220, 218); border-bottom-color: rgb(214, 220, 218); border-left-color: rgb(214, 220, 218); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px;"><br></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">DATOS PERSONALES</span><br></p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">NOMBRE:</span> MAURICIO DUQUE OROZCO
-                                    </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">CÉDULA DE IDENTIDAD:</span> 1752937837.
-                                    </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">FECHA DE NACIMIENTO:</span> 17 de Diciembre de 1987.
+                             
                                     </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">LUGAR DE NACIMIENTO:</span> Manizales, Caldas, Colombia.
-                                    </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">ESTADO CIVIL:</span> Soltero.
-                                    </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">DIRECCIÓN:</span> Juan Procel OE5 12N 72A, Urb El Condado.
-                                    </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">TELÉFONO:</span> 0983217039 - 02 2491793.
                                     </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">E-MAIL:</span> mauricio.duque.eje@icloud.com
                                     </p><p style="margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">PERFIL</span></p><p style="margin-right: 25px; margin-left: 25px; padding-left: 20px; text-align: justify;">Profesional ingeniero electrónico especializado en automatización industrial
                                     y control, con más de cinco (6) años de experiencia laboral, en empresas
