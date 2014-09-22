@@ -1145,28 +1145,6 @@ jQuery(function () {
 
 
 
-jQuery(window).bind("resize", (function ($) {
-    /*global responsiveDesign */
-    "use strict";
-    return function () {
-        if (typeof responsiveDesign !== "undefined" && responsiveDesign.isResponsive) {
-            $("header.art-header .art-shapes").children().css("left", "");
-            return;
-        }
-        var sheetWidth = $(".art-sheet").width();
-        var sheetLeft = $(".art-sheet").offset().left;
-        $("header.art-header .art-shapes>*, header.art-header>.art-textblock, header.art-header>.art-headline, header.art-header>.art-slogan").each(function () {
-            var object = $(this);
-            var objectLeft = sheetWidth * parseFloat(object.attr("data-left") || "0") / 100 + sheetLeft;
-            object.css("left", objectLeft + "px");
-        });
-    };
-})(jQuery));
-
-jQuery(function ($) {
-    "use strict";
-    $(window).trigger("resize"); 
-});
 jQuery(function ($) {
     "use strict";
     if (!$.browser.msie || parseInt($.browser.version, 10) > 8)
@@ -1196,8 +1174,6 @@ var processHeaderMultipleBg = (function ($) {
             header.append("<div style=\"position:absolute;top:0;left:0;width:100%;height:100%;background:" + bgimage + " " + bgpositions[i] + " no-repeat\">");
         }
         header.css('background-image', "url('../resources/images/fotosinfo/header.jpg')".replace(/(url\(['"]?)/i, "$1" + path));
-        header.css('background-position', "center top");
+        header.css('background-position', "0 0");
     });
 })(jQuery);
-
-

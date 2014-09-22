@@ -11,7 +11,7 @@ and open the template in the editor.
 #art-main
 {
    background: #F6F7F9 url('../resources/images/fotosinfo/page.jpeg') repeat-x scroll;
-   background: url('../resources/images/fotosinfo/pageglare.png') no-repeat, url('../resources/images/fotosinfo/page.jpeg') repeat-x, #54A1BE;
+   background: url('../resources/images/fotosinfo/pageglare.png') no-repeat, url('../resources/images/fotosinfo/page.jpeg') repeat-x, #F6F7F9;
    margin:0 auto;
    font-size: 13px;
    font-family: Tahoma, Arial, Helvetica, Sans-Serif;
@@ -296,7 +296,7 @@ body
 {
    padding: 0;
    margin:0;
-   min-width: 900px;
+   min-width: 1150px;
    color: #333C39;
 }
 
@@ -386,29 +386,15 @@ li p, .art-postcontent li p, .art-blockcontent li p
    margin-right: 0 !important;
 }
 
-.art-object701860
-{
-    display: block;
-    left: 0%;
-    margin-left: -1px;
-    position: absolute;
-    top: -54px;
-    width: 900px;
-    height: 347px;
-    background-image: url('../resources/images/fotosinfo/uno.png');
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    z-index: 3;
-}
 .art-headline
 {
   display: inline-block;
   position: absolute;
   min-width: 50px;
-  top: 102px;
-  left: 49.12%;
+  top: 93px;
+  left: 48.79%;
   line-height: 100%;
-  margin-left: -330px !important;
+  margin-left: -400px !important;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -423,12 +409,12 @@ li p, .art-postcontent li p, .art-blockcontent li p
 .art-headline a:visited, 
 .art-headline a:hover
 {
-font-size: 36px;
+font-size: 44px;
 font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 font-weight: bold;
 font-style: normal;
 text-decoration: none;
-text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 0px rgb(23, 23, 23), 0px 1px 0px rgb(23, 23, 23), 0px 0px 10px rgba(0, 0, 0, 0.99);
+text-shadow: 0px 0px 6px rgba(23, 23, 23, 0.98);
   padding: 0;
   margin: 0;
   color: #FFFFFF !important;
@@ -439,10 +425,10 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
   display: inline-block;
   position: absolute;
   min-width: 50px;
-  top: 219px;
-  left: 74.96%;
+  top: 207px;
+  left: 64.04%;
   line-height: 100%;
-  margin-left: -159px !important;
+  margin-left: -152px !important;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -458,7 +444,7 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
 .art-slogan a:visited, 
 .art-slogan a:hover
 {
-font-size: 16px;
+font-size: 18px;
 font-family: Tahoma, Arial, Helvetica, Sans-Serif;
 font-weight: normal;
 font-style: normal;
@@ -476,32 +462,37 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
 
 .art-header
 {
+   -webkit-border-radius:5px;
+   -moz-border-radius:5px;
+   border-radius:5px;
    border:1px solid #D6DCDA;
    margin:0 auto;
-   position:relative;
    height: 250px;
-   background-image: url('../resources/images/fotosinfo/header.jpg');
-   background-position: center top;
+   background-image: url('/OpenCNC/resources/images/fotosinfo/header.jpg');
+   background-position: 0 0;
    background-repeat: no-repeat;
+   position: relative;
+   width: 1150px;
+   z-index: auto !important;
 }
 
 .responsive .art-header 
 {
-   background-image: url('../resources/images/fotosinfo/header.jpg');
+   background-image: url('/OpenCNC/resources/images/fotosinfo/header.jpg');
    background-position: center center;
-}
-
-.art-header-inner{
-   position: relative;
-   width: 900px;
-   z-index: auto !important;
-   margin: 0 auto;
 }
 
 .art-header>.widget 
 {
    position:absolute;
    z-index:101;
+}
+
+.art-header .art-slider-inner
+{
+   -webkit-border-radius:5px;
+   -moz-border-radius:5px;
+   border-radius:5px;
 }
 
 .art-nav
@@ -573,7 +564,7 @@ ul.art-hmenu
 {
    display: inline-block;
    vertical-align: middle;
-   padding-left: 220px;
+   padding-left: 6px;
    padding-right: 6px;
 }
 
@@ -588,7 +579,7 @@ ul.art-hmenu
 }
 
 .desktop  .art-nav-inner{
-   width: 900px;
+   width: 1150px;
    padding-left: 6px;
    padding-right: 6px;
 }
@@ -948,7 +939,7 @@ ul.art-hmenu ul
    margin:0 auto;
    position:relative;
    cursor:auto;
-   width: 900px;
+   width: 1150px;
    z-index: auto !important;
 }
 
@@ -1920,7 +1911,7 @@ pre
 
 .art-postdateicon:before
 {
-   content:url('../resources/images/fotosinfo/postdateicon.png');
+   content:url('images/postdateicon.png');
    margin-right:6px;
    position:relative;
    display:inline-block;
