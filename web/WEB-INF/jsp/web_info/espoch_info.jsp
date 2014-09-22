@@ -55,11 +55,11 @@
                                 institución universitaria líder en la Educación Superior y en el soporte
                                 científico y tecnológico para el desarrollo socioeconómico y cultural de la
                                 provincia de Chimborazo y del país, con calidad, pertinencia y reconocimiento
-                                social".</span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">Mision.</span><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-weight: bold;"><br></span><br></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">"Formar profesionales
+                                social".</span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;">Mision.</span><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-weight: bold;"><br></span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">"Formar profesionales
                                 competitivos, emprendedores, concientes de su identidad nacional, justicia
                                 social, democracia y preservación del ambiente sano, a través de la generación,
                                 transmisión, adaptación y aplicación del conocimiento científico y tecnológico
-                                para contribuir al desarrollo sustentable de nuestro país".</span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;"><br></span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;">La ESPOCH es una institución con
+                                para contribuir al desarrollo sustentable de nuestro país".</span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;"></span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;">La ESPOCH es una institución con
                                 personería jurídica de derecho público totalmente autónoma, se rige por la
                                 Constitución Política del Estado ecuatoriano, la ley de educación superior y
                                 por su propio estatuto y reglamentos internos y tiene su domicilio principal en
