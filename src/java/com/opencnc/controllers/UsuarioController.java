@@ -159,7 +159,7 @@ public ModelAndView crear ()throws IOException{
         
             final String username="cepravii@gmail.com";//correo de la empresa
             final String password="epncepra";//clave del correo 
-
+            String mensaje = "Bienvenido a la Plataforma Virtual OpenCNC ";
             Properties props= new Properties();
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.starttls.enable","true");
@@ -210,7 +210,8 @@ public ModelAndView crear ()throws IOException{
                 message.setFrom(new InternetAddress("cepravii@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));//
                 message.setSubject("Bienvenido OpenCNC");//el asunto del correo 
-                message.setText("Bienvenido a la Plataforma Virtual OpenCNC");// mensaje 
+                mensaje = mensaje.concat(usuario.getNombre());
+                message.setText(mensaje);// mensaje 
                 Transport.send(message); 
                 System.out.println("mensaje enviado");   
             
