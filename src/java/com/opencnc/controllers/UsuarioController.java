@@ -413,18 +413,18 @@ public ModelAndView crear ()throws IOException{
                     long diffHoras =   ((diferenciaMilisegundos / (60 * 60 * 1000)))*-1;
                    
                     System.out.println("Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña");
-                    JOptionPane.showMessageDialog(null, "Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña","Advertencia",2);
+                    //JOptionPane.showMessageDialog(null, "Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña","Advertencia",2);
                    
-                    int a =JOptionPane.showConfirmDialog(null,"Desea Cambiar la Contraseña");
-                    if(a== JOptionPane.YES_OPTION )
-                    {
-                        return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
-                    }
+                    //int a =JOptionPane.showConfirmDialog(null,"Desea Cambiar la Contraseña");
+                    //if(a== JOptionPane.YES_OPTION )
+                    //{
+                        //return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+                    //}
                     
                     }
                     else{
 //                       
-                     JOptionPane.showMessageDialog(null, "Caduco su Contraseña Ingrese una Nueva por favor","Informacion",1);
+                     //JOptionPane.showMessageDialog(null, "Caduco su Contraseña Ingrese una Nueva por favor","Informacion",1);
                      return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
                         
                     }
