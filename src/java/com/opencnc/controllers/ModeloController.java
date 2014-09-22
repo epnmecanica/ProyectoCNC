@@ -145,7 +145,7 @@ public class ModeloController {
             return new ModelAndView("redirect:/usuario/login.htm");
         } 
         }catch (Exception ex){ 
-        logger.error("Error... Al crear el modelo"+ex); 
+        logger.error("Error... Al crear el modelo"+ex.getMessage()); 
                
        }
        return null;
