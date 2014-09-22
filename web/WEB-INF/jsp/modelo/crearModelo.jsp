@@ -59,7 +59,9 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                               
                                     <div class="art-postcontent art-postcontent-0 clearfix">
-                                    </div>                  
+                                    </div>   
+                                    <a id="botonNuevo1" href="${pageContext.request.contextPath}/usuario/logout.htm" >Cerrar</a>     
+                                    
                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                     <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Crear un Nuevo Modelo</h1>        
                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
