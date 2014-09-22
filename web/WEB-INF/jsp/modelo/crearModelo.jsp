@@ -60,13 +60,10 @@
                                 <article class="art-post art-article">                                               
                                     <div class="art-postcontent art-postcontent-0 clearfix">
                                     </div>                  
-                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp
-                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp<a id="botonNuevo1" href="${pageContext.request.contextPath}/usuario/logout.htm" >Cerrar</a>
+                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                     <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Crear un Nuevo Modelo</h1>        
                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Nombre de Usuario: ${nombreUsuario} &nbsp &nbsp &nbsp  &nbsp <a id="botonNuevo" href="${pageContext.request.contextPath}/modelo/abrir.htm" >Abrir Proyecto existente.</a>
-                                    
-                                    
                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
                                     <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                                                method="POST"
@@ -127,10 +124,7 @@
                                         </p>
                                         <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p><p style="text-align: center;">
                                         <input id="botonGuardarModelo" type="submit" value="Guardar Modelo" />
-                                        
-                                         
                                     </form:form>
-                                     
                                     <footer class="art-footer">
                                             <div class="art-footer-inner">
                                                 <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
