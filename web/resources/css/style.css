@@ -1024,7 +1024,7 @@ ul.art-hmenu ul
 
 .art-layout-cell
 {
-   display: table-cell;
+   display: block;
    vertical-align: top;
 }
 
