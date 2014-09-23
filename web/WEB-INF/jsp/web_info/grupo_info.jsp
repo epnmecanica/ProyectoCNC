@@ -56,7 +56,7 @@
                                 <div class="art-content-layout">
                                     <div class="art-content-layout-row">
                                     <div class="art-layout-cell layout-item-1" style="width: 100%" >
-                                        <p style="text-align: center;"><span style="font-weight: bold;">Desarrollo de Software:</span></p><p><span style="font-weight: bold;">Jefe de Desarrollo:</span> Mauricio Duque Orozco, Ingeniero Electrónico.</p><p>Cristian Geovanny Jimenez Guanoluisa - Ingeniero en Sistemas.&nbsp;</p><p>Gladys Janneth Urquizo Buenaño - Ingeniera Electrónica.</p><p>Carina Magali Yaucán Villa -&nbsp;Ingeniera en Sistemas.</p><p>Andrea Fernanda Choto Tuquerres - Ingeniera en Sistemas.<br></p><p>Jorge Alfredo&nbsp;Caiza Balseca - &nbsp;Ingeniero en Sistemas.</p><p>Mayra Alejandra Villacrés&nbsp;Recalde&nbsp;- Ingeniera en Sistemas.<br></p>
+                                        <p style="text-align: center;"><span style="font-weight: bold;">Desarrollo de Software:</span></p><p><span style="font-weight: bold;">Desarrollo:</span><a href="/OpenCNC/web_info/duque_info.htm"> Ing. Mauricio Duque Orozco.</a></p>
                                     </div>
                                     </div>
                                 </div>
