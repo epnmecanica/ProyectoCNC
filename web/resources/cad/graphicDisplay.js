@@ -37,7 +37,8 @@ function GraphicDisplay(displayName, width, height) {
 			MOVE : 23,
 			EDIT : 24,
                         NAN : 25,
-                        CODE_G : 26
+                        CUT: 26,
+                        CODE_G : 27
 	};
 	
 	// Enumerate all type of action
@@ -1312,6 +1313,40 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			}
 			this.tooltip = "Seleccion elemento para codigo G";
 			break;
+                        
+                case this.MODES.CUT:
+			 
+                                    this.cvn.css('cursor', 'default');
+
+                         if (action === this.MOUSEACTION.MOVE) {
+
+                            
+                                 if (this.Interseccion(this.getCursorXLocal(), this.getCursorYLocal()) != null) {
+                                     this.tooltip = "intersecciones";
+                                 } else {
+                                     this.tooltip = "no inter";
+                                    
+                                 }
+                            
+                         } else if (action === this.MOUSEACTION.DOWN) {
+                             if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
+                                
+                             } else if (this.temporaryComponentType === COMPONENT_TYPES.LINE) {
+                                 
+                                 this.resetMode();
+                             }
+
+                             this.tooltipCode = this.getTextCode() + '\n' + ' Corte: ' + this.temporaryPoints[0] + ', ' + this.temporaryPoints[1];
+
+                         }
+                         //this.tooltip = "Add linea";
+
+			break;        
+                  
+                  
+                  
+                  
+                  
 		default:
 			this.tooltip = this.tooltipDefault;
 	}
@@ -1746,6 +1781,156 @@ GraphicDisplay.prototype.findIntersectionObject = function(){
                                 }    
                                 return null;
 };
+
+GraphicDisplay.prototype.Interseccion = function (x, y) {
+    var vector = new Array();
+    var pendiente = 0;
+    var x1, x2, y1, y2;
+    vector = this.getObjects();
+    var tamaño = vector.length;
+    console.log("grupo");
+    var equis = new Array();
+    var yes = new Array();
+    //
+    var puntos = new Array();
+    for (var i = 0; i < tamaño; i++) {
+        var obj = vector[i];
+        x1 = obj.x1.valueOf();
+        y1 = obj.y1.valueOf();
+        x2 = obj.x2.valueOf();
+        y2 = obj.y2.valueOf();
+
+        //almacena para ordenar y comparar
+        equis[0] = x;
+        equis[1] = x1;
+        equis[2] = x2;
+        yes[0] = y;
+        yes[1] = y1;
+        yes[2] = y2;
+        equis= this.ordenar(equis);
+        yes=this.ordenar(yes);
+
+        pendiente = (y2 - y1) / (x2 - x1);
+        //pendiente=pendiente*100;
+        pendiente = pendiente.toFixed(2);
+        // pendiente=pendiente/100;
+        var calculada;
+        calculada = (y2 - y) / (x2 - x);
+        // calculada=calculada*100;
+        calculada = calculada.toFixed(2);
+
+
+        // if(obj.type.valueOf() == 2){
+         console.log("vector equis"+equis+ "  pendiente calculada = " + pendiente + "x1" + x1 + "x2" + x2 + "x" + x + "y1" + y1 + "y1" + y1);
+        
+        if (calculada == pendiente && y==yes[1] && x==equis[1]) {
+      //
+            console.log("hay interseccion")
+                        puntos[0]=x;
+            puntos[1]=y;
+         //la funcion cambiar es la que realiza el corte aqui esta implementada dentro de interseccion
+            this.cambiar(vector,puntos,i,0);
+            return 1;
+            
+
+        }
+    }
+};
+//la funcion cortar deberia realizar el corte independiente en este caso tiene el mismo codigo que interseccion ya que lo modifique dentro de interseccion para probar su funcionamiento
+GraphicDisplay.prototype.cortar = function (x,y) {
+ var vector = new Array();//almacena la lista de objetos
+ var puntos = new Array();//almacena la ubicacion del cursor
+    var pendiente = 0;
+    var x1, x2, y1, y2;
+    vector = this.getObjects();
+    var tamaño = vector.length;
+    console.log("grupo");
+    var equis = new Array(); //almacena los valores en x del punto inicial y final de la recta y del de la posicion del mouse
+    var yes = new Array(); //almacena los valores en y del punto inicial y final de la recta y del de la posicion del mouse
+    var seleccion;
+    //obtiene los valores de los puntos de cada linea
+    for (var i = 0; i < tamaño; i++) {
+        var obj = vector[i];
+        x1 = obj.x1.valueOf();
+        y1 = obj.y1.valueOf();
+        x2 = obj.x2.valueOf();
+        y2 = obj.y2.valueOf();
+
+        //almacena para ordenar y comparar
+        equis[0] = x;
+        equis[1] = x1;
+        equis[2] = x2;
+        yes[0] = y;
+        yes[1] = y1;
+        yes[2] = y2;
+        //ordena los puntos de mayor a menos para comprobar que la ubicacion del cursor esta dentro de la recta
+        equis= this.ordenar(equis);
+        yes=this.ordenar(yes);
+
+        pendiente = (y2 - y1) / (x2 - x1);
+        //pendiente=pendiente*100;
+        pendiente = pendiente.toFixed(2);
+        // pendiente=pendiente/100;
+        var calculada;
+        calculada = (y2 - y) / (x2 - x);
+        // calculada=calculada*100;
+        calculada = calculada.toFixed(2);
+
+
+        // if(obj.type.valueOf() == 2){
+
+        console.log("vector equis"+equis.toString()+ "  pendiente calculada = " + pendiente + "x1" + x1 + "x2" + x2 + "x" + x + "y1" + y1 + "y1" + y1);
+        
+        //con esta funcion compara si la pendiente es igual a la de la recta y si esta dentro de la recta
+        if (calculada == pendiente && y==yes[1] && x==equis[1]) {
+            puntos[0]=x;
+            puntos[1]=y;
+            this.cambiar(vector,puntos,i,0);
+            console.log("que corte desea hacer")
+            
+            //
+        }
+    }
+
+};
+
+//la funcion cambiar es la encargada de cambiar los los puntos de la recta al momento de encontrar una interseccion
+GraphicDisplay.prototype.cambiar = function (vector, puntos,posicion,seleccion) {
+    
+    //el switch nos permitira decidir si desea realizar el corte hacia la derecha o izquierda
+    //EN este caso esta por defecto a la derecha
+            
+    /*switch (seleccion) {
+            case seleccion==menor:
+            vector[posicion].x1=puntos[0];
+            vector[posicion].y1=puntos[1];
+           break;*/
+            //case seleccion==mayor:
+            vector[posicion].x2=puntos[0];
+            vector[posicion].y2=puntos[1];
+            //break;
+//}
+};
+//ordena un vector de mayor a menor me permite saber si la interseccion de los puntos esta dentro de la linea y no fuera para evitar errores
+//con esta funcion y la de interseccion se podria resolver la parte de si las lineas son colineales ya que en el caso de que el punto este fuera de la recta habria que comprobar que la posicion [1] no es la del mouse
+GraphicDisplay.prototype.ordenar = function (x) {
+    
+    var aux;
+    var aux2;
+    for (var i = 0; i < 3; i++) {
+        for (var j=i+1; j<3; j++) {
+            if (x[i].valueOf() > x[j].valueOf()) {
+                aux = x[i].valueOf();
+                aux2 = x[j].valueOf();
+                x[i] = aux2;
+                x[j] = aux;
+            }
+        }
+    }
+    
+    return x;
+};
+
 
 // TODO: Move in Utils.
 
