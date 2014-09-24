@@ -3,7 +3,6 @@
     Created on : 18/05/2014, 11:16:57 PM
     Author     : root
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -11,22 +10,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recuperar Contraseña</title>
+        <title>Cambiar Contraseña</title>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/jquery-1.10.2.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery-ui-1.10.4.custom.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
-        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
+        <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
-        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet" media="all">
-               
+        
+
     </head>
     <body>
-        
         <div id="art-main">
             <div class="art-sheet clearfix">
                 <header class="art-header">
@@ -48,24 +41,19 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article">                                 
-                                    <div class="art-postcontent art-postcontent-0 clearfix">
-                                        <div class="art-content-layout">
-                                            <div class="art-content-layout-row">
-                                                <div class="art-layout-cell" style="width: 50%" >
-                                                    <p style="text-align: center;"> </div>
-                                            </div>
-                                        </div>
-                                    </div>       
-                                    <h1>Recuperar Contraseña</h1>
+                                <article class="art-post art-article"><p><br></p><p><br></p><p><br></p>
+                                      <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Recuperar Contraseña</span></p><p><br></p><p><br></p><p><br></p>                                                                      
+                                          
                                     <form:form action="${pageContext.request.contextPath}/usuario/enviarMail.htm"
                                                 method="POST"
                                                 commandName="mail"
                                                 >
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Ingrese su Correo Electrónico: &nbsp
                                         <input id="enviarMail" value="example@example.com" name="enviarMail" type="text"/>
-
-                                         <input type="submit" value="Enviar contraseña"/>
-                                     </form:form>
+                                        <p><br></p><p><br></p>
+                                         &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="Enviar contraseña"/>
+                                         <p><br></p>
+                                    </form:form>
                                 </article>                                
                             </div>
                         </div>
