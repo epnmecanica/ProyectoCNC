@@ -17,6 +17,7 @@ import com.opencnc.beans.Modelo;
 import com.opencnc.beans.Serializacion;
 import com.opencnc.beans.Texto;
 import com.opencnc.beans.TipoMaquina;
+import com.opencnc.beans.Usuario;
 import com.opencnc.beans.lineatool;
 import com.opencnc.util.HibernateUtil;
 import java.lang.reflect.Type;
@@ -370,8 +371,10 @@ public class ElementoGraficoController {
                                     HttpServletResponse response) throws Exception{
         try{
             logger.info("Se creara un elemento");
-        HttpSession sess =  request.getSession();
-        if (sess != null){
+            
+            HttpSession sess =  request.getSession();
+            Usuario us = (Usuario)sess.getAttribute("usuario");
+        if (sess != null && us != null){
             Session  s = HibernateUtil.getSessionFactory().openSession();
             Modelo mod = (Modelo)s.get(Modelo.class, id);
            
