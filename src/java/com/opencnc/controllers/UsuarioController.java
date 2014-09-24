@@ -85,7 +85,7 @@ public class UsuarioController {
             //Usuario us = (Usuario)request.getAttribute("usuario");
             Usuario us = (Usuario)sess.getAttribute("usuario");
             //Usuario us = (Usuario)session.getAttribute("usuario");
-
+            
             if(us == null){
                  return new ModelAndView("redirect:/usuario/login.htm"); 
                  

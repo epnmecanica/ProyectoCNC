@@ -6,6 +6,7 @@
  */                                
 var respuesta;
 $(document).ready(function() {
+        console.log(myIP());
        this.compensacionWidth = 500;
        this.compensacionHeight = 200;
         
