@@ -22,6 +22,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">                   
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/> 
     </head>
     
     <body>
@@ -47,14 +48,12 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article">                                                                                       
-                                    <h1>Abrir modelo existente.</h1>  
-                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
+                                <article class="art-post art-article"><p><br></p>                                                                                                         
+                                    <p style="text-align: center;"><span style="font-size: 25px;">Abrir un Modelo Existente<br></span></p> 
                                     Nombre de usuario: ${nombreUsuario}
-                                        <table id="tablaModelo" class="display" cellspacing="0" width="80%">
+                                        <table id="tablaModelo" class="display" cellspacing="0" width="100%">
                                             <thead>
-                                                <tr>
-                                                
+                                                <tr>                                                
                                                 <th>Nombre</th>
                                                 <th>Descripcion</th>
                                                 <th>Unidades</th>
@@ -67,8 +66,7 @@
                                                 </tr>
                                             </thead>
                                             <tfoot>
-                                                 <tr>
-                                                    
+                                                 <tr>                                                    
                                                     <td>Nombre</td>
                                                     <td>Descripcion</td>
                                                     <td>Unidades</td>
@@ -117,11 +115,11 @@
                                             </c:forEach>
                                             </tbody>
                                         </table>
-                                <footer class="art-footer">
-                                    <div class="art-footer-inner">
-                                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
-                                    </div>
-                                </footer>
+                                    <footer class="art-footer">
+                                        <div class="art-footer-inner">
+                                            <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
+                                        </div>
+                                    </footer>
                                 </article>        
                             </div>
                         </div>
