@@ -4,7 +4,6 @@
     Author     : user
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -47,12 +46,12 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article">                                                                                                                                                                                       
                                         <p style="text-align: center; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold; color:rgb(69, 82, 112)">COMPUTER AIDED MANUFACTURING</span><br></span></p><p><br></p>                                                                                                                                               
-                                            <p style="text-align: center;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">Producci√≥n Asistida por Computadora.&nbsp;</span></p>
+                                            <p style="text-align: center;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">ProducciÛn Asistida por Computadora.&nbsp;</span></p>
                                             <p style="text-align: center;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;"><br></span></p>
-                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">Se trata de la tecnolog√≠a implicada en el uso de computadores para realizar tareas de Modelaci√≥n geom√©trica Planificaci√≥n Programaci√≥n Inspecci√≥n  Ensamblado y Embalaje de la producci√≥n.&nbsp;</span></p>
-                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El t√©rmino CAM se puede definir como el uso de sistemas inform√°ticos para la planificaci√≥n, gesti√≥n y control de las operaciones de una planta de fabricaci√≥n mediante una interfaz directa o indirecta entre el sistema inform√°tico y los recursos de producci√≥n. Cosiste en usar tecnolog√≠a mediante el uso de computadores para realizar diversas tareas como: </span></p>  
-                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">&nbsp; &nbsp; Modelaci√≥n, Geom√©trica, Planificaci√≥n, Programaci√≥n, Inspecci√≥n, Ensamblado y Embalaje de la producci√≥n.</span></p> 
-                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El CAM toma la informaci√≥n del dise√±o y genera la ruta de corte que tiene que seguir la herramienta para fabricar la pieza deseada; a partir de esta ruta de corte se crear√° autom√°ticamente el programa de maquinado, el cual puede ser introducido a la m√°quina mediante un disco o a su vez tambi√©n puede ser enviado electr√≥nicamente.</span></p>                                            
+                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">Se trata de la tecnologÌa implicada en el uso de computadores para realizar tareas de ModelaciÛn geomÈtrica PlanificaciÛn ProgramaciÛn InspecciÛn  Ensamblado y Embalaje de la producciÛn.&nbsp;</span></p>
+                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El tÈrmino CAM se puede definir como el uso de sistemas inform·ticos para la planificaciÛn, gestiÛn y control de las operaciones de una planta de fabricaciÛn mediante una interfaz directa o indirecta entre el sistema inform·tico y los recursos de producciÛn. Cosiste en usar tecnologÌa mediante el uso de computadores para realizar diversas tareas como: </span></p>  
+                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">&nbsp; &nbsp; ModelaciÛn, GeomÈtrica, PlanificaciÛn, ProgramaciÛn, InspecciÛn, Ensamblado y Embalaje de la producciÛn.</span></p> 
+                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El CAM toma la informaciÛn del diseÒo y genera la ruta de corte que tiene que seguir la herramienta para fabricar la pieza deseada; a partir de esta ruta de corte se crear· autom·ticamente el programa de maquinado, el cual puede ser introducido a la m·quina mediante un disco o a su vez tambiÈn puede ser enviado electrÛnicamente.</span></p>                                            
                                 </article>                              
                             </div>
                         </div>
@@ -60,7 +59,7 @@
                 </div>              
                 <footer class="art-footer">
                     <div class="art-footer-inner">
-                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versi√≥n Beta 1.0</span></p><p><br></p>                  
+                        <p style="text-align: left;"><span style="border-collapse: collapse;">VersiÛn Beta 1.0</span></p><p><br></p>                  
                     </div>
                 </footer>
             </div>

@@ -4,7 +4,6 @@
     Author     : user
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -46,16 +45,16 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article"><p><br></p> 
                                     <p style="text-align: center; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold; color:rgb(69, 82, 112)">OpenCNC</span><br></span></p><p><br></p>   
-                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">El proyecto OpenCNC es una PROYECTO √öNICO EN SU CLASE, permiti√©ndole al usuario Dise√±ar sus piezas, generar un Archivo de C√≥digo G listo para ser ejecutado en una M√°quina CNC y a su vez Guardarlo en la Red, de manera que podr√° acceder a sus archivos desde cualquier parte del mundo a trav√©s del Internet.</span></p><p><br></p>
-                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">La Plataforma Virtual OpenCNC es una herramienta clave para el uso de M√°quinas CNC dentro de las Universidades, ya que brinda facilidades para los docentes y estudiantes en el  aprendizaje de uso de √©stas m√°quinas, de manera segura, r√°pida y sobretodo eficiente. </span></p>
-                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">Los sistemas integrados CAD-CAM generan el programa de maquinado de forma autom√°tica, utilizando las computadoras personales comunicadas con los controladores de las m√°quinas de producci√≥n para mejorar la fabricaci√≥n, desarrollo y dise√±o de los productos, logrando que √©stos se puedan fabricar m√°s r√°pido, con mayor calidad, y precisi√≥n, aplicando adecuadamente la tecnolog√≠a inform√°tica.</span></p>
+                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">El proyecto OpenCNC es una PROYECTO ⁄NICO EN SU CLASE, permitiÈndole al usuario DiseÒar sus piezas, generar un Archivo de CÛdigo G listo para ser ejecutado en una M·quina CNC y a su vez Guardarlo en la Red, de manera que podr· acceder a sus archivos desde cualquier parte del mundo a travÈs del Internet.</span></p><p><br></p>
+                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">La Plataforma Virtual OpenCNC es una herramienta clave para el uso de M·quinas CNC dentro de las Universidades, ya que brinda facilidades para los docentes y estudiantes en el  aprendizaje de uso de Èstas m·quinas, de manera segura, r·pida y sobretodo eficiente. </span></p>
+                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">Los sistemas integrados CAD-CAM generan el programa de maquinado de forma autom·tica, utilizando las computadoras personales comunicadas con los controladores de las m·quinas de producciÛn para mejorar la fabricaciÛn, desarrollo y diseÒo de los productos, logrando que Èstos se puedan fabricar m·s r·pido, con mayor calidad, y precisiÛn, aplicando adecuadamente la tecnologÌa inform·tica.</span></p>
                                 </article>                                                 
                             </div>
                         </div>
                     </div> 
                     <footer class="art-footer">
                     <div class="art-footer-inner">
-                        <p style="text-align: left;"><span style="border-collapse: collapse;">Versi√≥n Beta 1.0</span></p><p><br></p>                       
+                        <p style="text-align: left;"><span style="border-collapse: collapse;">VersiÛn Beta 1.0</span></p><p><br></p>                       
                     </div>
                     </footer>
                  </div>
