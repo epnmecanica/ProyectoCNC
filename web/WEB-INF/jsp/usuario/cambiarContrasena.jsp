@@ -42,31 +42,28 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article">
-                                     <h1>Cambio de contraseña</h1>
-                                        ${nombreUsuario}
-                                        
+                                <article class="art-post art-article"><p><br></p> 
+                                      <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;"> Cambiar Contraseña</span></p><p><br></p>                                
+                                        ${nombreUsuario}                                        
                                          <form:form id="forma" action="${pageContext.request.contextPath}/usuario/nuevaContrasena.htm" onsubmit="return comprobarClave()"
                                                    method="POST"
                                                    commandName="usuario">
                                             <p>
-                                                <label for="nombre">e-mail: </label>  
+                                                &nbsp &nbsp &nbsp &nbsp <label for="nombre">e-mail: </label>  
                                                 <input id="mail" value="alguien@example.com" name="mail" type="text"/>
                                             </p>
-                                             <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
+                                            <p><br></p> 
                                             <p>
-                                                <label for="clave">Cambiar Contraseña: </label>
+                                                &nbsp &nbsp &nbsp &nbsp <label for="clave">Cambiar Contraseña: </label>
                                                 <input id="nuevaContrasena" type="text" name="nuevaContrasena" value="" />                                            
                                             </p>
-                                             <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
+                                            <p><br></p> 
                                             <p>
-                                                <label for="reClave">Confirmar Contraseña: </label>
+                                                &nbsp &nbsp &nbsp &nbsp <label for="reClave">Confirmar Contraseña: </label>
                                                 <input type="password" name="reClave" value="" />                                                                                              
                                             </p>
-                                             <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
-                                          
-                                            
-                                            <input id="botonGuardar" type="submit" value="Cambiar" />
+                                            <p><br></p>               
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="botonGuardar" type="submit" value="Cambiar" />
                                                                                        
                                         </form:form>
                                 </article>                                                            
