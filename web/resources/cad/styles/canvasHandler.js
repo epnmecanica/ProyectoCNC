@@ -7,9 +7,11 @@
 function WindowHandler(){
      
        this.compensacionWidth = 500;
-       this.compensacionHeight = 200;
+       this.compensacionHeight = 220;
        this.width;
        this.height;
+       this.beforeWidth = 0;
+       this.beforeHeight = 0;
 };
 
 WindowHandler.prototype.init = function (){
@@ -26,6 +28,15 @@ WindowHandler.prototype.init = function (){
           this.width = document.body.clientWidth - this.compensacionWidth;
           this.height = document.body.clientHeight - this.compensacionHeight;
         }
+        if(this.width !== this.beforeWidth){
+            this.beforeWidth = this.width;
+            //console.log('w ' + this.width);
+        }
+        if(this.height !== this.beforeHeight){
+            this.beforeHeight = this.height;
+            //console.log('h ' + this.height);
+        }
+        
         
 };
 
@@ -36,4 +47,6 @@ WindowHandler.prototype.getWidth = function (){
 WindowHandler.prototype.getHeight = function (){
     return this.height;
 };
+
+
 

@@ -147,6 +147,7 @@ function GraphicDisplay(displayName, width, height) {
 }
 
 
+
 /**
  * *****************************************************************************
  * Inicializa la logica del display
@@ -1518,6 +1519,10 @@ GraphicDisplay.prototype.updateCamera = function() {
 		this.cOutX += this.getCursorXLocal() - this.xCNaught;
 		this.cOutY += this.getCursorYLocal() - this.yCNaught;
 	}
+};
+GraphicDisplay.prototype.setWinWidthAndHeight = function(width,height) {
+	this.displayWidth = width;
+	this.displayHeight = height;
 };
 
 /**

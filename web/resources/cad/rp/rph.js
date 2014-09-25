@@ -153,6 +153,7 @@ function icons(){
         this.ilabel.translate(iconsArray[5],0).show();
         this.idim.translate(iconsArray[6],0).show();
         
+        
         //this.iback.translate(iconsArray[7],0).show();
         //this.iadvan.translate(iconsArray[8],0).show();
         this.iwizar.translate(iconsArray[8],0).show();

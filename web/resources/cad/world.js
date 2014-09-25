@@ -10,15 +10,32 @@ $(document).ready(function() {
     // Imprime por consola la IP de conexion.
         console.log(myIP());
         
+        
+       
+
+        // Check for the various File API support.
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+          // Great success! All the File APIs are supported.
+
+        } else {
+          alert('Su navegador no es compatible con nuestra arquitectura.');
+        }
+        cargarPantalla();
+       
+              
+        
+        
+        
+});
+var cargarPantalla  = function(){
         this.xH = new WindowHandler();
         
         this.xH.init();
-        console.log(this.xH.getWidth());
-        console.log(this.xH.getHeight());
-        
+       
         this.id = "CADCanvas"
         
         var canvas = document.createElement("canvas");
+        
         //canvas.width = this.width;
         //canvas.height = this.height;
         canvas.width = this.xH.getWidth();
@@ -39,17 +56,7 @@ $(document).ready(function() {
         gd.showOrigin = true;
         gd.showGrid = true;
         gd.snapTolerance = 5;
-       
-       
-
-        // Check for the various File API support.
-        if (window.File && window.FileReader && window.FileList && window.Blob) {
-          // Great success! All the File APIs are supported.
-
-        } else {
-          alert('Su navegador no es compatible con nuestra arquitectura.');
-        }
-               
+        
         loadIcons(gd);
         initCAD(gd);
         //deberia estar todo en una sola funcion
@@ -100,6 +107,13 @@ $(document).ready(function() {
             }
         });
         receiveAjax();
-        
-        
-});
+        $(window).resize(function() {
+             this.xH.init();
+             canvas.width = this.xH.getWidth();
+             canvas.height = this.xH.getHeight();
+             gd.setWinWidthAndHeight(this.xH.getWidth(), this.xH.getHeight());
+             
+             gd.camX = - this.xH.getWidth() + 50;
+             gd.camY =  this.xH.getHeight() -100;
+        });
+};

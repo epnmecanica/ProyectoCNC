@@ -45,7 +45,10 @@ function helperYAML (datosYaml){
   };
 
   // Configure the editor.
-  $("#yaml-editor").height($(window).height() - $("#yaml-editor").position().top);
+  //$("#yaml-editor").width($(window).width() - $("#CADcanvas"));
+  
+ // $("#yaml-editor").height($(window).height() - $("#yaml-editor").position().top);
+  $("#yaml-editor").height($(window).height() - $("#yaml-editor").position().top-100);
   var editor = window.ace.edit("yaml-editor");
   editor.setTheme("ace/theme/textmate");
   editor.getSession().setMode("ace/mode/yaml");
