@@ -59,6 +59,7 @@
                 <script src="<c:url value='/resources/cad/inputHandler.js'/>"></script>
                 <script src="<c:url value='/resources/cad/logicDisplay.js'/>"></script>
                 <script src="<c:url value='/resources/cad/graphicDisplay.js'/>"></script>
+                <script src="<c:url value='/resources/cad/styles/canvasHandler.js'/>"></script>
                 <script src="<c:url value='/resources/cad/cutHandler.js'/>"></script>
                 
                 <script src="<c:url value='/resources/cad/Ajax_Json.js'/>"></script>
@@ -80,7 +81,7 @@
                 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
                 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
                     
-                <script type="text/javascript" src="<c:url value='/resources/js/configAjaxJason.js'/>"></script>
+                <script type="text/javascript" src="<c:url value='/resources/js/ipHandler.js'/>"></script>
                 
                 
                

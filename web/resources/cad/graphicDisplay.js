@@ -1729,8 +1729,6 @@ GraphicDisplay.prototype.getDistance = function(x1, y1, x2, y2) {
  */
 GraphicDisplay.prototype.getSlope = function(x, y, x1, y1) {
 	var m = (Math.abs(y1)-Math.abs(y))/(Math.abs(x1)-Math.abs(x));
-        //var m = ((y1-y)/(x1-x));
-        //console.log(m);
 	return m.toFixed(2);
 };
 GraphicDisplay.prototype.getB = function(m,x1,y1) {

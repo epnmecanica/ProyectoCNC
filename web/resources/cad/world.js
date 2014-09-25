@@ -10,40 +10,27 @@ $(document).ready(function() {
     // Imprime por consola la IP de conexion.
         console.log(myIP());
         
-       this.compensacionWidth = 500;
-       this.compensacionHeight = 200;
+        this.xH = new WindowHandler();
         
-        if( typeof( window.innerWidth ) == 'number' ) {
-          //No-IE
-          this.width = window.innerWidth - this.compensacionWidth;
-          this.height = window.innerHeight - this.compensacionHeight;
-        } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
-          //IE 6+
-          this.width = document.documentElement.clientWidth - this.compensacionWidth;
-          this.height = document.documentElement.clientHeight - this.compensacionHeight;
-        } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
-          //IE 4 compatible
-          this.width = document.body.clientWidth - this.compensacionWidth;
-          this.height = document.body.clientHeight - this.compensacionHeight;
-        }
-       
-        // Create the canvas
-        //this.width = 800;
-        //this.height = 600;
-        
+        this.xH.init();
+        console.log(this.xH.getWidth());
+        console.log(this.xH.getHeight());
         
         this.id = "CADCanvas"
         
         var canvas = document.createElement("canvas");
-        canvas.width = this.width;
-        canvas.height = this.height;
+        //canvas.width = this.width;
+        //canvas.height = this.height;
+        canvas.width = this.xH.getWidth();
+        canvas.height = this.xH.getHeight();
         canvas.id = this.id;
            
         document.body.appendChild(canvas);
         
-        var gd = new GraphicDisplay(this.id, this.width, this.height);
-        gd.camX = - this.width + 50;
-        gd.camY =  this.height -100;
+        var gd = new GraphicDisplay(this.id, this.xH.getWidth(), this.xH.getHeight());
+    
+        gd.camX = - this.xH.getWidth() + 50;
+        gd.camY =  this.xH.getHeight() -100;
         //gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
