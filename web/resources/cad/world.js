@@ -6,7 +6,10 @@
  */                                
 var respuesta;
 $(document).ready(function() {
+    
+    // Imprime por consola la IP de conexion.
         console.log(myIP());
+        
        this.compensacionWidth = 500;
        this.compensacionHeight = 200;
         

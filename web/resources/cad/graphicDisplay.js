@@ -1321,7 +1321,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                          if (action === this.MOUSEACTION.MOVE) {
 
                             
-                                 if (this.Interseccion(this.getCursorXLocal(), this.getCursorYLocal()) != null) {
+                                 if (this.Interseccion(this.getCursorXLocal(), this.getCursorYLocal()) !== null) {
                                      this.tooltip = "intersecciones";
                                  } else {
                                      this.tooltip = "no inter";
@@ -1871,8 +1871,7 @@ GraphicDisplay.prototype.cortar = function (x,y) {
         //pendiente=pendiente*100;
         pendiente = pendiente.toFixed(2);
         // pendiente=pendiente/100;
-        var calculada;
-        calculada = (y2 - y) / (x2 - x);
+        var calculada = (y2 - y) / (x2 - x);
         // calculada=calculada*100;
         calculada = calculada.toFixed(2);
 
