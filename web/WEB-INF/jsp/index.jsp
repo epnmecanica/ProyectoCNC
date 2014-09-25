@@ -54,7 +54,7 @@
                <%getServletContext().setAttribute("contador", new Integer(contador.intValue()+1) );%>
                 
                 <nav class="art-nav">
-                    <ul class="art-hmenu"><li><a class="active" href="index.htm">Ingresar</a><ul class="active"><li><a href="usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="usuario/login.htm">Login</a><ul><li><a href="usuario/recuperarContra.htm">Recuperar contraseña</a></li></ul></li></ul></li><li><a href="inicio/infcad.htm">CAD</a></li><li><a href="inicio/infcam.htm">CAM</a></li><li><a href="inicio/acercade.htm">Acerca de</a></li> <li> <li> <a class="active">Visitante <%out.println(" "+contador+" ");%></a></li></ul> 
+                    <ul class="art-hmenu"><li><a class="active" href="index.htm">Ingresar</a><ul class="active"><li><a href="usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="usuario/login.htm">Login</a><ul><li><a href="usuario/recuperarContra.htm">Recuperar contraseña</a></li></ul></li></ul></li><li><a href="inicio/infcad.htm">CAD</a></li><li><a href="inicio/infcam.htm">CAM</a></li><li><a href="inicio/acercade.htm">Acerca de</a></li> <li> </ul> 
                 </nav>  
                 
                 
@@ -85,7 +85,7 @@
                                    
                                     <footer class="art-footer">
                                         <div class="art-footer-inner">
-                                            <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span></p><p><br></p>
+                                            <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="border-collapse: collapse;">Visitante <%out.println(" "+contador+" ");%>  </span> </p>     <p><br></p>
                                         </div>
                                     </footer>
 				</div>                                
