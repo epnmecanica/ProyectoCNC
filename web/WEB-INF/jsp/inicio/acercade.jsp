@@ -37,17 +37,16 @@
                     </div>                                   
                 </header>
                 <nav class="art-nav">
-                    <ul class="art-hmenu"><li><a href="/OpenCNC/index.htm">Ingresar</a></li><li><a href="infcad.htm">CAD</a></li><li><a href="infcam.htm">CAM</a></li><li><a href="acercade.htm">Acerca de</a></li></ul> 
-                </nav>
+		<ul class="art-hmenu"><li><a href="/OpenCNC/index.htm" class="active">Ingresar</a><ul class="active"><li><a href="/OpenCNC/usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="/OpenCNC/usuario/login.htm">Login</a><ul><li><a href="/OpenCNC/usuario/cambiarContrasena.htm">Cambiar Contraseña</a></li><li><a href="/OpenCNC/usuario/recuperarContra.htm">Recuperar Contraseña</a></li></ul></li></ul></li><li><a href="/OpenCNC/inicio/infcad.htm">CAD</a></li><li><a href="/OpenCNC/inicio/infcam.htm">CAM</a></li><li><a href="/OpenCNC/inicio/acercade.htm">Acerca de</a></li></ul> </nav>
                  <div class="art-layout-wrapper">
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article"><p><br></p> 
                                     <p style="text-align: center; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold; color:rgb(69, 82, 112)">OpenCNC</span><br></span></p><p><br></p>   
-                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">El proyecto OpenCNC es una PROYECTO ÚNICO EN SU CLASE, permitiéndole al usuario Diseñar sus piezas, generar un Archivo de Código G listo para ser ejecutado en una Máquina CNC y a su vez Guardarlo en la Red, de manera que podrá acceder a sus archivos desde cualquier parte del mundo a través del Internet.</span></p><p><br></p>
+                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">El proyecto OpenCNC es un PROYECTO ÚNICO EN SU CLASE, que le permite al usuario Diseñar sus piezas, generar un Archivo de Código G listo para ser ejecutado en una Máquina CNC y a su vez Guardarlo en la Red, de manera que podrá acceder a sus archivos desde cualquier parte del mundo a través del Internet.</span></p><p><br></p>
                                         <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">La Plataforma Virtual OpenCNC es una herramienta clave para el uso de Máquinas CNC dentro de las Universidades, ya que brinda facilidades para los docentes y estudiantes en el  aprendizaje de uso de éstas máquinas, de manera segura, rápida y sobretodo eficiente. </span></p>
-                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">Los sistemas integrados CAD-CAM generan el programa de maquinado de forma automática, utilizando las computadoras personales comunicadas con los controladores de las máquinas de producción para mejorar la fabricación, desarrollo y diseño de los productos, logrando que éstos se puedan fabricar más rápido, con mayor calidad, y precisión, aplicando adecuadamente la tecnología informática.</span></p>
+                                        <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">Los sistemas integrados CAD-CAM generan el programa de maquinado de forma automática, utilizando las computadoras personales comunicadas con los controladores de las máquinas de producción para mejorar la fabricación, desarrollo y diseño de los productos, logrando que éstos se puedan fabricarse más rápido, con mayor calidad, y precisión, aplicando adecuadamente la tecnología informática.</span></p>
                                 </article>                                                 
                             </div>
                         </div>

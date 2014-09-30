@@ -47,7 +47,7 @@
                                         <p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-size: 12px;"><span style="font-family: Arial;">El 18 de Septiembre de 2002, ante la presencia del&nbsp;Vicepresidente de la República y el Secretario Nacional de Ciencia y 
                                         Tecnología, CEDIA fue oficialmente creado. Para constancia de la 
                                         conformación del consorcio firman los representantes de 7 instituciones 
-                                        de educación superior, 2 organismos públicos, y 2 instituciones El 
+                                        de educación superior, 2 organismos públicos, y 2 instituciones. El 
                                         estatuto de CEDIA fue aprobado por el Subsecretario de Educación y 
                                         registrado oficialmente el 6 de enero de 2003.</span></span> <span style="font-size: 9pt; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;"><br></span></p><p class="MsoNormal" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-size: 9pt; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">Lo integran las Universidades e Instituciones
                                         de Investigación y Desarrollo de Ecuador, fue creada para estimular, promover y

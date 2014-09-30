@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -5,8 +6,7 @@
 
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-           
+          
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>  
         <script src="<c:url value="/resources/js/jquery-1.10.2.js"/>" > </script>  
@@ -16,10 +16,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script> 
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">      
-        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">    
-               
-        <title>OPEN CNC</title>
-        
+        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">                  
+        <title>OPEN CNC</title>        
     </head>
 
     <body>              
@@ -37,34 +35,27 @@
                         <a href="#" class="art-slidenavigatoritem"></a>
                         <a href="#" class="art-slidenavigatoritem"></a>
                         <a href="#" class="art-slidenavigatoritem"></a>
-                    </div>
-                
-                </header>         
-               
-                
-                
+                    </div>                
+                </header>                                                  
                 <% 
-                Integer contador = (Integer)getServletContext().getAttribute("contador");%>
+                Integer contador = (Integer)getServletContext().getAttribute("contador");
+                Date fecha=new Date();
+                String host="<I>Sin acceso previo</I>";%>
                <%if ( contador == null )
                {  %>
-	       <%contador = new Integer(0);%>
+				<%contador = new Integer(0);%>
        
                <% }%>
  
                <%getServletContext().setAttribute("contador", new Integer(contador.intValue()+1) );%>
-                
+               
+               <% host=request.getRemoteHost(); fecha=new Date(          ); %>                                            
                 <nav class="art-nav">
                     <ul class="art-hmenu"><li><a class="active" href="index.htm">Ingresar</a><ul class="active"><li><a href="usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="usuario/login.htm">Login</a><ul><li><a href="usuario/recuperarContra.htm">Recuperar contraseña</a></li></ul></li></ul></li><li><a href="inicio/infcad.htm">CAD</a></li><li><a href="inicio/infcam.htm">CAM</a></li><li><a href="inicio/acercade.htm">Acerca de</a></li> <li> </ul> 
-                </nav>  
-                
-                
-                
-                
-                
-                
+                </nav>                                                                                               
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
-			<div class="art-content-layout-row">
+				<div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
 				<article class="art-post art-article">                                             
                                     <div class="art-postcontent art-postcontent-0 clearfix">
@@ -86,6 +77,8 @@
                                     <footer class="art-footer">
                                         <div class="art-footer-inner">
                                             <p style="text-align: left;"><span style="border-collapse: collapse;">Versión Beta 1.0</span> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="border-collapse: collapse;">Visitante <%out.println(" "+contador+" ");%>  </span> </p>     <p><br></p>
+                                            <p>El último acceso ha sido desde: <b><%=host%></b> con fecha <b><%=fecha%></b></p>
+                                        
                                         </div>
                                     </footer>
 				</div>                                
