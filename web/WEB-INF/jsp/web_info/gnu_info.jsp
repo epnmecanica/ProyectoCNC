@@ -45,47 +45,46 @@
                                     Unix que es software libre y respeta su libertad.&nbsp;</span><br></span></p><p class="Standard" style="text-align: center; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="font-weight: bold;"><span style="line-height: 115%; font-family: 'Palatino Linotype';"><br></span></span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;">
 
                                     </p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: 'Palatino Linotype';"><b></b></span></p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">El Proyecto
-                                    GNU se inició en 1984 para desarrollar el sistema GNU. El nombre «GNU» (que
-                                    significa «ñu» en inglés) es un acrónimo recursivo de «¡GNU No es Unix!» y en
-                                    espa-ñol se pronuncia fonéticamente como una sílaba sin vocal entre la g y la n.</span></p><p style="margin-right: 25px; margin-left: 25px;">
+                                    GNU se inició en 1984 para desarrollar el sistema GNU. El nombre «GNU» es un acrónimo recursivo de «¡GNU No es Unix!» y en
+                                    español se pronuncia fonéticamente como una sílaba sin vocal entre la g y la n.</span></p><p style="margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">Los sistemas
+                                    </p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">Los sistemas
                                     operativos similares a Unix se construyen a partir de un conjunto de
-                                    aplica-ciones, bibliotecas y herramientas de programación, además de un
+                                    aplicaciones, bibliotecas y herramientas de programación, además de un
                                     programa para alojar recursos e interactuar con el hardware, denominado núcleo.</span></p><p style="margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">Hurd, el
+                                    </p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">Hurd, el
                                     núcleo propio de GNU, está lejos de poderse usar en el día a día. Por este
                                     motivo, GNU se usa habitualmente con un núcleo denominado Linux. Esta
                                     combinación es el sistema operativo GNU/Linux. GNU/Linux lo usan millones de
-                                    personas, aunque mu-chos lo denominan «Linux» por error.</span></p><p style="margin-right: 25px; margin-left: 25px;">
+                                    personas, aunque muchos lo denominan «Linux» por error.</span></p><p style="margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-weight: bold;">¿Qué es el
+                                    </p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-weight: bold;">¿Qué es el
                                     software libre?</span></p><p style="margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">El «Software
+                                    </p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">El «Software
                                     Libre» es un asunto de libertad, no de precio. Para entender el concepto, debe
-                                    pensarse en «libre» como en «libertad de expresión», no como en «cerveza
+                                    pensarse en «libre» como en «libertad de expresión», no como en «programas
                                     gratis».</span></p><p style="margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">El software
+                                    </p><p class="Standard" style="text-align: justify; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">El software
                                     libre es una cuestión de libertad de los usuarios para ejecutar, copiar,
-                                    dis-tribuir, estudiar, cambiar y modificar el software. Más concretamente, se
+                                    distribuir, estudiar, cambiar y modificar el software. Más concretamente, se
                                     refiere a los cuatro tipos de libertades para los usuarios de software:</span></p><p style="padding-left: 20px; margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de usar el programa, con
-                                    cualquier propósito (libertad 0).</span></p><p style="padding-left: 20px; margin-right: 25px; margin-left: 25px;">
+                                    </p><p class="Standard" style="text-align: justify; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de usar el programa, con
+                                    cualquier propósito.</span></p><p style="padding-left: 20px; margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de estudiar el
-                                    funcionamiento del programa, y adaptarlo a sus necesidades (libertad 1). El
+                                    </p><p class="Standard" style="text-align: justify; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de estudiar el
+                                    funcionamiento del programa, y adaptarlo a sus necesidades. El
                                     acceso al código fuente es un prerrequisito para esto.</span></p><p style="padding-left: 20px; margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de distribuir copias para
-                                    ayudar a los demás (libertad 2).</span></p><p style="padding-left: 20px; margin-right: 25px; margin-left: 25px;">
+                                    </p><p class="Standard" style="text-align: justify; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de distribuir copias para
+                                    ayudar a los demás.</span></p><p style="padding-left: 20px; margin-right: 25px; margin-left: 25px;">
 
-                                    </p><p class="Standard" style="padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de mejorar el programa y
-                                    de publicar las mejoras, de modo que toda la co-munidad se beneficie (libertad
-                                    3). El acceso al código fuente es un prerrequisito para esto.</span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: 'Palatino Linotype';"><b></b><b></b></span></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px; padding-left: 20px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p style="text-align: justify; display: inline; margin-right: 25px; margin-left: 25px;"><b style="font-family: 'Palatino Linotype';"></b></p><p style="text-align: justify;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 14px; font-weight: bold;"><br></span></p><p><br></p>
+                                    </p><p class="Standard" style="text-align: justify; padding-left: 20px; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">La libertad de mejorar el programa y
+                                    de publicar las mejoras, de modo que toda la co-munidad se beneficie. 
+                                    El acceso al código fuente es un prerrequisito para esto.</span></p><p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: 'Palatino Linotype';"><b></b><b></b></span></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px; padding-left: 20px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><b></b></p><p style="text-align: justify; display: inline; margin-right: 25px; margin-left: 25px;"><b style="font-family: 'Palatino Linotype';"></b></p><p style="text-align: justify;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 14px; font-weight: bold;"><br></span></p><p><br></p>
                                     <p>
                                     </p></div>  
                                 </article>

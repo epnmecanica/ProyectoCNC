@@ -17,8 +17,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
         <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">
                
-    </head>
-    
+    </head>    
     <body>
          <div id="art-main">
             <div class="art-sheet clearfix">
@@ -38,8 +37,7 @@
                     </div>                                   
                 </header>
                 <nav class="art-nav">
-                    <ul class="art-hmenu"><li><a href="/OpenCNC/index.htm">Ingresar</a></li><li><a href="infcad.htm">CAD</a></li><li><a href="infcam.htm">CAM</a></li><li><a href="acercade.htm">Acerca de</a></li></ul> 
-                </nav>
+		<ul class="art-hmenu"><li><a href="/OpenCNC/index.htm" class="active">Ingresar</a><ul class="active"><li><a href="/OpenCNC/usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="/OpenCNC/usuario/login.htm">Login</a><ul><li><a href="/OpenCNC/usuario/cambiarContrasena.htm">Cambiar Contraseña</a></li><li><a href="/OpenCNC/usuario/recuperarContra.htm">Recuperar Contraseña</a></li></ul></li></ul></li><li><a href="/OpenCNC/inicio/infcad.htm">CAD</a></li><li><a href="/OpenCNC/inicio/infcam.htm">CAM</a></li><li><a href="/OpenCNC/inicio/acercade.htm">Acerca de</a></li></ul> </nav>
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
@@ -48,10 +46,9 @@
                                         <p style="text-align: center; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold; color:rgb(69, 82, 112)">COMPUTER AIDED MANUFACTURING</span><br></span></p><p><br></p>                                                                                                                                               
                                             <p style="text-align: center;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">Producción Asistida por Computadora.&nbsp;</span></p>
                                             <p style="text-align: center;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;"><br></span></p>
-                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">Se trata de la tecnología implicada en el uso de computadores para realizar tareas de Modelación geométrica Planificación Programación Inspección  Ensamblado y Embalaje de la producción.&nbsp;</span></p>
                                             <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El término CAM se puede definir como el uso de sistemas informáticos para la planificación, gestión y control de las operaciones de una planta de fabricación mediante una interfaz directa o indirecta entre el sistema informático y los recursos de producción. Cosiste en usar tecnología mediante el uso de computadores para realizar diversas tareas como: </span></p>  
                                             <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">&nbsp; &nbsp; Modelación, Geométrica, Planificación, Programación, Inspección, Ensamblado y Embalaje de la producción.</span></p> 
-                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El CAM toma la información del diseño y genera la ruta de corte que tiene que seguir la herramienta para fabricar la pieza deseada; a partir de esta ruta de corte se creará automáticamente el programa de maquinado, el cual puede ser introducido a la máquina mediante un disco o a su vez también puede ser enviado electrónicamente.</span></p>                                            
+                                            <p style="text-align: justify;"><span style="font-family: 'Palatino Linotype'; font-size: 14px;">El CAM toma la información del diseño y genera la ruta de corte que tiene que seguir la herramienta para fabricar la pieza deseada; a partir de esta ruta de corte se creará automáticamente el programa de maquinado, el cual puede ser introducido a la Máquina CNC mediante un disco o a su vez también puede ser enviado electrónicamente.</span></p>                                            
                                 </article>                              
                             </div>
                         </div>

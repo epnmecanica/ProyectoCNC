@@ -53,27 +53,15 @@
                                      con la GPL de GNU.</span></p>
 
                                     <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; color: rgb(90, 90, 90); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 14px;">La documentación del software
-                                     libre debe ser documentación libre, para que se pueda redis-tribuir y mejorar
-                                     al igual que el software que describe. Para que la documentación sea libre, hay
+                                     libre debe ser documentación libre, para que se pueda redistribuir y mejorar
+                                     al igual que el software que describe. Para que la documentación sea libre, también hay
                                      que publicarla bajo una licencia de documentación libre. Generalmente
-                                     utilizamos laLicencia de Documentación Libre de GNU (FDL de GNU), aunque a
-                                     veces también usa-mos otras licencias de documentación libre.</span></p>
-
-                                    <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; color: rgb(90, 90, 90); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 14px;">Si usted ha comenzado a trabajar
-                                     en un proyecto y no está seguro de qué licencia utilizar, en la página Cómo
-                                     elegir una licencia para su obra encontrará nuestras recomendaciones en una
-                                     guía fácil de seguir. Si únicamente quiere una lista con referencias,
-                                     disponemos de una página donde incluimos las licencias con copyleft que
-                                     recomendamos.</span></p>
-
-                                    <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; color: rgb(90, 90, 90); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 14px;">Tenemos también una página donde
-                                     se analiza el problema de la licencia BSD.</span></p>
+                                     utilizamos la Licencia de Documentación Libre de GNU (FDL de GNU), y a
+                                     veces también usamos otras licencias de documentación libre.</span></p>
 
                                     <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="line-height: 115%; color: rgb(90, 90, 90); font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 14px;">Nuestras licencias de
-                                     documentación actualmente se están revisando, y agradecemos cual-quier
-                                     comentario sobre los textos que proponemos. Por favor, visite nuestra página
-                                     sobre la actualización de licencias , allí encontrará los borradores actuales y
-                                     podrá participar en el proceso.</span></p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 16px; line-height: 18px;"></span></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="font-size: 12pt; line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;"></span></p><p><br></p>
+                                     documentación actualmente se están revisando, y agradecemos cualquier
+                                     comentario sobre los textos que proponemos. Agradecemos su participación en éste proceso.</span></p><p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif; font-size: 16px; line-height: 18px;"></span></p><p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="font-size: 12pt; line-height: 115%; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;"></span></p><p><br></p>
                                 </div>
                                 </div>
                             </div>

@@ -45,23 +45,23 @@
                                         la creación de Sketch tipo CAD con generación de código CAD, embebidas en una
                                         página WEB y de ejecución ONLINE.</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿A quién está Dirigido?</span></p>
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿A quién está Dirigido?</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">Es un proyecto diseñado con el ánimo de entregar una
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">Es un proyecto diseñado con el ánimo de entregar una
                                         herramienta de acceso libre y de codificación abierta para alumnos y docentes
                                         en el área del desarrollo mecánico industrial.</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿Cuál es su Función?</span></p>
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿Cuál es su Función?</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">En primera instancia la función del OpenCNC, es
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">En primera instancia la función del OpenCNC, es
                                         fomentar la creación de códigos abiertos con fines educativos, bajo las
                                         políticas de la GNU. Por otra parte, la posibilidad de crear Sketch rápidos y
                                         precisos para la generación de código G, listos para mecanización de una pieza
                                         en máquinas CNC.</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿Su Forma de uso?</span></p>
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿Su Forma de uso?</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">OpenCNC está creada con tecnología WEB, por esta razón
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">OpenCNC está creada con tecnología WEB, por esta razón
                                         su ejecución se limita al uso de internet. En primer lugar deberá realizar un
                                         Sketch en 2D, de la pieza que desea maquinar, luego usas nuestro generador de
                                         código G, el cual automáticamente bajará un archivo aplicable a cualquier CNC.</span></p>
@@ -72,7 +72,7 @@
 
                                         <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-weight: bold; font-family: 'Trebuchet MS'; font-size: 14px;">¿Que tipo de Archivo que exporta?</span></p>
 
-                                        <p class="Standard" style="margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">El tipo de archivo que exporta, es un archivo plano
+                                        <p class="Standard" style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span lang="ES-MX" style="line-height: 115%; font-family: 'Trebuchet MS'; font-size: 14px;">El tipo de archivo que exporta, es un archivo plano
                                         con extensión *.g.</span></p><p><br></p></div>      
                                 </article>
                             </div>

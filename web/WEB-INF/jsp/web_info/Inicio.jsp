@@ -47,7 +47,7 @@
                                                      licencias que limiten su uso.</span></p>
                                                     <p style="text-align: justify; margin-right: 35px; margin-left: 35px;"><span lang="ES-MX" style="font-size: 14px; font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;">Esta
                                                      herramienta, mejorará las prácticas en laboratorio del
-                                                     mecanizado CNC, para lo cual estamos desarrollando una plataforma libre, que
+                                                     mecanizado CNC, para lo cual se desarrolló ésta plataforma libre, que
                                                      permita tener un acceso a una aproximación de un CAD, posteriormente el uso de
                                                      un CAM, en un entorno amigable, que permita ser usado tanto por los
                                                      principiantes (Estudiantes principalmente) como personal calificado.</span></p><p style="text-align: center;"><span style="font-size: 16px;">Bienvenidos!!</span></p>
