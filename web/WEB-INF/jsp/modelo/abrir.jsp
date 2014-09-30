@@ -62,7 +62,7 @@
                                                 <th>Cero de Maquina Y</th>
                                                 <th>Pieza ancho</th>
                                                 <th>Pieza largo</th>
-                                                <th>Opciones</th>                                              
+                                                <th>Opciones &nbsp &nbsp &nbsp &nbsp</th>                                              
                                                 </tr>
                                             </thead>
                                             <tfoot>
@@ -75,7 +75,7 @@
                                                     <td>Cero de Maquina Y</td>
                                                     <td>Pieza ancho</td>
                                                     <td>Pieza largo</td>
-                                                    <td>Opciones</td>
+                                                    <td>Opciones &nbsp &nbsp &nbsp &nbsp</td>
                                                 </tr>
                                             </tfoot>
                                             <tbody>
@@ -106,10 +106,10 @@
                                                         ${modelo.piezaLargo} 
                                                     </td>
                                                     <td>
-                                                        <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm">Editar</a>
-                                                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm">Borrar</a>
-                                                        <%--<a href="${pageContext.request.contextPath}/programa/crear/${modelo.modeloId}.htm">Programa</a>--%>
-                                                        <a href="${pageContext.request.contextPath}/elemento/crear/${modelo.modeloId}.htm">AbrirCad</a>
+                                                        &nbsp <a href="${pageContext.request.contextPath}/modelo/editarModelo/${modelo.modeloId}.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Editar</a>
+                                                        <a href="${pageContext.request.contextPath}/modelo/borrarModelo/${modelo.modeloId}.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Borrar</a> 
+                                                       <a href="${pageContext.request.contextPath}/elemento/crear/${modelo.modeloId}.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">AbrirCad</a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                                                    
                                                     </td>
                                                 </tr>
                                             </c:forEach>
