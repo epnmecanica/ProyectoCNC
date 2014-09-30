@@ -45,7 +45,8 @@
                                 <article class="art-post art-article"><p><br></p> 
                                       <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Lista de Usuarios</span></p><p><br></p>                                                                    
                                             <p style="text-align: justify;"><span style="font-family: webkit-body; font-size: 25px;">Nombre de Usuario: ${nombreUsuario}
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a id="botonNuevo" href="${pageContext.request.contextPath}/usuario/crear.htm" >Registrar un Nuevo Usuario</a><p><br></p>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                                            <a href="/OpenCNC/usuario/crear.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Registrar un Nuevo Usuario</a><p><br></p> 
                                             <table id="tabla" class="display" cellspacing="0" width="100%">
                                                 <thead>
                                                     <tr>
@@ -87,8 +88,8 @@
                                                             ${usuario.clave} 
                                                         </td>
                                                         <td>
-                                                            <a href="${pageContext.request.contextPath}/usuario/editar/${usuario.usuarioId}.htm">Editar</a>
-                                                            <a href="${pageContext.request.contextPath}/usuario/borrar/${usuario.usuarioId}.htm">Borrar</a>
+                                                            <a href="${pageContext.request.contextPath}/usuario/editar/${usuario.usuarioId}.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Editar</a>
+                                                            <a href="${pageContext.request.contextPath}/usuario/borrar/${usuario.usuarioId}.htm"class="art-button" style="font-size: 12px; cursor: pointer; ">Borrar</a>
 
                                                         </td>
                                                     </tr>
