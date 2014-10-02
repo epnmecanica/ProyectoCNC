@@ -41,7 +41,8 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article"><p><br></p><p><br></p><p><br></p>
+                                <article class="art-post art-article"><p><br></p><p><br></p>
+                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="/OpenCNC/index.htm" class="art-button" style="font-size: 14px; cursor: pointer; ">Cancelar</a>
                                       <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Recuperar Contraseña</span></p><p><br></p><p><br></p><p><br></p>                                                                      
                                           
                                     <form:form action="${pageContext.request.contextPath}/usuario/enviarMail.htm"
@@ -53,6 +54,7 @@
                                         <p><br></p><p><br></p>
                                          &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="Enviar contraseña"/>
                                          <p><br></p>
+                                         
                                     </form:form>
                                 </article>                                
                             </div>

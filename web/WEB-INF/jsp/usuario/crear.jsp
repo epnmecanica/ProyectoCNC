@@ -63,7 +63,7 @@
                                                 
                                             <div class="art-layout-cell" style="width: 100%" >                                   
                                                                                 
-                                                <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Crear un Nuevo Usuario</span></p>
+                                                <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Crear un Nuevo Usuario&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="/OpenCNC/index.htm" class="art-button" style="font-size: 14px; cursor: pointer; ">Cancelar</a></span></p>
                                                     ${error}
                                                     <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
                                                        method="POST"

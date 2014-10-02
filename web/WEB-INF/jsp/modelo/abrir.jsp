@@ -48,9 +48,10 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article"><p><br></p>                                                                                                         
-                                    <p style="text-align: center;"><span style="font-size: 25px;">Abrir un Modelo Existente<br></span></p> 
+                                <article class="art-post art-article"><p><br></p> 
+                                    <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 25px;">Abrir un Modelo Existente<br></span></p>   
                                     Nombre de usuario: ${nombreUsuario}
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="/OpenCNC/usuario/login.htm" class="art-button" style="font-size: 14px; cursor: pointer; ">Cerrar</a><p><br></p>
                                         <table id="tablaModelo" class="display" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>                                                

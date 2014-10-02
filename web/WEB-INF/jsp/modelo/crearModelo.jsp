@@ -61,10 +61,11 @@
                                     <div class="art-postcontent art-postcontent-0 clearfix">
                                     </div>                                                                        
                                     <p style="text-align: center;"><span style="font-size: 18px;"><br></span></p>                                           
-                                    <p style="text-align: center;"><span style="font-size: 25px; color: #5B6A72; ">Crear un Nuevo Modelo <br></span><p><br></p>
-                                     &nbsp &nbsp &nbsp Nombre de Usuario: ${nombreUsuario}  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                     <a href="/OpenCNC/modelo/abrir.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Abrir Proyecto existente</a>&nbsp &nbsp &nbsp &nbsp<a href="/OpenCNC//usuario/login.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Cerrar</a>
-                                    <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
+                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  <a href="/OpenCNC/modelo/abrir.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Abrir Proyecto existente</a><a href="/OpenCNC/usuario/cambiarContrasena.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Cambiar Contraseña</a><a href="/OpenCNC/usuario/login.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Cerrar</a>
+                                     &nbsp &nbsp &nbsp <span style="font-size: 25px; color: #5B6A72; ">Crear un Nuevo Modelo <br></span><p><br></p>
+                                      &nbsp &nbsp &nbsp Nombre de Usuario: ${nombreUsuario}  
+                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
                                     <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                                                method="POST"
                                                commandName="modelo">
