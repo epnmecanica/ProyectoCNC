@@ -51,7 +51,7 @@
                
                <% host=request.getRemoteHost(); fecha=new Date(          ); %>                                            
                 <nav class="art-nav">
-                    <ul class="art-hmenu"><li><a class="active" href="index.htm">Ingresar</a><ul class="active"><li><a href="usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="usuario/login.htm">Login</a><ul><li><a href="usuario/recuperarContra.htm">Recuperar contraseña</a></li></ul></li></ul></li><li><a href="inicio/infcad.htm">CAD</a></li><li><a href="inicio/infcam.htm">CAM</a></li><li><a href="inicio/acercade.htm">Acerca de</a></li> <li> </ul> 
+		<ul class="art-hmenu"><li><a href="/OpenCNC/index.htm" class="active">Ingresar</a><ul class="active"><li><a href="/OpenCNC/usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="/OpenCNC/usuario/login.htm">Login</a><ul><li><a href="/OpenCNC/usuario/cambiarContrasena.htm">Cambiar Contraseña</a></li><li><a href="/OpenCNC/usuario/recuperarContra.htm">Recuperar Contraseña</a></li></ul></li></ul></li><li><a href="/OpenCNC/inicio/infcad.htm">CAD</a></li><li><a href="/OpenCNC/inicio/infcam.htm">CAM</a></li><li><a href="/OpenCNC/inicio/acercade.htm">Acerca de</a></li></ul> </nav>
                 </nav>                                                                                               
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
