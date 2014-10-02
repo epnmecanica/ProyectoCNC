@@ -48,17 +48,17 @@
                                                    method="POST"
                                                    commandName="usuario"
                                                    >
-                                            Usuario:
-                                            <form:input path="usuarioId" readonly="true" ></form:input><br/>
-                                            Nombre:
-                                            <form:input path="nombre" ></form:input><br/>
-                                            Apellido:
-                                            <form:input path="apellido" ></form:input><br/>
-                                            Email:
-                                            <form:input path="email"></form:input><br/>
-                                            Organizacion:
-                                            <form:input path="organizacion"></form:input><br/>
-                                            <input type="submit" value="Guardar"/>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Usuario:
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp  <form:input path="usuarioId" readonly="true" ></form:input><br/><br/>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Nombre:
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp<form:input path="nombre" ></form:input><br/><br/>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Apellido:
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp<form:input path="apellido" ></form:input><br/><br/>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Email:
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <form:input path="email"></form:input><br/><br/>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Organizacion:
+                                            &nbsp <form:input path="organizacion"></form:input><br/><br/>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="Guardar"/>
                                         </form:form>
                                     </article>                                                            
                             </div>
