@@ -8,14 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Acerca de</title>         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">                
 	<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
-         
+        <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
+        <title>Acerca de</title>  
     </head>
     
     <body>

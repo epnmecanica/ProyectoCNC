@@ -22,7 +22,8 @@
         <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
         <link href="${pageContext.request.contextPath}/resources/css/style.responsive.css" rel="stylesheet">      
         <link href="${pageContext.request.contextPath}/resources/css/style.ie7.css" rel="stylesheet">
-               
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
+      
         <script>
             $(document).ready(function() {
 			$("#botonGuardar").button();
