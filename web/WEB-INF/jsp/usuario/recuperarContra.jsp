@@ -16,7 +16,8 @@
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
-        
+        <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
+
 
     </head>
     <body>
