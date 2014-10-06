@@ -188,7 +188,7 @@ public ModelAndView crear ()throws IOException{
         // verifica las seguridades.     
         if (sr.seguridad(usuario).isPass()){
             
-            usuario.setEstado("A");
+            usuario.setEstado("P");
             Calendar c = new GregorianCalendar();
             Date d1 = c.getTime();
             
@@ -366,13 +366,17 @@ public ModelAndView crear ()throws IOException{
       List<Usuario> l = c.list();
      
       if (l.isEmpty()){
-          m.addObject("errorId", null);
+          
+          ModelAndView m1 = new ModelAndView("/usuario/login");
+          ArrayList listaError = new ArrayList( ) ;
+          listaError.add("Verifica que los datos Ingresados sean Correctos");
+          m1.addObject("errorId",listaError);
+          //m.addObject("errorId", null);
           request.removeAttribute("usuario");
           try {
               logger.info("Debe... Inicie sesion por favor...");
-            
-              return login();
-              //return m;
+              //return login();
+              return m1;
           } catch (Exception ex) {
               java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE,null , ex);
               logger.error("Error de inicio de session"+ex.getMessage());
@@ -380,14 +384,22 @@ public ModelAndView crear ()throws IOException{
                
       }
       else {
+          
+          
           Usuario ul = l.get(0);
-           
           HttpSession ses =  request.getSession();
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
-          logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
+          //
+          if(ul.getEstado().equals("P"))
           
-            
+          {
+          logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
+          ul.setEstado("A");
+          Transaction t = s.getTransaction();
+          s.beginTransaction();
+          s.saveOrUpdate(ul);
+          t.commit(); 
             if(ul.getModificadoPor()==1){
                 
                 fechaenvio.setTime(ul.getModificadoFecha()); //obtiene la fecha de envio del msm            
@@ -438,7 +450,15 @@ public ModelAndView crear ()throws IOException{
               logger.error("Error... por favor inicie sus datos");
               java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
           }
-          
+         }
+          else  { 
+                //return login();
+              ModelAndView m2 = new ModelAndView("/usuario/login");
+              ArrayList listaError = new ArrayList( ) ;
+              listaError.add("Tienes una Sesion Abierta");
+              m2.addObject("errorId",listaError);
+              return m2;
+                 }
       }   
         return null;
    
@@ -626,19 +646,31 @@ public ModelAndView crear ()throws IOException{
  * *****************************************************************************
  * @param request
  * @param response
+ * @param usuario
  * @return
  * @throws IOException 
  */
     @RequestMapping  ("/usuario/logout")
-    public ModelAndView   logout  (HttpServletRequest request, 
+    public ModelAndView   logout  (@ModelAttribute Usuario usuario,HttpServletRequest request, 
                                     HttpServletResponse response)
                                     throws IOException{
         try{
             logger.info("Se cerrara sesion");
+        
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Criteria c = s.createCriteria(Usuario.class);
         HttpSession sess =  request.getSession();
+        List<Usuario> l = c.list();
+        Usuario ul = l.get(0);
         if (sess != null){
-            sess.removeAttribute("usuario");
-    
+            
+            ul.setEstado("P");
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(ul);
+            t.commit();
+            
+            //sess.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
         }else{
             return new ModelAndView("redirect:/usuario/login.htm");
