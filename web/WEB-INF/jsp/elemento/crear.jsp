@@ -102,8 +102,8 @@
             
             <nav id="top-nav">
                 OpenCNC...
-                <a href="about.html" > acerca de.. </a>
-                <a href="docs.html" > docs </a>
+                <a href="http://acercade.jsp">Acerca de ...</a>
+                <a href="http://docs.jsp">Docs</a>
             </nav>      
             
               <div id="user-warnings"></div>

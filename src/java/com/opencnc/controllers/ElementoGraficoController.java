@@ -352,6 +352,28 @@ public class ElementoGraficoController {
         }        
         return null;
     }
+    @RequestMapping  ("/elemento/crear/acercade")
+    public ModelAndView   acercade  (HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        
+        
+        ModelAndView m = new ModelAndView("/elemento/crear/acercade");
+                
+        return m;
+        
+    }
+    
+      @RequestMapping  ("/elemento/crear/docs")
+    public ModelAndView   docs  (HttpServletRequest request, 
+                                            HttpServletResponse response)
+                                            throws Exception{
+        
+        ModelAndView m = new ModelAndView("/elemento/crear/docs");
+                
+        return m;
+        
+    }
    
     
 /**
