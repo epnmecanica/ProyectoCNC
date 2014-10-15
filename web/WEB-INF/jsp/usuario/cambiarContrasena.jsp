@@ -81,6 +81,24 @@
                         </div>
                     </footer>  
             </div>                                                  
-        </div>                                      
+        </div>
+         <script type="text/javascript">
+            $(document).ready(function() {
+
+            $(document).bind("ajaxComplete",function() {
+
+            alert("La Contraseña Temporal Caduco");
+            });
+
+            $.get("/hola",function(datos) {
+
+            alert(datos);
+
+            });
+           
+            });
+           
+        
+            </script>
     </body>
 </html>
