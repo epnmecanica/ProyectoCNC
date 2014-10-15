@@ -62,6 +62,20 @@ public class UsuarioController {
                 Calendar fechaenvio=Calendar.getInstance();
                 Calendar fecha24horas = Calendar.getInstance();
  
+                final String username="cepravii@gmail.com";//correo de la empresa
+                final String password="epncepra";//clave del correo 
+                String mensaje = "";
+           
+            
+                Properties props= new Properties();
+//           
+
+            javax.mail.Session session=javax.mail.Session.getInstance(props,new javax.mail.Authenticator() {
+                         protected PasswordAuthentication
+                                 getPasswordAuthentication(){
+                                     return new PasswordAuthentication(username,password);
+                                 }       
+            });
 //******************************************************************************
 //En lista los usuarios de la base de datos, esto es solo para cuentas 
 //administrativas.
@@ -157,22 +171,13 @@ public ModelAndView crear ()throws IOException{
                                             HttpServletResponse response)
                                             throws Exception{
         
-            final String username="cepravii@gmail.com";//correo de la empresa
-            final String password="epncepra";//clave del correo 
-            String mensaje = "Bienvenido a la Plataforma Virtual OpenCNC ";
-            Properties props= new Properties();
+           
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.starttls.enable","true");
             props.put("mail.smtp.host","smtp.gmail.com");
             props.put("mail.smtp.port", 587);
 
-            javax.mail.Session session=javax.mail.Session.getInstance(props,new javax.mail.Authenticator() {
-                         protected PasswordAuthentication
-                                 getPasswordAuthentication(){
-                                     return new PasswordAuthentication(username,password);
-                                 }       
-            });
-        
+                  
         byte[] clave = usuario.getClave();
         Session s = HibernateUtil.getSessionFactory().openSession();
         
@@ -346,7 +351,7 @@ public ModelAndView crear ()throws IOException{
     public ModelAndView iniciarSesion (@ModelAttribute Usuario usuario, 
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
-                                            throws IOException{
+                                            throws IOException,MessagingException{
         
       
   
@@ -425,19 +430,45 @@ public ModelAndView crear ()throws IOException{
                     long diffHoras =   ((diferenciaMilisegundos / (60 * 60 * 1000)))*-1;
                    
                     System.out.println("Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña");
-                    //JOptionPane.showMessageDialog(null, "Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña","Advertencia",2);
-                   
-                    //int a =JOptionPane.showConfirmDialog(null,"Desea Cambiar la Contraseña");
-                    //if(a== JOptionPane.YES_OPTION )
-                    //{
-                        //return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
-                    //}
+                   if(diffHoras<=5)
+                    {
+                        props.put("mail.smtp.auth", "true");
+                        props.put("mail.smtp.starttls.enable","true");
+                        props.put("mail.smtp.host","smtp.gmail.com");
+                        props.put("mail.smtp.port", 587);
+                        
+                        Message message = new MimeMessage(session);
+                        message.setFrom(new InternetAddress("cepravii@gmail.com"));
+                        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(ul.getEmail()));
+                        message.setSubject("Informacion OpenCNC");//asunto del mensaje
+                        message.setText("Estimad@ "+ ul.getNombre() + " : Le quedan "+ diffHoras+" horas "+restominutos+ " minutos para cambiar la contraseña");
+                        Transport.send(message); 
+                        System.out.println("la fecha que se envio el msm es: "+fechaInicio);
+                        System.out.println("mensaje enviado");
+                    }
                     
                     }
                     else{
-//                       
-                     //JOptionPane.showMessageDialog(null, "Caduco su Contraseña Ingrese una Nueva por favor","Informacion",1);
-                     return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+                        props.put("mail.smtp.auth", "true");
+                        props.put("mail.smtp.starttls.enable","true");
+                        props.put("mail.smtp.host","smtp.gmail.com");
+                        props.put("mail.smtp.port", 587);
+                        
+                        Message message = new MimeMessage(session);
+                        message.setFrom(new InternetAddress("cepravii@gmail.com"));
+                        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(ul.getEmail()));
+                        message.setSubject("Caduco Contraseña de OpenCNC");//asunto del mensaje
+                        message.setText("Estimad@ "+ ul.getNombre() +" : Caduco su Contraseña temporal.");
+                        Transport.send(message); 
+                        System.out.println("la fecha que se envio el msm es: "+fechaInicio);
+                        System.out.println("mensaje enviado");
+                        
+                        return new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+//                        ModelAndView m1 = new ModelAndView("redirect:/usuario/cambiarContrasena.htm");
+//                        ArrayList listaError = new ArrayList( ) ;
+//                        listaError.add("Caduco su Contraseña Temporal Asignada por el Sistema por favor Cambie su Contraseña");
+//                        m1.addObject("errorId",listaError);
+//                        return m1;
                         
                     }
             }      
@@ -623,7 +654,7 @@ public ModelAndView crear ()throws IOException{
                 message.setFrom(new InternetAddress("cepravii@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(enviarMail));
                 message.setSubject("Clave temporal OpenCNC");
-                message.setText("Tiene 24 horas para usar esta clave es :"+" "+clave_prov);
+                message.setText("Se ha pedido recuperar la contraseña para el usuario: " +us.getNombre()+ ", durante las próximas 24 horas usted puede usar el siguiente código de ingreso: "+clave_prov+  " ; y reestablecer su contraseña. No olvide que en caso de expirar su código, Usted puede volver a solicitar un código de ingreso.");
                 Transport.send(message); 
                 System.out.println("la fecha que se envio el msm es: "+fechaInicio);
                 System.out.println("mensaje enviado");
