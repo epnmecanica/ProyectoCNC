@@ -188,6 +188,7 @@ function helperYAML (datosYaml){
       // Update the download link.
       var filename = (window.job.name || "unnamed") + ".gcode";
       var blob = new Blob([window.output], {type:"text/plain"});
+  
       console.log("saving file: " + filename);
       window.saveAs(blob, filename);
     }

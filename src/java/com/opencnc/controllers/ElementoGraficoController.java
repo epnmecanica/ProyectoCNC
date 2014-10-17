@@ -364,7 +364,7 @@ public class ElementoGraficoController {
         
     }
     
-      @RequestMapping  ("/elemento/docs")
+    @RequestMapping  ("/elemento/docs")
     public ModelAndView   docs  (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
@@ -374,7 +374,7 @@ public class ElementoGraficoController {
         return m;
         
     }
-   
+    
     
 /**
  * *****************************************************************************

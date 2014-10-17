@@ -14,7 +14,8 @@ var COMPONENT_TYPES = {
 		ARC : 5,
 		MEASURE : 6,
 		LABEL : 7,
-		SHAPE : 8 // TODO
+		SHAPE : 8,
+                ARC_TWO : 9// TODO
 };
 
 /**
@@ -196,6 +197,31 @@ function Arc(x1, y1, x2, y2, x3, y3) {
 }
 Arc.prototype = new Component();
 Arc.prototype.constructor = Arc;
+
+function Arc_two(x1, y1, x2, y2) {
+	Component.call(this);
+	
+	this.type = COMPONENT_TYPES.ARC_TWO;
+	this.x1 = 0;
+	this.y1 = 0;
+	this.x2 = 0;
+	this.y2 = 0;
+	
+	
+	if (    x1 !== undefined
+		&& y1 !== undefined
+		&& x2 !== undefined
+		&& y2 !== undefined
+		)
+	{
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
+	}
+}
+Arc_two.prototype = new Component();
+Arc_two.prototype.constructor = Arc_two;
 
 /**
  * Shape component class

@@ -31,6 +31,7 @@ function GraphicDisplay(displayName, width, height) {
 			ADDMEASURE : 6,
 			ADDLABEL : 7,
 			ADDSHAPE : 8,
+                        ADDARC_TWO : 9,
 			DELETE : 20,
 			TRIM : 21,
 			NAVIGATE : 22,
@@ -335,6 +336,15 @@ GraphicDisplay.prototype.drawComponent = function(component, moveByX, moveByY) {
 					component.color,
 					component.radius);
 			break;
+                case COMPONENT_TYPES.ARC_TWO:
+			this.drawArcTwoPoints(
+                                        component.x1 + moveByX,
+					component.y1 + moveByY,
+					component.x2 + moveByX,
+					component.y2 + moveByY,
+					component.color,
+					component.radius);
+			break;
 		case COMPONENT_TYPES.SHAPE:
 			this.drawShape(component);
 			break;
@@ -456,6 +466,15 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 					this.temporaryPoints[3],
                                         this.selectedColor);
 			break;
+                case COMPONENT_TYPES.ARC_TWO:
+			this.drawArcTwoPoints(
+                                        this.temporaryPoints[0],
+					this.temporaryPoints[1],
+					this.temporaryPoints[2],
+					this.temporaryPoints[3],
+					this.selectedColor,
+					this.selectedRadius);
+			break;
 		case COMPONENT_TYPES.SHAPE:
 			this.drawShape(this.temporaryShape);
 			break;
@@ -547,8 +566,9 @@ GraphicDisplay.prototype.drawLine = function(x1, y1, x2, y2, color, radius) {
 	*/
         this.context.closePath();
 	this.context.stroke();
-	
-	this.drawPoint(x1, y1, color, radius);
+
+	//this.drawPoint(x1, y1, color, radius); //Dibuja el punto inicial
+        
 	//this.drawPoint(x2, y2, color, radius);
         //this.setToolTip('Angulo: ' + firstAngle);
         //this.setTextCode('angulo' + ' ' + firstAngle + ' ' + x1 + ' ' + y1 + '\n' + this.getTextCode());
@@ -580,7 +600,7 @@ GraphicDisplay.prototype.drawCircle = function(x1, y1, x2, y2, color, radius) {
 	this.context.closePath();
 	this.context.stroke();
 	
-	this.drawPoint(x1, y1, color, radius);
+	//this.drawPoint(x1, y1, color, radius); // Dibuja el punto del centro
 };
 
 /**
@@ -763,10 +783,27 @@ GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radiu
         }
             
 	
-	this.drawPoint(x1, y1, color, radius);
-	this.drawPoint(x2, y2, color, radius);
+	//this.drawPoint(x1, y1, color, radius);//Dibuja punto central
+	//this.drawPoint(x2, y2, color, radius);//Dibuja punto inicial de arco
 	//this.drawPoint(x3, y3, color, radius);
         //this.setToolTip('Angulo: ' + firstAngle + ' ' + secondAngle);
+};
+GraphicDisplay.prototype.drawArcTwoPoints = function(x1, y1, x2, y2, color, radius) {
+    
+	this.context.lineWidth = radius;
+	this.context.fillStyle = color;
+	this.context.strokeStyle = color;
+	this.context.beginPath();
+            this.context.arc(
+                            (((x1 + x2)/2) + this.cOutX) * this.zoom, 
+                        (((y1 + y2)/2) + this.cOutY) * this.zoom, 
+                        (this.getDistance(x1, y1, x2, y2))/2 * this.zoom,
+                        this.getAngle(((x1 + x2)/2), ((y1 + y2)/2), x1, y1), 
+                        this.getAngle(((x1 + x2)/2), ((y1 + y2)/2), x2, y2), false);
+            this.context.stroke();
+        
+        
+            
 };
 
 /**
@@ -1120,6 +1157,35 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 				}
 			}
 			this.tooltip = "Add arc";
+			break;
+                        
+                case this.MODES.ADDARC_TWO:
+			this.cvn.css('cursor', 'default');
+			if (action === this.MOUSEACTION.MOVE) {
+				if (this.temporaryComponentType === null) {
+					this.temporaryComponentType = COMPONENT_TYPES.POINT;
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
+					this.temporaryPoints[0] = this.getCursorXLocal();
+					this.temporaryPoints[1] = this.getCursorYLocal();
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.ARC_TWO) {
+					this.temporaryPoints[2] = this.getCursorXLocal();
+					this.temporaryPoints[3] = this.getCursorYLocal();
+				}
+			} else if ( action === this.MOUSEACTION.DOWN ) {
+				if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
+					this.temporaryComponentType = COMPONENT_TYPES.ARC_TWO;
+					this.temporaryPoints[2] = this.getCursorXLocal();
+					this.temporaryPoints[3] = this.getCursorYLocal();
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.ARC_TWO) {
+					this.logicDisplay.addComponent(new Arc_two(
+							this.temporaryPoints[0],
+							this.temporaryPoints[1],
+							this.temporaryPoints[2],
+							this.temporaryPoints[3]));
+					this.resetMode();
+				}
+			}
+			this.tooltip = "Add medida";
 			break;
 		case this.MODES.ADDRECTANGLE:
 			this.cvn.css('cursor', 'default');
