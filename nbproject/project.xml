@@ -28,6 +28,9 @@
                 </library>
                 <library dirs="200">
                     <file>${libs.javamail-1.4.7.classpath}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.javax.mail-1.5.2.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">

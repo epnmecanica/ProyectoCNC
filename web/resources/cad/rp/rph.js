@@ -199,7 +199,8 @@ function icons(){
           }).click(function () {
                 // crea arcos prueba
                 avisoEntrada('Vas a usar la herramienta de Arcos!');
-                 gd.setMode(gd.MODES.ADDARC);       
+                 //gd.setMode(gd.MODES.ADDARC);       
+                 gd.setMode(gd.MODES.ADDARC_TWO);  
           });
           iadvan.mousemove(function(){
               iadvan.attr({fill: colors, stroke: "none"});

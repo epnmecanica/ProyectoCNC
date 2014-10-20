@@ -27,16 +27,40 @@
 
         
         
-        <script>
+        <script language="JavaScript">
             $(document).ready(function() {
 			$("#botonGuardarModelo").button();
                     $("#formaModelo").form();
                     
-                    
+                   
 		});
+           
         </script>
+        
+        <script language="JavaScript" >
+            window.onbeforeunload= function(){
+                
+                $.ajax({ type:"Post",url:"${pageContext.request.contextPath}/usuario/logout.htm",dataType:"json",data:{},asyng:function()
+                    {}   
+                });    
+		}
+           
+        </script>
+       <script language="JavaScript" >
+            window.unload= function(){
+                
+                $.ajax({ type:"Post",url:"${pageContext.request.contextPath}/usuario/logout.htm",dataType:"json",data:{},asyng:function()
+                    {}   
+                });    
+		}
+           
+        </script>
+        
+     
+            
     </head>
-    <body>
+    <body  onload='window.alert("Gracias por Ingresar, antes de salir cierre sesion.");'>
+       
         <div id="art-main">
             <div class="art-sheet clearfix">
                 <header class="art-header">
@@ -52,7 +76,8 @@
                         <a href="#" class="art-slidenavigatoritem"></a><a href="#" class="art-slidenavigatoritem"></a>
                     </div>
                     <div class="art-shapes">
-                    </div>                                   
+                    </div>  
+                    
                 </header>
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
@@ -64,9 +89,18 @@
                                     <p style="text-align: center;"><span style="font-size: 18px;"><br></span></p>                                           
                                      &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                                     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp<a href="/OpenCNC/modelo/abrir.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Abrir Proyecto existente</a><a href="/OpenCNC/usuario/cambiarContrasena.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Cambiar Contraseña</a>&nbsp<a id="botonNuevo1" href="${pageContext.request.contextPath}/usuario/logout.htm " class="art-button">Cerrar</a>
-                                     &nbsp &nbsp &nbsp <span style="font-size: 25px; color: #5B6A72; ">Crear un Nuevo Modelo <br></span><p><br></p>
+                                     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <span style="font-size: 25px; color: #5B6A72; ">Crear un Nuevo Modelo <br></span><p><br></p>
                                       &nbsp &nbsp &nbsp Nombre de Usuario: ${nombreUsuario}  
                                      <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
+                                     
+ 
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
                                     <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                                                method="POST"
                                                commandName="modelo">

@@ -92,7 +92,8 @@
                     <a id="link-download-gcode" style="display:none">download gcode</a>
                     </div>            
                     <div id="paper2">
-                       </div>                   
+                       </div>  
+          
             <div id="info">
                   <c:forEach var="modelo" items="${modelos}"  >                     
                               <table border="1">
@@ -121,6 +122,7 @@
                                   </tbody>
                               </table>
                   </c:forEach>
-            </div>                                                                            
+            </div>     
+             
         </body>    
 </html>
