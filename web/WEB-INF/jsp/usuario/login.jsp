@@ -29,9 +29,18 @@
                     
                     
 		});
+                
         </script>
+                               
+        
     </head>
-    <body>
+         <body onunload="openpopup()">
+        
+         <script>
+           if (history.forward(1)){
+           location.replace(history.forward(1))
+              }
+        </script>
         
         <div id="art-main">
             <div class="art-sheet clearfix">
@@ -79,7 +88,7 @@
                                         <form:input path="clave" type="password"/>
                                     </p>     
                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
-                                      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="botonEntrarLogin" type="submit"  value="Ingresar" />
+                                      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="botonEntrarLogin" type="submit"  value="Ingresar"/>
                                     <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                         </form:form>                   
                                 </article>
@@ -94,5 +103,5 @@
                 </footer>
         </div>
     </div>
-</body>
+</body >
 </html>
