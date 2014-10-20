@@ -32,6 +32,7 @@ function GraphicDisplay(displayName, width, height) {
 			ADDLABEL : 7,
 			ADDSHAPE : 8,
                         ADDARC_TWO : 9,
+                        ADDARC_TR : 10,
 			DELETE : 20,
 			TRIM : 21,
 			NAVIGATE : 22,
@@ -345,7 +346,19 @@ GraphicDisplay.prototype.drawComponent = function(component, moveByX, moveByY) {
 					component.color,
 					component.radius);
 			break;
+                case COMPONENT_TYPES.ARC_TR:
+			this.drawArcTrPoints(
+                                        component.x1 + moveByX,
+					component.y1 + moveByY,
+					component.x2 + moveByX,
+					component.y2 + moveByY,
+					component.x3 + moveByX,
+					component.y3 + moveByY,
+					component.color,
+					component.radius);
+			break;
 		case COMPONENT_TYPES.SHAPE:
+                
 			this.drawShape(component);
 			break;
 	} 
@@ -472,6 +485,17 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 					this.temporaryPoints[1],
 					this.temporaryPoints[2],
 					this.temporaryPoints[3],
+					this.selectedColor,
+					this.selectedRadius);
+			break;
+                case COMPONENT_TYPES.ARC_TR:
+			this.drawArcTrPoints(
+                                        this.temporaryPoints[0],
+					this.temporaryPoints[1],
+					this.temporaryPoints[2],
+					this.temporaryPoints[3],
+					this.temporaryPoints[4],
+					this.temporaryPoints[5],
 					this.selectedColor,
 					this.selectedRadius);
 			break;
@@ -759,9 +783,7 @@ GraphicDisplay.prototype.drawLabel = function(x, y, text, color, radius) {
  * @returns {undefined}
  */
 GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radius) {
-	var firstAngle = this.getAngle(x1, y1, x2, y2);
-	var secondAngle = this.getAngle(x1, y1, x3, y3);
-	
+
 	this.context.lineWidth = radius;
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
@@ -771,14 +793,16 @@ GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radiu
                             (x1 + this.cOutX) * this.zoom, 
                         (y1 + this.cOutY) * this.zoom, 
                         this.getDistance(x1, y1, x2, y2) * this.zoom,
-                        firstAngle, secondAngle, false);
+                        this.getAngle(x1, y1, x2, y2), 
+                        this.getAngle(x1, y1, x3, y3), false);
             this.context.stroke();
         }else{
             this.context.arc(
                             (x1 + this.cOutX) * this.zoom, 
                         (y1 + this.cOutY) * this.zoom, 
                         this.getDistance(x1, y1, x2, y2) * this.zoom,
-                        firstAngle, secondAngle, true);
+                        this.getAngle(x1, y1, x2, y2), 
+                        this.getAngle(x1, y1, x3, y3), true);
             this.context.stroke();
         }
             
@@ -789,20 +813,43 @@ GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radiu
         //this.setToolTip('Angulo: ' + firstAngle + ' ' + secondAngle);
 };
 GraphicDisplay.prototype.drawArcTwoPoints = function(x1, y1, x2, y2, color, radius) {
-    
+        
 	this.context.lineWidth = radius;
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
 	this.context.beginPath();
             this.context.arc(
-                            (((x1 + x2)/2) + this.cOutX) * this.zoom, 
-                        (((y1 + y2)/2) + this.cOutY) * this.zoom, 
+                            (this.getPointMiddle(x1,x2) + this.cOutX) * this.zoom, 
+                        (this.getPointMiddle(y1,y2) + this.cOutY) * this.zoom, 
                         (this.getDistance(x1, y1, x2, y2))/2 * this.zoom,
-                        this.getAngle(((x1 + x2)/2), ((y1 + y2)/2), x1, y1), 
-                        this.getAngle(((x1 + x2)/2), ((y1 + y2)/2), x2, y2), false);
+                        this.getAngle(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), x1, y1), 
+                        this.getAngle(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), x2, y2), false);
             this.context.stroke();
+            
+};
+GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, color, radius) {
+    
+	this.context.lineWidth = radius;
+	this.context.fillStyle = color;
+	this.context.strokeStyle = color;
+	this.context.beginPath();
+        var m1 = this.getPointMiddle(x1,x2);
+        var m2 = this.getPointMiddle(y1,y2);
         
+        this.context.arc(
+                        ( x3 + this.cOutX) * this.zoom, 
+                        (y3+ this.cOutY) * this.zoom, 
+                    this.getDistance(x1, y1, x3, y3) * this.zoom,
+                    this.getAngle(x3, y3, x1, y1), 
+                    this.getAngle(x1, y1, x2, y2), false);
+        this.context.stroke();
         
+            
+	
+	//this.drawPoint(x1, y1, color, radius);//Dibuja punto central
+	//this.drawPoint(x2, y2, color, radius);//Dibuja punto inicial de arco
+	//this.drawPoint(x3, y3, color, radius);
+        //this.setToolTip('Angulo: ' + firstAngle + ' ' + secondAngle);
             
 };
 
@@ -1158,7 +1205,46 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			}
 			this.tooltip = "Add arc";
 			break;
-                        
+                case this.MODES.ADDARC_TR:
+			this.cvn.css('cursor', 'default');
+			if (action === this.MOUSEACTION.MOVE) {
+				if (this.temporaryComponentType === null) {
+					this.temporaryComponentType = COMPONENT_TYPES.POINT;
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
+					this.temporaryPoints[0] = this.getCursorXLocal();
+					this.temporaryPoints[1] = this.getCursorYLocal();
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.CIRCLE) {
+					this.temporaryPoints[2] = this.getCursorXLocal();
+					this.temporaryPoints[3] = this.getCursorYLocal();
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.ARC_TR) {
+					// TODO: point 4 and 5 must represent a point intersection between
+					//		 the circle and the straight line
+					this.temporaryPoints[4] = this.getCursorXLocal();
+					this.temporaryPoints[5] = this.getCursorYLocal();
+				}
+			} else if ( action === this.MOUSEACTION.DOWN ) {
+				if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
+					this.temporaryComponentType = COMPONENT_TYPES.CIRCLE;
+					this.temporaryPoints[2] = this.getCursorXLocal();
+					this.temporaryPoints[3] = this.getCursorYLocal();
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.CIRCLE) {
+					this.temporaryComponentType = COMPONENT_TYPES.ARC_TR;
+					this.temporaryPoints[4] = this.getCursorXLocal();
+					this.temporaryPoints[5] = this.getCursorYLocal();
+				} else if (this.temporaryComponentType === COMPONENT_TYPES.ARC_TR) {
+					this.logicDisplay.addComponent(new Arc_tr(
+							this.temporaryPoints[0],
+							this.temporaryPoints[1],
+							this.temporaryPoints[2],
+							this.temporaryPoints[3],
+							this.temporaryPoints[4],
+							this.temporaryPoints[5]));
+                                                        this.tooltipCode = this.getTextCode() + '\n' + ' Arco: ' + this.temporaryPoints;
+					this.resetMode();
+				}
+			}
+			this.tooltip = "Add arc";
+			break;
                 case this.MODES.ADDARC_TWO:
 			this.cvn.css('cursor', 'default');
 			if (action === this.MOUSEACTION.MOVE) {
@@ -1707,6 +1793,10 @@ GraphicDisplay.prototype.getJSON = function(){
 GraphicDisplay.prototype.getObjects = function(){
         return(this.logicDisplay.exportObject());      
 };
+GraphicDisplay.prototype.getPointMiddle = function(p1,p2){
+        this.middle = (p1 + p2) / 2;
+        return this.middle;
+};
 /**
  * *****************************************************************************
  * Obtiene la posicion del cursor en x
@@ -2209,10 +2299,27 @@ var initCAD = function(gd) {
 	});
 	
 	// Adding keyboard events 
-	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-		//gd.logicDisplay.foo();
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
+		console.log(gd.getObjects());
 	});
-	
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
+		console.log('PRESIONA : Q');
+                gd.setMode(gd.MODES.ADDARC);
+	});
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.W, function() {
+		console.log('PRESIONA : W');
+                gd.setMode(gd.MODES.ADDARC_TWO);
+	});
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.R, function() {
+		console.log('PRESIONA : R');
+                gd.setMode(gd.MODES.ADDARC_TR);
+	});
+	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function() {
+		console.log('PRESIONA : E');
+                gd.setMode(gd.MODES.ADDLINE);
+	});
+        
+        
 	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.I, function(){
 		gd.zoomIn();
 	});

@@ -15,7 +15,8 @@ var COMPONENT_TYPES = {
 		MEASURE : 6,
 		LABEL : 7,
 		SHAPE : 8,
-                ARC_TWO : 9// TODO
+                ARC_TWO : 9,
+                ARC_TR : 10// TODO
 };
 
 /**
@@ -223,6 +224,34 @@ function Arc_two(x1, y1, x2, y2) {
 Arc_two.prototype = new Component();
 Arc_two.prototype.constructor = Arc_two;
 
+function Arc_tr(x1, y1, x2, y2, x3, y3) {
+	Component.call(this);
+	
+	this.type = COMPONENT_TYPES.ARC_TR;
+	this.x1 = 0;
+	this.y1 = 0;
+	this.x2 = 0;
+	this.y2 = 0;
+	this.x3 = 0;
+	this.y3 = 0;
+	
+	if ( x1 !== undefined
+		&& y1 !== undefined
+		&& x2 !== undefined
+		&& y2 !== undefined
+		&& x3 !== undefined
+		&& y3 !== undefined)
+	{
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
+		this.x3 = x3;
+		this.y3 = y3;
+	}
+}
+Arc_tr.prototype = new Component();
+Arc_tr.prototype.constructor = Arc_tr;
 /**
  * Shape component class
  * Inherits from Component
