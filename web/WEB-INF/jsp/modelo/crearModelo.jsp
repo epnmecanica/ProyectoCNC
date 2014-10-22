@@ -37,26 +37,9 @@
            
         </script>
         
-        <script language="JavaScript" >
-            window.onbeforeunload= function(){
-                
-                $.ajax({ type:"Post",url:"${pageContext.request.contextPath}/usuario/logout.htm",dataType:"json",data:{},asyng:function()
-                    {}   
-                });    
-		}
-           
-        </script>
-       <script language="JavaScript" >
-            window.unload= function(){
-                
-                $.ajax({ type:"Post",url:"${pageContext.request.contextPath}/usuario/logout.htm",dataType:"json",data:{},asyng:function()
-                    {}   
-                });    
-		}
-           
-        </script>
+       
+       
         
-     
             
     </head>
     <body  onload='window.alert("Gracias por Ingresar, antes de salir cierre sesion.");'>
@@ -77,7 +60,23 @@
                     </div>
                     <div class="art-shapes">
                     </div>  
-                    
+                      <script language="JavaScript" >
+           
+           var bdpregunta = true;
+           window.onbeforeunload = function () { 
+            if (bdpregunta) { 
+                $.ajax({ type:"Post",url:"${pageContext.request.contextPath}/usuario/logout.htm",dataType:"json",data:{},asyng:function()
+                    {}   
+                });  
+               return(false);
+            }
+          
+           
+        } 
+               
+        </script>
+        
+        
                 </header>
                 <div class="art-layout-wrapper">
                     <div class="art-content-layout">
