@@ -228,44 +228,47 @@ public ModelAndView crear ()throws IOException{
         logger.info("Guarda un nuevo usuario");
         //return lista(request, response);
         return login();
-    }
     
-/**
+     }
+    
+    
+    /**
  * *****************************************************************************
- * Recibe el parametro "id" para editar el usuario ya creado.
+ * Cambia la contraseña.
  * *****************************************************************************
- * @param id
+ * *****************************************************************************
+ * Metodo aun si desarrollo.
+ * *****************************************************************************
  * @param request
  * @param response
  * @return
  * @throws IOException 
  */
-    @RequestMapping  ("/usuario/editar/{id}")
-    public ModelAndView   editar  ( @PathVariable  Integer id, 
-                                            HttpServletRequest request, 
+    
+    @RequestMapping("usuario/editar")
+    public ModelAndView editar (HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws IOException{
-        try{
-            logger.info("Se Modificara los datos del Usuario");
+      try {
+        logger.info("Ingrese los Datos.");
         HttpSession sess =  request.getSession();
         if (sess != null){
-            Session s = HibernateUtil.getSessionFactory().openSession();
+            ModelAndView m = new ModelAndView();
         
-            Usuario u = (Usuario)s.get(Usuario.class, id);
-            ModelAndView m = new ModelAndView ("/usuario/editar");
-            m.addObject("usuario",u);
-
-            logger.info("Empieza a mostrar lista de usuarios");
-            return m;
+        return m;
         }else{
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
-        } 
-        }catch(Exception ex){
-            logger.error("Error... Al Editar los datos del Usuario",ex);
         }
-        return null;
+         } catch (Exception e) {
+              logger.error("Se produjo un error al guardar los cambios",e);
+          }
+          return null;
     }
+    
+    
+    
+
     
 /**
  * *****************************************************************************
@@ -396,9 +399,6 @@ public ModelAndView crear ()throws IOException{
           ses.setAttribute("usuario", ul);
           request.setAttribute("usuario", ul);
           //
-          if(ul.getEstado().equals("P"))
-          
-          {
           logger.info("A ingresado al sistema con el siguiente usuario "+ul.getNombre()); 
           ul.setEstado("A");
           Transaction t = s.getTransaction();
@@ -481,15 +481,8 @@ public ModelAndView crear ()throws IOException{
               logger.error("Error... por favor inicie sus datos");
               java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
           }
-         }
-          else  { 
-                //return login();
-              ModelAndView m2 = new ModelAndView("/usuario/login");
-              ArrayList listaError = new ArrayList( ) ;
-              listaError.add("Tienes una Sesion Abierta");
-              m2.addObject("errorId",listaError);
-              return m2;
-                 }
+         
+          
       }   
         return null;
    
@@ -513,7 +506,7 @@ public ModelAndView crear ()throws IOException{
                                             HttpServletResponse response)
                                             throws IOException{
       try {
-          logger.info("Ingrese la nueva contraseña.");
+        logger.info("Ingrese la nueva contraseña.");
         HttpSession sess =  request.getSession();
         if (sess != null){
             ModelAndView m = new ModelAndView();
