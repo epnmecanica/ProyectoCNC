@@ -29,8 +29,10 @@
                 <script src="<c:url value='/resources/cad/lib/external/jquery.min.js'/>"></script>
 		<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>-->
                 <script src="<c:url value='/resources/cad/lib/external/jquery-ui.min.js'/>"></script>              
+                
                 <link rel='stylesheet' type='text/css' href='http://trentrichardson.com/Impromptu/jquery-impromptu.css' />                
                 <script src="http://trentrichardson.com/Impromptu/jquery-impromptu.min.js"></script>                      
+                
                 <script src="<c:url value='/resources/cam/cam-deps.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/opencut.js'/>"></script>
                 <script src="<c:url value='/resources/cam/cuts/cuttype-arc.js'/>"></script>

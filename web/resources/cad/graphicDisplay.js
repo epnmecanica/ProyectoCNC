@@ -162,7 +162,6 @@ GraphicDisplay.prototype.init = function() {
 	 */ 
 	this.logicDisplay = new LogicDisplay();
 	this.logicDisplay.init();
-     
 	/*
 	 * INITIALIZE INPUT HANDLER 
 	 */
@@ -463,6 +462,7 @@ GraphicDisplay.prototype.drawTemporaryComponent = function() {
 					this.selectedRadius);
 			break;
 		case COMPONENT_TYPES.ARC:
+                    
 			this.drawArc(
 					this.temporaryPoints[0],
 					this.temporaryPoints[1],
@@ -828,17 +828,20 @@ GraphicDisplay.prototype.drawArcTwoPoints = function(x1, y1, x2, y2, color, radi
             
 };
 GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, color, radius) {
-    
+      
 	this.context.lineWidth = radius;
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
 	this.context.beginPath();
-        var m1 = this.getPointMiddle(x1,x2);
-        var m2 = this.getPointMiddle(y1,y2);
+        var xm = this.getPointMiddle(x1,x2);
+        var ym = this.getPointMiddle(y1,y2);
+        var m = - 1 / this.getSlope(xm,ym,x2,y2);
+        var yc = ((m*x3) - (xm*m) + ym).toFixed(0);
         
+        //console.log(x3 + ',' + (yc + this.cOutY) * this.zoom);
         this.context.arc(
-                        ( x3 + this.cOutX) * this.zoom, 
-                        (y3+ this.cOutY) * this.zoom, 
+                        (x3 + this.cOutX) * this.zoom, 
+                        (y3 + this.cOutY) * this.zoom, 
                     this.getDistance(x1, y1, x3, y3) * this.zoom,
                     this.getAngle(x3, y3, x1, y1), 
                     this.getAngle(x1, y1, x2, y2), false);
@@ -2312,10 +2315,12 @@ var initCAD = function(gd) {
 	});
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.R, function() {
 		console.log('PRESIONA : R');
+                
                 gd.setMode(gd.MODES.ADDARC_TR);
 	});
 	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function() {
 		console.log('PRESIONA : E');
+               
                 gd.setMode(gd.MODES.ADDLINE);
 	});
         

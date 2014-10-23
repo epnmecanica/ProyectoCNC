@@ -6,12 +6,9 @@
  */                                
 var respuesta;
 $(document).ready(function() {
-    
     // Imprime por consola la IP de conexion.
         console.log(myIP());
-        
-        
-       
+         
 
         // Check for the various File API support.
         if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -28,6 +25,7 @@ $(document).ready(function() {
         
 });
 var cargarPantalla  = function(){
+      
         this.xH = new WindowHandler();
         
         this.xH.init();
