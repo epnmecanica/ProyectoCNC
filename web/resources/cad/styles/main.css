@@ -32,7 +32,7 @@ background: #1C313F;
     z-index: 1;
 }
 #sub-menu{
-    position: absolute;
+    float: end;
     left: 50px;
     z-index: 3;
 }

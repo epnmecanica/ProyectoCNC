@@ -20,10 +20,10 @@ function LogicDisplay() {
  * *****************************************************************************
  * @returns {undefined}
  */
-LogicDisplay.prototype.init = function() {
-   
+LogicDisplay.prototype.init = function(gd) {
+   this.gd = gd;
 
-           //this.test(); // This create a list of basic components
+           this.test(this.gd.max_size_x, this.gd.max_size_y); // This create a list of basic components
            //this.importJSON(JSON.parse(this.exportJSON()), this.components);
            //this.importJSON(f, this.components);
            //this.testPunto();
@@ -55,19 +55,21 @@ LogicDisplay.prototype.testPunto = function(){
         this.components.push(new Point(0, 0));
 };
 
-LogicDisplay.prototype.test = function() {
-	this.components.push(new Point(-100, -100));
-	this.components.push(new Point(100, -100));
+LogicDisplay.prototype.test = function(x,y) {
+    this.components.push(new Rectangle(0, 0, x * 10 ,-y * 10));
+    
+	//this.components.push(new Point(-100, -100));
+	//this.components.push(new Point(100, -100));
 	
-	var p = new Point(100, 100);
-	p.setActive(false);
-	this.components.push(p);
-	
+	//var p = new Point(100, 100);
+	//p.setActive(false);
+	//this.components.push(p);
+	/*
 	this.components.push(new Measure(-100, 100, -200, 300));
 	
 	this.components.push(new Circle(400, 400, 500, 400));
 	
-	this.components.push(new Rectangle(200, 100, 300, 200));
+	this.components.push(new Rectangle(0, 0, 300, -200));
 	
 	this.components.push(new Rectangle(300, 200, 400, 100));
 	
@@ -90,6 +92,7 @@ LogicDisplay.prototype.test = function() {
 	this.components.push(new Circle(-500, 500, -500, 600));
 	
 	this.components.push(new Rectangle(200, 600, 500, 700));
+    */
 };
 
 /*

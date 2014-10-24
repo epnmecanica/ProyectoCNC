@@ -136,6 +136,7 @@ function icons(){
   * @returns {loadIcons}
   */
  function loadIcons(gd){
+     
         this.gd = gd;
         var colors = 'blue';
         var iconsArray = new Array();
@@ -163,7 +164,7 @@ function icons(){
         //this.iadd.translate(iconsArray[11],0).show();
         this.iless.translate(iconsArray[9],0).show();
         //this.isave.translate(iconsArray[13],0).show();
-        //this.inew.translate(iconsArray[14],0).show();
+        this.inew.translate(iconsArray[14],0).show();
         this.icreateG.translate(iconsArray[10],0).show(); 
         this.icut.translate(iconsArray[11],0).show();
         
@@ -192,7 +193,10 @@ function icons(){
           inew.mousemove(function(){
               inew.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              arranqueTXT(); 
+              //arranqueTXT();
+              
+              //compilarG();
+              
           });
           iretro.mousemove(function(){
               iretro.attr({fill: colors, stroke: "none"});
@@ -232,13 +236,7 @@ function icons(){
           idimx.mousemove(function(){
               idimx.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              ilapiz.show();
-              idim.show();
-              iless.show();
-              irectangle.show();
-              isync.show();
-              ilabel.show();
-              idot.show();
+            
           });
           iok.mousemove(function(){
               iok.attr({fill: colors, stroke: "none"});
@@ -262,13 +260,13 @@ function icons(){
           }).click(function () {
               console.log('Presiona icono tool');
               avisoEntrada('Estamos listos para empezar a definir los tipos de mecanizado. Estas Listo?','Estas listo para empezar?');
-              ilapiz.hide();
-              idim.hide();
-              iless.hide();
-              irectangle.hide();
-              isync.hide();
-              ilabel.hide();
-              idot.hide();
+              //ilapiz.hide();
+              //idim.hide();
+              //iless.hide();
+              //irectangle.hide();
+              //isync.hide();
+              //ilabel.hide();
+              //idot.hide();
                gd.setMode(gd.MODES.CODE_G);
               //seleccionElementos();
               

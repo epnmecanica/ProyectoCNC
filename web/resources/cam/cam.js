@@ -152,6 +152,7 @@ function helperYAML (datosYaml){
 
   // Configure the gcode button
   $("#btn-compile-gcode").click(function(e) {
+//function compilarG (){
     clearWarnings();
 
     // Parse the YAML input.
@@ -216,23 +217,7 @@ function helperYAML (datosYaml){
   var datos = (json2yaml(this.DatosYaml));
   
   editor.setValue(datos);
-  //editor.setValue(json2yaml(this.DatosYaml));
-  //editor.setValue(yaml.safeLoad(JSON.stringify(this.DatosYaml)));
   editor.moveCursorToPosition({row: 0, col: 0});
  
-  /*            
-  $.ajax({
-    url : "examples/demo.yaml",
-    //url : "examples/prueba.yml",
-    //url : "examples/coaster.yaml",
-    dataType: "text",
-    success : function (data) {
-        //console.log('los daots son: ' + data);
-        
-       
-      //editor.setValue(data);
-      editor.moveCursorToPosition({row: 0, col: 0});
-    }
-  });
-    */
-  }  
+ 
+   }

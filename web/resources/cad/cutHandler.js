@@ -35,34 +35,34 @@ CutHandler.prototype.setObject = function(objects){
         switch (this.component[i].machined){
             
             case MODES_G_TYPE.DRILL:
-                            this.codexgYAML.addCuts(new Drill(this.component[i].x1,
-                                            Math.abs(this.component[i].y1),
-                                            this.component[i].x2,
-                                            Math.abs(this.component[i].y2)));
+                            this.codexgYAML.addCuts(new Drill(this.component[i].x1/10,
+                                            Math.abs(this.component[i].y1/10),
+                                            this.component[i].x2/10,
+                                            Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.PATH:
-                            this.codexgYAML.addCuts(new Path(this.component[i].x1,
-                                            Math.abs(this.component[i].y1),
-                                            this.component[i].x2,
-                                            Math.abs(this.component[i].y2)));
+                            this.codexgYAML.addCuts(new Path(this.component[i].x1/10,
+                                            Math.abs(this.component[i].y1/10),
+                                            this.component[i].x2/10,
+                                            Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.PROFILE:
-                            this.codexgYAML.addCuts(new Profile(this.component[i].x1,
-                                            Math.abs(this.component[i].y1),
-                                            this.component[i].x2,
-                                            Math.abs(this.component[i].y2)));
+                            this.codexgYAML.addCuts(new Profile(this.component[i].x1/10,
+                                            Math.abs(this.component[i].y1/10),
+                                            this.component[i].x2/10,
+                                            Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.POCKET:
-                            this.codexgYAML.addCuts(new Pocket(this.component[i].x1,
-                                            Math.abs(this.component[i].y1),
-                                            this.component[i].x2,
-                                            Math.abs(this.component[i].y2)));
+                            this.codexgYAML.addCuts(new Pocket(this.component[i].x1/10,
+                                            Math.abs(this.component[i].y1/10),
+                                            this.component[i].x2/10,
+                                            Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.ARCS:
-                            this.codexgYAML.addCuts(new Arcs(this.component[i].x1,
-                                            Math.abs(this.component[i].y1),
-                                            this.component[i].x2,
-                                            Math.abs(this.component[i].y2)));
+                            this.codexgYAML.addCuts(new Arcs(this.component[i].x1/10,
+                                            Math.abs(this.component[i].y1/10),
+                                            this.component[i].x2/10,
+                                            Math.abs(this.component[i].y2/10)));
                             break;
         }
     

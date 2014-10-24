@@ -72,9 +72,9 @@
 	<body>              
             <nav id="top-nav">
                OPEN CNC
-              <a href="/OpenCNC/elemento/acercade.htm" class="art-button" style="font-size: 20px; cursor: pointer; ">Ayuda ?</a><br>
-              <a href="/OpenCNC/elemento/docs.htm" class="art-button" style="font-size: 20px; cursor: pointer; ">Docs</a><br>              
-              <a href="/OpenCNC/elemento/index.htm" class="art-button" style="font-size: 20px; cursor: pointer; ">Salir</a><br>            
+              <a href="/OpenCNC/elemento/acercade.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Ayuda ? ||</a>
+              <a href="/OpenCNC/elemento/docs.htm" class="art-button" style="font-size: 10px; cursor: pointer; "> Docs </a>            
+              <a href="/OpenCNC/elemento/index.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Salir ||</a>            
             </nav>                 
               <div id="user-warnings"></div>
                 <div class="container">        
@@ -96,35 +96,7 @@
                     <div id="paper2">
                        </div>  
           
-            <div id="info">
-                  <c:forEach var="modelo" items="${modelos}"  >                     
-                              <table border="1">
-                                  <thead>
-                                      <tr>
-                                          Datos
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <td>Modelo: ${modelo.modeloId}</td>
-                                          <td>Nombre: ${modelo.nombre}</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Unidad Medida: ${modelo.unidadMedida.nombre}</td>
-                                          <td>Tipo de Maquina: ${modelo.tipoMaquina.nombre}</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Ancho: ${modelo.piezaAncho}</td>
-                                          <td>Largo: ${modelo.piezaLargo}</td>
-                                      </tr>
-                                      <tr>
-                                          <td>Cero X: ${modelo.puntoCeroMaquinaX}</td>
-                                          <td>Cero Y: ${modelo.puntoCeroMaquinaY}</td>
-                                      </tr>
-                                  </tbody>
-                              </table>
-                  </c:forEach>
-            </div>     
+             
              
         </body>    
 </html>

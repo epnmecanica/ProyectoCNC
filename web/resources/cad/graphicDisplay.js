@@ -161,7 +161,9 @@ GraphicDisplay.prototype.init = function() {
 	 * INITIALIZE THE LOGIC
 	 */ 
 	this.logicDisplay = new LogicDisplay();
-	this.logicDisplay.init();
+	
+        this.cuthandler = new CutHandler(gd);
+        
 	/*
 	 * INITIALIZE INPUT HANDLER 
 	 */
@@ -176,7 +178,6 @@ GraphicDisplay.prototype.init = function() {
 	this.context = this.cvn[0].getContext('2d');
         //console.log(this.cvn);
         
-       
 };
 
 
@@ -188,6 +189,7 @@ GraphicDisplay.prototype.init = function() {
  * @returns {undefined}
  */
 GraphicDisplay.prototype.execute = function() {
+    
 	this.offsetX = this.cvn.offset().left;
 	this.offsetY = this.cvn.offset().top;
 	
@@ -218,8 +220,14 @@ GraphicDisplay.prototype.execute = function() {
 	this.drawToolTip();
         //this.drawToolCode();
         
+        
 };
-
+GraphicDisplay.prototype.drawArea= function(){
+       this.cuthandler = new CutHandler(gd);
+       helperYAML(this.cuthandler.setObject(this.getObjects()));
+       this.logicDisplay.init(gd);
+       
+};
 
 /**
  * *****************************************************************************
@@ -828,23 +836,34 @@ GraphicDisplay.prototype.drawArcTwoPoints = function(x1, y1, x2, y2, color, radi
             
 };
 GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, color, radius) {
-      
+        
 	this.context.lineWidth = radius;
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
 	this.context.beginPath();
-        var xm = this.getPointMiddle(x1,x2);
-        var ym = this.getPointMiddle(y1,y2);
-        var m = - 1 / this.getSlope(xm,ym,x2,y2);
-        var yc = ((m*x3) - (xm*m) + ym).toFixed(0);
         
-        //console.log(x3 + ',' + (yc + this.cOutY) * this.zoom);
+        /*var xm = this.getPointMiddle(x1,x2);
+        var ym = this.getPointMiddle(y1,y2);
+        var m = - (1 / this.getSlope(x1,y1,x2,y2));
+        var yc = ((m*x3) - (x1*m) + y1).toFixed(0);
+        */
+        
+        var xm = (x1 + x2)/2;
+        var ym = (y1 + y2)/2;
+        
+        var m = (y2 - y1) / (x2 - x1);
+        
+        var yc = (-m)*x3 - (x1*(-m)) + y1;
+        
+         
+        console.log(x3  + ',' + yc.toFixed(0));
+        
         this.context.arc(
                         (x3 + this.cOutX) * this.zoom, 
-                        (y3 + this.cOutY) * this.zoom, 
-                    this.getDistance(x1, y1, x3, y3) * this.zoom,
+                        (yc + this.cOutY) * this.zoom, 
+                    this.getDistance(xm, ym, x3, y3) * this.zoom,
                     this.getAngle(x3, y3, x1, y1), 
-                    this.getAngle(x1, y1, x2, y2), false);
+                    this.getAngle(x3, y3, x2, y2), false);
         this.context.stroke();
         
             
@@ -1209,6 +1228,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			this.tooltip = "Add arc";
 			break;
                 case this.MODES.ADDARC_TR:
+                   
 			this.cvn.css('cursor', 'default');
 			if (action === this.MOUSEACTION.MOVE) {
 				if (this.temporaryComponentType === null) {
@@ -1860,7 +1880,7 @@ GraphicDisplay.prototype.setToolTip = function(text) {
 GraphicDisplay.prototype.getToolTip = function() {
 	var text = this.tooltip;
 	// normalice las medidas
-	text += " | (" + this.getCursorXLocal() + "," + (-1)*(this.getCursorYLocal()) + ")";
+	text += " | (" + this.getCursorXLocal() / 10 + "," + (-1)*(this.getCursorYLocal()) / 10 + ")";
 	
 	return text;
 };
@@ -2262,7 +2282,7 @@ GraphicDisplay.prototype.setAngleGrad = function(Grad){
  * @returns {undefined}
  */
 GraphicDisplay.prototype.setTextCode = function(ctext) {
-            this.tooltipCode = ctext;
+            this.tooltipCode = ctext ;
 };
 
 /**
@@ -2290,8 +2310,9 @@ GraphicDisplay.prototype.getTextCode = function() {
  * @returns {undefined}
  */
 var initCAD = function(gd) {
+       
 	gd.init();
-	
+	 
 	// Bind keyboard events
 	$(document).keyup(function(e) {
 		gd.keyboard.onKeyUp(e);
@@ -2303,7 +2324,7 @@ var initCAD = function(gd) {
 	
 	// Adding keyboard events 
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-		console.log(gd.getObjects());
+		console.log(gd.getObjects()); 
 	});
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
 		console.log('PRESIONA : Q');
@@ -2320,7 +2341,6 @@ var initCAD = function(gd) {
 	});
 	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function() {
 		console.log('PRESIONA : E');
-               
                 gd.setMode(gd.MODES.ADDLINE);
 	});
         
@@ -2372,4 +2392,6 @@ var initCAD = function(gd) {
 	setInterval(function() {
 		gd.execute();
 	}, 100);
+        
+        gd.drawArea();
 };
