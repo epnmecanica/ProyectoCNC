@@ -28,7 +28,13 @@ function avisoEntrada(message, title){
 };
 
 function seleccionElementos(component){
-   
+    for ( var i = component.length - 1; i >= 1; i-- ) {
+        component[i].machined = "Drill"
+        //console.log(component[i].machined = "Drill");
+    }
+        
+       
+  /* 
     var statesdemo = {
 	state0: {
 		title: 'Name',
@@ -42,14 +48,16 @@ function seleccionElementos(component){
 		//focus: "input[name='fname']",
 		submit: function(e,v,m,f){ 
 			//console.log(f);
+                        
                         component.machined = f.typeMecanizado; 
-                        console.log(component);
+                        //console.log(component);
                     
 			e.preventDefault();
                         $.prompt.close();
 			//$.prompt.goToState('state1');
 		}
 	}
+        
 };
 
 $.prompt(statesdemo,{
@@ -67,5 +75,5 @@ $.prompt(statesdemo,{
                     }
             });
             
-    
+    */
 }

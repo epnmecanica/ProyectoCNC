@@ -150,9 +150,35 @@ function helperYAML (datosYaml){
     window.saveAs(blob, filename);
   });
 
-  // Configure the gcode button
+
+
+  // To preview, open a new window and send along the current editor contents.
+  var previewPopup = null;
+  $("#btn-preview").click(function(e) {
+    if (!previewPopup || !previewPopup.location) {
+      console.log("opening preview window.");
+      previewPopup = window.open("render.html");
+      $(previewPopup).ready(function() {
+        setTimeout(function() {
+          previewPopup.postMessage(editor.getValue(), "*");
+        }, 50);
+      });
+    } else {
+      previewPopup.postMessage(editor.getValue(), "*");
+      previewPopup.focus();
+    }
+    window.pp = previewPopup;
+  });
+  
+  
+  var datos = (json2yaml(this.DatosYaml));
+  
+  editor.setValue(datos);
+  editor.moveCursorToPosition({row: 0, col: 0});
+  
+    // Configure the gcode button
   $("#btn-compile-gcode").click(function(e) {
-//function compilarG (){
+   //function compilarG (){
     clearWarnings();
 
     // Parse the YAML input.
@@ -193,31 +219,12 @@ function helperYAML (datosYaml){
       console.log("saving file: " + filename);
       window.saveAs(blob, filename);
     }
+    
   });
-
-  // To preview, open a new window and send along the current editor contents.
-  var previewPopup = null;
-  $("#btn-preview").click(function(e) {
-    if (!previewPopup || !previewPopup.location) {
-      console.log("opening preview window.");
-      previewPopup = window.open("render.html");
-      $(previewPopup).ready(function() {
-        setTimeout(function() {
-          previewPopup.postMessage(editor.getValue(), "*");
-        }, 50);
-      });
-    } else {
-      previewPopup.postMessage(editor.getValue(), "*");
-      previewPopup.focus();
-    }
-    window.pp = previewPopup;
-  });
-  
-  
-  var datos = (json2yaml(this.DatosYaml));
-  
-  editor.setValue(datos);
-  editor.moveCursorToPosition({row: 0, col: 0});
  
+ }
+   
+   
+   
+   
  
-   }

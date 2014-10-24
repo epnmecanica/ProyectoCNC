@@ -1294,7 +1294,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 					this.resetMode();
 				}
 			}
-			this.tooltip = "Add medida";
+			this.tooltip = "Arc Two Points";
 			break;
 		case this.MODES.ADDRECTANGLE:
 			this.cvn.css('cursor', 'default');
@@ -1482,13 +1482,38 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                                         this.selectComponent(this.temporarySelectedComponent);
 					//console.log(this.logicDisplay.components[this.temporarySelectedComponent]);
                                         
+                                        seleccionElementos(this.logicDisplay.components);
+				} else {
+					this.unselectComponent();
+				}
+                                
+			}
+			this.tooltip = "Seleccion elemento para codigo G";
+			break;
+                /*        
+                case this.MODES.CODE_G:
+			this.cvn.css('cursor', 'default');
+			if (action === this.MOUSEACTION.MOVE) {
+				if ( this.selectedComponent === null ) {
+					this.temporarySelectedComponent = this.findIntersectionWith(
+							this.getCursorXLocal(),
+							this.getCursorYLocal());
+				} else {
+					
+				}
+			} else if ( action === this.MOUSEACTION.DOWN ) {
+				if ( this.selectedComponent === null ) {
+                                        this.selectComponent(this.temporarySelectedComponent);
+					//console.log(this.logicDisplay.components[this.temporarySelectedComponent]);
+                                        
                                         seleccionElementos(this.logicDisplay.components[this.temporarySelectedComponent]);
 				} else {
 					this.unselectComponent();
 				}
+                                
 			}
 			this.tooltip = "Seleccion elemento para codigo G";
-			break;
+			break;*/
                         
                 case this.MODES.CUT:
 			 
@@ -2324,7 +2349,8 @@ var initCAD = function(gd) {
 	
 	// Adding keyboard events 
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-		console.log(gd.getObjects()); 
+		//console.log(gd.getObjects()); 
+                compilarG ();
 	});
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
 		console.log('PRESIONA : Q');
@@ -2389,9 +2415,14 @@ var initCAD = function(gd) {
 	});
 	
 	// Start CAD
+        var iter = 0;
 	setInterval(function() {
+            iter++;
 		gd.execute();
+                if(iter == 1){
+                 gd.drawArea();   
+                }
 	}, 100);
         
-        gd.drawArea();
+        
 };
