@@ -176,7 +176,7 @@ function helperYAML (datosYaml){
   editor.setValue(datos);
   editor.moveCursorToPosition({row: 0, col: 0});
   
-    // Configure the gcode button
+    // Configure the gcode button "#btn-compile-gcode"
   $("#btn-compile-gcode").click(function(e) {
    //function compilarG (){
     clearWarnings();

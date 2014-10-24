@@ -226,6 +226,7 @@ GraphicDisplay.prototype.drawArea= function(){
        this.cuthandler = new CutHandler(gd);
        helperYAML(this.cuthandler.setObject(this.getObjects()));
        this.logicDisplay.init(gd);
+       this.logicDisplay.components[0].color = "magenta"; 
        
 };
 
@@ -815,7 +816,7 @@ GraphicDisplay.prototype.drawArc = function(x1, y1, x2, y2, x3, y3, color, radiu
         }
             
 	
-	//this.drawPoint(x1, y1, color, radius);//Dibuja punto central
+	this.drawPoint(x1, y1, color, radius);//Dibuja punto central
 	//this.drawPoint(x2, y2, color, radius);//Dibuja punto inicial de arco
 	//this.drawPoint(x3, y3, color, radius);
         //this.setToolTip('Angulo: ' + firstAngle + ' ' + secondAngle);
@@ -833,7 +834,7 @@ GraphicDisplay.prototype.drawArcTwoPoints = function(x1, y1, x2, y2, color, radi
                         this.getAngle(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), x1, y1), 
                         this.getAngle(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), x2, y2), false);
             this.context.stroke();
-            
+            this.drawPoint(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), color, radius)
 };
 GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, color, radius) {
         
@@ -1105,57 +1106,61 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			}
 			this.tooltip = "Add punto";
 			break;
-                        
-		case this.MODES.ADDLINE:
-			 
-                       
-			this.cvn.css('cursor', 'default');
-                        
-			if (action === this.MOUSEACTION.MOVE) {
-                            
-				if (this.temporaryComponentType === null) {
-					this.temporaryComponentType = COMPONENT_TYPES.POINT;
-                                        
-				} else if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
-					 this.temporaryCoorFirst = this.findIntersectionObject();                                    
-                                    if (this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal()) !== null){
-                                        this.tooltip = "interseccion";
-                                        
-                                        this.temporaryPoints[0] = this.temporaryCoorFirst[0];
-					this.temporaryPoints[1] = this.temporaryCoorFirst[1];
+                case this.MODES.ADDLINE:
+                        if (e.which == 3)
+                            this.resetMode();
+                            this.cvn.css('cursor', 'default');
+                        if (action == this.MOUSEACTION.MOVE) {
+                            if (this.temporaryComponentType == null) {
+                                this.temporaryComponentType = COMPONENT_TYPES.POINT;
+                            } else if (this.temporaryComponentType == COMPONENT_TYPES.POINT) {
+                                var index = this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal());
+                                if( index !== null){
+                                
+                                    if (this.getDistance(this.getCursorXLocal(),
+                                                        this.getCursorYLocal(),
+                                                        this.logicDisplay.components[index].x1,
+                                                        this.logicDisplay.components[index].y1) 
+                                                                
+                                                    <=  
+                                        this.getDistance(this.getCursorXLocal(),
+                                                        this.getCursorYLocal(),
+                                                        this.logicDisplay.components[index].x2,
+                                                        this.logicDisplay.components[index].y2)){
+                                                            
+                                        this.temporaryPoints[0] = this.logicDisplay.components[index].x1;
+                                        this.temporaryPoints[1] = this.logicDisplay.components[index].y1;
                                     }else{
-                                        this.tooltip = "no inter";
-                                        this.temporaryPoints[0] = this.getCursorXLocal();
-                                        this.temporaryPoints[1] = this.getCursorYLocal();
+                                        this.temporaryPoints[0] = this.logicDisplay.components[index].x2;
+                                        this.temporaryPoints[1] = this.logicDisplay.components[index].y2;
                                     }
-				} else if (this.temporaryComponentType === COMPONENT_TYPES.LINE) {
-					this.temporaryPoints[2] = this.getCursorXLocal();
-					this.temporaryPoints[3] = this.getCursorYLocal();
-				}
-			} else if ( action === this.MOUSEACTION.DOWN ) {
-				if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
-					this.temporaryComponentType = COMPONENT_TYPES.LINE;
-					this.temporaryPoints[2] = this.getCursorXLocal();
-					this.temporaryPoints[3] = this.getCursorYLocal();
-				} else if (this.temporaryComponentType === COMPONENT_TYPES.LINE) {
-					this.logicDisplay.addComponent(new Line(
-							this.temporaryPoints[0],
-							this.temporaryPoints[1],
-							this.temporaryPoints[2],
-							this.temporaryPoints[3]));
-					
-					this.temporaryPoints[0] = this.temporaryPoints[2];
-					this.temporaryPoints[1] = this.temporaryPoints[3];
-                                        // para quitar las lineas continuas.
-                                        //this.resetMode();
-				}
-                                
-                                this.tooltipCode = this.getTextCode() + '\n' + ' Linea: ' + this.temporaryPoints[0] + ', ' + this.temporaryPoints[1];
-                                
-			}
-			//this.tooltip = "Add linea";
-                    
-			break;
+                                }else{
+                                    this.temporaryPoints[0] = this.getCursorXLocal();
+                                    this.temporaryPoints[1] = this.getCursorYLocal();
+                                }
+                            } else if (this.temporaryComponentType == COMPONENT_TYPES.LINE) {
+                                    this.temporaryPoints[2] = this.getCursorXLocal();
+                                    this.temporaryPoints[3] = this.getCursorYLocal();
+                            }
+                        } else if ( action == this.MOUSEACTION.DOWN ) {
+                            if (this.temporaryComponentType == COMPONENT_TYPES.POINT) {
+                                this.temporaryComponentType = COMPONENT_TYPES.LINE;
+                                    this.temporaryPoints[2] = this.getCursorXLocal();
+                                    this.temporaryPoints[3] = this.getCursorYLocal();                                
+                            } else if (this.temporaryComponentType == COMPONENT_TYPES.LINE) {
+                                this.logicDisplay.addComponent(new Line(
+                                                                this.temporaryPoints[0],
+                                                                this.temporaryPoints[1],
+                                                                this.temporaryPoints[2],
+                                                                this.temporaryPoints[3]));
+                                this.temporaryPoints[0] = this.temporaryPoints[2];
+                                this.temporaryPoints[1] = this.temporaryPoints[3];
+                                //this.resetMode();   
+                            }
+                        }
+                        this.tooltip = "Add line";
+                        break;
+                
 		case this.MODES.ADDCIRCLE:
 			this.cvn.css('cursor', 'default');
 			if (action === this.MOUSEACTION.MOVE) {
@@ -1944,50 +1949,6 @@ GraphicDisplay.prototype.getB = function(m,x1,y1) {
 	var b = (y1-(m*x1));
 	return b.toFixed(1);
 };
-/**
- * *****************************************************************************
- * encontrar la interseccion con los objetos, no los vertices.
- * *****************************************************************************
- * @returns {Array}
- */
-GraphicDisplay.prototype.findIntersectionObject = function(){
-        
-        this.selectedComponent = this.findIntersectionWith(
-							this.getCursorXLocal(),
-							this.getCursorYLocal());
-                        
-                                if(this.selectedComponent !== null){
-                                    
-                                 
-                                    this.temporaryIntersectionsPoinst[0] = this.logicDisplay.components[this.selectedComponent].x1;
-                                    this.temporaryIntersectionsPoinst[1] = this.logicDisplay.components[this.selectedComponent].y1;
-                                    this.temporaryIntersectionsPoinst[2] = this.logicDisplay.components[this.selectedComponent].x2;
-                                    this.temporaryIntersectionsPoinst[3] = this.logicDisplay.components[this.selectedComponent].y2;
-                                    
-                                    
-                                    if (this.temporaryIntersectionsPoinst[0] === this.getCursorXLocal() 
-                                            && this.temporaryIntersectionsPoinst[1] === this.getCursorYLocal()){
-                                        
-                                                  //  this.tooltip = this.temporaryIntersectionsPoinst[0] + " | " 
-                                                        //    + -this.temporaryIntersectionsPoinst[1];
-                                                    this.temporaryCoor[0] = this.temporaryIntersectionsPoinst[0];
-                                                    this.temporaryCoor[1] = this.temporaryIntersectionsPoinst[1];
-                                                    
-                                    }else if (this.temporaryIntersectionsPoinst[2] === this.getCursorXLocal() 
-                                            && this.temporaryIntersectionsPoinst[3] === this.getCursorYLocal()){
-                                        
-                                                    //this.tooltip = this.temporaryIntersectionsPoinst[2] + " | "
-                                                          //  + -this.temporaryIntersectionsPoinst[3];
-                                                    this.temporaryCoor[0] = this.temporaryIntersectionsPoinst[2];
-                                                    this.temporaryCoor[1] = this.temporaryIntersectionsPoinst[3];
-                                    }
-                                    return this.temporaryCoor;
-                                    
-                                }else{
-                                    //this.tooltip = "Add linea";
-                                }    
-                                return null;
-};
 
 GraphicDisplay.prototype.Interseccion = function (x, y) {
     var vector = new Array();
@@ -2165,6 +2126,8 @@ GraphicDisplay.prototype.findIntersectionWith = function(x, y) {
 			case COMPONENT_TYPES.CIRCLE:
 			case COMPONENT_TYPES.RECTANGLE:
 			case COMPONENT_TYPES.MEASURE:
+                        case COMPONENT_TYPES.ARC:
+                        case COMPONENT_TYPES.ARC_TWO:
 				var delta = this.getDistance(x ,y, this.logicDisplay.components[i].x1, this.logicDisplay.components[i].y1);
                                 var delta2 = this.getDistance(x ,y, this.logicDisplay.components[i].x2, this.logicDisplay.components[i].y2);
 				if ( delta >= 0 && delta <= this.snapTolerance / this.zoom ||delta2 >= 0 && delta2 <= this.snapTolerance / this.zoom  )
@@ -2349,8 +2312,8 @@ var initCAD = function(gd) {
 	
 	// Adding keyboard events 
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-		//console.log(gd.getObjects()); 
-                compilarG ();
+		console.log(gd.getObjects()); 
+                //compilarG ();
 	});
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
 		console.log('PRESIONA : Q');

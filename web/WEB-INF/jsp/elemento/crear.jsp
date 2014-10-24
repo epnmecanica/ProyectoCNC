@@ -70,6 +70,7 @@
                 <script type="text/javascript" src="<c:url value='/resources/js/jquery-impromptu.js'/>"></script>       
 	</head>
 	<body>              
+            
             <nav id="top-nav">
                OPEN CNC
               <a href="/OpenCNC/elemento/acercade.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Ayuda ? ||</a>

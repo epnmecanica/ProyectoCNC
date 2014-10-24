@@ -126,6 +126,7 @@ function icons(){
      st.mouseout(function(){
          st.attr({fill: col, stroke: "none"});
      });
+ 
  }
  
  /**
