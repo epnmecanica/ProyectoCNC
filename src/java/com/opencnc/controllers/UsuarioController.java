@@ -243,14 +243,14 @@ public ModelAndView crear ()throws IOException{
  * @param nombre
  * @param apellido
  * @param organizacion
- * @param mail
+ * @param email
  * @param request
  * @param response
  * @return
  * @throws Exception 
  */
     @RequestMapping ("/usuario/guardar1")
-    public ModelAndView guardar1 (@RequestParam String mail,@RequestParam String nombre, 
+    public ModelAndView guardar1 (@RequestParam String email,@RequestParam String nombre, 
                 @RequestParam String apellido,@RequestParam String organizacion,HttpServletRequest request, 
                                             HttpServletResponse response )
                                             throws Exception{
@@ -266,7 +266,7 @@ public ModelAndView crear ()throws IOException{
                 return new ModelAndView("redirect:/error/abrir_error.htm");
             }else{
             
-            if(!mail.contains(validcaracters)){
+            if(!email.contains(validcaracters)){
              return new ModelAndView("redirect:/usuario/lista.htm");
            /* ModelAndView m1 = new ModelAndView("/usuario/editar");
             ArrayList listaError = new ArrayList( ) ;
@@ -291,7 +291,7 @@ public ModelAndView crear ()throws IOException{
             us.setNombre(nombre);
             us.setApellido(apellido);
             us.setOrganizacion(organizacion);
-            us.setEmail(mail);
+            us.setEmail(email);
             
             Transaction t = s.getTransaction();
             s.beginTransaction();
