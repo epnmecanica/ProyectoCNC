@@ -119,6 +119,8 @@ function GraphicDisplay(displayName, width, height) {
         this.unitAngle = "Grade";
 	this.unitFactor = 1;
 	this.unitConversionFactor = 1/100;
+        
+        
 	
 	// Snapping setting
 	this.snap = false;
@@ -134,7 +136,7 @@ function GraphicDisplay(displayName, width, height) {
 
         this.tooltipDefault = "OpenCNC";
 	this.tooltip = this.tooltipDefault;
-        
+        this.index = null;
         this.tooltipCodeDefault = "Code";
 	this.tooltipCode = this.tooltipCodeDefault;
 	
@@ -1114,25 +1116,25 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                             if (this.temporaryComponentType == null) {
                                 this.temporaryComponentType = COMPONENT_TYPES.POINT;
                             } else if (this.temporaryComponentType == COMPONENT_TYPES.POINT) {
-                                var index = this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal());
-                                if( index !== null){
+                                this.index = this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal());
+                                if( this.index !== null){
                                 
                                     if (this.getDistance(this.getCursorXLocal(),
                                                         this.getCursorYLocal(),
-                                                        this.logicDisplay.components[index].x1,
-                                                        this.logicDisplay.components[index].y1) 
+                                                        this.logicDisplay.components[this.index].x1,
+                                                        this.logicDisplay.components[this.index].y1) 
                                                                 
                                                     <=  
                                         this.getDistance(this.getCursorXLocal(),
                                                         this.getCursorYLocal(),
-                                                        this.logicDisplay.components[index].x2,
-                                                        this.logicDisplay.components[index].y2)){
+                                                        this.logicDisplay.components[this.index].x2,
+                                                        this.logicDisplay.components[this.index].y2)){
                                                             
-                                        this.temporaryPoints[0] = this.logicDisplay.components[index].x1;
-                                        this.temporaryPoints[1] = this.logicDisplay.components[index].y1;
+                                        this.temporaryPoints[0] = this.logicDisplay.components[this.index].x1;
+                                        this.temporaryPoints[1] = this.logicDisplay.components[this.index].y1;
                                     }else{
-                                        this.temporaryPoints[0] = this.logicDisplay.components[index].x2;
-                                        this.temporaryPoints[1] = this.logicDisplay.components[index].y2;
+                                        this.temporaryPoints[0] = this.logicDisplay.components[this.index].x2;
+                                        this.temporaryPoints[1] = this.logicDisplay.components[this.index].y2;
                                     }
                                 }else{
                                     this.temporaryPoints[0] = this.getCursorXLocal();
@@ -1279,8 +1281,30 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 				if (this.temporaryComponentType === null) {
 					this.temporaryComponentType = COMPONENT_TYPES.POINT;
 				} else if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
-					this.temporaryPoints[0] = this.getCursorXLocal();
-					this.temporaryPoints[1] = this.getCursorYLocal();
+					this.index = this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal());
+                                        if( this.index !== null){
+
+                                            if (this.getDistance(this.getCursorXLocal(),
+                                                                this.getCursorYLocal(),
+                                                                this.logicDisplay.components[this.index].x1,
+                                                                this.logicDisplay.components[this.index].y1) 
+
+                                                            <=  
+                                                this.getDistance(this.getCursorXLocal(),
+                                                                this.getCursorYLocal(),
+                                                                this.logicDisplay.components[this.index].x2,
+                                                                this.logicDisplay.components[this.index].y2)){
+
+                                                this.temporaryPoints[0] = this.logicDisplay.components[this.index].x1;
+                                                this.temporaryPoints[1] = this.logicDisplay.components[this.index].y1;
+                                            }else{
+                                                this.temporaryPoints[0] = this.logicDisplay.components[this.index].x2;
+                                                this.temporaryPoints[1] = this.logicDisplay.components[this.index].y2;
+                                            }
+                                        }else{
+                                            this.temporaryPoints[0] = this.getCursorXLocal();
+                                            this.temporaryPoints[1] = this.getCursorYLocal();
+                                        }
 				} else if (this.temporaryComponentType === COMPONENT_TYPES.ARC_TWO) {
 					this.temporaryPoints[2] = this.getCursorXLocal();
 					this.temporaryPoints[3] = this.getCursorYLocal();
