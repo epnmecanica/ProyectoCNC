@@ -153,6 +153,10 @@ public ModelAndView crear ()throws IOException{
         }
         //return null;
     }
+
+
+
+
 /**
  * *****************************************************************************
  * Recoge la informacion del formulario de creacion de usuario y valida que ç
@@ -231,42 +235,113 @@ public ModelAndView crear ()throws IOException{
     
      }
     
-    
     /**
  * *****************************************************************************
- * Cambia la contraseña.
+ * Recoge la informacion del formulario de usuario y valida que ç
+ * tenga contenido y los guarda en la base de datos.
  * *****************************************************************************
- * *****************************************************************************
- * Metodo aun si desarrollo.
- * *****************************************************************************
+ * @param nombre
+ * @param apellido
+ * @param organizacion
+ * @param email
+ * @param request
+ * @param usuarioId
+ * @param response
+ * @return
+ * @throws Exception 
+ */
+    @RequestMapping ("/usuario/guardar1")
+    public ModelAndView guardar1 (@RequestParam String email,@RequestParam String nombre, @RequestParam Integer usuarioId,
+                @RequestParam String apellido,@RequestParam String organizacion,HttpServletRequest request, 
+                                            HttpServletResponse response )
+                                            throws Exception{
+        
+           
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Criteria c = s.createCriteria(Usuario.class);
+            c.add(Restrictions.eq("usuarioId", usuarioId));
+            List<Usuario> l = c.list();
+            String validcaracters = "@";
+            Usuario us= l.get(0);
+           
+            if(l.isEmpty()){
+                return new ModelAndView("redirect:/error/abrir_error.htm");
+            }else{
+            
+            if(!email.contains(validcaracters)){
+             return new ModelAndView("redirect:/usuario/lista.htm");
+           /* ModelAndView m1 = new ModelAndView("/usuario/editar");
+            ArrayList listaError = new ArrayList( ) ;
+            listaError.add("Verifica que los datos Ingresados sean Correctos");
+            m1.addObject("errorId",listaError);
+            return m1;*/
+            } 
+            else
+            
+              {     
+            us.setEstado("P");
+            Calendar cl = new GregorianCalendar();
+            Date d1 = cl.getTime();
+            us.setCreadoFecha(d1);
+            us.setModificadoFecha(d1);
+            us.setCreadoPor(0);  
+            us.setModificadoPor(0);
+            us.setNombre(nombre);
+            us.setApellido(apellido);
+            us.setOrganizacion(organizacion);
+            us.setEmail(email);
+            Transaction t = s.getTransaction();
+            s.beginTransaction();
+            s.saveOrUpdate(us);
+            t.commit();
+            logger.info("Guarda un nuevo usuario");
+            return new ModelAndView("redirect:/usuario/lista.htm");
+            } 
+     
+          
+         } 
+       
+     }
+    
+    
+    
+    
+    
+    
+    
+ /*   
+ * @param id
  * @param request
  * @param response
  * @return
  * @throws IOException 
  */
-    
-    @RequestMapping("usuario/editar")
-    public ModelAndView editar (HttpServletRequest request, 
+    @RequestMapping  ("/usuario/editar/{id}")
+    public ModelAndView   editar  ( @PathVariable  Integer id, 
+                                            HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws IOException{
-      try {
-        logger.info("Ingrese los Datos.");
+        try{
+            logger.info("Se Modificara los datos del Usuario");
         HttpSession sess =  request.getSession();
         if (sess != null){
-            ModelAndView m = new ModelAndView();
+            Session s = HibernateUtil.getSessionFactory().openSession();
         
-        return m;
+            Usuario u = (Usuario)s.get(Usuario.class, id);
+            ModelAndView m = new ModelAndView ("/usuario/editar");
+            m.addObject("usuario",u);
+
+            logger.info("Empieza a mostrar lista de usuarios");
+            return m;
         }else{
             request.removeAttribute("usuario");
             return new ModelAndView("redirect:/usuario/login.htm");
+        } 
+        }catch(Exception ex){
+            logger.error("Error... Al Editar los datos del Usuario",ex);
         }
-         } catch (Exception e) {
-              logger.error("Se produjo un error al guardar los cambios",e);
-          }
-          return null;
+        return null;
     }
-    
-    
     
 
     
@@ -521,6 +596,11 @@ public ModelAndView crear ()throws IOException{
           }
           return null;
     }
+    
+   
+    
+    
+    
  /**
   ******************************************************************************
  * Nueva Contraseña
@@ -537,7 +617,7 @@ public ModelAndView crear ()throws IOException{
         
         logger.info("Ingrese su e-mail para cambiar la contraseña");
                 
-              try{
+            try{
             //utilizar para cambiar la contraseña
             Session s = HibernateUtil.getSessionFactory().openSession();
             Criteria c = s.createCriteria(Usuario.class);

@@ -38,12 +38,15 @@
         </script>
         
        
-       
         
             
     </head>
     <body  onload='window.alert("Gracias por Ingresar, antes de salir cierre sesion.");'>
        
+        <nav class="art-nav">
+		<ul class="art-hmenu"><li><a href="/OpenCNC/index.htm" class="active">Ingresar</a><ul class="active"><li><a href="/OpenCNC/usuario/crear.htm">Crear Nuevo Usuario</a></li><li><a href="/OpenCNC/usuario/login.htm">Login</a></li></ul></li><li><a href="/OpenCNC/inicio/infcad.htm">CAD</a></li><li><a href="/OpenCNC/inicio/infcam.htm">CAM</a></li><li><a href="/OpenCNC/usuario/lista.htm">Lista de Usuarios</a></li></ul></nav>
+ 
+        
         <div id="art-main">
             <div class="art-sheet clearfix">
                 <header class="art-header">
@@ -60,21 +63,7 @@
                     </div>
                     <div class="art-shapes">
                     </div>  
-                      <script language="JavaScript" >
-           
-           var bdpregunta = true;
-           window.onbeforeunload = function () { 
-            if (bdpregunta) { 
-                $.ajax({ type:"Post",url:"${pageContext.request.contextPath}/usuario/logout.htm",dataType:"json",data:{},asyng:function()
-                    {}   
-                });  
-               return(false);
-            }
-          
-           
-        } 
-               
-        </script>
+                      
         
         
                 </header>
@@ -93,13 +82,7 @@
                                      <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p>
                                      
  
-                                     
-                                     
-                                     
-                                     
-                                     
-                                     
-                                     
+                                 
                                     <form:form id="formaModelo" action="${pageContext.request.contextPath}/modelo/guardarModelo.htm" 
                                                method="POST"
                                                commandName="modelo">

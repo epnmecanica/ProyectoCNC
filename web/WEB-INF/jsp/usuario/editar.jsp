@@ -13,12 +13,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cambiar Contraseña</title>
         <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
+ <script src="${pageContext.request.contextPath}/resources/js/script.js"></script> 
         <script src="${pageContext.request.contextPath}/resources/js/script.responsive.js"></script>         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" media="screen">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.responsive.css" media="all">
         <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico"/>
-
+           
+        <script>
+            $(document).ready(function() {
+			$("#botonGuardar").button();
+                    $("#forma").form();
+                    
+                    
+		});
+        </script>
 
     </head>
     <body>
@@ -45,21 +53,43 @@
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article"><p><br></p> 
                                       <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Editar Usuario</span></p><p><br></p>     
-                                        <form:form action="${pageContext.request.contextPath}/usuario/guardar.htm"
-                                                   method="POST"
-                                                   commandName="usuario"
-                                                   >
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Usuario:
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp  <form:input path="usuarioId" readonly="true" ></form:input><br/><br/>
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Nombre:
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp<form:input path="nombre" ></form:input><br/><br/>
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Apellido:
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp<form:input path="apellido" ></form:input><br/><br/>
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Email:
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <form:input path="email"></form:input><br/><br/>
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Organizacion:
-                                            &nbsp <form:input path="organizacion"></form:input><br/><br/>
-                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="Guardar"/>
+                              
+                                         <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar1.htm" 
+                                                       method="POST"
+                                                       commandName="usuario">
+                                            
+                                            <p> 
+                                                        <label for="usuarioId"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Usuario: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                                                            <form:input path="usuarioId" readonly="true" />
+                                             </p>
+                                             
+                                            <p><br>    <label for="nombre"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Nombre de usuario: &nbsp; &nbsp; &nbsp; </label>
+                                                            <form:input path="nombre" />
+                                                    </p>                                                                                                            
+                                                    <p> 
+                                                        <label for="apellido"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Apellido: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                                                            <form:input path="apellido" />
+                                                    </p>
+                                                    <p>
+                                                        <label for="organizacion">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Organizacion: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
+                                                            <form:input path="organizacion" />
+                                                    </p>
+                                                    <p>
+                                                        <label for="email" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Email: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                                                            <form:input path="email"/>
+                                                    </p>
+                                            
+                                                    <p>
+                                                   
+                                                    
+                                                   
+                                                    
+                                                    
+                                            <p><br></p>
+                                            
+                                    
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input id="botonGuardar" type="submit" value="Guardar" onclick="alert('Gracias por pinchar');"/>
+                                                                                     
                                         </form:form>
                                     </article>                                                            
                             </div>

@@ -59,17 +59,7 @@
                                                     <th>Opciones:</th>
                                                     </tr>
                                                 </thead>
-                                                <tfoot>
-                                                     <tr>
-                                                        <td>Id</td>
-                                                        <td>Nombre</td>
-                                                        <td>Login</td>
-                                                        <td>e-Mail</td>
-                                                        <td>Clave</td>
-                                                        <td>Opciones</td>
-                                                          
-                                                     </tr>
-                                                </tfoot>
+                                               
                                                 <tbody>
                                                 <c:forEach var="usuario" items="${usuarios}"  >
                                                     <tr>
@@ -91,7 +81,7 @@
                                                         <td>
                                                             <a href="${pageContext.request.contextPath}/usuario/editar/${usuario.usuarioId}.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Editar</a>
                                                             <a href="${pageContext.request.contextPath}/usuario/borrar/${usuario.usuarioId}.htm"class="art-button" style="font-size: 12px; cursor: pointer; ">Borrar</a>
-
+                                                            
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
