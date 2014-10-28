@@ -237,7 +237,7 @@ public ModelAndView crear ()throws IOException{
     
     /**
  * *****************************************************************************
- * Recoge la informacion del formulario de creacion de usuario y valida que ç
+ * Recoge la informacion del formulario de usuario y valida que ç
  * tenga contenido y los guarda en la base de datos.
  * *****************************************************************************
  * @param nombre
@@ -245,12 +245,13 @@ public ModelAndView crear ()throws IOException{
  * @param organizacion
  * @param email
  * @param request
+ * @param usuarioId
  * @param response
  * @return
  * @throws Exception 
  */
     @RequestMapping ("/usuario/guardar1")
-    public ModelAndView guardar1 (@RequestParam String email,@RequestParam String nombre, 
+    public ModelAndView guardar1 (@RequestParam String email,@RequestParam String nombre, @RequestParam Integer usuarioId,
                 @RequestParam String apellido,@RequestParam String organizacion,HttpServletRequest request, 
                                             HttpServletResponse response )
                                             throws Exception{
@@ -258,6 +259,7 @@ public ModelAndView crear ()throws IOException{
            
             Session s = HibernateUtil.getSessionFactory().openSession();
             Criteria c = s.createCriteria(Usuario.class);
+            c.add(Restrictions.eq("usuarioId", usuarioId));
             List<Usuario> l = c.list();
             String validcaracters = "@";
             Usuario us= l.get(0);
@@ -276,11 +278,7 @@ public ModelAndView crear ()throws IOException{
             } 
             else
             
-              {  
-                
-                
-                
-                
+              {     
             us.setEstado("P");
             Calendar cl = new GregorianCalendar();
             Date d1 = cl.getTime();
@@ -292,7 +290,6 @@ public ModelAndView crear ()throws IOException{
             us.setApellido(apellido);
             us.setOrganizacion(organizacion);
             us.setEmail(email);
-            
             Transaction t = s.getTransaction();
             s.beginTransaction();
             s.saveOrUpdate(us);
