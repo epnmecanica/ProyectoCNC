@@ -65,12 +65,14 @@
                                      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
                                      <a href="/OpenCNC/modelo/abrir.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Regresar a Lista de Proyectos</a>&nbsp &nbsp &nbsp &nbsp<a href="/OpenCNC/usuario/login.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">Cerrar</a>
                                     <p style="text-align: center;"><span style="font-size: 14px;">
-                                            <form:form action="${pageContext.request.contextPath}/modelo/guardarModelo.htm"
+                                            <form:form action="${pageContext.request.contextPath}/modelo/nuevoguardarModelo.htm"
                                                 method="POST"
                                                 commandName="modelo"
                                                         > 
+                                                &nbsp &nbsp &nbsp &nbsp Identificador:
+                                                <form:input path="modeloId" ></form:input><br/><br/>
                                                 &nbsp &nbsp &nbsp &nbsp Nombre:
-                                                 <form:input path="nombre" ></form:input><br/><br/>
+                                                <form:input path="nombre" ></form:input><br/><br/>
                                                 &nbsp &nbsp &nbsp &nbsp Descripcion:
                                                  <form:input path="descripcion" ></form:input><br/><br/>
                                                 &nbsp &nbsp &nbsp &nbsp  Punto Cero Maquina X:
