@@ -1118,7 +1118,6 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                             } else if (this.temporaryComponentType == COMPONENT_TYPES.POINT) {
                                 this.index = this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal());
                                 if( this.index !== null){
-                                
                                     if (this.getDistance(this.getCursorXLocal(),
                                                         this.getCursorYLocal(),
                                                         this.logicDisplay.components[this.index].x1,
@@ -1312,8 +1311,30 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			} else if ( action === this.MOUSEACTION.DOWN ) {
 				if (this.temporaryComponentType === COMPONENT_TYPES.POINT) {
 					this.temporaryComponentType = COMPONENT_TYPES.ARC_TWO;
-					this.temporaryPoints[2] = this.getCursorXLocal();
-					this.temporaryPoints[3] = this.getCursorYLocal();
+					this.index = this.findIntersectionWith(this.getCursorXLocal(),this.getCursorYLocal());
+                                        if( this.index !== null){
+
+                                            if (this.getDistance(this.getCursorXLocal(),
+                                                                this.getCursorYLocal(),
+                                                                this.logicDisplay.components[this.index].x1,
+                                                                this.logicDisplay.components[this.index].y1) 
+
+                                                            <=  
+                                                this.getDistance(this.getCursorXLocal(),
+                                                                this.getCursorYLocal(),
+                                                                this.logicDisplay.components[this.index].x2,
+                                                                this.logicDisplay.components[this.index].y2)){
+
+                                                this.temporaryPoints[2] = this.logicDisplay.components[this.index].x1;
+                                                this.temporaryPoints[3] = this.logicDisplay.components[this.index].y1;
+                                            }else{
+                                                this.temporaryPoints[2] = this.logicDisplay.components[this.index].x2;
+                                                this.temporaryPoints[3] = this.logicDisplay.components[this.index].y2;
+                                            }
+                                        }else{
+                                            this.temporaryPoints[2] = this.getCursorXLocal();
+                                            this.temporaryPoints[3] = this.getCursorYLocal();
+                                        }
 				} else if (this.temporaryComponentType === COMPONENT_TYPES.ARC_TWO) {
 					this.logicDisplay.addComponent(new Arc_two(
 							this.temporaryPoints[0],
@@ -2405,6 +2426,7 @@ var initCAD = function(gd) {
         var iter = 0;
 	setInterval(function() {
             iter++;
+            
 		gd.execute();
                 if(iter == 1){
                  gd.drawArea();   

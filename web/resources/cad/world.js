@@ -25,7 +25,6 @@ $(document).ready(function() {
         
 });
 var cargarPantalla  = function(){
-        
         this.xH = new WindowHandler();
         
         this.xH.init();
@@ -45,7 +44,7 @@ var cargarPantalla  = function(){
         var gd = new GraphicDisplay(this.id, this.xH.getWidth(), this.xH.getHeight());
     
         gd.camX = - this.xH.getWidth() + 50;
-        gd.camY =  this.xH.getHeight() -100;
+        gd.camY =  this.xH.getHeight() -50;
         //gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";

@@ -165,17 +165,17 @@ function icons(){
         //this.iadd.translate(iconsArray[11],0).show();
         this.iless.translate(iconsArray[9],0).show();
         //this.isave.translate(iconsArray[13],0).show();
-        this.inew.translate(iconsArray[14],0).show();
-        this.icreateG.translate(iconsArray[10],0).show(); 
-        this.icut.translate(iconsArray[11],0).show();
+        //this.icreateG.translate(iconsArray[10],0).show(); 
+        this.icut.translate(iconsArray[10],0).show();
+        this.inew.translate(iconsArray[12],0).show();
         
-        this.imove.translate(iconsArray[17],0).show();
-        this.ihand.translate(iconsArray[18],0).show();
-        this.izoomless.translate(iconsArray[20],0).show();
-        this.izoompluss.translate(iconsArray[21],0).show();
+        this.imove.translate(iconsArray[14],0).show();
+        this.ihand.translate(iconsArray[15],0).show();
+        this.izoomless.translate(iconsArray[17],0).show();
+        this.izoompluss.translate(iconsArray[18],0).show();
            
-        this.idimx.translate(iconsArray[24],0).show();
-        this.iok.translate(iconsArray[25],0).show();
+        this.idimx.translate(iconsArray[19],0).show();
+        this.iok.translate(iconsArray[20],0).show();
           
           
           
@@ -218,11 +218,10 @@ function icons(){
               iwizar.attr({fill: colors, stroke: "none"});
           }).click(function () {
               console.log('se selecciona Wizard!!');
-           
             // this.cuthandler = new CutHandler(gd.displayName, gd.unitMeasure, gd.typeOfCad);
              this.cuthandler = new CutHandler(gd);
+             seleccionElementos(gd.getObjects());
              helperYAML(this.cuthandler.setObject(gd.getObjects()));  
-                
              console.log(JSON.stringify(gd.getObjects()));
             //gd.setMode(gd.MODES.EDIT);         
           });
