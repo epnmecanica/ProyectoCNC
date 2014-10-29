@@ -220,6 +220,69 @@ public class ModeloController {
         
     }
     
+    /**
+ * *****************************************************************************
+ * Muevo metodo para guardar los datos editados de modelo
+ * *****************************************************************************
+ * @param modeloId
+ * @param nombre
+ * @param descripcion
+ * @param puntoCeroMaquinaX
+ * @param puntoCeroMaquinaY
+ * @param piezaAncho
+ * @param piezaLargo
+ * @return
+ * @throws Exception 
+ */    
+    @RequestMapping  ("/modelo/nuevoguardarModelo")
+    public ModelAndView   nuevoguardarModelo     (
+                                            @RequestParam Integer modeloId,
+                                            @RequestParam String nombre,@RequestParam String descripcion,
+                                            @RequestParam float puntoCeroMaquinaX,@RequestParam float puntoCeroMaquinaY,
+                                            @RequestParam float piezaAncho,@RequestParam float piezaLargo
+                                            )throws Exception{
+       logger.info("Ingrese se guardara los datos del modelo");
+                
+              try{
+            //utilizar para guardar los datos del modelo
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Criteria c = s.createCriteria(Modelo.class);
+           c.add(Restrictions.eq("modeloId", modeloId));
+            List<Modelo> l = c.list();
+            if(l.isEmpty()){
+                return new ModelAndView("redirect:/error/abrir_error.htm");
+            }else{
+               
+               
+                Modelo mol = l.get(0);
+                Calendar cl = new GregorianCalendar();
+                Date d1 = cl.getTime();
+            
+                mol.setModificadoFecha(d1);
+                mol.setNombre(nombre);
+                mol.setDescripcion(descripcion);
+                mol.setPuntoCeroMaquinaX(puntoCeroMaquinaX);
+                mol.setPuntoCeroMaquinaY(puntoCeroMaquinaY);
+                mol.setPiezaAncho(piezaAncho);
+                mol.setPiezaLargo(piezaLargo);
+                  
+                Transaction t = s.getTransaction();
+                s.beginTransaction();
+                s.saveOrUpdate(mol);
+                t.commit();
+             
+                System.out.println("se modifico los datos del modelo");
+                return new ModelAndView("redirect:/modelo/abrir.htm");
+              
+            }             
+        }catch(Exception e){
+            System.out.println("hubo un error al guardar los datos del modelo");
+            throw new RuntimeException(e);
+            
+        }
+      
+        
+    }
 /**
  * *****************************************************************************
  * Edita la informacion de los modelos.
@@ -234,11 +297,11 @@ public class ModeloController {
  */
     //@RequestMapping(value = "/modelo/editarModelo/{id}", method = RequestMethod.GET)
     @RequestMapping  ("modelo/editarModelo/{id}")
-    public ModelAndView   editarModelo  (@PathVariable Integer id, 
+    public ModelAndView   editarModelo  (@PathVariable Integer id,
                                             HttpServletRequest request, 
                                             HttpServletResponse response
                                             )throws Exception{
-        try{
+         try{
         logger.info("Se modificara el modelo");
         HttpSession sess =  request.getSession();
         if (sess != null){
@@ -263,6 +326,8 @@ public class ModeloController {
        return null;
         
     }
+    
+ 
     
 /**
  * *****************************************************************************
