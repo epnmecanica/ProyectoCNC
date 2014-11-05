@@ -12,7 +12,7 @@ a que lado se va a alinear el texto, el margen.
 */
 
 
-.responsive body // define el tamaño del cuerpo de la página
+.responsive body /*  // define el tamaño del cuerpo de la página */ 
 {
    min-width: 240px;
 }
@@ -35,8 +35,9 @@ a que lado se va a alinear el texto, el margen.
 {
    width: auto !important;
 }
-    
-.responsive .art-content-layout, // define la forma de del contenido de la página
+ 
+/* // define la forma de del contenido de la página */ 
+.responsive .art-content-layout, 
 .responsive .art-content-layout-row, 
 .responsive .art-layout-cell 
 {
@@ -78,13 +79,13 @@ a que lado se va a alinear el texto, el margen.
    width: 100%;
    height: 100%;
 }
-
-.responsive .art-header 
 /* define el header o cabecera que se va a utilizar en la pagina del programa
 permite al usuario definir cada una de las carateristicas de dicho header, tales como
 tamaño en pixeles, porcentaje del margen interno, externo, posicion del header, alto, ancho
 colores, e imagen de fondo, si lo desea.
-*/
+*/ 
+.responsive .art-header 
+
 {
    width: auto;
    height: auto;
@@ -149,7 +150,7 @@ colores, e imagen de fondo, si lo desea.
    left: auto !important;
 }
 
-/* para los iconos like de facebook, rss, etc. */
+/* para los iconos like de facebook, rss, etc */
 .responsive .art-header>.art-textblock>div 
 {
    width: 100%;
@@ -189,15 +190,15 @@ colores, e imagen de fondo, si lo desea.
 
 .art-nav .art-menu-btn:hover span
 {
-   background: #f3f3f3; // color
+   background: #f3f3f3; 
 }
 
 .responsive .art-nav .art-menu-btn 
 {
-   display: inline-block; // forma en que se muestra
+   display: inline-block; 
 }
 
-.responsive nav.art-nav, // Nnavegación entre pestañas dentro de la página
+.responsive nav.art-nav, 
 .responsive .art-nav-inner
 {
    width: auto !important;
@@ -237,7 +238,7 @@ colores, e imagen de fondo, si lo desea.
    display: block;
 }
 
-/* elements on different lines */
+/* elementos de diferentes lineas */
 .responsive .art-nav ul.art-hmenu li,
 .art-hmenu-extra1,
 .art-hmenu-extra2
@@ -245,7 +246,7 @@ colores, e imagen de fondo, si lo desea.
    float: none;
 }
   
-/* horizontal margins */
+/* horizontal margenes */
 .responsive .art-nav ul.art-hmenu>li:first-child, 
 .responsive .art-nav ul.art-hmenu>li:last-child, 
 .responsive .art-nav ul.art-hmenu>li

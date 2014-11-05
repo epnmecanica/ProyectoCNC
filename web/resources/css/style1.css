@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
 }
 
 /* Reset buttons border. It's important for input and button tags. 
- * border-collapse should be separate for shadow in IE. 
+ border-collapse should be separate for shadow in IE. 
  */
 .art-button
 {
@@ -998,7 +998,7 @@ div.art-block img
 }
 .opera .art-block ul>li:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  
     bottom: 0;
 }
 
@@ -1672,7 +1672,7 @@ a img
    margin: 2px;
 }
 
-.art-article table, table.art-article // estilo d elas tablas
+.art-article table, table.art-article // estilo de las tablas
 {
    border-collapse: collapse;
    margin: 1px;

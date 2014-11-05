@@ -9,13 +9,12 @@ especifica las caracteristicas a utilizarse tales como:
 color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
 a que lado se va a alinear el texto, el margen.
 */
-
-.responsive body // tamaño minimo de ancho
+ /*   // tamaño minimo de ancho */  
+.responsive body
 {
    min-width: 240px;
 }
-  
-.responsive .art-content-layout img, // tamaño de ancho minimo y de altura
+  /* // tamaño de ancho minimo y de altura  */ /*  */
 .responsive .art-content-layout video
 {
    max-width: 100%;
