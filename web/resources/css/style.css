@@ -9,7 +9,8 @@ especifica las caracteristicas a utilizarse tales como:
 color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
 a que lado se va a alinear el texto, el margen.
 */
-#art-main //estilo general de la pagina: alto, ancho, color, texto, familia de texto, tamaño
+/* //estilo general de la pagina: alto, ancho, color, texto, familia de texto, tamaño */ 
+#art-main 
 {
    background: #4388AD url('../resources/images//pageglare.png') no-repeat fixed;
    margin:0 auto;
@@ -25,7 +26,8 @@ a que lado se va a alinear el texto, el margen.
    cursor:default;
    overflow:hidden;
 }
-table, ul.art-hmenu //tablas dentro del menu
+/* //tablas dentro del menu  */ 
+table, ul.art-hmenu 
 {
    font-size: 17px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -39,8 +41,8 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
    padding: 0;
 }
 
-
-.art-button //  define el estilo de los iconos de la página
+/* //  define el estilo de los iconos de la página */ 
+.art-button 
 {
    border-collapse: separate;
    -webkit-background-origin: border !important;
@@ -66,7 +68,8 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
    height:26px;
 }
 
-.art-postcontent, // posicion del texto en cada uno de estos estilos
+/* // posicion del texto en cada uno de estos estilos */ 
+.art-postcontent, 
 .art-postheadericons,
 .art-postfootericons,
 .art-blockcontent,
@@ -87,8 +90,8 @@ ul.art-vmenu a
 {
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 }
-
-.art-postcontent p // margen de comentarios
+/* // margen de comentarios  */ 
+.art-postcontent p 
 {
    margin: 12px 0;
 }
@@ -285,8 +288,8 @@ header, footer, article, nav, #art-hmenu-bg, .art-sheet, .art-slidenavigator > a
    -moz-box-sizing: border-box;
    box-sizing: border-box;
 }
-
-ul // listas
+/* // listas */ 
+ul 
 {
    list-style-type: none;
 }
@@ -295,13 +298,13 @@ ol
 {
    list-style-position: inside;
 }
-
-html, body // porcentaje de alto del cuerpo de la página
+/* // porcentaje de alto del cuerpo de la página */ 
+html, body 
 {
    height: 100%;
 }
-
-body //características del cuerpo de la página
+/* //características del cuerpo de la página */ 
+body 
 {
    padding: 0;
    margin:0;
@@ -328,8 +331,8 @@ form
    padding: 0 !important;
    margin: 0 !important;
 }
-
-table.position // posicion de las tablas dentro de la página
+/* // posicion de las tablas dentro de la página */ 
+table.position 
 {
    position: relative;
    width: 100%;
@@ -376,8 +379,8 @@ li p, .art-postcontent li p, .art-blockcontent li p
    overflow: hidden;
    z-index: 0;
 }
-
-.art-slider-inner // caracteristicas internas del slider
+/* // caracteristicas internas del slider  */ 
+.art-slider-inner 
 {
    position: relative;
    overflow: hidden;
@@ -406,8 +409,8 @@ li p, .art-postcontent li p, .art-blockcontent li p
 {
 -webkit-border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;
 }
-
-.art-slidecontainerheader .art-slide-item // alto, ancho, tiempo de paso entre cada slider  
+/* // alto, ancho, tiempo de paso entre cada slider  */ 
+.art-slidecontainerheader .art-slide-item  
 {
     -webkit-transition: 700ms ease-in-out left;
     -moz-transition: 700ms ease-in-out left;
@@ -456,9 +459,9 @@ li p, .art-postcontent li p, .art-blockcontent li p
 
 
 
-
+/* //ruta de la imagen a cargar */
 .art-slideheader0 {
-    background-image:  url('../images/slideheader0.jpg'); //ruta de la imagen a cargar
+    background-image:  url('../images/slideheader0.jpg'); 
         background-size:  100%;
         background-position:  0 0;
     background-repeat: no-repeat;
@@ -475,8 +478,8 @@ li p, .art-postcontent li p, .art-blockcontent li p
         background-position:  0 0;
     background-repeat: no-repeat;
 }
-
-.art-slidenavigatorheader // para navegar en cada una de las pestañas del header
+ /*  // para navegar en cada una de las pestañas del header */  
+.art-slidenavigatorheader 
 {
   display: inline-block;
   position: absolute;
@@ -554,11 +557,11 @@ height: 10px;
    width: 1000px;
    z-index: auto !important;
 }
-
-.art-header 
-/*estilo a utilzarse en la cabecera o header de la pagina web, permite definir:
+ /*estilo a utilzarse en la cabecera o header de la pagina web, permite definir:
 radio del borde, posicion de la imagen, si es repetitiva, el margen, el alto.
-*/
+*/ 
+.art-header 
+
 {
    -webkit-border-radius:3px 3px 0 0;
    -moz-border-radius:3px 3px 0 0;
@@ -590,8 +593,8 @@ radio del borde, posicion de la imagen, si es repetitiva, el margen, el alto.
    -moz-border-radius:3px 3px 0 0;
    border-radius:3px 3px 0 0;
 }
-
-.art-nav // para navegar dentro del header
+/* / para navegar dentro del header */ 
+.art-nav 
 {
    background: #FFFFFF url('../resources/images/nav.png') bottom left repeat-x scroll;
    -webkit-border-radius:0 0 3px 3px;
@@ -1100,9 +1103,10 @@ div.art-block img
    line-height:0;
    margin-left: -12px;
 }
+/*alineacion vertical: centro, no necesita compensacion adicional*/  
 .opera .art-block ul>li:before
 {
-   /*alineacion vertical: centro, no necesita compensacion adicional*/
+   
     bottom: 0;
 }
 
@@ -1855,9 +1859,10 @@ pre
    font-size:0;
    line-height:0;
 }
+ /*alineacion vertical: centro, no necesita compensacion adicional*/ 
 .opera .art-postheadericon:before
 {
-  /*alineacion vertical: centro, no necesita compensacion adicional*/
+  
     bottom: 0;
 }
 
@@ -1966,9 +1971,10 @@ pre
    font-size:0;
    line-height:0;
 }
+/*alineacion vertical: centro, no necesita compensacion adicional*/  
 .opera .art-postdateicon:before
 {
-  /*alineacion vertical: centro, no necesita compensacion adicional*/
+  
     bottom: 0;
 }
 
@@ -1983,9 +1989,10 @@ pre
    font-size:0;
    line-height:0;
 }
+/*alineacion vertical: centro, no necesita compensacion adicional*/ 
 .opera .art-postauthoricon:before
 {
-/*alineacion vertical: centro, no necesita compensacion adicional*/
+
     bottom: 0;
 }
 
@@ -2000,9 +2007,10 @@ pre
    font-size:0;
    line-height:0;
 }
+  /*alineacion vertical: centro, no necesita compensacion adicional*/ 
 .opera .art-postpdficon:before
 {
-   /*alineacion vertical: centro, no necesita compensacion adicional*/
+   
     bottom: 0;
 }
 
@@ -2017,9 +2025,10 @@ pre
    font-size:0;
    line-height:0;
 }
+/*alineacion vertical: centro, no necesita compensacion adicional*/ 
 .opera .art-postprinticon:before
 {
-  /*alineacion vertical: centro, no necesita compensacion adicional*/
+  
     bottom: 0;
 }
 
@@ -2034,9 +2043,10 @@ pre
    font-size:0;
    line-height:0;
 }
+/*alineacion vertical: centro, no necesita compensacion adicional*/ 
 .opera .art-postemailicon:before
 {
-/*alineacion vertical: centro, no necesita compensacion adicional*/
+
     bottom: 0;
 }
 
@@ -2051,9 +2061,10 @@ pre
    font-size:0;
    line-height:0;
 }
+/*alineacion vertical: centro, no necesita compensacion adicional*/  
 .opera .art-postediticon:before
 {
-  /*alineacion vertical: centro, no necesita compensacion adicional*/
+  
     bottom: 0;
 }
 
@@ -2068,9 +2079,10 @@ pre
    font-size:0;
    line-height:0;
 }
+ /*alineacion vertical: centro, no necesita compensacion adicional*/  
 .opera .art-postcontent ul>li:before, .opera   .art-post ul>li:before, .opera   .art-textblock ul>li:before
 {
-  /*alineacion vertical: centro, no necesita compensacion adicional*/
+ 
     bottom: 0;
 }
 
@@ -2112,16 +2124,16 @@ pre
 {
    margin: 10px 0 0 0;
 }
-
+/* anula desbordamiento para "li ul" y define el valor por defecto */ 
 .art-postcontent ol>li, .art-post ol>li, .art-textblock ol>li
 {
-   /* anula desbordamiento para "li ul" y define el valor por defecto */
+   
   overflow: visible;
 }
-
+/* no alinear detrás de la imagen si se encuentran en la misma línea */ 
 .art-postcontent ul>li, .art-post ul>li, .art-textblock ul>li
 {
-   /* no alinear detrás de la imagen si se encuentran en la misma línea */
+   
   overflow-x: visible;
    overflow-y: hidden;
 }
@@ -2136,7 +2148,7 @@ blockquote
    font-weight: normal;
    font-style: italic;
    text-align: left;
-   /* hace bloque no alinearse detrás de la imagen si se encuentran en la misma línea */
+   
   overflow: auto;
    clear:both;
 }
@@ -2152,7 +2164,7 @@ blockquote a:hover, .art-postcontent blockquote a:hover, .art-blockcontent block
    text-align: left;
 }
 
-/* Override native 'p' margins*/
+
 blockquote p,
 .art-postcontent blockquote p,
 .art-blockcontent blockquote p,
@@ -2222,10 +2234,10 @@ blockquote p,
    font-size:0;
    line-height:0;
 }
+   /* Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-postcategoryicon:before
 {
-   /* 
-Vertical-align: medio en Opera no necesita compensación adicional */
+
     bottom: 0;
 }
 
@@ -2240,9 +2252,10 @@ Vertical-align: medio en Opera no necesita compensación adicional */
    font-size:0;
    line-height:0;
 }
+/* Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-posttagicon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -2257,9 +2270,10 @@ Vertical-align: medio en Opera no necesita compensación adicional */
    font-size:0;
    line-height:0;
 }
+/*Vertical-align: medio en Opera no necesita compensación adicionalt */
 .opera .art-postcommentsicon:before
 {
-   /*Vertical-align: medio en Opera no necesita compensación adicionalt */
+   
     bottom: 0;
 }
 

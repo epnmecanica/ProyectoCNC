@@ -2,18 +2,13 @@
 /* 
     Created on : 12/09/2014, 12:10:43 PM
     Author     : user
-*/
 
-// En esta página se desarrolló la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
-
-#art-main
-
-/*configuracion de estilo de toda la página.
+configuracion de estilo de toda la página.
 especifica las caracteristicas a utilizarse tales como: 
 color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
 a que lado se va a alinear el texto, el margen.
 */
-
+#art-main
 {
    background: #F6F7F9 url('../resources/images/fotosinfo/page.jpeg') repeat-x scroll;
    background: url('../resources/images/fotosinfo/pageglare.png') no-repeat, url('../resources/images/fotosinfo/page.jpeg') repeat-x, #F6F7F9;
@@ -321,8 +316,8 @@ form
    padding: 0 !important;
    margin: 0 !important;
 }
-
-table.position // Define la posición de la Tabla 
+/*  Define la posición de la Tabla */ 
+table.position  
 {
    position: relative;
    width: 100%;
@@ -369,16 +364,16 @@ li p, .art-postcontent li p, .art-blockcontent li p
    overflow: hidden;
    z-index: 0;
 }
-
-.art-slider-inner // Define el slider a utilizarse como encabezado en la parte superior de la pagina
+/* // Define el slider a utilizarse como encabezado en la parte superior de la pagina */ 
+.art-slider-inner 
 {
    position: relative;
    overflow: hidden;
    width: 100%;
    height: 100%;
 }
-
-.art-slidenavigator > a // Se define el paso de los sliders
+/*  // Se define el paso de los sliders */ 
+.art-slidenavigator > a 
 {
    display: inline-block;
    vertical-align: middle;
@@ -458,8 +453,8 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
   margin: 0;
   color: #FFFFFF !important;
 }
-
-.art-header // Define caracteristicas a utilizarse en el header de la pagina, tal como las rutas de archivos a usar.
+/* // Define caracteristicas a utilizarse en el header de la pagina, tal como las rutas de archivos a usar. */ 
+.art-header 
 {
    -webkit-border-radius:5px;
    -moz-border-radius:5px;
@@ -493,8 +488,8 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
    -moz-border-radius:5px;
    border-radius:5px;
 }
-
-.art-nav // define la herramienta para navegar entre akgunas opciones.
+/* // define la herramienta para navegar entre akgunas opciones. */ 
+.art-nav 
 {
    background: #434656;
    background: linear-gradient(top, #54596D 0, #31333F 100%) no-repeat;
@@ -627,8 +622,8 @@ ul.art-hmenu>li:first-child {
 ul.art-hmenu>li:last-child, ul.art-hmenu>li.last-child {
    margin-right: 4px;
 }
-
-ul.art-hmenu>li>a // define el estilo a aplicarse en las listas, menu y submenu.
+/* // define el estilo a aplicarse en las listas, menu y submenu. */ 
+ul.art-hmenu>li>a 
 {
    -webkit-border-radius:2px;
    -moz-border-radius:2px;
@@ -660,8 +655,8 @@ ul.art-hmenu>li>a // define el estilo a aplicarse en las listas, menu y submenu.
    text-transform: uppercase;
    text-align: left;
 }
-
-ul.art-hmenu>li>a.active // define el estilo de la vista de un icono activo o inactivo.
+/* // define el estilo de la vista de un icono activo o inactivo. */ 
+ul.art-hmenu>li>a.active 
 {
    background: #FAFAFA;
    background: linear-gradient(top, #FFFFFF 0, #CDD5D2 100%) no-repeat;
@@ -709,8 +704,8 @@ ul.art-hmenu>li>a:hover,
    color: #000000;
    text-decoration: none;
 }
-
-ul.art-hmenu>li:before //define el espacio entre cada elemento de la lista
+/* //define el espacio entre cada elemento de la lista  */ 
+ul.art-hmenu>li:before 
 {
    position:absolute;
    display: block;
@@ -967,7 +962,7 @@ ul.art-hmenu ul
    vertical-align: top;
 }
 
-/* need only for content layout in post content */ 
+
 .art-postcontent .art-content-layout
 {
    border-collapse: collapse;
@@ -1669,9 +1664,10 @@ div.art-block img
    line-height:0;
    margin-left: -13px;
 }
+/* Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-block ul>li:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -1819,9 +1815,10 @@ pre
    line-height:0;
    bottom: auto;
 }
+/*  Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-postheadericon:before
 {
-   /*Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -1919,9 +1916,10 @@ pre
    line-height:0;
    bottom: auto;
 }
+/* Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-postdateicon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -1936,9 +1934,10 @@ pre
    line-height:0;
    bottom: auto;
 }
+/* Vertical-align: medio en Opera no necesita compensación adicional*/ 
 .opera .art-postauthoricon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional*/
+   
     bottom: 0;
 }
 
@@ -1953,9 +1952,10 @@ pre
    line-height:0;
    bottom: auto;
 }
+/* Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-postpdficon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -1970,9 +1970,10 @@ pre
    line-height:0;
    bottom: auto;
 }
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
 .opera .art-postprinticon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+
     bottom: 0;
 }
 
@@ -1987,9 +1988,10 @@ pre
    font-size:0;
    line-height:0;
 }
+ /* Vertical-align: medio en Opera no necesita compensación adicional */
 .opera .art-postemailicon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+  
     bottom: 0;
 }
 
@@ -2003,10 +2005,12 @@ pre
    vertical-align:middle;
    font-size:0;
    line-height:0;
+
 }
+/* Vertical-align: medio en Opera no necesita compensación adicional */
 .opera .art-postediticon:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -2021,9 +2025,10 @@ pre
    font-size:0;
    line-height:0;
 }
+ /* Vertical-align: medio en Opera no necesita compensación adicional */ 
 .opera .art-postcontent ul>li:before, .opera   .art-post ul>li:before, .opera   .art-textblock ul>li:before
 {
-   /* Vertical-align: medio en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -2064,16 +2069,16 @@ pre
 {
    margin: 10px 0 10px 0;
 }
-
+  /* anula desbordamiento para "li ul" y define el valor por defecto */ 
 .art-postcontent ol>li, .art-post ol>li, .art-textblock ol>li
 {
-   /* anula desbordamiento para "li ul" y define el valor por defecto */
+ 
   overflow: visible;
 }
-
+/* "li ul" no alinear detrás de la imagen si se encuentran en la misma línea */
 .art-postcontent ul>li, .art-post ul>li, .art-textblock ul>li
 {
-   /* "li ul" no alinear detrás de la imagen si se encuentran en la misma línea */
+   
   overflow-x: visible;
    overflow-y: hidden;
 }
@@ -2088,8 +2093,7 @@ blockquote
    font-weight: normal;
    font-style: italic;
    text-align: left;
-   /* no alinearse detrás de la imagen si se encuentran en la misma línea */
-  overflow: auto;
+   overflow: auto;
    clear:both;
 }
 blockquote a, .art-postcontent blockquote a, .art-blockcontent blockquote a, .art-footer blockquote a,
@@ -2175,9 +2179,10 @@ blockquote p,
    line-height:0;
    bottom: auto;
 }
+ /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional */ 
 .opera .art-postcategoryicon:before
 {
-   /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional */
+   
     bottom: 0;
 }
 
@@ -2192,9 +2197,10 @@ blockquote p,
    line-height:0;
    bottom: auto;
 }
+/* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional*/
 .opera .art-posttagicon:before
 {
-   /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional*/
+   
     bottom: 0;
 }
 
@@ -2209,9 +2215,10 @@ blockquote p,
    line-height:0;
    bottom: auto;
 }
+/* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional*/ 
 .opera .art-postcommentsicon:before
 {
-   /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional*/
+   
     bottom: 0;
 }
 

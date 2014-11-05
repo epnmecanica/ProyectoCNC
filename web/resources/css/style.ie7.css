@@ -13,14 +13,14 @@ a que lado se va a alinear el texto, el margen.
 .clearfix {
    zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).className="cleared");
 }
-
-.art-textblock > div { // estilos en el bloque de texto
+/* estilos en el bloque de texto*/
+.art-textblock > div   
    display: block;
    line-height: normal;
    zoom: 1;
 }
-
-.art-header // estilos em el header
+/* //estilos em el header */ 
+.art-header 
 {
    z-index: 1;
    background-image: [headerimage];
@@ -31,8 +31,8 @@ a que lado se va a alinear el texto, el margen.
 {
    display: none;
 }
-
-.art-hmenu>li, .art-hmenu>li>a // estilos en las listas
+/* // estilos en las listas  */ 
+.art-hmenu>li, .art-hmenu>li>a 
 {
    display: inline !important;
    zoom: 1;
@@ -53,7 +53,8 @@ ul.art-hmenu>li:first-child {
 ul.art-hmenu>li{
    zoom:expression(runtimeStyle.zoom=1,insertBefore(document.createElement('span'),firstChild).className='art-hmenu-separator');
 }
-ul.art-hmenu>li>span.art-hmenu-separator // sepoarador entre listas
+/* // sepoarador entre listas */
+ul.art-hmenu>li>span.art-hmenu-separator 
 {
    position:absolute;
    display: block;
@@ -83,14 +84,14 @@ ul.art-hmenu ul{
    float: left;
    clear: right;
 }
-
-input[type="text"] // define el tipo de entrada
+ /* // define el tipo de entrada */ 
+input[type="text"] 
 {
    margin:0 0 0 -3px;
    zoom:expression(runtimeStyle.zoom = 1, parentNode.insertBefore(document.createElement('div'), this).appendChild(this));
 }
-
-* html input[type="text"] //define el tipo de entrada para html
+ /* //define el tipo de entrada para html */ 
+* html input[type="text"] 
 {
    margin :0;
 }
@@ -136,7 +137,8 @@ form.art-search div>input[type="text"]
    display: none !important;
 }
 
-.art-content // estilo para el contenido
+ /* // estilo para el contenido */  
+.art-content 
 {
    width: auto;
    float:none;
