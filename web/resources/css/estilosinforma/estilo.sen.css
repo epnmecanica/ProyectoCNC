@@ -1,14 +1,18 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
+
 /* 
     Created on : 12/09/2014, 12:10:52 PM
     Author     : user
+
+
+En esta página se desarrollaron la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
+configuracion de estilo de toda la página.
+especifica las caracteristicas a utilizarse tales como: 
+color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
+a que lado se va a alinear el texto, el margen.
 */
 
-.responsive body
+
+.responsive body // define el tamaño del cuerpo de la página
 {
    min-width: 240px;
 }
@@ -32,7 +36,7 @@ and open the template in the editor.
    width: auto !important;
 }
     
-.responsive .art-content-layout, 
+.responsive .art-content-layout, // define la forma de del contenido de la página
 .responsive .art-content-layout-row, 
 .responsive .art-layout-cell 
 {
@@ -76,6 +80,11 @@ and open the template in the editor.
 }
 
 .responsive .art-header 
+/* define el header o cabecera que se va a utilizar en la pagina del programa
+permite al usuario definir cada una de las carateristicas de dicho header, tales como
+tamaño en pixeles, porcentaje del margen interno, externo, posicion del header, alto, ancho
+colores, e imagen de fondo, si lo desea.
+*/
 {
    width: auto;
    height: auto;
@@ -127,7 +136,7 @@ and open the template in the editor.
    background-repeat: repeat !important;
 }
 
-/* Search and other elements in header element directly */
+/* Buscar y otros elementos en el elemento de cabecera directamente */
 .responsive .art-header>.art-textblock
 {
    position: relative !important;
@@ -140,12 +149,12 @@ and open the template in the editor.
    left: auto !important;
 }
 
-/* For icons like facebook, rss, etc. */
+/* para los iconos like de facebook, rss, etc. */
 .responsive .art-header>.art-textblock>div 
 {
    width: 100%;
 }
-/* dynamic width nav */
+/* si el nav es dinamico, se usaran las sigueintes características */
 .art-nav .art-menu-btn 
 {
    border: 1px solid #404040;
@@ -180,15 +189,15 @@ and open the template in the editor.
 
 .art-nav .art-menu-btn:hover span
 {
-   background: #f3f3f3;
+   background: #f3f3f3; // color
 }
 
 .responsive .art-nav .art-menu-btn 
 {
-   display: inline-block;
+   display: inline-block; // forma en que se muestra
 }
 
-.responsive nav.art-nav,
+.responsive nav.art-nav, // Nnavegación entre pestañas dentro de la página
 .responsive .art-nav-inner
 {
    width: auto !important;
@@ -215,7 +224,7 @@ and open the template in the editor.
    padding-right: 0;
 }
 
-/* full width hmenu, instead of inline-block */
+/* cuando el menu llene la página y la sobresalga, ingresa nuevamente dentro de la página */
 .responsive .art-nav ul.art-hmenu 
 {
    display: none;
@@ -245,13 +254,13 @@ and open the template in the editor.
    margin-right: 0;
 }
  
-/* separator */ 
+/* separador */ 
 .responsive .art-nav ul.art-hmenu>li:before
 {
    display: none;
 }
 
-/* vertical distance between items */
+/* distancia avertical entre items */
 .responsive .art-nav ul.art-hmenu a
 {
    margin-top: 1px !important;
@@ -271,7 +280,7 @@ and open the template in the editor.
    margin-bottom: 0 !important;
 }
 
-/* fixes for extended menu */
+/* mezclas entre menus, concordancias */
 .responsive .art-nav .ext, 
 .responsive .art-nav ul.art-hmenu>li>ul, 
 .responsive .art-nav ul.art-hmenu>li>ul>li,
@@ -280,7 +289,7 @@ and open the template in the editor.
    width: auto !important;
 }
 
-/* submenu position on hover */
+/* posicion del submenu */
 .responsive .art-nav ul.art-hmenu ul
 {
    left: auto !important;
