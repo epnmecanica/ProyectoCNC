@@ -1,4 +1,14 @@
+/* 
+    Created on : 12/09/2014, 12:10:52 PM
+    Author     : user
 
+
+En esta página se desarrollaron la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
+configuracion de estilo de toda la página.
+especifica las caracteristicas a utilizarse tales como: 
+color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
+a que lado se va a alinear el texto, el margen.
+*/
 .responsive body
 {
    min-width: 240px;
@@ -142,7 +152,7 @@
    background-repeat: repeat !important;
 }
 
-/* Search and other elements in header element directly */
+/*buscar otros elementos en el header directamente */
 .responsive .art-header>.art-textblock
 {
    position: relative !important;
@@ -155,7 +165,7 @@
    left: auto !important;
 }
 
-/* For icons like facebook, rss, etc. */
+/* para el icono like de facebook, rss, etc. */
 .responsive .art-header>.art-textblock>div 
 {
    width: 100%;
@@ -229,7 +239,7 @@
    padding-right: 0;
 }
 
-/* full width hmenu, instead of inline-block */
+/* texto que sobresale la pantalla*/
 .responsive .art-nav ul.art-hmenu 
 {
    display: none;
@@ -242,7 +252,7 @@
    display: block;
 }
 
-/* elements on different lines */
+/* elementos en diferentes lineas */
 .responsive .art-nav ul.art-hmenu li,
 .art-hmenu-extra1,
 .art-hmenu-extra2
@@ -250,7 +260,7 @@
    float: none;
 }
   
-/* horizontal margins */
+/* margenes horizontales */
 .responsive .art-nav ul.art-hmenu>li:first-child, 
 .responsive .art-nav ul.art-hmenu>li:last-child, 
 .responsive .art-nav ul.art-hmenu>li
@@ -259,13 +269,13 @@
    margin-right: 0;
 }
  
-/* separator */ 
+/* separadores */ 
 .responsive .art-nav ul.art-hmenu>li:before
 {
    display: none;
 }
 
-/* vertical distance between items */
+/* distancia vertical entre items */
 .responsive .art-nav ul.art-hmenu a
 {
    margin-top: 1px !important;
@@ -285,7 +295,7 @@
    margin-bottom: 0 !important;
 }
 
-/* fixes for extended menu */
+/* combinacion extendida en menus */
 .responsive .art-nav .ext, 
 .responsive .art-nav ul.art-hmenu>li>ul, 
 .responsive .art-nav ul.art-hmenu>li>ul>li,
@@ -294,7 +304,7 @@
    width: auto !important;
 }
 
-/* submenu position on hover */
+/* posicion de submenu sobre la pantalla */
 .responsive .art-nav ul.art-hmenu ul
 {
    left: auto !important;

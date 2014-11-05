@@ -1,15 +1,26 @@
+/* 
+    Created on : 12/09/2014, 7:09:52 PM
+    Author     : user
+
+
+En esta página se desarrollaron la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
+configuracion de estilo de toda la página.
+especifica las caracteristicas a utilizarse tales como: 
+color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
+a que lado se va a alinear el texto, el margen.
+*/
 .art-header, #art-header-bg, .art-layout-cell, .art-layout-wrapper, .art-footer, .art-nav, #art-hmenu-bg, .art-sheet,
 .clearfix {
    zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).className="cleared");
 }
 
-.art-textblock > div {
+.art-textblock > div { // estilos en el bloque de texto
    display: block;
    line-height: normal;
    zoom: 1;
 }
 
-.art-header
+.art-header // estilos em el header
 {
    z-index: 1;
    background-image: [headerimage];
@@ -21,7 +32,7 @@
    display: none;
 }
 
-.art-hmenu>li, .art-hmenu>li>a
+.art-hmenu>li, .art-hmenu>li>a // estilos en las listas
 {
    display: inline !important;
    zoom: 1;
@@ -42,7 +53,7 @@ ul.art-hmenu>li:first-child {
 ul.art-hmenu>li{
    zoom:expression(runtimeStyle.zoom=1,insertBefore(document.createElement('span'),firstChild).className='art-hmenu-separator');
 }
-ul.art-hmenu>li>span.art-hmenu-separator
+ul.art-hmenu>li>span.art-hmenu-separator // sepoarador entre listas
 {
    position:absolute;
    display: block;
@@ -73,13 +84,13 @@ ul.art-hmenu ul{
    clear: right;
 }
 
-input[type="text"]
+input[type="text"] // define el tipo de entrada
 {
    margin:0 0 0 -3px;
    zoom:expression(runtimeStyle.zoom = 1, parentNode.insertBefore(document.createElement('div'), this).appendChild(this));
 }
 
-* html input[type="text"]
+* html input[type="text"] //define el tipo de entrada para html
 {
    margin :0;
 }
@@ -125,7 +136,7 @@ form.art-search div>input[type="text"]
    display: none !important;
 }
 
-.art-content 
+.art-content // estilo para el contenido
 {
    width: auto;
    float:none;

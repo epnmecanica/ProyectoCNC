@@ -1,14 +1,19 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
+
 /* 
     Created on : 12/09/2014, 12:10:43 PM
     Author     : user
 */
 
+// En esta página se desarrolló la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
+
 #art-main
+
+/*configuracion de estilo de toda la página.
+especifica las caracteristicas a utilizarse tales como: 
+color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
+a que lado se va a alinear el texto, el margen.
+*/
+
 {
    background: #F6F7F9 url('../resources/images/fotosinfo/page.jpeg') repeat-x scroll;
    background: url('../resources/images/fotosinfo/pageglare.png') no-repeat, url('../resources/images/fotosinfo/page.jpeg') repeat-x, #F6F7F9;
@@ -35,9 +40,6 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
    padding: 0;
 }
 
-/* Reset buttons border. It's important for input and button tags. 
- * border-collapse should be separate for shadow in IE. 
- */
 .art-button
 {
    border: 0;
@@ -320,7 +322,7 @@ form
    margin: 0 !important;
 }
 
-table.position
+table.position // Define la posición de la Tabla 
 {
    position: relative;
    width: 100%;
@@ -368,14 +370,16 @@ li p, .art-postcontent li p, .art-blockcontent li p
    z-index: 0;
 }
 
-.art-slider-inner {
+.art-slider-inner // Define el slider a utilizarse como encabezado en la parte superior de la pagina
+{
    position: relative;
    overflow: hidden;
    width: 100%;
    height: 100%;
 }
 
-.art-slidenavigator > a {
+.art-slidenavigator > a // Se define el paso de los sliders
+{
    display: inline-block;
    vertical-align: middle;
    outline-style: none;
@@ -455,12 +459,7 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
   color: #FFFFFF !important;
 }
 
-
-
-
-
-
-.art-header
+.art-header // Define caracteristicas a utilizarse en el header de la pagina, tal como las rutas de archivos a usar.
 {
    -webkit-border-radius:5px;
    -moz-border-radius:5px;
@@ -468,7 +467,7 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
    border:1px solid #D6DCDA;
    margin:0 auto;
    height: 250px;
-   background-image: url('/OpenCNC/resources/images/fotosinfo/header.jpg');
+   background-image: url('/OpenCNC/resources/images/fotosinfo/header.jpg'); 
    background-position: 0 0;
    background-repeat: no-repeat;
    position: relative;
@@ -495,7 +494,7 @@ text-shadow: 1px 0px 0px rgb(23, 23, 23), 1px 0px 0px rgb(23, 23, 23), 0px -1px 
    border-radius:5px;
 }
 
-.art-nav
+.art-nav // define la herramienta para navegar entre akgunas opciones.
 {
    background: #434656;
    background: linear-gradient(top, #54596D 0, #31333F 100%) no-repeat;
@@ -629,7 +628,7 @@ ul.art-hmenu>li:last-child, ul.art-hmenu>li.last-child {
    margin-right: 4px;
 }
 
-ul.art-hmenu>li>a
+ul.art-hmenu>li>a // define el estilo a aplicarse en las listas, menu y submenu.
 {
    -webkit-border-radius:2px;
    -moz-border-radius:2px;
@@ -662,7 +661,7 @@ ul.art-hmenu>li>a
    text-align: left;
 }
 
-ul.art-hmenu>li>a.active
+ul.art-hmenu>li>a.active // define el estilo de la vista de un icono activo o inactivo.
 {
    background: #FAFAFA;
    background: linear-gradient(top, #FFFFFF 0, #CDD5D2 100%) no-repeat;
@@ -711,7 +710,7 @@ ul.art-hmenu>li>a:hover,
    text-decoration: none;
 }
 
-ul.art-hmenu>li:before
+ul.art-hmenu>li:before //define el espacio entre cada elemento de la lista
 {
    position:absolute;
    display: block;
@@ -795,7 +794,7 @@ ul.art-hmenu ul li a:hover, .desktop ul.art-hmenu ul li:hover>a
 
 .art-hmenu ul li a:hover
 {
-   color: #000000;
+   color: #000000; 
 }
 
 .desktop .art-hmenu ul li:hover>a
@@ -1672,7 +1671,7 @@ div.art-block img
 }
 .opera .art-block ul>li:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -1822,7 +1821,7 @@ pre
 }
 .opera .art-postheadericon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -1922,7 +1921,7 @@ pre
 }
 .opera .art-postdateicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -1939,7 +1938,7 @@ pre
 }
 .opera .art-postauthoricon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional*/
     bottom: 0;
 }
 
@@ -1956,7 +1955,7 @@ pre
 }
 .opera .art-postpdficon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -1973,7 +1972,7 @@ pre
 }
 .opera .art-postprinticon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -1990,7 +1989,7 @@ pre
 }
 .opera .art-postemailicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -2007,7 +2006,7 @@ pre
 }
 .opera .art-postediticon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -2024,7 +2023,7 @@ pre
 }
 .opera .art-postcontent ul>li:before, .opera   .art-post ul>li:before, .opera   .art-textblock ul>li:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -2068,13 +2067,13 @@ pre
 
 .art-postcontent ol>li, .art-post ol>li, .art-textblock ol>li
 {
-   /* overrides overflow for "ul li" and sets the default value */
+   /* anula desbordamiento para "li ul" y define el valor por defecto */
   overflow: visible;
 }
 
 .art-postcontent ul>li, .art-post ul>li, .art-textblock ul>li
 {
-   /* makes "ul li" not to align behind the image if they are in the same line */
+   /* "li ul" no alinear detrás de la imagen si se encuentran en la misma línea */
   overflow-x: visible;
    overflow-y: hidden;
 }
@@ -2089,7 +2088,7 @@ blockquote
    font-weight: normal;
    font-style: italic;
    text-align: left;
-   /* makes block not to align behind the image if they are in the same line */
+   /* no alinearse detrás de la imagen si se encuentran en la misma línea */
   overflow: auto;
    clear:both;
 }
@@ -2105,7 +2104,7 @@ blockquote a:hover, .art-postcontent blockquote a:hover, .art-blockcontent block
    text-align: left;
 }
 
-/* Override native 'p' margins*/
+/* Invalidar márgenes nativos "p"*/
 blockquote p,
 .art-postcontent blockquote p,
 .art-blockcontent blockquote p,
@@ -2178,7 +2177,7 @@ blockquote p,
 }
 .opera .art-postcategoryicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -2195,7 +2194,7 @@ blockquote p,
 }
 .opera .art-posttagicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional*/
     bottom: 0;
 }
 
@@ -2212,7 +2211,7 @@ blockquote p,
 }
 .opera .art-postcommentsicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Alinemaiento Vertical: medio, en Opera no necesita compensación adicional*/
     bottom: 0;
 }
 
@@ -2564,7 +2563,7 @@ blockquote p,
    -ms-transform: rotate(-45deg);
    /* IE 9 */
     -webkit-transform: rotate(-45deg);
-   /* Safari and Chrome */
+   /* Safari y Chrome */
     -o-transform: rotate(-45deg);
    /* Opera */
     -moz-transform: rotate(-45deg);
@@ -2604,6 +2603,6 @@ blockquote p,
    width: 250px;
 }
 
-/* Begin Additional CSS Styles */
+
 .art-blockheader .t, .art-vmenublockheader .t {white-space: nowrap;}
-/* End Additional CSS Styles */
+

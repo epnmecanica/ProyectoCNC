@@ -1,4 +1,15 @@
-#art-main
+/* 
+    Created on : 12/09/2014, 12:09:52 PM
+    Author     : user
+
+
+En esta página se desarrollaron la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
+configuracion de estilo de toda la página.
+especifica las caracteristicas a utilizarse tales como: 
+color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
+a que lado se va a alinear el texto, el margen.
+*/
+#art-main //estilo general de la pagina: alto, ancho, color, texto, familia de texto, tamaño
 {
    background: #4388AD url('../resources/images//pageglare.png') no-repeat fixed;
    margin:0 auto;
@@ -14,7 +25,7 @@
    cursor:default;
    overflow:hidden;
 }
-table, ul.art-hmenu
+table, ul.art-hmenu //tablas dentro del menu
 {
    font-size: 17px;
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
@@ -28,10 +39,8 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
    padding: 0;
 }
 
-/* Reset buttons border. It's important for input and button tags. 
- * border-collapse should be separate for shadow in IE. 
- */
-.art-button
+
+.art-button //  define el estilo de los iconos de la página
 {
    border-collapse: separate;
    -webkit-background-origin: border !important;
@@ -57,7 +66,7 @@ h1, h2, h3, h4, h5, h6, p, a, ul, ol, li
    height:26px;
 }
 
-.art-postcontent,
+.art-postcontent, // posicion del texto en cada uno de estos estilos
 .art-postheadericons,
 .art-postfootericons,
 .art-blockcontent,
@@ -79,7 +88,7 @@ ul.art-vmenu a
    font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 }
 
-.art-postcontent p
+.art-postcontent p // margen de comentarios
 {
    margin: 12px 0;
 }
@@ -277,7 +286,7 @@ header, footer, article, nav, #art-hmenu-bg, .art-sheet, .art-slidenavigator > a
    box-sizing: border-box;
 }
 
-ul
+ul // listas
 {
    list-style-type: none;
 }
@@ -287,12 +296,12 @@ ol
    list-style-position: inside;
 }
 
-html, body
+html, body // porcentaje de alto del cuerpo de la página
 {
    height: 100%;
 }
 
-body
+body //características del cuerpo de la página
 {
    padding: 0;
    margin:0;
@@ -320,7 +329,7 @@ form
    margin: 0 !important;
 }
 
-table.position
+table.position // posicion de las tablas dentro de la página
 {
    position: relative;
    width: 100%;
@@ -368,7 +377,8 @@ li p, .art-postcontent li p, .art-blockcontent li p
    z-index: 0;
 }
 
-.art-slider-inner {
+.art-slider-inner // caracteristicas internas del slider
+{
    position: relative;
    overflow: hidden;
    width: 100%;
@@ -397,7 +407,8 @@ li p, .art-postcontent li p, .art-blockcontent li p
 -webkit-border-radius:3px 3px 0 0;-moz-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;
 }
 
-.art-slidecontainerheader .art-slide-item {
+.art-slidecontainerheader .art-slide-item // alto, ancho, tiempo de paso entre cada slider  
+{
     -webkit-transition: 700ms ease-in-out left;
     -moz-transition: 700ms ease-in-out left;
     -ms-transition: 700ms ease-in-out left;
@@ -447,7 +458,7 @@ li p, .art-postcontent li p, .art-blockcontent li p
 
 
 .art-slideheader0 {
-    background-image:  url('../images/slideheader0.jpg');
+    background-image:  url('../images/slideheader0.jpg'); //ruta de la imagen a cargar
         background-size:  100%;
         background-position:  0 0;
     background-repeat: no-repeat;
@@ -465,7 +476,8 @@ li p, .art-postcontent li p, .art-blockcontent li p
     background-repeat: no-repeat;
 }
 
-.art-slidenavigatorheader {
+.art-slidenavigatorheader // para navegar en cada una de las pestañas del header
+{
   display: inline-block;
   position: absolute;
   direction: ltr !important;
@@ -486,21 +498,13 @@ li p, .art-postcontent li p, .art-blockcontent li p
 {
 background: #B1C9C7;background: linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;background: -webkit-linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;background: -moz-linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;background: -o-linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;background: -ms-linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;background: linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;-svg-background: linear-gradient(top, rgba(225, 234, 234, 0.6) 0, rgba(129, 167, 165, 0.6) 100%) no-repeat;
 -webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;
-
-
 padding:7px;
-
-
-
-
 
 }
 .art-slidenavigatorheader > a
 {
 background: #628D8B;background: #628D8B;background: #628D8B;background: #628D8B;background: #628D8B;background: #628D8B;background: #628D8B;-svg-background: #628D8B;
 -webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
-
-
 
 margin:0 10px 0 0;
 
@@ -512,8 +516,6 @@ height: 10px;
 {
 background: #A0ABC5;background: #A0ABC5;background: #A0ABC5;background: #A0ABC5;background: #A0ABC5;background: #A0ABC5;background: #A0ABC5;-svg-background: #A0ABC5;
 -webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
-
-
 
 margin:0 10px 0 0;
 
@@ -535,12 +537,6 @@ width: 10px;
 height: 10px;
 }
 
-
-
-
-
-
-
 .art-sheet
 {
    background: #FFFFFF;
@@ -559,7 +555,10 @@ height: 10px;
    z-index: auto !important;
 }
 
-.art-header
+.art-header 
+/*estilo a utilzarse en la cabecera o header de la pagina web, permite definir:
+radio del borde, posicion de la imagen, si es repetitiva, el margen, el alto.
+*/
 {
    -webkit-border-radius:3px 3px 0 0;
    -moz-border-radius:3px 3px 0 0;
@@ -592,7 +591,7 @@ height: 10px;
    border-radius:3px 3px 0 0;
 }
 
-.art-nav
+.art-nav // para navegar dentro del header
 {
    background: #FFFFFF url('../resources/images/nav.png') bottom left repeat-x scroll;
    -webkit-border-radius:0 0 3px 3px;
@@ -1028,7 +1027,7 @@ ul.art-hmenu ul
    vertical-align: top;
 }
 
-/* need only for content layout in post content */ 
+/* necesita unicamente el contenido del siguiente post */ 
 .art-postcontent .art-content-layout
 {
    border-collapse: collapse;
@@ -1103,7 +1102,7 @@ div.art-block img
 }
 .opera .art-block ul>li:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1858,7 +1857,7 @@ pre
 }
 .opera .art-postheadericon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1969,7 +1968,7 @@ pre
 }
 .opera .art-postdateicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1986,7 +1985,7 @@ pre
 }
 .opera .art-postauthoricon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+/*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -2003,7 +2002,7 @@ pre
 }
 .opera .art-postpdficon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -2020,7 +2019,7 @@ pre
 }
 .opera .art-postprinticon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -2037,7 +2036,7 @@ pre
 }
 .opera .art-postemailicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+/*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -2054,7 +2053,7 @@ pre
 }
 .opera .art-postediticon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -2071,7 +2070,7 @@ pre
 }
 .opera .art-postcontent ul>li:before, .opera   .art-post ul>li:before, .opera   .art-textblock ul>li:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -2116,13 +2115,13 @@ pre
 
 .art-postcontent ol>li, .art-post ol>li, .art-textblock ol>li
 {
-   /* overrides overflow for "ul li" and sets the default value */
+   /* anula desbordamiento para "li ul" y define el valor por defecto */
   overflow: visible;
 }
 
 .art-postcontent ul>li, .art-post ul>li, .art-textblock ul>li
 {
-   /* makes "ul li" not to align behind the image if they are in the same line */
+   /* no alinear detrás de la imagen si se encuentran en la misma línea */
   overflow-x: visible;
    overflow-y: hidden;
 }
@@ -2137,7 +2136,7 @@ blockquote
    font-weight: normal;
    font-style: italic;
    text-align: left;
-   /* makes block not to align behind the image if they are in the same line */
+   /* hace bloque no alinearse detrás de la imagen si se encuentran en la misma línea */
   overflow: auto;
    clear:both;
 }
@@ -2225,7 +2224,8 @@ blockquote p,
 }
 .opera .art-postcategoryicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* 
+Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -2242,7 +2242,7 @@ blockquote p,
 }
 .opera .art-posttagicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* Vertical-align: medio en Opera no necesita compensación adicional */
     bottom: 0;
 }
 
@@ -2259,7 +2259,7 @@ blockquote p,
 }
 .opera .art-postcommentsicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*Vertical-align: medio en Opera no necesita compensación adicionalt */
     bottom: 0;
 }
 
@@ -2601,7 +2601,7 @@ blockquote p,
    -ms-transform: rotate(45deg);
    /* IE 9 */
     -webkit-transform: rotate(45deg);
-   /* Safari and Chrome */
+   /* Safari y Chrome */
     -o-transform: rotate(45deg);
    /* Opera */
     -moz-transform: rotate(45deg);
@@ -2647,7 +2647,7 @@ blockquote p,
    margin:0 auto;
 }
 
-/* Begin Additional CSS Styles */
+/* empieza CSS de estilos adicionales */
 .art-blockheader .t, .art-vmenublockheader .t {white-space: nowrap;}
 
 #header-image1 img {

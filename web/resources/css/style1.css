@@ -1,4 +1,14 @@
+/* 
+    Created on : 12/09/2014, 11:39:52 PM
+    Author     : user
 
+
+En esta página se desarrollaron la creación de estilos que se utilizaron en las páginas de información, asi como en las páginas que contienen el programa.
+configuracion de estilo de toda la página.
+especifica las caracteristicas a utilizarse tales como: 
+color, tamaño, posicion, porcentaje de la hoja que se va a utilizar en la página,
+a que lado se va a alinear el texto, el margen.
+*/
 #art-main
 {
    background: #4388AD url('../resources/images/pageglare.png') no-repeat fixed;
@@ -787,7 +797,7 @@ ul.art-hmenu ul:before
    left: 100%;
 }
 
-ul.art-hmenu ul
+ul.art-hmenu ul //espacio entre submenu 
 {
    visibility: hidden;
    position: absolute;
@@ -1662,7 +1672,7 @@ a img
    margin: 2px;
 }
 
-.art-article table, table.art-article
+.art-article table, table.art-article // estilo d elas tablas
 {
    border-collapse: collapse;
    margin: 1px;
@@ -1673,7 +1683,7 @@ a img
    height: 0;
 }
 
-.art-article th, .art-article td
+.art-article th, .art-article td // tablas: bordes, alineacion vertical, alineado del texto
 {
    padding: 2px;
    border: solid 1px #4C84A9;
@@ -1681,7 +1691,7 @@ a img
    text-align: left;
 }
 
-.art-article th
+.art-article th // tablas: bordes, alineacion vertical, alineado del texto
 {
    text-align: center;
    vertical-align: middle;
@@ -1756,7 +1766,7 @@ pre
 }
 .opera .art-postheadericon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+ /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1856,7 +1866,7 @@ pre
 }
 .opera .art-postdateicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1873,7 +1883,7 @@ pre
 }
 .opera .art-postauthoricon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+  /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1890,7 +1900,7 @@ pre
 }
 .opera .art-postpdficon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1907,7 +1917,7 @@ pre
 }
 .opera .art-postprinticon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1924,7 +1934,7 @@ pre
 }
 .opera .art-postemailicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /*alineacion vertical: centro, no necesita compensacion adicional*/
     bottom: 0;
 }
 
@@ -1941,7 +1951,7 @@ pre
 }
 .opera .art-postediticon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+ 
     bottom: 0;
 }
 
@@ -1958,7 +1968,7 @@ pre
 }
 .opera .art-postcontent ul>li:before, .opera   .art-post ul>li:before, .opera   .art-textblock ul>li:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   
     bottom: 0;
 }
 
@@ -2003,13 +2013,13 @@ pre
 
 .art-postcontent ol>li, .art-post ol>li, .art-textblock ol>li
 {
-   /* overrides overflow for "ul li" and sets the default value */
+   /* anula desbordamiento para "li ul" y define el valor por defecto */
   overflow: visible;
 }
 
 .art-postcontent ul>li, .art-post ul>li, .art-textblock ul>li
 {
-   /* makes "ul li" not to align behind the image if they are in the same line */
+   /* "li ul" alineamiento detrás de la imagen si se encuentran en la misma línea */
   overflow-x: visible;
    overflow-y: hidden;
 }
@@ -2024,7 +2034,7 @@ blockquote
    font-weight: normal;
    font-style: italic;
    text-align: left;
-   /* makes block not to align behind the image if they are in the same line */
+   /* no alinear detrás de la imagen si se encuentran en la misma línea */
   overflow: auto;
    clear:both;
 }
@@ -2040,7 +2050,7 @@ blockquote a:hover, .art-postcontent blockquote a:hover, .art-blockcontent block
    text-align: left;
 }
 
-/* Override native 'p' margins*/
+/* Invalidar márgenes nativos "p"*/
 blockquote p,
 .art-postcontent blockquote p,
 .art-blockcontent blockquote p,
@@ -2130,7 +2140,7 @@ blockquote p,
 }
 .opera .art-posttagicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* alineacion vertical: centro, no necesita compensacion adicional */
     bottom: 0;
 }
 
@@ -2147,7 +2157,7 @@ blockquote p,
 }
 .opera .art-postcommentsicon:before
 {
-   /* Vertical-align:middle in Opera doesn't need additional offset */
+   /* alineacion vertical: centro, no necesita compensacion adicional */
     bottom: 0;
 }
 
@@ -2501,7 +2511,7 @@ blockquote p,
    -ms-transform: rotate(-45deg);
    /* IE 9 */
     -webkit-transform: rotate(-45deg);
-   /* Safari and Chrome */
+   /* Safari y Chrome */
     -o-transform: rotate(-45deg);
    /* Opera */
     -moz-transform: rotate(-45deg);
@@ -2535,7 +2545,7 @@ blockquote p,
    margin:0 auto;
 }
 
-/* Begin Additional CSS Styles */
+/* empieza estilos adicionales*/
 .art-blockheader .t, .art-vmenublockheader .t {white-space: nowrap;}
 
 #header-image1 image {
