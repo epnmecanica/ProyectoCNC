@@ -3,8 +3,8 @@
  * @param {type} datosYaml
  * @returns {helperYAML}
  */
-function helperYAML (datosYaml){
-    
+//function helperYAML (datosYaml){
+var helperYAML = function (datosYaml){
     this.DatosYaml = datosYaml;
 
 /**
@@ -130,7 +130,8 @@ function helperYAML (datosYaml){
   $("#input-file-local").change(handleFileSelect);
 
   // Configure the save button
-  $("#btn-save-file").click(function(e) {
+ // $("#btn-save-file").click(function(e) {
+  this.save_file =  function(){
     clearWarnings();
 
     // Use the name state in the file if it is available.
@@ -148,8 +149,8 @@ function helperYAML (datosYaml){
     var blob = new Blob([editor.getValue()], {type:"text/x-yaml"});
     console.log("saving file: " + filename);
     window.saveAs(blob, filename);
-  });
-
+ // });
+ }
 
 
   // To preview, open a new window and send along the current editor contents.
@@ -177,7 +178,8 @@ function helperYAML (datosYaml){
   editor.moveCursorToPosition({row: 0, col: 0});
   
     // Configure the gcode button "#btn-compile-gcode"
-  $("#btn-compile-gcode").click(function(e) {
+  //$("#btn-compile-gcode").click(function(e) {
+  this.compile_gcode = function() {
    //function compilarG (){
     clearWarnings();
 
@@ -219,12 +221,28 @@ function helperYAML (datosYaml){
       console.log("saving file: " + filename);
       window.saveAs(blob, filename);
     }
+  }  
+  //});
+  
     
-  });
- 
+
  }
-   
-   
+ 
+ var gui_G = function(dato) {
+  var text = new helperYAML(dato);
+  //var gui = new dat.GUI();
+  var gui = new dat.GUI({ autoPlace: false });
+
+  var customContainer_g = document.getElementById('my-gui_G-container');
+  customContainer_g.appendChild(gui.domElement);
+  gui.add(text, 'compile_gcode');
+  gui.add(text, 'save_file');
+  //gui.add(text, 'btn_compile_gcode');
+  //gui.add(text, 'speed', -5, 5);
+  //gui.add(text, 'displayOutline');
+  //gui.add(text, 'explode');
+};
+
    
    
  
