@@ -61,6 +61,7 @@ var cargarPantalla  = function(){
         
         loadIcons(gd);
         initCAD(gd);
+       
         //deberia estar todo en una sola funcion
         $.ajax({
             type: 'GET',

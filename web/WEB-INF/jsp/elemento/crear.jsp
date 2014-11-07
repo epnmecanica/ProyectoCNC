@@ -2,6 +2,14 @@
     Document   : crear
     Created on : 17/06/2014, 11:57:20 AM
     Author     : root
+                <div id ="sub-menu">
+                    <input type="file" id="input-file-local" style="display:none">
+                    <button id="btn-open-file">Abrir Archivo</button>
+                    <button id="btn-save-file">Guardar Archivo</button>
+                    <button id="btn-compile-gcode">Compilar codigo G</button>
+                    <a id="link-download-gcode" style="display:none">download gcode</a>
+                    
+                </div>  
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -73,14 +81,17 @@
 	</head>
 	<body>            
             <nav id="top-nav">
+                
                OPEN CNC
                
               <a href="/OpenCNC/elemento/acercade.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Ayuda ? ||</a>
               <a href="/OpenCNC/elemento/docs.htm" class="art-button" style="font-size: 10px; cursor: pointer; "> Docs </a>            
-              <a href="/OpenCNC/elemento/index.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Salir ||</a>            
+              <a href="/OpenCNC/elemento/index.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Salir ||</a> 
+              
             </nav>                 
               <div id="user-warnings"></div>
-                <div class="container">        
+                <div class="container">   
+                    
                   <div class="row">
                     <div class="col-md-8">
                       <div id="editor-holder">
@@ -88,15 +99,9 @@
                       </div>
                     </div>
                   </div>
+                    <div id="my-gui_G-container"></div>
                 </div>               		                                                                                          
-                  <div id ="sub-menu">
-                    <input type="file" id="input-file-local" style="display:none">
-                    <button id="btn-open-file">Abrir Archivo</button>
-                    <button id="btn-save-file">Guardar Archivo</button>
-                    <button id="btn-compile-gcode">Compilar codigo G</button>
-                    <a id="link-download-gcode" style="display:none">download gcode</a>
-                    
-                    </div>            
+                            
                     <div id="paper2">
                         <div id="my-gui-container"></div>
                        </div>  

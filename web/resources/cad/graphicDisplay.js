@@ -149,6 +149,13 @@ function GraphicDisplay(displayName, width, height) {
         this.max_size_x = 100;
         this.max_size_y = 100;
         this.spindle_speed = 900;
+        this.g_code = function() {
+            
+            this.cuthandler = new CutHandler(gd);
+            gui_G(this.cuthandler.setObject(this.getObjects()));
+            //helperYAML(this.cuthandler.setObject(this.getObjects()));
+        };
+
 }
 
 
@@ -229,8 +236,8 @@ GraphicDisplay.prototype.execute = function() {
         
 };
 GraphicDisplay.prototype.drawArea= function(){
-       this.cuthandler = new CutHandler(gd);
-       helperYAML(this.cuthandler.setObject(this.getObjects()));
+       //this.cuthandler = new CutHandler(gd);
+       //helperYAML(this.cuthandler.setObject(this.getObjects()));
        this.logicDisplay.init(gd);
        this.logicDisplay.components[0].color = "#FF00FF"; 
        
@@ -2007,11 +2014,12 @@ GraphicDisplay.prototype.gui = function(){
   gui.add(gd, 'showOriginArrow');
   gui.add(gd, 'showRules');
   gui.add(gd, 'readonly');
-  gui.add(gd, 'selectedColor');
+  //gui.add(gd, 'selectedColor');
   gui.addColor(gd, 'backGraundColor');
   gui.add(gd, 'fontSize', 10 , 70);
   gui.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
-  gui.add(gd, 'unitMeasure');
+  gui.add(gd, 'g_code');
+
   
   var customContainer = document.getElementById('my-gui-container');
         
