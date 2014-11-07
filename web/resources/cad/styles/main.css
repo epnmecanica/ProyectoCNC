@@ -43,7 +43,7 @@ canvas{
   z-index: 0;
 }
 #my-gui-container{
-    float:right;
+    float: end;
 }
 #btn-compile-gcode , #btn-save-file , #btn-open-file{
     cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
