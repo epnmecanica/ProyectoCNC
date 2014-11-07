@@ -77,6 +77,7 @@ function GraphicDisplay(displayName, width, height) {
                         null, null);
 	// Temporary or selected color
 	this.selectedColor = "#c0c";
+        this.backGraundColor = "#3C65AB";
 	this.selectedRadius = "2";
 	
 	this.logicDisplay;
@@ -231,7 +232,7 @@ GraphicDisplay.prototype.drawArea= function(){
        this.cuthandler = new CutHandler(gd);
        helperYAML(this.cuthandler.setObject(this.getObjects()));
        this.logicDisplay.init(gd);
-       this.logicDisplay.components[0].color = "magenta"; 
+       this.logicDisplay.components[0].color = "#FF00FF"; 
        
 };
 
@@ -245,7 +246,8 @@ GraphicDisplay.prototype.drawArea= function(){
 GraphicDisplay.prototype.clearGrid = function(e) {
 	this.context.restore();
 	//this.context.fillStyle = "#202020";
-        this.context.fillStyle = "#3C65AB";
+        //this.context.fillStyle = "#3C65AB";
+        this.context.fillStyle = this.backGraundColor;
         this.context.fillRect(0, 0, this.displayWidth, this.displayHeight);
 	//this.context.fillRect(0, 0, 400, 400);
 	this.context.save();
@@ -2006,6 +2008,7 @@ GraphicDisplay.prototype.gui = function(){
   gui.add(gd, 'showRules');
   gui.add(gd, 'readonly');
   gui.add(gd, 'selectedColor');
+  gui.addColor(gd, 'backGraundColor');
   gui.add(gd, 'fontSize', 10 , 70);
   gui.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
   gui.add(gd, 'unitMeasure');
