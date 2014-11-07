@@ -31,8 +31,15 @@ CutHandler.prototype.setObject = function(objects){
 
     
     for(var i = 0; i <= this.component.length - 1; i++){
-        
-        switch (this.component[i].machined){
+        if(this.component[i].x != 0 
+            &&  this.component[i].y != 0 
+            && this.component[i].x1 != 0 
+            &&this.component[i].y1 != 0 
+            &&  this.component[i].x2 != 0
+            && this.component[i].y2 != 0 
+            &&  this.component[i].x3 != 0
+            &&  this.component[i].y3 != 0){
+           switch (this.component[i].machined){
             
             case MODES_G_TYPE.DRILL:
                             this.codexgYAML.addCuts(new Drill(this.component[i].x1/10,
@@ -64,7 +71,9 @@ CutHandler.prototype.setObject = function(objects){
                                             this.component[i].x2/10,
                                             Math.abs(this.component[i].y2/10)));
                             break;
+        } 
         }
+        
     
     };
     return this.codexgYAML;

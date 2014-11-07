@@ -178,7 +178,10 @@ GraphicDisplay.prototype.init = function() {
         this.cvn = $('#' + this.displayName);
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
+        
+        this.gui();
         //console.log(this.cvn);
+       
         
 };
 
@@ -221,7 +224,7 @@ GraphicDisplay.prototype.execute = function() {
 	// Draw to tooltip
 	this.drawToolTip();
         //this.drawToolCode();
-        
+      
         
 };
 GraphicDisplay.prototype.drawArea= function(){
@@ -1995,6 +1998,24 @@ GraphicDisplay.prototype.getB = function(m,x1,y1) {
 	return b.toFixed(1);
 };
 
+GraphicDisplay.prototype.gui = function(){
+  var gui = new dat.GUI({ autoPlace: false });  
+  gui.add(gd, 'showOrigin');
+  gui.add(gd, 'showGrid');
+  gui.add(gd, 'showOriginArrow');
+  gui.add(gd, 'showRules');
+  gui.add(gd, 'readonly');
+  gui.add(gd, 'selectedColor');
+  gui.add(gd, 'fontSize', 10 , 70);
+  gui.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
+  gui.add(gd, 'unitMeasure');
+  
+  var customContainer = document.getElementById('my-gui-container');
+        
+  customContainer.appendChild(gui.domElement);
+    
+};
+
 GraphicDisplay.prototype.Interseccion = function (x, y) {
     var vector = new Array();
     var pendiente = 0;
@@ -2345,6 +2366,7 @@ GraphicDisplay.prototype.getTextCode = function() {
 var initCAD = function(gd) {
        
 	gd.init();
+        
 	 
 	// Bind keyboard events
 	$(document).keyup(function(e) {
@@ -2357,7 +2379,7 @@ var initCAD = function(gd) {
 	
 	// Adding keyboard events 
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-		console.log(gd.getObjects()); 
+		console.log(JSON.stringify(gd.getObjects())); 
                 //compilarG ();
 	});
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {

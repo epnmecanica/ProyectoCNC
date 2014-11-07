@@ -42,7 +42,9 @@ canvas{
   left: 50px;  
   z-index: 0;
 }
-
+#my-gui-container{
+    float:right;
+}
 #btn-compile-gcode , #btn-save-file , #btn-open-file{
     cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/
     padding:5px 25px; /*add some padding to the inside of the button*/

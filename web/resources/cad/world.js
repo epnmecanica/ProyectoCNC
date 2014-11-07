@@ -20,6 +20,7 @@ $(document).ready(function() {
         cargarPantalla();
        
               
+                
         
         
         
@@ -41,11 +42,13 @@ var cargarPantalla  = function(){
            
         document.body.appendChild(canvas);
         
+         
+        
         var gd = new GraphicDisplay(this.id, this.xH.getWidth(), this.xH.getHeight());
     
         gd.camX = - this.xH.getWidth() + 50;
         gd.camY =  this.xH.getHeight() -50;
-        //gd.unitMeasure = "mm";
+        gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
         //gd.typeOfCad = "fresadora";
@@ -53,6 +56,8 @@ var cargarPantalla  = function(){
         gd.showOrigin = true;
         gd.showGrid = true;
         gd.snapTolerance = 5;
+        
+        
         
         loadIcons(gd);
         initCAD(gd);

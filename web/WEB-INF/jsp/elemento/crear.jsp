@@ -56,6 +56,7 @@
                 <script src="<c:url value='/resources/cad/customShapes.js'/>"></script>               
                 <script src="<c:url value='/resources/cad/lib/external/js-yaml.js'/>"></script>
                 <script src="<c:url value='/resources/cad/lib/external/json2yaml.js'/>"></script>
+                <script src="<c:url value='/resources/cad/lib/external/dat.gui.js'/>"></script>
                 <script src="<c:url value='/resources/cad/codexg.js'/>"></script>                                            
                 <script src="<c:url value='/resources/cad/componentg.js'/>"></script>                              
                 <link href="<c:url value='/resources/cad/styles/main.css" rel="stylesheet'/>">              
@@ -67,12 +68,13 @@
                 <link href="<c:url value='/resources/theme_prompt/base.css" rel="stylesheet'/>">               
                 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.1.0/pure-min.css" />		
 		<script src="<c:url value='/resources/cad/prompt.js'/>"></script>		                
-                <script type="text/javascript" src="<c:url value='/resources/js/jquery-impromptu.js'/>"></script>       
+                <script type="text/javascript" src="<c:url value='/resources/js/jquery-impromptu.js'/>"></script>      
+              
 	</head>
-	<body>              
-            
+	<body>            
             <nav id="top-nav">
                OPEN CNC
+               
               <a href="/OpenCNC/elemento/acercade.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Ayuda ? ||</a>
               <a href="/OpenCNC/elemento/docs.htm" class="art-button" style="font-size: 10px; cursor: pointer; "> Docs </a>            
               <a href="/OpenCNC/elemento/index.htm" class="art-button" style="font-size: 10px; cursor: pointer; ">|| Salir ||</a>            
@@ -93,8 +95,10 @@
                     <button id="btn-save-file">Guardar Archivo</button>
                     <button id="btn-compile-gcode">Compilar codigo G</button>
                     <a id="link-download-gcode" style="display:none">download gcode</a>
+                    
                     </div>            
                     <div id="paper2">
+                        <div id="my-gui-container"></div>
                        </div>  
           
              

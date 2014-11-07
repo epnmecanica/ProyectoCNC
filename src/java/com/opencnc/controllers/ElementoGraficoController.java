@@ -129,6 +129,11 @@ public class ElementoGraficoController {
             elemento.setTipoElemento(tipo.getType());
             switch(elemento.getTipoElemento()){
                 case 2:
+                case 3:
+                    elemento.setPosicionX(tipo.getX1());
+                    elemento.setPosicionY(tipo.getY1());
+                    break;
+                case 4:
                     elemento.setPosicionX(tipo.getX1());
                     elemento.setPosicionY(tipo.getY1());
                     break;
@@ -140,6 +145,11 @@ public class ElementoGraficoController {
                 case 7:
                     elemento.setPosicionX(tipo.getX());
                     elemento.setPosicionY(tipo.getY());
+                    break;
+                case 9:
+                    elemento.setPosicionX((tipo.getX1() + tipo.getX2())/2);
+                    elemento.setPosicionY((tipo.getY1() + tipo.getY2())/2);
+                    elemento.setOrden(tipo.getX1());
                     break;
                 default:
                     break;             
@@ -178,10 +188,21 @@ public class ElementoGraficoController {
                          
                          break;
                 case 3:  System.out.print("es circulo");
-                         break;
                 case 4:  System.out.print("es rectangulo");
+                         Session ssR = HibernateUtil.getSessionFactory().openSession();
+                         Linea lR = new Linea();
+                         ElementoGrafico grR = (ElementoGrafico)ssR.get(ElementoGrafico.class, elemento.getElementoId());
+                         lR.setElementoGrafico(grR);
+                         lR.setPosicionX2(tipo.getX2());
+                         lR.setPosicionY2(tipo.getY2());
+                         
+                         Transaction ttR = ssR.getTransaction();
+                         ssR.beginTransaction();
+                         ssR.saveOrUpdate(lR);
+                         ttR.commit();
                          break;
-                case 5:  System.out.print("es arco");
+                case 5:  
+                         System.out.print("es arco");
                          Session s1 = HibernateUtil.getSessionFactory().openSession();
                          Arco arc = new Arco();
                          
@@ -217,8 +238,22 @@ public class ElementoGraficoController {
                          break;
                 case 8:  System.out.print("es circulo");
                          break;
-                case 9:  System.out.print("es circulo");
-                         break;
+                case 9:  System.out.print("es arc tw");
+                         Session sArcT = HibernateUtil.getSessionFactory().openSession();
+                         Arco arcT = new Arco();
+                         
+                         ElementoGrafico grArcT = (ElementoGrafico)sArcT.get(ElementoGrafico.class, elemento.getElementoId());
+                         arcT.setElementoGrafico(grArcT);
+                         arcT.setRadio(tipo.getY1());
+                         arcT.setAngulo1(tipo.getX2());
+                         arcT.setAngulo2(tipo.getY2());
+                         
+                         Transaction tArcT = sArcT.getTransaction();
+                         sArcT.beginTransaction();
+                         sArcT.saveOrUpdate(arcT);
+                         
+                         tArcT.commit();
+                        break;
                 case 10:  System.out.print("es circulo");
                          break;
                 default: System.out.print("no es");
@@ -278,6 +313,8 @@ public class ElementoGraficoController {
 
                     switch(elem.getTipoElemento()){
                         case 2:
+                        case 3:
+                        case 4:
                             logger.info("Usted a escojido la linea");
                             sr.setText(null);
                             sr.setX(0);
@@ -292,6 +329,7 @@ public class ElementoGraficoController {
                             sr.setY3(0);
                             break;
                         case 5:
+                        case 9:
                             logger.info("Usted a escojido el Arco");
                             sr.setX1(elem.getPosicionX());
                             sr.setY1(elem.getPosicionY());

@@ -159,6 +159,7 @@ LogicDisplay.prototype.importJSON = function(arrJSON, parent) {
 						arrJSON[i].y2));
 				break;
 			case COMPONENT_TYPES.ARC:
+                        case COMPONENT_TYPES.ARC_TWO:
 				parent.push(new Arc(
 						arrJSON[i].x1,
 						arrJSON[i].y1,
