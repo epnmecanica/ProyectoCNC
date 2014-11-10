@@ -15,6 +15,7 @@ function WindowHandler(){
 };
 
 WindowHandler.prototype.init = function (){
+    
     if( typeof( window.innerWidth ) == 'number' ) {
           //No-IE
           this.width = window.innerWidth - this.compensacionWidth;

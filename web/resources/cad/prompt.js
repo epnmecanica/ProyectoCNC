@@ -29,7 +29,19 @@ function avisoEntrada(message, title){
 
 function seleccionElementos(component){
     for ( var i = component.length - 1; i >= 1; i-- ) {
-        component[i].machined = "Drill"
+        switch(component[i].type) {
+            case 2:
+                component[i].machined = "Drill"
+                break; 
+            case 9:
+            case 5:
+                component[i].machined = "Arcs"
+                break;           
+        }
+        //if(component[i].type == 2){
+            
+        //}
+        //component[i].machined = "Arcs"
         //console.log(component[i].machined = "Drill");
     }
         

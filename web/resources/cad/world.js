@@ -110,6 +110,7 @@ var cargarPantalla  = function(){
             }
         });
         receiveAjax();
+       
         $(window).resize(function() {
              this.xH.init();
              canvas.width = this.xH.getWidth();
@@ -117,6 +118,8 @@ var cargarPantalla  = function(){
              gd.setWinWidthAndHeight(this.xH.getWidth(), this.xH.getHeight());
              
              gd.camX = - this.xH.getWidth() + 50;
-             gd.camY =  this.xH.getHeight() -100;
+             gd.camY =  this.xH.getHeight() - 100;
         });
+        
+       
 };

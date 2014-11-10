@@ -149,6 +149,7 @@ function GraphicDisplay(displayName, width, height) {
         this.max_size_x = 100;
         this.max_size_y = 100;
         this.spindle_speed = 900;
+       
         this.g_code = function() {
             
             this.cuthandler = new CutHandler(gd);
@@ -186,8 +187,8 @@ GraphicDisplay.prototype.init = function() {
         this.cvn = $('#' + this.displayName);
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
-        
-        this.gui();
+        var gui = new dat.GUI({ autoPlace: false }); 
+        this.gui(gui);
         //console.log(this.cvn);
        
         
@@ -848,7 +849,7 @@ GraphicDisplay.prototype.drawArcTwoPoints = function(x1, y1, x2, y2, color, radi
                         this.getAngle(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), x1, y1), 
                         this.getAngle(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), x2, y2), false);
             this.context.stroke();
-            this.drawPoint(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), color, radius)
+            this.drawPoint(this.getPointMiddle(x1,x2), this.getPointMiddle(y1,y2), color, radius);
 };
 GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, color, radius) {
         
@@ -856,38 +857,23 @@ GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, colo
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
 	this.context.beginPath();
-        
-        /*var xm = this.getPointMiddle(x1,x2);
-        var ym = this.getPointMiddle(y1,y2);
-        var m = - (1 / this.getSlope(x1,y1,x2,y2));
-        var yc = ((m*x3) - (x1*m) + y1).toFixed(0);
-        */
-        
+              
         var xm = (x1 + x2)/2;
         var ym = (y1 + y2)/2;
-        
-        var m = (y2 - y1) / (x2 - x1);
-        
-        var yc = (-m)*x3 - (x1*(-m)) + y1;
-        
-         
-        console.log(x3  + ',' + yc.toFixed(0));
+   
+        var m = -1 / ((ym - y1) / (xm - x1));
+    
+        var yc = (m*(x3) + ym - (m*xm));
+
         
         this.context.arc(
                         (x3 + this.cOutX) * this.zoom, 
                         (yc + this.cOutY) * this.zoom, 
-                    this.getDistance(xm, ym, x3, y3) * this.zoom,
-                    this.getAngle(x3, y3, x1, y1), 
-                    this.getAngle(x3, y3, x2, y2), false);
+                    this.getDistance(x2, y2, x3, yc) * this.zoom,
+                    this.getAngle(x3, yc, x1, y1), 
+                    this.getAngle(x3, yc, x2, y2), false);
         this.context.stroke();
-        
-            
-	
-	//this.drawPoint(x1, y1, color, radius);//Dibuja punto central
-	//this.drawPoint(x2, y2, color, radius);//Dibuja punto inicial de arco
-	//this.drawPoint(x3, y3, color, radius);
-        //this.setToolTip('Angulo: ' + firstAngle + ' ' + secondAngle);
-            
+                   
 };
 
 /**
@@ -2007,23 +1993,34 @@ GraphicDisplay.prototype.getB = function(m,x1,y1) {
 	return b.toFixed(1);
 };
 
-GraphicDisplay.prototype.gui = function(){
-  var gui = new dat.GUI({ autoPlace: false });  
-  gui.add(gd, 'showOrigin');
-  gui.add(gd, 'showGrid');
-  gui.add(gd, 'showOriginArrow');
-  gui.add(gd, 'showRules');
-  gui.add(gd, 'readonly');
-  //gui.add(gd, 'selectedColor');
-  gui.addColor(gd, 'backGraundColor');
-  gui.add(gd, 'fontSize', 10 , 70);
-  gui.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
-  gui.add(gd, 'g_code');
-
+GraphicDisplay.prototype.gui = function(gui){
   
-  var customContainer = document.getElementById('my-gui-container');
-        
-  customContainer.appendChild(gui.domElement);
+  this.f1 = gui.addFolder('Display');
+
+  this.f1.add(gd, 'showOrigin');
+  this.f1.add(gd, 'showGrid');
+  this.f1.add(gd, 'showOriginArrow');
+  this.f1.add(gd, 'showRules');
+  this.f1.add(gd, 'readonly');
+  //gui.add(gd, 'selectedColor');
+  this.f1.addColor(gd, 'backGraundColor');
+  this.f1.add(gd, 'fontSize', 10 , 70);
+  this.f1.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
+    
+  this.f2 = gui.addFolder('G_Codex');
+  this.f2.add(gd, 'spindle_speed', 100 , 5000);
+  this.f2.add(gd, 'g_code');
+  
+  
+   
+     this.customContainer = document.getElementById('my-gui-container');
+ 
+         this.customContainer.appendChild(gui.domElement);
+         console.log(this.customContainer.childElementCount);
+     
+     
+  
+  
     
 };
 

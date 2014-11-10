@@ -230,17 +230,19 @@ var helperYAML = function (datosYaml){
  
  var gui_G = function(dato) {
   var text = new helperYAML(dato);
-  //var gui = new dat.GUI();
-  var gui = new dat.GUI({ autoPlace: false });
-
-  var customContainer_g = document.getElementById('my-gui_G-container');
-  customContainer_g.appendChild(gui.domElement);
-  gui.add(text, 'compile_gcode');
-  gui.add(text, 'save_file');
-  //gui.add(text, 'btn_compile_gcode');
-  //gui.add(text, 'speed', -5, 5);
-  //gui.add(text, 'displayOutline');
-  //gui.add(text, 'explode');
+ 
+       var gui = new dat.GUI({ autoPlace: false });
+        
+        gui.add(text, 'compile_gcode');
+        gui.add(text, 'save_file');
+  
+        var customContainer_g = document.getElementById('my-gui_G-container');
+        
+        //console.log('counter'+customContainer_g.childElementCount);
+          if(customContainer_g.childElementCount == 0){
+              customContainer_g.appendChild(gui.domElement);
+          }
+  
 };
 
    
