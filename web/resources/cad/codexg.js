@@ -16,7 +16,7 @@ function Codexg(){
     this.spindle_speed = 900;
     this.type_machine = 'Fresa';
     this.wise = "clock";
-    this.security_zone = 10000;
+    this.security_zone = 100;
     this.bit_diameter = 0.125;
     this.feed_rate = 15;
     this.plunge_rate = 5;

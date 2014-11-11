@@ -10,11 +10,13 @@ var COMPONENT_G_TYPES = {
 		PATH : 'path',
 		PROFILE : 'profile',
 		POCKET : 'pocket',
+                CYCLE: 'cycle',
                 POINTS : 'points'
 };
 
 function ComponentG(){
     this.type = '';   
+   
 };
 
 
@@ -26,6 +28,13 @@ function Drill(x1,y1,x2,y2) {
 };
 Drill.prototype = new Points();
 Drill.prototype.constructor = Drill;
+
+function Cycle(x1,y1,x2,y2) {
+    Points.call(this,x1,y1,x2,y2);
+    this.type = COMPONENT_G_TYPES.CYCLE;    
+};
+Cycle.prototype = new Points();
+Cycle.prototype.constructor = Cycle;
 
 function Arcs(x1,y1,x2,y2) {
     Points.call(this,x1,y1,x2,y2);
@@ -52,6 +61,7 @@ function Profile(x1,y1,x2,y2) {
     this.size = new Array();
     this.origin = new Array();
     this.corner_compensation = true;
+    
     
 };
 Profile.prototype = new ComponentG();

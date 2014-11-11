@@ -19,6 +19,7 @@ window.opencut = function() {
    * @param {function(workspace, cut)} func The function to call.
    */
   _opencut.registerCutType = function(name, func) {
+      
     if (_cutTypes[name]) {
       throw "cut [" + name + "] type already defined";
     }
@@ -48,12 +49,30 @@ window.opencut = function() {
     // Build up a workspace description.
     var workspace = {};
     workspace.units = "mm";
+    
     if (job.units == "inch") {
       workspace.units = "inch";
     } else if (job.units != "mm") {
         warnings.push("'unidades' son requeridas para formatear ['mm', 'inch']. se asume como 'mm'");
       //warnings.push("'units' is requried to be set to ['mm', 'inch']. assuming 'mm'");
     }
+    workspace.type_machine = "Torno";
+    if (job.type_machine == "Torno") {
+      workspace.type_machine = "Torno";
+    } else if (job.type_machine == "Fresadora") {
+        workspace.type_machine = "Fresadora";
+    }else if (job.type_machine != "Fresadora"){
+        warnings.push("'Tipo de maquina' son requeridas para formatear ['Torno', 'Fresadora']. se asume como 'Torno'");
+    }
+    workspace.wise == "clock";
+    if (job.wise == "clock"){
+        workspace.wise = "clock";
+    }else if(job.wise == "anti-clock"){
+        workspace.wise = "anti-clock";
+    }else if (job.wise != "anti-clock"){
+        warnings.push("'Tipo de sentido de giro' son requeridas para formatear ['Horario', 'Anti-horario']. se asume como 'Horario'");
+    }
+    
     workspace.feed_rate = (workspace.units == "mm") ? 100 : 4;
     if (job.feed_rate) {
       if (typeof job.feed_rate != "number") {
@@ -126,16 +145,20 @@ window.opencut = function() {
     //
     if(workspace.z_x <= 0 && workspace.z_y <= 0){
         errors.push("Zero de pieza no especificado");
+    }
+    if (workspace.type_machine == 'Torno'){
+        commands.push("G54 " + "X" + job.z_x + " Z" +job.z_y + " S" + job.spindle_speed);
     }else{
         commands.push("G54 " + "X" + job.z_x + " Y" +job.z_y + " S" + job.spindle_speed);
     }
+        
     
     //
     (workspace.wise === 'clock') ? commands.push("M03") : commands.push("M04");
     
     //
-    
     (!workspace.security_zone) ? commands.push("G43" + " Z" + job.security_zone): null;
+    commands.push("G55");
     
     // Add commands for each cut operation.
     if (!job.cuts || job.cuts.length === 0) {
@@ -143,15 +166,18 @@ window.opencut = function() {
       //warnings.push("no 'cuts' were specified!");
       job.cuts = [];
     }
-    for (var i = 0; i < job.cuts.length; i++) {
-      var cut = job.cuts[i];
+    //for (var i = 0; i < job.cuts.length; i++) {
+      //var cut = job.cuts[i];
+      var cut = job.cuts;
 
       // Use the workspace default depth if a cut depth was not specified.
       if (cut.depth === undefined && workspace.default_depth !== undefined) {
         cut.depth = workspace.default_depth;
       }
 
-      var cutType = cut.type;
+      //var cutType = cut.type;
+      var cutType = "path";
+      
       if (_cutTypes[cutType]) {
         try {
           var ret = _cutTypes[cutType].call({}, workspace, cut);
@@ -178,10 +204,10 @@ window.opencut = function() {
           console.error(err);
         }
       } else {
-        errors.push("se desconoce cut type [" + cutType + "]");
+        errors.push("se desconoce tipo de corte [" + cutType + "]");
         //errors.push("unknown cut type [" + cutType + "]");
       }
-    }
+   // }
 
     // Limit the precision of each command. It makes the lines shorter and there
     // is really no need to specify billionths of an inch for machines which are

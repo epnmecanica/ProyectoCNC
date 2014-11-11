@@ -31,7 +31,7 @@ function seleccionElementos(component){
     for ( var i = component.length - 1; i >= 1; i-- ) {
         switch(component[i].type) {
             case 2:
-                component[i].machined = "Drill"
+                component[i].machined = "Path"
                 break; 
             case 9:
             case 5:

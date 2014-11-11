@@ -8,6 +8,7 @@ var MODES_G_TYPE = {
     ARCS : 'Arcs',
     PATH : 'Path',
     PROFILE : 'Profile',
+    CYCLE: 'Cycle',
     POCKET : 'Pocket'
   };
 function CutHandler(gd){
@@ -22,14 +23,13 @@ function CutHandler(gd){
     this.codexgYAML.max_size_x = gd.max_size_x;
     this.codexgYAML.max_size_y = gd.max_size_y;
     this.codexgYAML.spindle_speed = gd.spindle_speed;
-
-  
+    this.codexgYAML.p_block = 100;
+      
 };
 
 CutHandler.prototype.setObject = function(objects){
     this.component = objects;
 
-    
     for(var i = 0; i <= this.component.length - 1; i++){
         if(this.component[i].x != 0 
             &&  this.component[i].y != 0 
@@ -67,6 +67,12 @@ CutHandler.prototype.setObject = function(objects){
                             break;
             case MODES_G_TYPE.ARCS:
                             this.codexgYAML.addCuts(new Arcs(this.component[i].x1/10,
+                                            Math.abs(this.component[i].y1/10),
+                                            this.component[i].x2/10,
+                                            Math.abs(this.component[i].y2/10)));
+                            break;
+            case MODES_G_TYPE.CYCLE:
+                            this.codexgYAML.addCuts(new Cycle(this.component[i].x1/10,
                                             Math.abs(this.component[i].y1/10),
                                             this.component[i].x2/10,
                                             Math.abs(this.component[i].y2/10)));
