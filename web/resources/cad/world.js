@@ -46,8 +46,11 @@ var cargarPantalla  = function(){
         
         var gd = new GraphicDisplay(this.id, this.xH.getWidth(), this.xH.getHeight());
     
-        gd.camX = - this.xH.getWidth() + 50;
-        gd.camY =  this.xH.getHeight() -50;
+        //gd.camX = - this.xH.getWidth() + 50;
+        //gd.camY =  this.xH.getHeight() -50;
+        gd.camX =   this.xH.getWidth() - gd.max_size_x ;
+        gd.camY = - gd.max_size_y + this.xH.getHeight();
+        
         gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";

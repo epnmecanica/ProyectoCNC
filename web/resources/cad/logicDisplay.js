@@ -56,7 +56,7 @@ LogicDisplay.prototype.testPunto = function(){
 };
 
 LogicDisplay.prototype.test = function(x,y) {
-    this.components.push(new Rectangle(0, 0, x * 10 ,-y * 10));
+    this.components.push(new Rectangle(0, 0, -x * 10 , -y * 10));
     
 	//this.components.push(new Point(-100, -100));
 	//this.components.push(new Point(100, -100));

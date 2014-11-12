@@ -48,10 +48,10 @@ CutHandler.prototype.setObject = function(objects){
                                             Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.PATH:
-                            this.codexgYAML.addCuts(new Path(this.component[i].x1/10,
-                                            Math.abs(this.component[i].y1/10),
-                                            this.component[i].x2/10,
-                                            Math.abs(this.component[i].y2/10)));
+                            this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].x1 / 10),
+                                            this.component[i].y1 / 10,
+                                            Math.abs(this.component[i].x2 / 10),
+                                            this.component[i].y2 / 10));
                             break;
             case MODES_G_TYPE.PROFILE:
                             this.codexgYAML.addCuts(new Profile(this.component[i].x1/10,

@@ -1953,7 +1953,12 @@ GraphicDisplay.prototype.setToolTip = function(text) {
 GraphicDisplay.prototype.getToolTip = function() {
 	var text = this.tooltip;
 	// normalice las medidas
-	text += " | (" + this.getCursorXLocal() / 10 + "," + (-1)*(this.getCursorYLocal()) / 10 + ")";
+        if (this.typeOfCad == "Torno"){
+            text += " | (" + (-1) * this.getCursorYLocal() / 10 + "," + (this.getCursorYLocal()) / 10 + ")";
+        }else{
+            text += " | (" + this.getCursorXLocal() / 10 + "," + (-1)*(this.getCursorYLocal()) / 10 + ")";
+        }
+            
 	
 	return text;
 };
@@ -2063,7 +2068,7 @@ GraphicDisplay.prototype.Interseccion = function (x, y) {
 
 
         // if(obj.type.valueOf() == 2){
-         console.log("vector equis"+equis+ "  pendiente calculada = " + pendiente + "x1" + x1 + "x2" + x2 + "x" + x + "y1" + y1 + "y1" + y1);
+        // console.log("vector equis"+equis+ "  pendiente calculada = " + pendiente + "x1" + x1 + "x2" + x2 + "x" + x + "y1" + y1 + "y1" + y1);
         
         if (calculada == pendiente && y==yes[1] && x==equis[1]) {
       //
