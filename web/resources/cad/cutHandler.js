@@ -31,14 +31,7 @@ CutHandler.prototype.setObject = function(objects){
     this.component = objects;
 
     for(var i = 0; i <= this.component.length - 1; i++){
-        if(this.component[i].x != 0 
-            &&  this.component[i].y != 0 
-            && this.component[i].x1 != 0 
-            &&this.component[i].y1 != 0 
-            &&  this.component[i].x2 != 0
-            && this.component[i].y2 != 0 
-            &&  this.component[i].x3 != 0
-            &&  this.component[i].y3 != 0){
+        //if(this.component.machined != "null"){
            switch (this.component[i].machined){
             
             case MODES_G_TYPE.DRILL:
@@ -48,10 +41,18 @@ CutHandler.prototype.setObject = function(objects){
                                             Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.PATH:
-                            this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].x1 / 10),
-                                            this.component[i].y1 / 10,
-                                            Math.abs(this.component[i].x2 / 10),
-                                            this.component[i].y2 / 10));
+                            if (gd.typeOfCad == "Torno"){
+                                this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 / 10),
+                                            this.component[i].x1 / 10,
+                                            Math.abs(this.component[i].y2 / 10),
+                                            this.component[i].x2 / 10));
+                            }else{
+                                this.codexgYAML.addCuts(new Path(this.component[i].x1 / 10,
+                                            Math.abs(this.component[i].y1) / 10,
+                                            this.component[i].x2 / 10,
+                                            Math.abs(this.component[i].y2) / 10));
+                            }
+                            
                             break;
             case MODES_G_TYPE.PROFILE:
                             this.codexgYAML.addCuts(new Profile(this.component[i].x1/10,
@@ -78,7 +79,7 @@ CutHandler.prototype.setObject = function(objects){
                                             Math.abs(this.component[i].y2/10)));
                             break;
         } 
-        }
+      //  }
         
     
     };

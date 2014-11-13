@@ -189,6 +189,7 @@ GraphicDisplay.prototype.init = function() {
 	this.context = this.cvn[0].getContext('2d');
         var gui = new dat.GUI({ autoPlace: false }); 
         this.gui(gui);
+        
         //console.log(this.cvn);
        
         
@@ -1954,7 +1955,7 @@ GraphicDisplay.prototype.getToolTip = function() {
 	var text = this.tooltip;
 	// normalice las medidas
         if (this.typeOfCad == "Torno"){
-            text += " | (" + (-1) * this.getCursorYLocal() / 10 + "," + (this.getCursorYLocal()) / 10 + ")";
+            text += " | (" + (-1) * this.getCursorYLocal() / 10 + "," + (this.getCursorXLocal()) / 10 + ")";
         }else{
             text += " | (" + this.getCursorXLocal() / 10 + "," + (-1)*(this.getCursorYLocal()) / 10 + ")";
         }

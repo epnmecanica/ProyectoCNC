@@ -46,11 +46,6 @@ var cargarPantalla  = function(){
         
         var gd = new GraphicDisplay(this.id, this.xH.getWidth(), this.xH.getHeight());
     
-        //gd.camX = - this.xH.getWidth() + 50;
-        //gd.camY =  this.xH.getHeight() -50;
-        gd.camX =   this.xH.getWidth() - gd.max_size_x ;
-        gd.camY = - gd.max_size_y + this.xH.getHeight();
-        
         gd.unitMeasure = "mm";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
@@ -64,7 +59,8 @@ var cargarPantalla  = function(){
         
         loadIcons(gd);
         initCAD(gd);
-       
+        
+        
         //deberia estar todo en una sola funcion
         $.ajax({
             type: 'GET',
@@ -98,6 +94,7 @@ var cargarPantalla  = function(){
             async: true,
             success: function(result) {
                           var tmp = JSON.stringify(result);
+                          stut = result;
                           console.log('nombre: '+tmp);    
                           console.log(gd.typeOfCad = result[0].tipoMaquina);
                           console.log(gd.displayName = result[0].nombre);
@@ -112,16 +109,31 @@ var cargarPantalla  = function(){
                           
             }
         });
+        
+        if(gd.typeOfCad == "Torno"){
+            gd.camX =   this.xH.getWidth() - gd.max_size_x ;
+            gd.camY = - gd.max_size_y + this.xH.getHeight();
+        }else{
+            gd.camX = - this.xH.getWidth() + gd.max_size_x;
+            gd.camY =  gd.max_size_y - this.xH.getHeight();
+        }
         receiveAjax();
+        
        
         $(window).resize(function() {
              this.xH.init();
              canvas.width = this.xH.getWidth();
              canvas.height = this.xH.getHeight();
              gd.setWinWidthAndHeight(this.xH.getWidth(), this.xH.getHeight());
-             
-             gd.camX = - this.xH.getWidth() + 50;
-             gd.camY =  this.xH.getHeight() - 100;
+       
+            if(gd.typeOfCad == "Torno"){
+                gd.camX =   this.xH.getWidth() - gd.max_size_x ;
+                gd.camY = - gd.max_size_y + this.xH.getHeight();
+            }else{
+                
+                gd.camX = - this.xH.getWidth() + gd.max_size_x + 10;
+                gd.camY =   this.xH.getHeight() - gd.max_size_y - 50;
+            }
         });
         
        
