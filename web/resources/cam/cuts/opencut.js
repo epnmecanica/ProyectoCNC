@@ -139,7 +139,10 @@ window.opencut = function() {
     
 
     // Configure the job parameters.
+    commands.push("%");
+    commands.push("O0002");
     commands.push("G90"); // Absolute distance mode
+    commands.push("T0101");
     commands.push((workspace.units == "inch") ? "G20" : "G21");
     
     //
@@ -158,7 +161,7 @@ window.opencut = function() {
     
     //
     (!workspace.security_zone) ? commands.push("G43" + " Z" + job.security_zone): null;
-    commands.push("G55");
+    
     
     // Add commands for each cut operation.
     if (!job.cuts || job.cuts.length === 0) {
@@ -197,7 +200,11 @@ window.opencut = function() {
           commands.push("; begin cut: " + cut.type);
           commands = commands.concat(ret.gcode);
           
+          commands.push("N11 X0");
+          commands.push("G70 P10 Q11 S300 F0.05");
+          commands.push("G0 Z100");
           commands.push("; end cut: " + cut.type);
+          commands.push("%");
           warnings = warnings.concat(ret.warnings);
         } catch (err) {
           errors.push(err);
