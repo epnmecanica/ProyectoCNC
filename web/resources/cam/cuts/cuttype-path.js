@@ -17,6 +17,7 @@ window.opencut.registerCutType("path", function generatePathCut(workspace, cut) 
   gcode.push("N10 G0 Z-20");
     
   var auxi = normVect(cut);
+  
   gcode.push("X" + auxi[0][0] + " " + z_y + (auxi[auxi.length - 1][1] + 3));
   gcode.push(z_y + auxi[0][1]);
 
