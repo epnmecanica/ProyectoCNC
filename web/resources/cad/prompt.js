@@ -34,8 +34,7 @@ function seleccionElementos(component){
                 component[i].machined = "Path"
                 break; 
             case 9:
-            case 5:
-                component[i].machined = "Arcs"
+                component[i].machined = "Path"
                 break;           
         }
         //if(component[i].type == 2){

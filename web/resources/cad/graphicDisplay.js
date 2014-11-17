@@ -874,7 +874,7 @@ GraphicDisplay.prototype.drawArcTrPoints = function(x1, y1, x2, y2, x3, y3, colo
                     this.getAngle(x3, yc, x1, y1), 
                     this.getAngle(x3, yc, x2, y2), false);
         this.context.stroke();
-                   
+        this.drawPoint(x3, yc, color, radius);
 };
 
 /**

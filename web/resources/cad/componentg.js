@@ -45,8 +45,12 @@ function Arcs(x1,y1,x2,y2) {
 Arcs.prototype = new Points();
 Arcs.prototype.constructor = Arcs;
 
-function Path(x1,y1,x2,y2) {
+function Path(x1,y1,x2,y2, radio) {
+  
     Points.call(this,x1,y1,x2,y2);
+    if(radio != null){
+        this.radius = radio;
+    }
     this.type = COMPONENT_G_TYPES.PATH;
     
 };

@@ -42,15 +42,27 @@ CutHandler.prototype.setObject = function(objects){
                             break;
             case MODES_G_TYPE.PATH:
                             if (gd.typeOfCad == "Torno"){
-                                this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 / 10),
+                                if (this.component[i].type == 9){
+                                    
+                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 / 10),
                                             this.component[i].x1 / 10,
                                             Math.abs(this.component[i].y2 / 10),
-                                            this.component[i].x2 / 10));
+                                            this.component[i].x2 / 10, distance(Math.abs(this.component[i].y1),
+                                            this.component[i].x1,
+                                            Math.abs(this.component[i].y2),
+                                            this.component[i].x2) / 20 ));
+                                }else{
+                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 / 10),
+                                            this.component[i].x1 / 10,
+                                            Math.abs(this.component[i].y2 / 10),
+                                            this.component[i].x2 / 10, null));
+                                }
+                                
                             }else{
                                 this.codexgYAML.addCuts(new Path(this.component[i].x1 / 10,
                                             Math.abs(this.component[i].y1) / 10,
                                             this.component[i].x2 / 10,
-                                            Math.abs(this.component[i].y2) / 10));
+                                            Math.abs(this.component[i].y2) / 10, null));
                             }
                             
                             break;
@@ -86,7 +98,10 @@ CutHandler.prototype.setObject = function(objects){
     return this.codexgYAML;
 };
 
-
+function distance (x1 , y1, x2, y2) {
+    var dis = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
+    return dis;
+}
 
 
 

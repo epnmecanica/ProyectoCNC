@@ -172,7 +172,7 @@ window.opencut = function() {
     //for (var i = 0; i < job.cuts.length; i++) {
       //var cut = job.cuts[i];
       var cut = job.cuts;
-
+      
       // Use the workspace default depth if a cut depth was not specified.
       if (cut.depth === undefined && workspace.default_depth !== undefined) {
         cut.depth = workspace.default_depth;

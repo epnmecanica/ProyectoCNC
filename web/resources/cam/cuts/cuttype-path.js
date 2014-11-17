@@ -7,10 +7,10 @@
 window.opencut.registerCutType("path", function generatePathCut(workspace, cut) {
   var warnings = [];
   var gcode = [];
-
   
-  cutter = cut;
-  console.log(cutter);
+  
+  //cutter = cut;
+  
   var z_y = (workspace.type_machine == 'Torno')? "Z" : "Y"; 
   gcode.push("G72 W1 R.2");
   gcode.push("G72 P10 Q11 U0.1 W0.2 F0.15");
@@ -26,11 +26,25 @@ window.opencut.registerCutType("path", function generatePathCut(workspace, cut) 
      var tempP2 = (auxi[i][1] != auxi[i - 1][1]) ? auxi[i][1] : null;     
      
      if(tempP1 == null){
-         gcode.push(z_y + tempP2); 
+         if(auxi[i].rad && auxi[i].rad != "undefined"){
+           gcode.push(z_y + tempP2 + " R" + auxi[i].rad);  
+         }else{
+           gcode.push(z_y + tempP2);  
+         }
      }else if(tempP2 == null){
-         gcode.push("X" + tempP1);
+         if(auxi[i].rad && auxi[i].rad != "undefined"){
+            gcode.push("X" + tempP1 + " R" + auxi[i].rad); 
+         }else{
+            gcode.push("X" + tempP1); 
+         }
+         
      }else{
-         gcode.push("X" + tempP1 + " " + z_y + tempP2); 
+         if(auxi[i].rad && auxi[i].rad != "undefined"){
+             gcode.push("X" + tempP1 + " " + z_y + tempP2 + " R" + auxi[i].rad);
+         }else{
+             gcode.push("X" + tempP1 + " " + z_y + tempP2); 
+         }
+         
      }
     
   }

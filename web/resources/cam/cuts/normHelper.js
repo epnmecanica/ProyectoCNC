@@ -6,17 +6,29 @@
 function normVect (cut){
       this.cut = cut;
       this.aux = [];
+      if(this.cut[0].radius){
+          this.aux.push(this.cut[0].points[0]);
+          this.aux[0].rad =  this.cut[0].radius;
+      }else{
+          this.aux.push(this.cut[0].points[0]);
+      }
       
-      this.aux.push(this.cut[0].points[0]);
     
       for(var i = 0 ; i < this.cut.length ; i++){
-          this.aux.push(this.cut[i].points[1]);
+          if(this.cut[i].radius){
+                this.aux.push(this.cut[i].points[1]);
+                this.aux[i + 1].rad =  this.cut[i].radius;
+            }else{
+                this.aux.push(this.cut[i].points[1]);
+            }
+               //this.aux.push(this.cut[i].points[1]);        
       }
-  
+      
       if (min(this.aux) != 0){
           this.aux.reverse();
           
       }
+      //console.log(this.aux);
           return this.aux;
   }
   
