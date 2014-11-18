@@ -46,7 +46,7 @@ var cargarPantalla  = function(){
         
         var gd = new GraphicDisplay(this.id, this.xH.getWidth(), this.xH.getHeight());
     
-        gd.unitMeasure = "mm";
+        //gd.unitMeasure = "";
         //gd.unitAngle = "Rad";
         gd.selectedColor = "black";
         //gd.typeOfCad = "fresadora";

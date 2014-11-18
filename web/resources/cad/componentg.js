@@ -46,10 +46,13 @@ Arcs.prototype = new Points();
 Arcs.prototype.constructor = Arcs;
 
 function Path(x1,y1,x2,y2, radio) {
-  
-    Points.call(this,x1,y1,x2,y2);
+    this.x1 = redondeo(x1);
+    this.y1 = redondeo(y1);
+    this.x2 = redondeo(x2);
+    this.y2 = redondeo(y2);
+    Points.call(this,this.x1,this.y1,this.x2,this.y2);
     if(radio != null){
-        this.radius = radio;
+        this.radius = redondeo(radio);
     }
     this.type = COMPONENT_G_TYPES.PATH;
     
@@ -94,4 +97,8 @@ function Distance (x1,y1,x2,y2){
     var distance = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
 	
 	return distance.toFixed(2);
+}
+function redondeo (num){
+    var numer = Math.round(num * 100) / 100;
+    return numer;
 }

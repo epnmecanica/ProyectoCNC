@@ -114,8 +114,9 @@ function GraphicDisplay(displayName, width, height) {
 	this.gridPointer = false;
 	this.gridSpacing = 100; // Pixel
 	
-	this.conversionFactor = 1;
-	this.unitName = "px";
+	this.conversionFactor = 0.03937;
+	//this.unitName = "px";
+        this.conversionTool = 1/10;
 	this.unitMeasure = "m";
         this.unitAngle = "Grade";
 	this.unitFactor = 1;
@@ -577,27 +578,7 @@ GraphicDisplay.prototype.drawLine = function(x1, y1, x2, y2, color, radius) {
 	this.context.fillStyle = color;
 	this.context.strokeStyle = color;
 	this.context.beginPath();
-        /*
-        if ( k === 's' && (firstAngle > 350 && firstAngle < 10) || 
-                (firstAngle > 170 && firstAngle < 190)){
-            this.context.moveTo(
-			(x1 + this.cOutX) * this.zoom,
-			(y1 + this.cOutY) * this.zoom);
-            this.context.lineTo(
-			(x2 + this.cOutX) * this.zoom,
-			(y1 + this.cOutY) * this.zoom);
-        }
-        /*
-        if ( k === 's' && (firstAngle > 80 && firstAngle < 100) || 
-                (firstAngle > 260 && firstAngle < 280)){
-            this.context.moveTo(
-			(x1 + this.cOutX) * this.zoom,
-			(y1 + this.cOutY) * this.zoom);
-            this.context.lineTo(
-			(x1 + this.cOutX) * this.zoom,
-			(y2 + this.cOutY) * this.zoom);
-        }
-        */
+     
             this.context.moveTo(
 			(x1 + this.cOutX) * this.zoom,
 			(y1 + this.cOutY) * this.zoom);
@@ -605,23 +586,8 @@ GraphicDisplay.prototype.drawLine = function(x1, y1, x2, y2, color, radius) {
 			(x2 + this.cOutX) * this.zoom,
 			(y2 + this.cOutY) * this.zoom);
         
-        /*
-	this.context.moveTo(
-			(x1 + this.cOutX) * this.zoom,
-			(y1 + this.cOutY) * this.zoom);
-	this.context.lineTo(
-			(x2 + this.cOutX) * this.zoom,
-			(y2 + this.cOutY) * this.zoom);
-	*/
         this.context.closePath();
 	this.context.stroke();
-
-	//this.drawPoint(x1, y1, color, radius); //Dibuja el punto inicial
-        
-	//this.drawPoint(x2, y2, color, radius);
-        //this.setToolTip('Angulo: ' + firstAngle);
-        //this.setTextCode('angulo' + ' ' + firstAngle + ' ' + x1 + ' ' + y1 + '\n' + this.getTextCode());
-        //this.tooltipCode = 'Linea' + ' ' + firstAngle + ' ' + x1 + ' ' + y1 + '\n';
 };
 
 /**
@@ -991,7 +957,7 @@ GraphicDisplay.prototype.drawOriginArrow = function(cx, cy){
             this.context.arc(
 			(0 + this.cOutX) * this.zoom, 
                         (0 + this.cOutY) * this.zoom, 
-                        2, 0, 3.14159*2, false);
+                        2, 0, Math.PI*2, false);
         }                
         
                     
@@ -1539,30 +1505,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
 			}
 			this.tooltip = "Seleccion elemento para codigo G";
 			break;
-                /*        
-                case this.MODES.CODE_G:
-			this.cvn.css('cursor', 'default');
-			if (action === this.MOUSEACTION.MOVE) {
-				if ( this.selectedComponent === null ) {
-					this.temporarySelectedComponent = this.findIntersectionWith(
-							this.getCursorXLocal(),
-							this.getCursorYLocal());
-				} else {
-					
-				}
-			} else if ( action === this.MOUSEACTION.DOWN ) {
-				if ( this.selectedComponent === null ) {
-                                        this.selectComponent(this.temporarySelectedComponent);
-					//console.log(this.logicDisplay.components[this.temporarySelectedComponent]);
-                                        
-                                        seleccionElementos(this.logicDisplay.components[this.temporarySelectedComponent]);
-				} else {
-					this.unselectComponent();
-				}
-                                
-			}
-			this.tooltip = "Seleccion elemento para codigo G";
-			break;*/
+              
                         
                 case this.MODES.CUT:
 			 
@@ -1589,8 +1532,7 @@ GraphicDisplay.prototype.performAction = function(e, action) {
                              this.tooltipCode = this.getTextCode() + '\n' + ' Corte: ' + this.temporaryPoints[0] + ', ' + this.temporaryPoints[1];
 
                          }
-                         //this.tooltip = "Add linea";
-
+                         
 			break;        
                   
                   
@@ -1953,11 +1895,20 @@ GraphicDisplay.prototype.setToolTip = function(text) {
 
 GraphicDisplay.prototype.getToolTip = function() {
 	var text = this.tooltip;
+        var med = this.unitMeasure;
+        
+        var cursorX = this.getCursorXLocal() * this.conversionTool;
+        var cursorY = this.getCursorYLocal() * this.conversionTool;
+        
+        if (med != "mm"){
+            cursorX *=  this.conversionFactor;
+            cursorY *=  this.conversionFactor;
+        }
 	// normalice las medidas
         if (this.typeOfCad == "Torno"){
-            text += " | (" + (-1) * this.getCursorYLocal() / 10 + "," + (this.getCursorXLocal()) / 10 + ")";
+            text += " | (" + (-1) * cursorY.toFixed(3) + "," + cursorX.toFixed(3) + ")";
         }else{
-            text += " | (" + this.getCursorXLocal() / 10 + "," + (-1)*(this.getCursorYLocal()) / 10 + ")";
+            text += " | (" + cursorX.toFixed(3) + "," + (-1)*(cursorY).toFixed(3) + ")";
         }
             
 	

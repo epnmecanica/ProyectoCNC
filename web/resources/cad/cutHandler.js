@@ -14,6 +14,7 @@ var MODES_G_TYPE = {
 function CutHandler(gd){
     this.component = new Object();  
     this.codexgYAML = new Codexg();
+    this.conversionTool = 0.1;
     
     this.codexgYAML.name = gd.displayName;
     this.codexgYAML.units = gd.unitMeasure;
@@ -41,28 +42,34 @@ CutHandler.prototype.setObject = function(objects){
                                             Math.abs(this.component[i].y2/10)));
                             break;
             case MODES_G_TYPE.PATH:
+                if(this.codexgYAML.units != "mm"){
+                    this.conversionTool *= 0.03937;
+                }
+               
                             if (gd.typeOfCad == "Torno"){
                                 if (this.component[i].type == 9){
                                     
-                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 / 10),
-                                            this.component[i].x1 / 10,
-                                            Math.abs(this.component[i].y2 / 10),
-                                            this.component[i].x2 / 10, distance(Math.abs(this.component[i].y1),
-                                            this.component[i].x1,
-                                            Math.abs(this.component[i].y2),
-                                            this.component[i].x2) / 20 ));
+                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 * this.conversionTool),
+                                            this.component[i].x1 * this.conversionTool,
+                                            Math.abs(this.component[i].y2 * this.conversionTool),
+                                            this.component[i].x2 * this.conversionTool, 
+                                            
+                                            distance(Math.abs(this.component[i].y1),
+                                                    this.component[i].x1,
+                                                    Math.abs(this.component[i].y2),
+                                                    this.component[i].x2) * this.conversionTool / 2));
                                 }else{
-                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 / 10),
-                                            this.component[i].x1 / 10,
-                                            Math.abs(this.component[i].y2 / 10),
-                                            this.component[i].x2 / 10, null));
+                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 * this.conversionTool),
+                                            this.component[i].x1 * this.conversionTool,
+                                            Math.abs(this.component[i].y2 * this.conversionTool),
+                                            this.component[i].x2 * this.conversionTool, null));
                                 }
                                 
                             }else{
-                                this.codexgYAML.addCuts(new Path(this.component[i].x1 / 10,
-                                            Math.abs(this.component[i].y1) / 10,
-                                            this.component[i].x2 / 10,
-                                            Math.abs(this.component[i].y2) / 10, null));
+                                this.codexgYAML.addCuts(new Path(this.component[i].x1 * this.conversionTool,
+                                            Math.abs(this.component[i].y1) * this.conversionTool,
+                                            this.component[i].x2 * this.conversionTool,
+                                            Math.abs(this.component[i].y2) * this.conversionTool, null));
                             }
                             
                             break;
