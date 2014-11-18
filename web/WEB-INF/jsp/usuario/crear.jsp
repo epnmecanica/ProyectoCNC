@@ -33,6 +33,9 @@
 		});
         </script>
         
+           
+        
+        
     </head>
 <body>   
     <div id="art-main">
@@ -65,8 +68,8 @@
                                             <div class="art-layout-cell" style="width: 100%" >                                   
                                                                                 
                                                 <p style="text-align: center;"><span style="font-family: webkit-body; font-size: 30px;">Crear un Nuevo Usuario&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="/OpenCNC/index.htm" class="art-button" style="font-size: 14px; cursor: pointer; ">Cancelar</a></span></p>
-                                                    ${error}
-                                                    <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm" 
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ${error}
+                                                    <form:form id="forma" action="${pageContext.request.contextPath}/usuario/guardar.htm"
                                                        method="POST"
                                                        commandName="usuario">
                                                     
@@ -88,14 +91,17 @@
                                                     </p>
                                                     <p>
                                                         <label for="clave"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Contraseña: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
-                                                            <form:input path="clave" type="password"/>
+                                                        <form:input path="clave" type="password" name="clave"/>
                                                     </p>
                                                     <p>
-                                                        <label for="email"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Confirmar Contraseña:&nbsp;</label>
-                                                            <form:input path="" type="password"/>
+                                                        <label for="clave2" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Confirmar Contraseña:&nbsp;</label>
+                                                        <form:input path="" type="password" name="clave2" />
                                                     </p>
-                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input id="botonGuardar" type="submit" value="Crear" />
+                                                    
+       
+                                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input  id="botonGuardar" type="submit" value="Crear"   />
                                                     </form:form>     
+                                                    
                                             </div>
                                         </div> 
                                     </div>    

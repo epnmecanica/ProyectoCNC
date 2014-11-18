@@ -164,13 +164,14 @@ public ModelAndView crear ()throws IOException{
  * *****************************************************************************
  * @param email
  * @param usuario
+ * @param clave2
  * @param request
  * @param response
  * @return
  * @throws Exception 
  */
     @RequestMapping ("/usuario/guardar")
-    public ModelAndView guardar (@RequestParam String email,@ModelAttribute Usuario usuario, 
+    public ModelAndView guardar (@RequestParam String email,@ModelAttribute Usuario usuario,@RequestParam String clave, @RequestParam String clave2,
                                             HttpServletRequest request, 
                                             HttpServletResponse response)
                                             throws Exception{
@@ -181,22 +182,30 @@ public ModelAndView crear ()throws IOException{
             props.put("mail.smtp.host","smtp.gmail.com");
             props.put("mail.smtp.port", 587);
 
-                  
-        byte[] clave = usuario.getClave();
+       
+        //byte[] clave = usuario.getClave();
+        //String clave1 = clave2;
+        
         Session s = HibernateUtil.getSessionFactory().openSession();
         
         //Clase de seguridades
         SeguridadesController  sr = new SeguridadesController ();
         EncryptController enc = new EncryptController();
         ModelAndView m = new ModelAndView("/usuario/crear");
-        
-        
-        
-       
-        
+        ArrayList listaError = new ArrayList( ) ;
+        listaError.add("Las claves no coinciden............     ");
+          
+          //mediante la variable errorId se envia el mensaje a la pagina web
+     
+        //byte[] claveo = clave1.getBytes();
+         System.out.println("clave"+clave+clave2);
         // verifica las seguridades.     
-        if (sr.seguridad(usuario).isPass()){
+        if ((sr.seguridad(usuario).isPass())){
             
+             if (clave.equals(clave2))
+                 
+            {
+                
             usuario.setEstado("P");
             Calendar c = new GregorianCalendar();
             Date d1 = c.getTime();
@@ -207,7 +216,8 @@ public ModelAndView crear ()throws IOException{
             usuario.setCreadoPor(0);  
             usuario.setModificadoPor(0);//modificado la contraseña por el usuario
             // se codifica la clave
-            usuario.setClave(enc.encriptado(clave));
+            byte[] clave1 = usuario.getClave();
+            usuario.setClave(enc.encriptado(clave1));
             
             Transaction t = s.getTransaction();
             s.beginTransaction();
@@ -219,12 +229,17 @@ public ModelAndView crear ()throws IOException{
                 message.setFrom(new InternetAddress("cepravii@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));//
                 message.setSubject("Bienvenido OpenCNC");//el asunto del correo 
-                mensaje = mensaje.concat(usuario.getNombre());
+                mensaje = mensaje.concat("Bienvenido a la Plataforma Virtual OpenCNC"+" "+ usuario.getNombre());
                 message.setText(mensaje);// mensaje 
                 Transport.send(message); 
                 System.out.println("mensaje enviado");   
             
-        }else{
+        }  else {   
+                    m.addObject("error",listaError);
+                    return m;
+                }
+             }
+        else{
             
             m.addObject("error", sr.seguridad(usuario).getThisArrayList());
             return m;
@@ -237,7 +252,7 @@ public ModelAndView crear ()throws IOException{
     
     /**
  * *****************************************************************************
- * Recoge la informacion del formulario de usuario y valida que ç
+ * Recoge la informacion del formulario de usuario  a modificar y valida que 
  * tenga contenido y los guarda en la base de datos.
  * *****************************************************************************
  * @param nombre
@@ -253,22 +268,22 @@ public ModelAndView crear ()throws IOException{
     @RequestMapping ("/usuario/guardar1")
     public ModelAndView guardar1 (@RequestParam String email,@RequestParam String nombre, @RequestParam Integer usuarioId,
                 @RequestParam String apellido,@RequestParam String organizacion,HttpServletRequest request, 
-                                            HttpServletResponse response )
+                                            HttpServletResponse response )//Se declaran los atributos que ingresan en el formulario apra guardar en la base de datos
                                             throws Exception{
         
            
-            Session s = HibernateUtil.getSessionFactory().openSession();
-            Criteria c = s.createCriteria(Usuario.class);
+            Session s = HibernateUtil.getSessionFactory().openSession();// declara una variable de sesion 
+            Criteria c = s.createCriteria(Usuario.class);  
             c.add(Restrictions.eq("usuarioId", usuarioId));
             List<Usuario> l = c.list();
             String validcaracters = "@";
             Usuario us= l.get(0);
            
-            if(l.isEmpty()){
-                return new ModelAndView("redirect:/error/abrir_error.htm");
+            if(l.isEmpty()){ 
+                return new ModelAndView("redirect:/error/abrir_error.htm");  
             }else{
             
-            if(!email.contains(validcaracters)){
+            if(!email.contains(validcaracters)){//verifica que el usuario exista en caso de que no retorna un mensaje.
              return new ModelAndView("redirect:/usuario/lista.htm");
            /* ModelAndView m1 = new ModelAndView("/usuario/editar");
             ArrayList listaError = new ArrayList( ) ;
@@ -278,70 +293,30 @@ public ModelAndView crear ()throws IOException{
             } 
             else
             
-              {     
-            us.setEstado("P");
-            Calendar cl = new GregorianCalendar();
-            Date d1 = cl.getTime();
-            us.setCreadoFecha(d1);
+            {     
+            us.setEstado("P");  //asigna un estado al usuario
+            Calendar cl = new GregorianCalendar(); 
+            Date d1 = cl.getTime(); 
+            us.setCreadoFecha(d1); // ingresa la fecha en la que se modifica los datos del usuario
             us.setModificadoFecha(d1);
-            us.setCreadoPor(0);  
+            us.setCreadoPor(0); 
             us.setModificadoPor(0);
-            us.setNombre(nombre);
-            us.setApellido(apellido);
-            us.setOrganizacion(organizacion);
-            us.setEmail(email);
-            Transaction t = s.getTransaction();
-            s.beginTransaction();
-            s.saveOrUpdate(us);
-            t.commit();
-            logger.info("Guarda un nuevo usuario");
-            return new ModelAndView("redirect:/usuario/lista.htm");
+            us.setNombre(nombre);// ingresa el nuevo nombre del usuario 
+            us.setApellido(apellido);//ingresa el nuevo apellido del usuario
+            us.setOrganizacion(organizacion);// ingresa la nueva organizacion del usuario
+            us.setEmail(email);//ingresa el nuevo email del usuario
+            Transaction t = s.getTransaction(); 
+            s.beginTransaction();// se ejecuta la transaccion 
+            s.saveOrUpdate(us); // guarda los datos del usuario que se modificaron 
+            t.commit();// se actualiza
+            logger.info("Guarda un nuevo usuario");// mensaje que da la verificacion de guardar los nuevos datos del usuario
+            return new ModelAndView("redirect:/usuario/lista.htm"); //retorna la lista de usuarios con sus datos modificados
             } 
      
           
          } 
        
      }
-    
-    
-    
-    
-    
-    
-    
- /*   
- * @param id
- * @param request
- * @param response
- * @return
- * @throws IOException 
- */
-    @RequestMapping  ("/usuario/editar/{id}")
-    public ModelAndView   editar  ( @PathVariable  Integer id, 
-                                            HttpServletRequest request, 
-                                            HttpServletResponse response)
-                                            throws IOException{
-        try{
-            logger.info("Se Modificara los datos del Usuario");
-        HttpSession sess =  request.getSession();
-        if (sess != null){
-            Session s = HibernateUtil.getSessionFactory().openSession();
-        
-            Usuario u = (Usuario)s.get(Usuario.class, id);
-            ModelAndView m = new ModelAndView ("/usuario/editar");
-            m.addObject("usuario",u);
-
-            logger.info("Empieza a mostrar lista de usuarios");
-            return m;
-        }else{
-            request.removeAttribute("usuario");
-            return new ModelAndView("redirect:/usuario/login.htm");
-        } 
-        }catch(Exception ex){
-            logger.error("Error... Al Editar los datos del Usuario",ex);
-        }
-        return null;
-    }
     
 
     
@@ -436,7 +411,7 @@ public ModelAndView crear ()throws IOException{
       ModelAndView m = new ModelAndView();
     
       Session s = HibernateUtil.getSessionFactory().openSession();
-       EncryptController enc = new EncryptController();
+      EncryptController enc = new EncryptController();
        
       Criteria c = s.createCriteria(Usuario.class);
       
@@ -451,14 +426,16 @@ public ModelAndView crear ()throws IOException{
       if (l.isEmpty()){
           
           ModelAndView m1 = new ModelAndView("/usuario/login");
+          // se declara un array para enviar el mensaje de error al momento que el usuario no ingrese correctamnte los campos 
           ArrayList listaError = new ArrayList( ) ;
           listaError.add("Verifica que los datos Ingresados sean Correctos");
+          
+          //mediante la variable errorId se envia el mensaje a la pagina web
           m1.addObject("errorId",listaError);
-          //m.addObject("errorId", null);
           request.removeAttribute("usuario");
           try {
               logger.info("Debe... Inicie sesion por favor...");
-              //return login();
+           
               return m1;
           } catch (Exception ex) {
               java.util.logging.Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE,null , ex);

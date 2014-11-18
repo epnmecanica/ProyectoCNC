@@ -70,7 +70,9 @@
                                           
                                         <p style="text-align: center;"><span style="font-size: 14px;"><br></span></p> 
                                     </div>                        
-                                  <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Login</h1>                 
+                                  <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Login</h1>  
+                                  
+                                  <%-- Envia mensaje de error en caso de que el usuario no ingrese los datos correctamente--%>
                                   <h5> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ${errorId}</h5> 
                                    
                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<a href="/OpenCNC/usuario/recuperarContra.htm" class="art-button" style="font-size: 12px; cursor: pointer; ">¿Olvidó su Contraseña?</a>
