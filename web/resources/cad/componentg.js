@@ -46,11 +46,11 @@ Arcs.prototype = new Points();
 Arcs.prototype.constructor = Arcs;
 
 function Path(x1,y1,x2,y2, radio) {
-    this.x1 = redondeo(x1);
-    this.y1 = redondeo(y1);
-    this.x2 = redondeo(x2);
-    this.y2 = redondeo(y2);
-    Points.call(this,this.x1,this.y1,this.x2,this.y2);
+
+    Points.call(this,redondeo(x1),
+                    redondeo(y1),
+                    redondeo(x2),
+                    redondeo(y2));
     if(radio != null){
         this.radius = redondeo(radio);
     }

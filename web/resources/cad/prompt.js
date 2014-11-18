@@ -31,11 +31,11 @@ function seleccionElementos(component){
     for ( var i = component.length - 1; i >= 1; i-- ) {
         switch(component[i].type) {
             case 2:
+            case 5:
+            case 9:
+            case 10:
                 component[i].machined = "Path"
                 break; 
-            case 9:
-                component[i].machined = "Path"
-                break;           
         }
         //if(component[i].type == 2){
             

@@ -104,18 +104,22 @@ var cargarPantalla  = function(){
                           console.log(gd.z_y = result[0].puntoCeroMaquinaY);
                           console.log(gd.max_size_x = result[0].piezaAncho);
                           console.log(gd.max_size_y = result[0].piezaLargo);
-                          console.log(gd.spindle_speed = 1600);
+                          //console.log(gd.spindle_speed = 1600);
+                          iniciaVista(gd.typeOfCad);
+                          
                           //alert(tmp);
                           
             }
         });
         
-        if(gd.typeOfCad == "Torno"){
-            gd.camX =   this.xH.getWidth() - gd.max_size_x ;
-            gd.camY = - gd.max_size_y + this.xH.getHeight();
-        }else{
-            gd.camX = - this.xH.getWidth() + gd.max_size_x;
-            gd.camY =  gd.max_size_y - this.xH.getHeight();
+        function iniciaVista(typeOfCad){
+            if(gd.typeOfCad == "Torno"){
+                gd.camX =   this.xH.getWidth() - gd.max_size_x ;
+                gd.camY = - gd.max_size_y + this.xH.getHeight();
+            }else{
+                gd.camX = - this.xH.getWidth() + gd.max_size_x + 30;
+                gd.camY =  - gd.max_size_y + this.xH.getHeight() - 50;
+            }
         }
         receiveAjax();
         
@@ -131,8 +135,8 @@ var cargarPantalla  = function(){
                 gd.camY = - gd.max_size_y + this.xH.getHeight();
             }else{
                 
-                gd.camX = - this.xH.getWidth() + gd.max_size_x + 10;
-                gd.camY =   this.xH.getHeight() - gd.max_size_y - 50;
+                gd.camX = - this.xH.getWidth() + gd.max_size_x + 30;
+                gd.camY =  - this.xH.getHeight() + gd.max_size_y - 50;
             }
         });
         

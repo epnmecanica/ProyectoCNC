@@ -172,6 +172,7 @@ GraphicDisplay.prototype.init = function() {
 	/*
 	 * INITIALIZE THE LOGIC
 	 */ 
+      
 	this.logicDisplay = new LogicDisplay();
 	
         this.cuthandler = new CutHandler(gd);
@@ -188,6 +189,7 @@ GraphicDisplay.prototype.init = function() {
         this.cvn = $('#' + this.displayName);
 	this.cvn.css('cursor','crosshair');
 	this.context = this.cvn[0].getContext('2d');
+        
         var gui = new dat.GUI({ autoPlace: false }); 
         this.gui(gui);
         
@@ -208,7 +210,7 @@ GraphicDisplay.prototype.execute = function() {
     
 	this.offsetX = this.cvn.offset().left;
 	this.offsetY = this.cvn.offset().top;
-	
+	 
 	this.updateCamera();
 	
 	this.clearGrid();
