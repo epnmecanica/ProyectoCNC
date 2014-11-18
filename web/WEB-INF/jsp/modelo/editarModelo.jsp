@@ -70,7 +70,7 @@
                                                 commandName="modelo"
                                                         > 
                                                 &nbsp &nbsp &nbsp &nbsp Identificador:
-                                                <form:input path="modeloId" ></form:input><br/><br/>
+                                                <form:input path="modeloId"  readonly="true"></form:input ><br/><br/>
                                                 &nbsp &nbsp &nbsp &nbsp Nombre:
                                                 <form:input path="nombre" ></form:input><br/><br/>
                                                 &nbsp &nbsp &nbsp &nbsp Descripcion:

@@ -3,6 +3,11 @@
     Created on : 14/05/2014, 02:25:24 AM
     Author     : root
 --%>
+<%-- 
+    Document   : editar
+    Created on : 14/05/2014, 02:25:24 AM
+    Author     : root
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -81,7 +86,9 @@
                                             
                                                     <p>
                                                    
+                                                    <%-- Envia los datos modificados del usuario a la BD--%>
                                                     
+                                                    %>
                                                    
                                                     
                                                     
