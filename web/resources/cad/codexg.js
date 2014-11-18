@@ -27,6 +27,12 @@ function Codexg(){
     
 };
 
+Codexg.prototype.guiCam = function() {
+        var text = new Codexg();
+        var gui = new dat.GUI();
+        gui.add(text, 'type_machine');     
+};
+
 Codexg.prototype.addCuts = function (cut){
   this.cuts.push(cut);  
 };
