@@ -33,7 +33,7 @@ function CutHandler(gd){
     this.codexgYAML.max_size_x = gd.max_size_x;
     this.codexgYAML.max_size_y = gd.max_size_y;
     this.codexgYAML.spindle_speed = gd.spindle_speed;
-    this.codexgYAML.guiCam();
+    this.codexgYAML.guiCam() ;
     
          
     
