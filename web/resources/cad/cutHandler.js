@@ -27,19 +27,21 @@ function CutHandler(gd){
     
     this.codexgYAML.name = gd.displayName;
     this.codexgYAML.units = gd.unitMeasure;
-    this.codexgYAML.type_machine = gd.typeOfCad;
     this.codexgYAML.z_x = gd.z_x;
     this.codexgYAML.z_y = gd.z_y;
     this.codexgYAML.max_size_x = gd.max_size_x;
     this.codexgYAML.max_size_y = gd.max_size_y;
     this.codexgYAML.spindle_speed = gd.spindle_speed;
-    this.codexgYAML.guiCam() ;
+    this.codexgYAML.type_machine = gd.typeOfCad;
+    this.codexgYAML.wise= gd.wise;
+    this.codexgYAML.security_zone = gd.security_zone;
+    this.codexgYAML.bit_diameter = gd.bit_diameter;
+    this.codexgYAML.feed_rate = gd.feed_rate;
+    this.codexgYAML.plunge_rate = gd.plunge_rate;
+    this.codexgYAML.z_step_size = gd.z_step_size;
+    this.codexgYAML.default_depth = gd.default_depth;
     
-         
-    
-      
 };
-
 
 
 CutHandler.prototype.setObject = function(objects){
@@ -78,6 +80,7 @@ CutHandler.prototype.setObject = function(objects){
                     switch (this.component[i].type){
                         
                             case MODES_ELE_TYPE.ARC_TW:
+                                var arc = (this.y1 > this.y2)? -1 : 1;
                                 this.codexgYAML.addCuts(new Path(this.x1 * this.conversionTool,
                                             this.y1 * this.conversionTool,
                                             this.x2 * this.conversionTool,
@@ -86,9 +89,10 @@ CutHandler.prototype.setObject = function(objects){
                                             distance(this.x1,
                                                     this.y1,
                                                     this.x2,
-                                                    this.y2) * this.conversionTool / 2));
+                                                    this.y2) * this.conversionTool / 2 * arc));
                                 break;
                             case MODES_ELE_TYPE.ARC:
+                                var arc = (this.y2 > this.y3)? -1 : 1;
                                 this.codexgYAML.addCuts(new Path(this.x1 * this.conversionTool,
                                             this.y1 * this.conversionTool,
                                             this.x3 * this.conversionTool,
@@ -97,9 +101,10 @@ CutHandler.prototype.setObject = function(objects){
                                             distance(this.x1,
                                                     this.y1,
                                                     this.x2,
-                                                    this.y2) * this.conversionTool));
+                                                    this.y2) * this.conversionTool * arc));
                                 break;
                             case MODES_ELE_TYPE.ARC_TR:
+                                var arc = (this.x2 > this.x1)? -1 : 1;
                                 this.codexgYAML.addCuts(new Path(this.x1 * this.conversionTool,
                                             this.y1 * this.conversionTool,
                                             this.x2 * this.conversionTool,
@@ -108,7 +113,7 @@ CutHandler.prototype.setObject = function(objects){
                                             distance(this.x1,
                                                     this.y1,
                                                     this.x3,
-                                                    this.y3) * this.conversionTool));
+                                                    this.y3) * this.conversionTool * arc));
                                 break;
 
                             case MODES_ELE_TYPE.LINE :
@@ -119,31 +124,7 @@ CutHandler.prototype.setObject = function(objects){
                                 break;
 
                         
-                        /*if (gd.typeOfCad == "Torno"){
-                                if (this.component[i].type == 9){
-                                    
-                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 * this.conversionTool),
-                                            this.component[i].x1 * this.conversionTool,
-                                            Math.abs(this.component[i].y2 * this.conversionTool),
-                                            this.component[i].x2 * this.conversionTool, 
-                                            
-                                            distance(Math.abs(this.component[i].y1),
-                                                    this.component[i].x1,
-                                                    Math.abs(this.component[i].y2),
-                                                    this.component[i].x2) * this.conversionTool / 2));
-                                }else{
-                                    this.codexgYAML.addCuts(new Path(Math.abs(this.component[i].y1 * this.conversionTool),
-                                            this.component[i].x1 * this.conversionTool,
-                                            Math.abs(this.component[i].y2 * this.conversionTool),
-                                            this.component[i].x2 * this.conversionTool, null));
-                                }
-                                
-                            }else{
-                                this.codexgYAML.addCuts(new Path(this.component[i].x1 * this.conversionTool,
-                                            Math.abs(this.component[i].y1) * this.conversionTool,
-                                            this.component[i].x2 * this.conversionTool,
-                                            Math.abs(this.component[i].y2) * this.conversionTool, null));
-                            }*/
+                        
                     }
                             
                             break;

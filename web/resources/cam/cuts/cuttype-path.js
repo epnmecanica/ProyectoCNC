@@ -12,37 +12,41 @@ window.opencut.registerCutType("path", function generatePathCut(workspace, cut) 
   //cutter = cut;
   
   var z_y = (workspace.type_machine == 'Torno')? "Z" : "Y"; 
-  gcode.push("G72 W1 R.2");
-  gcode.push("G72 P10 Q11 U0.1 W0.2 F0.15");
-  gcode.push("N10 G0 Z-20");
+  
+  
     
   var auxi = normVect(cut);
+  gcode.push("G0" + " X" + auxi[0][0] + " Z2");
+  gcode.push("G72 W0.5 R0.2");
+  gcode.push("G72 P10 Q11 U0.1 W0.2 F0.15");
   
-  gcode.push("X" + auxi[0][0] + " " + z_y + (auxi[auxi.length - 1][1] + 3));
-  gcode.push(z_y + auxi[0][1]);
+  gcode.push("N10 G0 Z" + auxi[0][1]);
+  
 
   for (var i = 1 ; i < auxi.length ; i++){
      var tempP1 = (auxi[i][0] != auxi[i - 1][0]) ? auxi[i][0] : null;
      var tempP2 = (auxi[i][1] != auxi[i - 1][1]) ? auxi[i][1] : null;     
      
+     var rad = (auxi[i].rad > 0)? "G2 " : "G3 ";
+     
      if(tempP1 == null){
          if(auxi[i].rad && auxi[i].rad != "undefined"){
-           gcode.push(z_y + tempP2 + " R" + auxi[i].rad);  
+           gcode.push(rad + z_y + tempP2 + " R" + Math.abs(auxi[i].rad));  
          }else{
            gcode.push(z_y + tempP2);  
          }
      }else if(tempP2 == null){
          if(auxi[i].rad && auxi[i].rad != "undefined"){
-            gcode.push("X" + tempP1 + " R" + auxi[i].rad); 
+            gcode.push(rad + "X" + tempP1 + " R" + Math.abs(auxi[i].rad)); 
          }else{
             gcode.push("X" + tempP1); 
          }
          
      }else{
          if(auxi[i].rad && auxi[i].rad != "undefined"){
-             gcode.push("X" + tempP1 + " " + z_y + tempP2 + " R" + auxi[i].rad);
+             gcode.push(rad + " X" + tempP1 + " " + z_y + tempP2 + " R" + Math.abs(auxi[i].rad));
          }else{
-             gcode.push("X" + tempP1 + " " + z_y + tempP2); 
+             gcode.push("G1" + " X" + tempP1 + " " + z_y + tempP2); 
          }
          
      }

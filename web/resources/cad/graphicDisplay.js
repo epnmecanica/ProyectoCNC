@@ -149,7 +149,22 @@ function GraphicDisplay(displayName, width, height) {
         this.z_y = 0;
         this.max_size_x = 100;
         this.max_size_y = 100;
+      
+        
+        
+        this.z_x = 0;
+        this.z_y = 0;
+        this.max_size_x = 100;
+        this.max_size_y = 100;
         this.spindle_speed = 900;
+        this.type_machine = this.typeOfCad;
+        this.wise = "clock";
+        this.security_zone = 100;
+        this.bit_diameter = 0.125;
+        this.feed_rate = 15;
+        this.plunge_rate = 5;
+        this.z_step_size = 0.1;
+        this.default_depth = -0.2;
        
         this.g_code = function() {
             
@@ -1967,6 +1982,17 @@ GraphicDisplay.prototype.gui = function(gui){
   this.f1.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
     
   this.f2 = gui.addFolder('G_Codex');
+  this.f2.add(gd,'z_x');
+  this.f2.add(gd,'z_y');
+  this.f2.add(gd,'max_size_x');
+  this.f2.add(gd,'max_size_y');
+  this.f2.add(gd,'typeOfCad');
+  this.f2.add(gd,'wise' , [ 'clock', 'anti-clock']);
+  this.f2.add(gd,'security_zone');
+  this.f2.add(gd,'bit_diameter');
+  this.f2.add(gd,'feed_rate');
+  this.f2.add(gd,'plunge_rate');
+  this.f2.add(gd,'default_depth');
   this.f2.add(gd, 'spindle_speed', 100 , 5000);
   this.f2.add(gd, 'g_code');
   

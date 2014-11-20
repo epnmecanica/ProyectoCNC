@@ -194,9 +194,6 @@ function icons(){
           inew.mousemove(function(){
               inew.attr({fill: colors, stroke: "none"});
           }).click(function () {
-              //arranqueTXT();
-              
-              //compilarG();
               
           });
           iretro.mousemove(function(){
@@ -218,12 +215,9 @@ function icons(){
               iwizar.attr({fill: colors, stroke: "none"});
           }).click(function () {
               console.log('se selecciona Wizard!!');
-            // this.cuthandler = new CutHandler(gd.displayName, gd.unitMeasure, gd.typeOfCad);
              this.cuthandler = new CutHandler(gd);
              seleccionElementos(gd.getObjects());
-             helperYAML(this.cuthandler.setObject(gd.getObjects()));  
-             console.log(JSON.stringify(gd.getObjects()));
-            //gd.setMode(gd.MODES.EDIT);         
+             helperYAML(this.cuthandler.setObject(gd.getObjects()));           
           });
           
           idim.mousemove(function(){
@@ -242,18 +236,8 @@ function icons(){
               iok.attr({fill: colors, stroke: "none"});
           }).click(function () {
                     avisoEntrada('Vamos a enviar la informacion al servidor. Estas de acuerdo?');
-                    //alert(sendAjax(gd.getJSON()));
                     sendAjax(gd.getJSON());
-                  /*
-                    var x = document.createElement("TEXTAREA");
-                    
-                    var t = document.createTextNode("At w3schools.com you will learn how to make a website.");
-                    x.appendChild(t);
-                    
-                    document.body.appendChild(x);
-                    
-                   document.getElementById("codex").value="Codigo";
-                   */              
+                  
           });
           icreateG.mousemove(function(){
               icreateG.attr({fill: colors, stroke: "none"});

@@ -230,12 +230,13 @@ var helperYAML = function (datosYaml){
  
  var gui_G = function(dato) {
   var text = new helperYAML(dato);
- 
+
+  
        var gui = new dat.GUI({ autoPlace: false });
         
         gui.add(text, 'compile_gcode');
         gui.add(text, 'save_file');
-  
+      
         var customContainer_g = document.getElementById('my-gui_G-container');
         
         //console.log('counter'+customContainer_g.childElementCount);

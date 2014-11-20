@@ -150,7 +150,7 @@ window.opencut = function() {
         errors.push("Zero de pieza no especificado");
     }
     if (workspace.type_machine == 'Torno'){
-        commands.push("G54 " + "X" + job.z_x + " Z" +job.z_y + " S" + job.spindle_speed);
+        commands.push("G55 " + "X" + job.z_x + " Z" +job.z_y + " S" + job.spindle_speed);
     }else{
         commands.push("G54 " + "X" + job.z_x + " Y" +job.z_y + " S" + job.spindle_speed);
     }
@@ -197,14 +197,17 @@ window.opencut = function() {
 
           // Add the response to our compiled list of commands.
           commands.push("");
-          commands.push("; begin cut: " + cut.type);
+          
+          commands.push("; begin cut: " + cutType);
           commands = commands.concat(ret.gcode);
           
           commands.push("N11 X0");
           commands.push("G70 P10 Q11 S300 F0.05");
-          commands.push("G0 Z100");
           commands.push("; end cut: " + cut.type);
+          commands.push("G0 Z100");
+          commands.push("M30");
           commands.push("%");
+          console.log(commands);
           warnings = warnings.concat(ret.warnings);
         } catch (err) {
           errors.push(err);

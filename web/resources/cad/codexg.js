@@ -7,8 +7,8 @@
 function Codexg(){
     //this.components = new Array();
     
-    this.name = 'cut_demo';
-    this.units = 'inch';
+    this.name = '';
+    this.units = '';
     this.z_x = 0;
     this.z_y = 0;
     this.max_size_x = 100;
@@ -27,11 +27,7 @@ function Codexg(){
     
 };
 
-Codexg.prototype.guiCam = function() {
-        var text = new Codexg();
-        var gui = new dat.GUI();
-        gui.add(text, 'type_machine');     
-};
+
 
 Codexg.prototype.addCuts = function (cut){
   this.cuts.push(cut);  
