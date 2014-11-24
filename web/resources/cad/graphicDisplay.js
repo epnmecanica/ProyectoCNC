@@ -2377,44 +2377,61 @@ var initCAD = function(gd) {
 		console.log(JSON.stringify(gd.getObjects())); 
                 //compilarG ();
 	});
-        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
-		console.log('PRESIONA : Q');
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F1, function() {
+                console.log('PRESIONA : F1');
                 gd.setMode(gd.MODES.ADDARC);
-	});
-        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.W, function() {
-		console.log('PRESIONA : W');
+        });
+    
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F2, function() {
+		console.log('PRESIONA : F2');
                 gd.setMode(gd.MODES.ADDARC_TWO);
 	});
-        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.R, function() {
-		console.log('PRESIONA : R');
-                
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F3, function() {
+		console.log('PRESIONA : F3');
                 gd.setMode(gd.MODES.ADDARC_TR);
 	});
-	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function() {
-		console.log('PRESIONA : E');
+	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F4, function() {
+		console.log('PRESIONA : F4');
                 gd.setMode(gd.MODES.ADDLINE);
 	});
-        
-        
-	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.I, function(){
-		gd.zoomIn();
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F5, function() {
+		console.log('PRESIONA : F5');
+                gd.setMode(gd.MODES.ADDPOINT);
 	});
-	
-	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.O, function(){
-		gd.zoomOut();
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F6, function() {
+		console.log('PRESIONA : F6');
+                gd.setMode(gd.MODES.ADDCIRCLE);
 	});
-        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.N, function(){
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F7, function() {
+		console.log('PRESIONA : F7');
+                gd.setMode(gd.MODES.ADDLABEL);
+	});
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F8, function() {
+		console.log('PRESIONA : F8');
+                gd.setMode(gd.MODES.ADDRECTANGLE);
+	});
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.SHIFT, function() {
+            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
+                gd.setMode(gd.MODES.ADDMEASURE);
+            });
+            
+            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.W, function(){
                 gd.setMode(gd.MODES.NAVIGATE);
-        });
+            }); 
+            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function(){
+                gd.setMode(gd.MODES.MOVE);
+            });
+	});
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.UP, function(){
+		gd.zoomIn();
+            });
+            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.DOWN, function(){
+		gd.zoomOut();
+            });
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.ESC, function(){
                 gd.setMode(gd.MODES.NAN);
         });
-        // cuando se presione SHIFT se hagan lineas rectas.
-	gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.SHIFT, function(){
-               
-        });
-       
-	// Bind mouse events
+        
 	gd.cvn.mousemove(function(e) {
 		gd.mouse.onMouseMove(e);
 		
