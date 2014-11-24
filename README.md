@@ -30,3 +30,32 @@ http://190.15.141.101:8081/OpenCNC/index.htm
 
 Informate aqui: 
 http://190.15.141.101:8081/OpenCNC/web_info/Inicio.htm
+
+
+INSTALACIÓN:
+______________________________________________________________________________________________________________________
+Requiere:
+* Tomcat 8.
+* MySql
+* Netbeans - eclipse.
+* Libreriras:
+   * Hibernate
+   * Spring
+   * JavaxMail
+   * Gson
+   * Commons
+   * Log4j
+
+_______________________________________________________________________________________________________________________
+
+Plataforma con arquitectura LAMP.
+
+1- Ejecutar opencnc.sql
+
+2- Configurar el archivo Hibernate.cfg.xml
+
+3- Correr la aplicacion.
+
+=======================================================================================================================
+Nota:
+No soporta ie.
