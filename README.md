@@ -51,5 +51,11 @@ ________________________________________________________________________________
 Plataforma con arquitectura LAMP.
 
 1- Ejecutar opencnc.sql
+
 2- Configurar el archivo Hibernate.cfg.xml
+
 3- Correr la aplicacion.
+
+=======================================================================================================================
+Nota:
+No soporta ie.
