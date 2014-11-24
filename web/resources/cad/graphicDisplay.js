@@ -2373,7 +2373,7 @@ var initCAD = function(gd) {
 	});
 	
 	
-        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.SHIFT, function() {
+        gd.keyboard.addKeyEvent( true, gd.keyboard.KEYS.SHIFT, function() {
                 // Adding keyboard events 
             gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
                     console.log(JSON.stringify(gd.getObjects())); 
