@@ -164,7 +164,7 @@ function GraphicDisplay(displayName, width, height) {
         this.feed_rate = 15;
         this.plunge_rate = 5;
         this.z_step_size = 0.1;
-        this.default_depth = -0.2;
+        this.default_depth = 0;
        
         this.g_code = function() {
             
@@ -1989,11 +1989,13 @@ GraphicDisplay.prototype.gui = function(gui){
   this.f2.add(gd,'typeOfCad');
   this.f2.add(gd,'wise' , [ 'clock', 'anti-clock']);
   this.f2.add(gd,'security_zone');
-  this.f2.add(gd,'bit_diameter');
+  if(gd.typeOfCad != "Torno"){
+    this.f2.add(gd,'bit_diameter');  
+  }
   this.f2.add(gd,'feed_rate');
   this.f2.add(gd,'plunge_rate');
   this.f2.add(gd,'default_depth');
-  this.f2.add(gd, 'spindle_speed', 100 , 5000);
+  this.f2.add(gd, 'spindle_speed');
   this.f2.add(gd, 'g_code');
   
   

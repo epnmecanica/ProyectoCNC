@@ -21,7 +21,7 @@ function Codexg(){
     this.feed_rate = 15;
     this.plunge_rate = 5;
     this.z_step_size = 0.1;
-    this.default_depth = -0.2;
+    this.default_depth = 0.5;
     this.cuts = new Array();
     
     

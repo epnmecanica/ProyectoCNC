@@ -127,7 +127,7 @@ window.opencut = function() {
     }
 
     if (job.default_depth) {
-      if (typeof job.default_depth != "number" || job.default_depth >= 0) {
+      if (typeof job.default_depth != "number" || job.default_depth < 0) {
         errors.push("default_depth debe ser menor que 0");
         //errors.push("default_depth must be a number < 0");
       } else {
