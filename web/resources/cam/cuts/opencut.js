@@ -159,9 +159,11 @@ window.opencut = function() {
     //
     (workspace.wise === 'clock') ? commands.push("M03") : commands.push("M04");
     
-    //
-    (!workspace.security_zone) ? commands.push("G43" + " Z" + job.security_zone): null;
-    
+    if (workspace.type_machine == 'Torno'){
+        (!workspace.security_zone) ? commands.push("G43" + " Z" + job.security_zone): null;
+    }else{
+        (!workspace.security_zone) ? commands.push("G43" + " Y" + job.security_zone): null;
+    }
     
     // Add commands for each cut operation.
     if (!job.cuts || job.cuts.length === 0) {
@@ -204,7 +206,12 @@ window.opencut = function() {
           commands.push("N11 X0");
           commands.push("G70 P10 Q11 S300 F0.05");
           commands.push("; end cut: " + cut.type);
-          commands.push("G0 Z100");
+          if (workspace.type_machine == 'Torno'){
+              commands.push("G0 Z100");
+          }else{
+              commands.push("G0 Y100");
+          }
+          
           commands.push("M30");
           commands.push("%");
           console.log(commands);

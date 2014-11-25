@@ -1966,6 +1966,14 @@ GraphicDisplay.prototype.getB = function(m,x1,y1) {
 	var b = (y1-(m*x1));
 	return b.toFixed(1);
 };
+GraphicDisplay.prototype.ExcAddArc = function (){
+    this.resetMode();
+        this.mode = this.MODES.ADDARC;
+};
+GraphicDisplay.prototype.ExcAddArc_tr = function (){
+    this.resetMode();
+        this.mode = this.MODES.ADDARC_TR;
+};
 
 GraphicDisplay.prototype.gui = function(gui){
   
@@ -1980,7 +1988,11 @@ GraphicDisplay.prototype.gui = function(gui){
   this.f1.addColor(gd, 'backGraundColor');
   this.f1.add(gd, 'fontSize', 10 , 70);
   this.f1.add(gd, 'unitAngle', [ 'Grade', 'Rad']);
-    
+  
+  this.f3 = gui.addFolder('Draw elements');
+  this.f3.add(gd, 'ExcAddArc');
+  this.f3.add(gd, 'ExcAddArc_tr');
+  
   this.f2 = gui.addFolder('G_Codex');
   this.f2.add(gd,'z_x');
   this.f2.add(gd,'z_y');
@@ -2371,64 +2383,65 @@ var initCAD = function(gd) {
 	$(document).keydown(function(e) {
 		gd.keyboard.onKeyDown(e);
 	});
-	
-	
-        gd.keyboard.addKeyEvent( true, gd.keyboard.KEYS.SHIFT, function() {
-                // Adding keyboard events 
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
-                    console.log(JSON.stringify(gd.getObjects())); 
-                    //compilarG ();
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.A, function() {
-                    console.log('PRESIONA : F1');
-                    gd.setMode(gd.MODES.ADDARC);
-            });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.H, function() {
+                console.log(JSON.stringify(gd.getObjects())); 
+                //compilarG ();
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.A, function() {
+                console.log('PRESIONA : A');
+                gd.setMode(gd.MODES.ADDARC);
+        });
 
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.S, function() {
-                    console.log('PRESIONA : F2');
-                    gd.setMode(gd.MODES.ADDARC_TWO);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.D, function() {
-                    console.log('PRESIONA : F3');
-                    gd.setMode(gd.MODES.ADDARC_TR);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F, function() {
-                    console.log('PRESIONA : F4');
-                    gd.setMode(gd.MODES.ADDLINE);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Z, function() {
-                    console.log('PRESIONA : F5');
-                    gd.setMode(gd.MODES.ADDPOINT);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.X, function() {
-                    console.log('PRESIONA : F6');
-                    gd.setMode(gd.MODES.ADDCIRCLE);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.C, function() {
-                    console.log('PRESIONA : F7');
-                    gd.setMode(gd.MODES.ADDLABEL);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.V, function() {
-                    console.log('PRESIONA : F8');
-                    gd.setMode(gd.MODES.ADDRECTANGLE);
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
-                gd.setMode(gd.MODES.ADDMEASURE);
-            });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.S, function() {
+                console.log('PRESIONA : S');
+                gd.setMode(gd.MODES.ADDARC_TWO);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.D, function() {
+                console.log('PRESIONA : D');
+                gd.setMode(gd.MODES.ADDARC_TR);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.F, function() {
+                console.log('PRESIONA : F');
+                gd.setMode(gd.MODES.ADDLINE);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Z, function() {
+                console.log('PRESIONA : Z');
+                gd.setMode(gd.MODES.ADDPOINT);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.X, function() {
+                console.log('PRESIONA : X');
+                gd.setMode(gd.MODES.ADDCIRCLE);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.C, function() {
+                console.log('PRESIONA : C');
+                gd.setMode(gd.MODES.ADDLABEL);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.V, function() {
+                console.log('PRESIONA : V');
+                gd.setMode(gd.MODES.ADDRECTANGLE);
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.Q, function() {
+            gd.setMode(gd.MODES.ADDMEASURE);
+        });
+
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.W, function(){
+            gd.setMode(gd.MODES.NAVIGATE);
+        }); 
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function(){
+            gd.setMode(gd.MODES.MOVE);
+        });
+	
+	
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.SHIFT, function() {
+     
             
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.W, function(){
-                gd.setMode(gd.MODES.NAVIGATE);
-            }); 
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.E, function(){
-                gd.setMode(gd.MODES.MOVE);
-            });
 	});
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.UP, function(){
 		gd.zoomIn();
-            });
-            gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.DOWN, function(){
-		gd.zoomOut();
-            });
+        });
+        gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.DOWN, function(){
+            gd.zoomOut();
+        });
         gd.keyboard.addKeyEvent(true, gd.keyboard.KEYS.ESC, function(){
                 gd.setMode(gd.MODES.NAN);
         });
