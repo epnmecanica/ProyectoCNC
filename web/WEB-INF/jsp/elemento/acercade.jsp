@@ -44,6 +44,7 @@
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
                                 <article class="art-post art-article"><p><br></p> 
+                                    <iframe width="560" height="315" src="//www.youtube.com/embed/6PgyeHOhfnI" frameborder="0" allowfullscreen></iframe>
                                     <p style="text-align: center; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold; color:rgb(69, 82, 112)">OpenCNC - Ayuda</span><br></span></p><p><br></p>   
                                         <p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial; font-size: 20px;"><span style="font-weight: bold; color:rgb(69, 82, 112)">Realización de un SKETCH</span><br></span></p>                                      
                                         <p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">Para la creación de un Sketch usted cuenta con las siguientes Herrramientas: </span></p>
