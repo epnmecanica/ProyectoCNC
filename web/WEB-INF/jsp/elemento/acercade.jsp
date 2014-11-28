@@ -43,9 +43,10 @@
                     <div class="art-content-layout">
                         <div class="art-content-layout-row">
                             <div class="art-layout-cell art-content">
-                                <article class="art-post art-article"><p><br></p> 
-                                    <iframe width="560" height="315" src="//www.youtube.com/embed/6PgyeHOhfnI" frameborder="0" allowfullscreen></iframe>
+                                <article class="art-post art-article"><p><br></p>
                                     <p style="text-align: center; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial;"><span style="font-weight: bold; color:rgb(69, 82, 112)">OpenCNC - Ayuda</span><br></span></p><p><br></p>   
+                                    <iframe width="560" height="315" src="//www.youtube.com/embed/6PgyeHOhfnI" frameborder="0" allowfullscreen></iframe>
+                                    
                                         <p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: Arial; font-size: 20px;"><span style="font-weight: bold; color:rgb(69, 82, 112)">Realización de un SKETCH</span><br></span></p>                                      
                                         <p style="text-align: justify; margin-right: 25px; margin-left: 25px;"><span style="font-family: 'Palatino Linotype'; font-size: 16px;">Para la creación de un Sketch usted cuenta con las siguientes Herrramientas: </span></p>
                                         <p><img style="float: left; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;" width="590" height="530" alt="" class="art-lightbox" src="../resources/images/fotosinfo/herramientas1.jpg"><br></p>                                       

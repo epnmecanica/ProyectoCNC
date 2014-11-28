@@ -113,7 +113,7 @@ CutHandler.prototype.setObject = function(objects){
                                             distance(this.x1,
                                                     this.y1,
                                                     this.x3,
-                                                    this.y3) * this.conversionTool * arc));
+                                                    this.y3) * this.conversionTool / 2 * arc));
                                 break;
 
                             case MODES_ELE_TYPE.LINE :
