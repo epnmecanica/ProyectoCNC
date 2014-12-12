@@ -14,22 +14,22 @@ CAD-CAM
 Los sistemas CAD-CAM generan el programa de maquinado de forma automática. En el sistema CAD la pieza que se desea maquinar se diseña en la computadora con herramientas de dibujo y modelado sólido. El CAM toma la información del diseño y genera la ruta de corte que tiene que seguir la herramienta para fabricar la pieza deseada; se crea automáticamente el programa de maquinado, que puede ser introducido a la máquina por la correspondiente interface de comunicación
 
 CEDIA:
-http://190.15.141.101:8081/OpenCNC/web_info/cedia_info.htm
+http://opencnc.cepra.cedia.org.ec:8081/OpenCNC/web_info/cedia_info.htm
 
 EPN:
-http://190.15.141.101:8081/OpenCNC/web_info/epn_info.htm
+http://opencnc.cepra.cedia.org.ec:8081/OpenCNC/web_info/epn_info.htm
 
 ESPOCH:
-http://190.15.141.101:8081/OpenCNC/web_info/espoch_info.htm
+http://opencnc.cepra.cedia.org.ec:8081/OpenCNC/web_info/espoch_info.htm
 
 UPS:
-http://190.15.141.101:8081/OpenCNC/web_info/ups_info.htm
+http://opencnc.cepra.cedia.org.ec:8081/OpenCNC/web_info/ups_info.htm
 
 Visitanos en: 
-http://190.15.141.101:8081/OpenCNC/index.htm
+http://opencnc.cepra.cedia.org.ec:8081/OpenCNC/index.htm
 
 Informate aqui: 
-http://190.15.141.101:8081/OpenCNC/web_info/Inicio.htm
+http://opencnc.cepra.cedia.org.ec:8081/OpenCNC/web_info/Inicio.htm
 
 
 INSTALACIÓN:
